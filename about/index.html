@@ -1,0 +1,86 @@
+---
+
+layout: default
+metaTitle: U.S. Army About | Meet Your Army
+active: about
+id: about
+id_email: email1
+email: email1
+
+---
+
+<div class="about">
+    <div class="container">
+        <div class="inner-container">
+            <div class="body two-column-body">
+                <div class="left-column">
+                    <h1>STAND-TO!</h1>
+                    <p>STAND-TO! is an information paper-based web platform that supports the U.S. Army’s strategic
+                        communication objectives.</p>
+
+                    <p>The information papers -- written, approved and submitted by the Army agencies -- provide a
+                        broad, objective view of the Army’s current operations, doctrine and programs. The "Today’s
+                        Focus" topics highlight Army Staff initiatives and support Army wide strategic-level issues.</p>
+
+                    <p>All published editions are sent to subscribers via email and archived daily in the <a href="//www.army.mil/standto/archive/">STAND-TO!
+                            Archives</a>.</p>
+
+                    <p>STAND-TO! falls under the management of the Online and Social Media Division (OSMD) in the
+                        Office of the Chief of Public Affairs (OCPA).</p>
+                </div>
+                <div class="right-column">
+                    {% include sub-box.html email_id="email2" %}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="info">
+        <h4 class="text-uppercase">FOR MORE INFO</h4>
+        <div class="info-inner">
+            <a href="#">
+                <div class="info-box">
+                    <div class="icon"></div>
+                    <div class="box-text">
+                        <p>
+                            Contact us at
+                            <span class="wordbreak">dummy.data@data.dummy.com</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="info-box box2">
+                    <div class="icon"></div>
+                    <div class="box-text">
+                        <p>
+                            Contact us at two
+                            <span class="wordbreak">dummy.data@data.dummy.com</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="info-box box3">
+                    <div class="icon"></div>
+                    <div class="box-text">
+                        <p>
+                            Contact us at three
+                            <span class="wordbreak">dummy.data@data.dummy.com</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="container unsubscribe-div hidden">
+            <div class="inner-container">
+                {% include sub-box.html unsubscribe="true" %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include side-nav.html %}
+
+{% include globals/top-btn.html %}

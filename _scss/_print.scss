@@ -1,0 +1,123 @@
+
+// PRINT CSS
+@media print {
+  body {
+    padding: 0;
+    font: 12px Arial; // smaller, plays better with printers
+     
+    .main {
+      margin: 0;
+      .page-banner {
+        background: none;
+        
+        .full-width-image {
+          display: none;
+        }
+        .inner-container {
+          margin: 0;
+          .left-container {
+            height: 100px;
+            h1, h2 {
+              color: map-get($army-branding, armyblack);
+            }
+          }
+        }
+      }
+      .parallax {
+        display: none;
+      }
+    }
+
+    .container {
+      margin: 0;
+      max-width: none;
+      padding: 0;
+
+      .inner-container {
+        padding: 0;
+      }
+    }
+
+    header,
+    footer,
+    nav,
+    sidenav {
+      display: none;
+    }
+
+    a[href^="http://"]:after,
+    a[href^="https://"]:after {
+      color: map-get($army-branding, grey70);
+      content: " [" attr(href) "]";
+      font-size: 90%;
+      font-weight: normal;
+    }
+    
+    .soldiers {
+      .page-overview, .conduct, .political, .security {
+        margin-bottom: 30px;
+      }
+      .security {
+        .do-dont-container {
+          margin-bottom: 30px;
+          .do-container {
+            float: none;
+            width: 100%;
+          }
+          .dont-container {
+            float: none;
+            width: 100%;
+          }
+        }
+        .cards-container {
+          display: none;
+        }
+        .geotagging-container {
+          .geotagging-outer {
+            .geotagging-left {
+              float: none;
+              width: 100%;
+            }
+            .geotagging-img {
+              float: none;
+              width: 100%;
+            }
+          }
+        }
+        .safety-container {
+          display: none;
+        }
+      }
+    }
+    
+    .overview {
+      .page-overview, .policies {
+        margin-bottom: 30px;
+      }
+      .connect {
+        display: none;
+      }
+    }
+    
+    .leaders {
+      .page-overview, .educating {
+        margin-bottom: 30px;
+      }
+    }
+    
+    .managers {
+      .page-overview, .establish, .requirements, .registration-overview, .security {
+        margin-bottom: 30px;
+      }
+      #workshop {
+        display: none;
+      }
+    }
+    
+    .scams {
+      .page-overview, .types {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

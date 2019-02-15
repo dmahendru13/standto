@@ -1,0 +1,38 @@
+// ----------------------------------------------------------------------
+// Breakpoints
+// ----------------------------------------------------------------------
+$screen-mobile-sm: 394px;
+$screen-mobile-md: 450px;
+$screen-mobile-max: 480px;
+$screen-sm: 700px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-md-max: 1155px;
+$screen-lg-min: 1210px;
+$screen-lg-md: 1600px;
+
+// ----------------------------------------------------------------------
+// Font Families
+// ----------------------------------------------------------------------
+$font-family: "Overpass", sans-serif;
+
+// ----------------------------------------------------------------------
+// Grid
+// ----------------------------------------------------------------------
+
+// Used in grid-system.scss
+// Number of columns in the grid.
+$grid-columns: 12 !default;
+
+// Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width: 30px !default;
+
+$container: 1020px;
+$container-md: 740px;
+$container-sm: 670px;
+
+// ----------------------------------------------------------------------
+// Images 
+// ----------------------------------------------------------------------
+$social-button-sprite: url("/e2/images/rv7/mobile_redesign_sprite_icons_v2.svg");
+$standto-image: url("/e2/images/rv7/stand_to_mosaic.jpg");

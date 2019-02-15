@@ -1,0 +1,49 @@
+
+
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+
+.container {
+  @include container-fixed();
+  margin: 50px auto;
+  overflow: hidden;
+  
+  .inner-container {
+    overflow: hidden;
+    padding: 0;
+  }
+  
+  // 700 - 768
+  @include breakpoints(tablet) {
+    margin: 60px auto;
+    max-width: $container-sm;
+  }
+  
+  // 769 - 992
+  @include breakpoints(lg_tablet) {
+    margin: 60px auto;
+    max-width: $container-md;
+  }
+  
+  // 993+
+  @include breakpoints(sm_desktop desktop large really_big) {
+    margin: 100px auto;
+    max-width: $container + $grid-gutter-width; // border-box includes padding in the width
+    
+    .inner-container { padding: 0 15px; }
+  }
+}
+
+// let the container define the top margin, not the first heading
+.container .inner-container {
+  @for $i from 1 through 6 {
+    > h#{$i}:first-child,
+    > *:first-child > h#{$i}:first-child,
+    > *:first-child > *:first-child > h#{$i}:first-child {
+      margin-top: 0;
+    }
+  }
+}

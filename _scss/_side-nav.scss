@@ -1,0 +1,78 @@
+
+sidenav {
+  z-index: 2;
+  @include breakpoints(mobile) {
+    display: none;
+  }
+  li {
+    -moz-transition: right .75s;
+    -webkit-transition: right .75s;
+    transition: right .75s;
+    position: relative;
+  }
+  position: fixed;
+  top: 50%;
+  right: 15px;
+  @include breakpoints(tablet nav) {
+    right: 5px;
+  }
+  $sidenav-pos: -250px;
+  @for $i from 9 through 1 {
+    .sidenav-item-#{$i} {
+      right: $sidenav-pos;
+    }
+    $sidenav-pos: $sidenav-pos * 2;
+  }
+  &.show {
+    li {
+      right: 0;
+    }
+  }
+  transform: translateY(-50%);
+  -webkit-backface-visibility: hidden;
+  .sidenav-container {
+    .sidenav-inner {
+      ul.container {
+        text-align: right;
+        li {
+          margin-bottom: 5px;
+          @include breakpoints(tablet nav) {
+            margin-bottom: 15px;
+          }
+          a {
+            text-decoration: none;
+            .title {
+              vertical-align: middle;
+              margin: 0 15px -6px 0;
+              color: map-get($army-branding, grey30);
+              @include breakpoints(tablet nav) {
+                display: none;
+              }
+            }
+            .ellipse {
+              display: inline-block;
+              width: 15px;
+              height: 15px;
+              background-color: none;
+              -moz-border-radius: 50px;
+              -webkit-border-radius: 50px;
+              border-radius: 50px;
+              margin-bottom: -2px;
+              border: 2px solid map-get($army-branding, grey30);
+            }
+          }
+          a:hover,
+          a.active {
+            .title {
+              color: map-get($army-branding, grey50);
+            }
+            .ellipse {
+              background-color: map-get($army-branding, grey40);
+              border: 2px solid map-get($army-branding, grey40);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,163 @@
+
+// .scams {
+//     h5 {
+//         margin-bottom: 20px;
+//         margin-top: 40px;
+//     }
+//     #tips, #common-identifiers, #reporting-scams {
+//         margin-top: 0px;
+//     }
+//     ul {
+//         list-style: disc;
+//         margin: 15px;
+//        li {
+//             padding-bottom: 10px;
+//             padding-left: 10px;
+//         }
+//     }
+//    .identifiers-and-reporting {
+//         border-top: 1px solid black;
+//         border-bottom: 1px solid black;
+//         overflow: hidden;
+//         margin-top: 30px;
+//         margin-bottom: 30px;
+//         .left-section {
+//             width: 60%;
+//             float: left;
+//             border-right: 1px solid #000;
+//             padding: 30px 30px 0 0; 
+//             @include breakpoints(mobile nav) {
+//                 width: 100%;
+//                 border-right: 0px solid #000;
+//             }
+//             h5 {
+//                text-transform: uppercase;
+//             }
+//         }
+//         .right-section {
+//             width: 40%;
+//             float: right;
+//             border-width: 0 0 0 13px;
+//             padding-left: 30px;
+//             padding-top: 30px;
+//             @include breakpoints(mobile nav) {
+//               width: 100%;
+//             }
+//             h5 {
+//                 text-transform: uppercase;
+//             }
+//         }
+//         clear: both;
+//     }
+//     .example {
+//        text-transform: uppercase;
+//     }
+//     .slider-container .slide figure.back {
+//       background-color: rgb(253, 253, 252);
+//       color: #000;
+//       border-top: 1px solid #fdbf4b;
+//       border-bottom: 1px solid #fdbf4b;
+//       border-left: 1px solid #fdbf4b;
+//       border-right: 1px solid #fdbf4b;
+//       .content {
+//         padding: 35px 23px 20px;
+//         a { color: #000; }
+//       }
+//     }
+
+//     .slider-container .slide figure.front {
+//       background-color: #fdbf4b;
+//       color: #000;
+//       border-top: 1px solid #fdbf4b;
+//       border-bottom: 1px solid #fdbf4b;
+//       border-left: 1px solid #fdbf4b;
+//       border-right: 1px solid #fdbf4b;
+//       .content {
+//         p.title {
+//           text-align: center;
+//           color: #fff;
+//         }
+//       }
+//     }
+
+//     .slider-container .slide {
+//       border: 0px solid #fff;
+//       .flip-btn {
+//         font: 400 1em/1.3em "Source Sans Pro", sans-serif;
+//       }
+//     }
+
+//     .owl-theme .owl-controls .owl-page span {
+//       border: 1px solid #fdbf4b;
+//       background: #fdbf4b;
+//     }
+
+//     .owl-theme .owl-controls .owl-page:nth-child(n+2) span::after {
+//       border-top: 1px solid #fdbf4b;
+//     }
+
+//     .owl-theme .owl-controls .owl-page.active span,
+//     .owl-theme .owl-controls.clickable .owl-page:hover span {
+//       background-color: #fff;
+//     }
+//     .social-media-cards {
+//       width: 100%;
+//       text-align: center;
+//       div {
+//         text-align: center;
+//         padding-top: 95px;
+//         overflow: hidden;
+//         padding: 78px 16px 10px;
+//       }
+//       h6 {
+//         margin: 0;
+//         color: #fec327 ;
+//         font-size: 1.25em;
+//         font-weight: 600;
+//         margin-bottom: 10px;
+//         text-transform: uppercase;
+//      }
+//      .sm-cards {
+//         background-image: url("/e2/images/rv7/socialmedia/sm_card.svg");
+//         background-repeat: no-repeat;
+//         background-size: 100% 90%;
+//         display: inline-block;
+//         vertical-align: top;
+//         height: 400px;
+//         width: 304px;
+//      }
+//     }
+//     .types {
+//       .romance-and-more {
+//         float: left;
+//         width: 50%;
+//         margin: 0 15px 70px;
+//         @include breakpoints(tablet lg_tablet) {
+//          float: left;
+//          width: 45%;
+//          margin: 0 15px 35px;
+//        }
+//       }
+//       #didyouknow-scams {
+//         float: right;
+//         width: 40%;
+//         @include breakpoints(mobile nav) {
+//           width: 100%;
+//           margin-bottom: 20px;
+//         }
+//         @include breakpoints(tablet lg_tablet) {
+//          float: right;
+//          width: 50%;
+//        }
+//       }
+//     }
+//     .did_you_know {
+//       .container {
+//         margin: 0px auto;
+//       }
+//     }
+//     #impersonations {
+//       background-color: map-get($army-branding, grey10);
+//     }
+
+// }

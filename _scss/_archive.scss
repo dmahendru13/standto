@@ -1,0 +1,305 @@
+// .archive {
+//   .social-results {
+//     margin-top: 35px;
+//     ul {
+//       li {
+//         display: table;
+//         width: 100%;
+//         // margin: 0 0 25px;
+//         overflow: hidden;
+//         .date {
+//           width: 150px;
+//           color: map-get($army-branding, grey50);
+//           padding-right: 15px;
+//           text-transform: uppercase;
+//           display: table-cell;
+//           font-weight: 600px;
+//           font-size: 1em/1.375em;
+//           font-family: Overpass, sans-serif;
+//           display: table-cell;
+//         }
+//         a {
+//           &::after {
+//             background: url("/e2/images/rv7/mobile_redesign_sprite_icons_v2.svg") -442px 0 no-repeat;
+//             content: "";
+//             height: 12px;
+//             margin-left: 9px;
+//             margin-top: 7px;
+//             position: absolute;
+//             vertical-align: middle;
+//             width: 14px;
+//             opacity: 0;
+//             filter: alpha(opacity=0);
+//             transform: translateX(40px);
+//             -ms-transform: translateX(40px);
+//             transition: all 0.25s ease;
+//             margin-top: 5px;
+//           }
+//           &:hover::after,
+//           &:focus::after {
+//             opacity: 1;
+//             filter: alpha(opacity=100);
+//             transform: translateX(0);
+//             -ms-transform: translateX(0);
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+.archive {
+  .social-results {
+    margin-top: 35px;
+  }
+  // #army-social-container {
+  //   margin: 100px auto 70px;
+  //   @include breakpoints(lg_tablet) {
+  //     margin: 60px auto 30px;
+  //   }
+  // }
+  .standto-search {
+    background-color: $lighter-gray-color;
+    overflow: hidden;
+    .search-btn {
+      background-color: map-get($army-branding, gold);
+      border: 1px solid map-get($army-branding, grey30);
+      border-width: 0 0 0 1px;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 54px;
+    }
+    .container {
+      margin: 50px auto;
+      overflow: visible;
+      .inner-container {
+        overflow: visible;
+        .sm-search-box {
+          @include span(12);
+          @include breakpoints(tablet nav mobile) {
+            margin-bottom: 15px;
+            @include span(12);
+          }
+          form {
+            position: relative;
+            input {
+              font: 600 1.125em $font-family;
+              height: 56px;
+              padding: 3px 60px 0 15px;
+              width: 100%;
+            }
+            div {
+              height: 56px;
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 60px;
+              cursor: pointer;
+              z-index: 2;
+              span {
+                height: 21px;
+                margin-top: -4px;
+                position: absolute;
+                right: 19px;
+                top: 37%;
+                width: 24px;
+              }
+              &.search-btn span {
+                background: transparent $social-button-sprite no-repeat scroll -259px -25px;
+              }
+              &.clear-btn span {
+                background: transparent $social-button-sprite no-repeat scroll -283px -25px;
+              }
+            }
+          }
+        }
+        .filter-dd {
+          @include span(4);
+          @include breakpoints(tablet nav mobile) {
+            @include span(12);
+          }
+        }
+        form label {
+          @include replace-text;
+          margin: 0;
+        }
+      }
+    }
+  }
+  .container {
+    // &#army-social-container {
+    //   h4 {
+    //     padding: 0 15px;
+    //   }
+    //   ul {
+    //     overflow: hidden;
+    //     text-align: center;
+    //     li {
+    //       margin-bottom: 30px;
+    //       @include span(6);
+    //       @include breakpoints(nav tablet lg_tablet) {
+    //         @include span(4);
+    //       }
+    //       @include breakpoints(sm_desktop desktop large really_big) {
+    //         @include span(2);
+    //       }
+    //       a {
+    //         background: map-get($army-branding, grey80);
+    //         color: map-get($army-branding, gold);
+    //         display: block;
+    //         font: inherit;
+    //         padding: em(30) 0;
+    //         text-decoration: none;
+    //         span {
+    //           margin-bottom: em(15);
+    //         }
+    //         &:hover,
+    //         &:focus {
+    //           p {
+    //             color: map-get($army-branding, white);
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    .inner-container {
+      .results-text {
+        display: none;
+        h4:after {
+          content: none;
+        }
+      }
+      .social-results {
+        h4 {
+          @include span(12);
+          padding: 0;
+        }
+        ul.sm-results {
+          border-bottom: 1px solid #b3b3b3;
+          margin-bottom: em(100);
+          > li {
+            padding: 15px 5px 0 15px;
+            overflow: auto;
+            border-top: 1px solid #b3b3b3;
+            @include breakpoints(tablet nav mobile) {
+              padding: 15px 15px 0;
+            }
+            p {
+              display: inline-block;
+              margin-bottom: 15px;
+              vertical-align: middle;
+              @include span(6.6);
+              float: none;
+              padding: 0;
+              @include breakpoints(tablet nav mobile) {
+                @include span(12);
+                text-align: center;
+              }
+            }
+            ul {
+              display: inline-block;
+              text-align: right;
+              vertical-align: middle;
+              @include span(5.3);
+              padding-right: 0;
+              float: none;
+              @include breakpoints(tablet nav mobile) {
+                @include span(12);
+                text-align: center;
+              }
+              li {
+                display: inline-block;
+                height: 25px;
+                margin: 0 0 15px 15px;
+                text-align: center;
+                vertical-align: middle;
+                width: 36px;
+                &:first-child {
+                  margin-left: 0;
+                }
+                &.soundcloud-button {
+                  width: 60px;
+                }
+                a {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // .register-bar {
+  //   background-color: map-get($army-branding, gold);
+  //   padding: 10px 0;
+  //   text-align: center;
+  //   .span {
+  //     color: #fff;
+  //   }
+  //   .container {
+  //     margin: 40px auto;
+  //   }
+  // }
+  // .register-button:hover {
+  //   color: #fff;
+  // }
+  // .register-texts {
+  //   float: left;
+  //   width: 73%;
+  //   padding: 15px;
+  //   font-size: 18px;
+  //   @include breakpoints(lg_tablet tablet nav mobile) {
+  //     float: none;
+  //     width: 100%;
+  //     display: inline-block;
+  //   }
+  // }
+  // .social-media-buttons {
+  //   width: 65%;
+  //   @include breakpoints(tablet nav mobile) {
+  //     width: 100%;
+  //   }
+  //   float: left;
+  //   ul {
+  //     li {
+  //       min-width: 170px;
+  //       @include breakpoints(lg_tablet tablet nav mobile) {
+  //         min-width: auto;
+  //       }
+  //     }
+  //   }
+  // }
+  // .register-box {
+  //   width: 35%;
+  //   @include breakpoints(tablet nav mobile) {
+  //     width: 100%;
+  //     height: auto;
+  //   }
+  //   @include breakpoints(lg_tablet) {
+  //     padding: 20px;
+  //   }
+  //   float: left;
+  //   min-width: 160px;
+  //   text-align: center;
+  //   border: 1px solid map-get($army-branding, gold);
+  //   padding: 30px;
+  //   .register-box-title {
+  //     font-size: 20px;
+  //     margin-bottom: 10px;
+  //   }
+  //   .btn {
+  //     div {
+  //       a {
+  //         text-decoration: none;
+  //         &:hover {
+  //           color: #000;
+  //         }
+  //       }
+  //       width: 100%;
+  //     }
+  //   }
+  // }
+} // end .directory

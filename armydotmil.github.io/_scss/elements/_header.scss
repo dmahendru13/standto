@@ -1,0 +1,446 @@
+// File Name: _header.scss
+// Description: global header styles
+// Used by: Page.scss
+// Dependencies:
+// base/mixins
+// base/custom-mixins
+// modules/usagov-sayt
+// ------------------------------------------------------------
+
+// ----------------------------------------------------------------------
+// Modules
+// ----------------------------------------------------------------------
+@import "../modules/usagov-sayt";
+
+// ----------------------------------------------------------------------
+// CSS
+// ----------------------------------------------------------------------
+
+
+
+
+body.menu-open,
+html.menu-open { overflow: hidden; }
+
+body.menu-open {
+  width: 100%;
+
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    overflow-y: scroll;
+
+    .navbar { overflow: hidden; }
+
+    header {
+      .navbar {
+        height: em(86);
+        overflow-y: scroll;
+      }
+
+      .menu-window {
+        overflow-y: scroll;
+        width: 100%;
+      }
+    }
+  }
+}
+
+body.menu-open header.scrolled-down .navbar {
+  @include transform(translateY, 0);
+}
+
+header *,
+header *:after,
+header *:before {
+  @include box-sizing(content-box);
+}
+
+header {
+  a:focus,
+  a:hover { text-decoration: none; }
+  
+  ul { line-height: 1.375em; }
+}
+
+header {
+  height: em(68);
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  .nav-army-star {
+    background: #000;
+    border-radius: 10px;
+    left: 50%;
+    line-height: 0;
+    position: absolute;
+    @include transform(translateX, -50%);
+    z-index: 1;
+  }
+
+  .search-form-container {
+    line-height: 82px;
+    padding: 8px 55px 0 20px;
+    position: relative;
+
+    div {
+      height: 0;
+      width: 0;
+    }
+
+    label {
+      display: block;
+      margin: 0;
+      @include replace-text;
+    }
+
+    input.usagov-search-autocomplete {
+      border: 0 none;
+      color: map-get($army-branding, grey70);
+      font: 400 .938em/2 $font-family;
+      height: 30px;
+      outline: none;
+      padding: 0 10px;
+      width: 100%;
+
+      @include box-sizing(border-box);
+    }
+
+    .search-submit-button {
+      padding: 0;
+      position: absolute;
+      right: 19px;
+      top: 38px;
+    }
+  }
+
+  .navbar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    .navbar-container {
+      background: #000;
+      border-bottom: em(8) solid map-get($army-branding, gold);
+      height: em(60);
+    }
+  }
+
+  @include breakpoints(mobile nav) {
+    .navbar { @include custom-transition(transform .4s ease); }
+
+    &.scrolled-down .navbar {
+      @include transform(translateY, -130%);
+    }
+  }
+
+
+  .nav-window {
+    background-color: map-get($army-branding, grey90);
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    @include transform(translateY, -100%);
+    @include custom-transition(transform .25s ease);
+
+    &.search-window { height: 90px; }
+
+    &.menu-window {
+      height: 100%;
+      overflow: scroll;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    &.open-window {
+      @include transform(translateY, 0);
+      top: 60px;
+    }
+  }
+
+  .menu-container {
+    margin: 0 0 60px;
+    overflow: hidden;
+    padding: 30px 30px 60px;
+
+    .list-container > ul {
+      margin: 0;
+
+      > li {
+        border-bottom: 1px solid map-get($army-branding, grey80);
+
+        &.social {
+          border-bottom-width: 0;
+
+          ul {
+            display: block;
+            margin: 0 auto;
+
+            // 8px + 15px padding on the anchor + 10px padding top on .quicklinks makes it even
+            padding: 18px 0 8px;
+            text-align: center;
+
+            li {
+              vertical-align: top;
+
+              a {
+                line-height: 0;
+                padding: 15px 10px;
+                width: 28px;
+                text-align: center;
+                vertical-align: top;
+              }
+            }
+          }
+        }
+
+        input[type=checkbox] { display: none; }
+
+        a { outline: 0 none; }
+
+        label {
+          color: map-get($army-branding, grey20);
+          display: block;
+          font-size: 1.125em;
+          font-weight: 700;
+          letter-spacing: .05em;
+          outline: 0 none;
+          padding: 25px 10px;
+          position: relative;
+          text-decoration: none;
+
+          // iOS Safari had an issue where it would resize the text automatically.
+          // This should prevent it.
+          -webkit-text-size-adjust: none;
+
+          span {
+            background: transparent $social-button-sprite no-repeat scroll -305px 5px;
+            height: 18px;
+            position: absolute;
+            right: 12px;
+            top: 26px;
+            width: 12px;
+          }
+        }
+
+        ul li a {
+          display: inline-block;
+          text-decoration: none;
+        }
+      }
+    } // end .list-container > ul
+
+    .quicklinks {
+      li {
+        padding-top: 10px;
+
+        a {
+          background: map-get($army-branding, grey80);
+          color: map-get($army-branding, grey20);
+          display: block;
+          text-decoration: none;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    @include breakpoints(mobile nav tablet) {
+      .list-container > ul > li {
+
+        ul {
+          display: none;
+          padding: 18px 0;
+
+          li a {
+            color: map-get($army-branding, grey20);
+
+            // add padding to the anchor tag
+            // to make the clickable area bigger
+            padding: 10px 30px;
+          }
+        }
+
+        input[type=checkbox]:checked ~ ul { display: block; }
+
+        input[type=checkbox]:checked ~ label {
+          border-bottom: 1px solid map-get($army-branding, grey80);
+
+          span { background-position: -318px 10px; }
+        }
+      }
+    }
+
+    @include breakpoints(mobile nav tablet lg_tablet) {
+      .quicklinks {
+        @include row(true);
+
+        *,
+        *:after,
+        *:before { @include box-sizing(border-box); }
+
+        li {
+          @include span-clear(6);
+          text-align: center;
+
+          &:nth-child(2n) { padding-left: 5px; }
+          &:nth-child(2n+1) { padding-right: 5px; }
+
+          a {
+            font-size: .813em;
+            margin: 0 auto;
+            padding: 25px 0;
+          }
+        }
+      }
+    }
+
+    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      padding: 80px 60px 60px;
+
+      .list-container {
+
+        > ul {
+          display: table;
+          margin-bottom: 1.25em;
+          width: 100%;
+
+          > li {
+            border-bottom-width: 0;
+            display: table-cell;
+            vertical-align: top;
+            width: 33.3333%;
+
+            label {
+              color: map-get($army-branding, gold);
+              padding: 0 0 15px;
+
+              span {
+                background: map-get($army-branding, white);
+                background-image: none;
+                bottom: 0;
+                height: 1px;
+                left: 0;
+                right: auto;
+                top: auto;
+                width: 40px;
+              }
+            }
+
+            ul {
+              padding: .469em 0 .781em;
+
+              li {
+
+                a {
+                  color: map-get($army-branding, white);
+                  padding: .469em 45px .469em 0;
+                  position: relative;
+
+                  @include custom-transition(color .2s linear 0s);
+
+                  &:after {
+                    background: transparent $social-button-sprite no-repeat scroll -427px 5px;
+                    content: '';
+                    height: 17px;
+                    margin-left: 30px;
+                    position: absolute;
+                    width: 15px;
+
+                    @include opacity(0);
+
+                    @include custom-transition(margin .2s linear 0s, opacity .2s linear 0s);
+                  }
+
+                  &:hover,
+                  &:focus {
+                    color: map-get($army-branding, gold);
+
+                    &:after {
+                      margin-left: 10px;
+                      @include opacity(1);
+                    }
+                  }
+                }
+              }
+            }
+
+            &.social ul {
+              margin-left: -5px;
+              max-width: 150px;
+              padding: 0;
+              text-align: left;
+
+              li {
+                line-height: 0;
+                margin: 0 9px 24px 0;
+                padding: 0;
+
+                a {
+                  padding: 3px 5px;
+
+                  &:after { content: none; }
+                }
+
+              }
+            }
+          }
+        } // end ul
+      } // end .list-container
+    } // end breakpoints(lg_tablet sm_desktop desktop large really_big)
+
+    @include breakpoints(sm_desktop desktop large really_big) {
+      .list-container {
+        float: left;
+        width: 80%;
+      }
+
+      .quicklinks {
+        float: left;
+        width: 20%;
+
+        li {
+
+          &:first-child { padding-top: 0; }
+
+          a {
+            font-size: .938em;
+            font-weight: 700;
+            outline: 0 none;
+            padding: 20px;
+            position: relative;
+
+            @include custom-transition(background .2s linear 0s, color .2s linear 0s);
+
+            &:hover,
+            &:focus {
+              background: lighten(map-get($army-branding, grey90), 6.25); //#2a2a2a;
+              color: map-get($army-branding, gold);
+            }
+
+            &:after {
+              background: transparent $social-button-sprite no-repeat scroll -427px 5px;
+              content: '';
+              height: 17px;
+              position: absolute;
+              right: 20px;
+              top: 20px;
+              width: 15px;
+            }
+          }
+        }
+      } // end .quicklinks
+    } // end breakpoints(sm_desktop desktop large really_big)
+  }
+
+  // end .menu-container
+}
+
+// Mixins
+@include slideInDown;
+
+@include slideInUp;

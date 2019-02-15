@@ -1,0 +1,740 @@
+// nav
+nav {
+  z-index: 3;
+}
+
+.stand-to {
+  // .container { max-width: 992px; }
+  h4 {
+    margin: 0 0 54px;
+  }
+  @include breakpoints(tablet nav mobile) {
+    h4 {
+      margin: 0 0 40px;
+    }
+  }
+  a:hover,
+  a:focus {
+    //color: #fec325;
+  }
+  .accordion-container {
+    ul.tip-content {
+      li {
+        padding-right: 30px;
+      }
+      li.disc {
+        margin-left: 40px;
+        list-style-type: disc;
+      }
+    }
+  }
+  // side-nav
+  .inner-container {
+    @include breakpoints(large) {
+      padding-right: 60px;
+    }
+    @include breakpoints(desktop) {
+      padding-right: 110px;
+    }
+    @include breakpoints(sm_desktop) {
+      padding-right: 140px;
+    }
+    @include breakpoints(lg_tablet) {
+      padding-right: 100px;
+    }
+    @include breakpoints(tablet nav) {
+      padding-right: 40px;
+    }
+  }
+  .register,
+  .directory {
+    .inner-container {
+      @include breakpoints(large desktop sm_desktop) {
+        padding-right: 15px;
+      }
+      @include breakpoints(lg_tablet tablet nav) {
+        padding-right: 0;
+      }
+    }
+  }
+  /*-----------------------*/
+  .archive {
+    #army-social-container {
+      margin: 100px auto 70px;
+      @include breakpoints(lg_tablet) {
+        margin: 60px auto 30px;
+      }
+    }
+    .filter {
+      padding: 60px 0 0 0;
+      @include breakpoints(tablet nav mobile) {
+        padding: 50px 0 0 0;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      @include breakpoints(lg_tablet sm_desktop) {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      max-width: 992px;
+      margin: 0 auto;
+      overflow: visible;
+      border-top: 1px solid #b3b3b3;
+      .container {
+        margin: 0 auto;
+        overflow: visible;
+        .inner-container {
+          overflow: visible;
+          .sm-search-box {
+            @include span(8);
+            @include breakpoints(tablet nav mobile) {
+              margin-bottom: 15px;
+              @include span(12);
+            }
+            form {
+              position: relative;
+              input {
+                font: 600 1.125em $font-family;
+                height: 56px;
+                padding: 3px 60px 0 15px;
+                width: 100%;
+              }
+              div {
+                height: 56px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 60px;
+                cursor: pointer;
+                z-index: 2;
+                span {
+                  height: 21px;
+                  margin-top: -4px;
+                  position: absolute;
+                  right: 19px;
+                  top: 37%;
+                  width: 24px;
+                }
+                &.search-btn span {
+                  background: transparent $social-button-sprite no-repeat scroll -259px -25px;
+                }
+                &.clear-btn span {
+                  background: transparent $social-button-sprite no-repeat scroll -283px -25px;
+                }
+              }
+            }
+          }
+          .filter-dd {
+            @include span(4);
+            @include breakpoints(tablet nav mobile) {
+              @include span(12);
+            }
+          }
+          form label {
+            @include replace-text;
+            margin: 0;
+          }
+        }
+      }
+    }
+    .container {
+      &#army-social-container {
+        h4 {
+          padding: 0 15px;
+        }
+        ul {
+          overflow: hidden;
+          text-align: center;
+          li {
+            margin-bottom: 30px;
+            @include span(6);
+            @include breakpoints(nav tablet lg_tablet) {
+              @include span(4);
+            }
+            @include breakpoints(sm_desktop desktop large really_big) {
+              @include span(2);
+            }
+            a {
+              background: map-get($army-branding, grey80);
+              color: map-get($army-branding, gold);
+              display: block;
+              font: inherit;
+              padding: em(30) 0;
+              text-decoration: none;
+              span {
+                margin-bottom: em(15);
+              }
+              &:hover,
+              &:focus {
+                p {
+                  color: map-get($army-branding, white);
+                }
+              }
+            }
+          }
+        }
+      }
+      .inner-container {
+        .results-text {
+          display: none;
+          h4:after {
+            content: none;
+          }
+        }
+        .social-results {
+          h4 {
+            @include span(12);
+            padding: 0;
+          }
+          ul.sm-results {
+            border-bottom: 1px solid #b3b3b3;
+            margin-bottom: em(100);
+            > li {
+              padding: 15px 5px 0 15px;
+              overflow: auto;
+              border-top: 1px solid #b3b3b3;
+              @include breakpoints(tablet nav mobile) {
+                padding: 15px 15px 0;
+              }
+              p {
+                display: inline-block;
+                margin-bottom: 15px;
+                vertical-align: middle;
+                @include span(6.6);
+                float: none;
+                padding: 0;
+                @include breakpoints(tablet nav mobile) {
+                  @include span(12);
+                  text-align: center;
+                }
+              }
+              ul {
+                display: inline-block;
+                text-align: right;
+                vertical-align: middle;
+                @include span(5.3);
+                padding-right: 0;
+                float: none;
+                @include breakpoints(tablet nav mobile) {
+                  @include span(12);
+                  text-align: center;
+                }
+                li {
+                  display: inline-block;
+                  height: 25px;
+                  margin: 0 0 15px 15px;
+                  text-align: center;
+                  vertical-align: middle;
+                  width: 36px;
+                  &:first-child {
+                    margin-left: 0;
+                  }
+                  &.soundcloud-button {
+                    width: 60px;
+                  }
+                  a {
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .register-bar {
+      background-color: map-get($army-branding, gold);
+      padding: 10px 0;
+      text-align: center;
+      .span {
+        color: #fff;
+      }
+      .container {
+        margin: 40px auto;
+      }
+    }
+    span.register-button {
+    }
+    .register-button:hover {
+      color: #fff;
+    }
+    .register-texts {
+      float: left;
+      width: 73%;
+      padding: 15px;
+      font-size: 18px;
+      @include breakpoints(lg_tablet tablet nav mobile) {
+        float: none;
+        width: 100%;
+        display: inline-block;
+      }
+    }
+    .social-media-buttons {
+      width: 65%;
+      @include breakpoints(tablet nav mobile) {
+        width: 100%;
+      }
+      float: left;
+      ul {
+        li {
+          min-width: 170px;
+          @include breakpoints(lg_tablet tablet nav mobile) {
+            min-width: auto;
+          }
+        }
+      }
+    }
+    .register-box {
+      width: 35%;
+      @include breakpoints(tablet nav mobile) {
+        width: 100%;
+        height: auto;
+      }
+      @include breakpoints(lg_tablet) {
+        padding: 20px;
+      }
+      float: left;
+      min-width: 160px;
+      text-align: center;
+      border: 1px solid map-get($army-branding, gold);
+      padding: 30px;
+      .register-box-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .btn {
+        div {
+          a {
+            text-decoration: none;
+            &:hover {
+              color: #000;
+            }
+          }
+          width: 100%;
+        }
+      }
+    }
+  } // end .directory
+  .register {
+    .container {
+      .inner-container {
+        .status {
+          display: none;
+          font-weight: 700;
+          margin-bottom: em(30);
+          text-align: center;
+          p {
+            text-align: left;
+          }
+        }
+        .fields p {
+          color: red;
+          font-weight: 700;
+        }
+        @include breakpoints(lg_tablet sm_desktop desktop really_big) {
+          .success .btn {
+            display: inline-block;
+            &:last-child {
+              margin-left: 20px;
+            }
+          }
+        }
+        p.intro {
+          margin-bottom: em(60);
+        }
+        form {
+          .border {
+            border-top: 2px solid map-get($army-branding, armyblack);
+            display: block;
+            width: 100%;
+          }
+          .add-btn {
+            margin: 0 0 em(30);
+            padding: em(26) 0;
+            position: relative;
+            .btn {
+              position: absolute;
+              top: 0;
+              width: 100%;
+              .white {
+                @include custom-transition(background 0.25s ease);
+                a:before {
+                  background: transparent $social-button-sprite no-repeat scroll -305px -13px;
+                  content: "";
+                  display: inline-block;
+                  height: 13px;
+                  margin-right: em(10);
+                  margin-top: em(-2);
+                  vertical-align: middle;
+                  width: 12px;
+                }
+                &:hover {
+                  background: map-get($army-branding, gold);
+                }
+              }
+            }
+          }
+          .checklist {
+            background: $lighter-gray-color;
+            border: 1px solid map-get($army-branding, grey80);
+            margin-bottom: em(30);
+            max-height: em(500);
+            overflow-y: scroll;
+            padding: em(30);
+            @include breakpoints(tablet nav mobile) {
+              max-height: em(300);
+            }
+            a {
+              text-decoration: underline;
+            }
+            h5 {
+              margin-bottom: em(30);
+            }
+            ul {
+              list-style: disc;
+              padding-left: em(30);
+              @include breakpoints(tablet nav mobile) {
+                padding-left: 0;
+              }
+              li {
+                margin-bottom: em(15);
+                margin-left: em(15);
+                p.bold {
+                  font-weight: 600;
+                }
+                p {
+                  margin-bottom: 0;
+                }
+              }
+            }
+          }
+          .form-agreement {
+            font-weight: 600;
+            margin-bottom: em(60);
+            a {
+              text-decoration: underline;
+            }
+            input[type="checkbox"] {
+              font-size: small; // add to github?
+            }
+            label {
+              display: inline;
+            }
+          }
+          .g-recaptcha {
+            margin-bottom: em(60);
+          }
+        }
+      }
+    }
+  } // end .register
+  .page-overview {
+    .didyouknow {
+      background: url(/e2/images/rv7/socialmedia/didyouknow_overview.svg) no-repeat top center;
+      width: 100%;
+      height: auto;
+      padding: 40%;
+      margin: 2.5em 0;
+      @include breakpoints(mobile nav tablet lg_tablet) {
+        margin: 1.875em 0;
+      }
+    }
+  }
+  .policies {
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .policies-column-left {
+      width: 63%;
+      padding-right: 15px;
+      display: inline-block;
+    }
+    .policies-column {
+      display: inline-block;
+      padding-left: 15px;
+    }
+    .link-column {
+      width: 100%;
+    }
+    @include breakpoints(mobile nav tablet lg_tablet sm_desktop) {
+      .policies-column:first-child {
+        margin-bottom: 60px;
+      }
+      .link-column,
+      .policies-column,
+      .policies-column-left {
+        padding: 0;
+        width: 100%;
+      }
+      .policies-column-left {
+        margin-bottom: 50px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1199px) {
+      .policies-column:first-child {
+        margin-bottom: 60px;
+      }
+      .links-list,
+      .simple-list {
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+      .link-column,
+      .policies-column,
+      .policies-column-left {
+        padding: 0;
+        width: 100%;
+      }
+      .policies-column-left {
+        margin-bottom: 50px;
+      }
+    }
+  }
+  .education {
+    .container {
+      margin-top: 0px;
+    }
+  }
+  .connect {
+    background-color: map-get($army-branding, gold);
+    .container {
+      .inner-container {
+        .social {
+          h4 {
+            text-align: center;
+            margin-bottom: 0px;
+          }
+          ul {
+            li {
+              &.social-button {
+                @include breakpoints(sm_desktop desktop large really_big) {
+                  padding: 15px 45px !important;
+                }
+                @include breakpoints(lg_tablet) {
+                  padding: 15px 42px !important;
+                }
+                @include breakpoints(tablet) {
+                  padding: 15px 41px !important;
+                }
+                @include breakpoints(mobile nav) {
+                  padding: 15px 22px !important;
+                }
+                @include breakpoints(mobile) {
+                  margin-top: 15px;
+                }
+                span {
+                  transform: scale(2);
+                }
+                a:hover {
+                  color: #000;
+                  text-transform: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .tip {
+    background-color: map-get($army-branding, grey10);
+    .tip-content {
+      li {
+        padding-left: 0;
+        list-style: none;
+      }
+    }
+  }
+  .duty {
+    background-color: map-get($army-branding, grey10);
+  }
+  .standout {
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    margin: 0 0 25px;
+    padding: 20px 0;
+    font-size: 23px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+  }
+  .read-more-state {
+    display: none;
+  }
+  .read-more-target {
+    opacity: 0;
+    max-height: 0;
+    font-size: 0;
+    transition: 0.25s ease;
+  }
+  .read-more-state:checked ~ .read-more-wrap .read-more-target {
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+  }
+  .read-more-state ~ .read-more-trigger:before {
+    content: "Show more";
+  }
+  .read-more-state:checked ~ .read-more-trigger:before {
+    content: "Show less";
+  }
+  .read-more-trigger {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 0.5em;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 2;
+    border: 1px solid #ddd;
+    border-radius: 0.25em;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  .small {
+    font-size: 0.875em;
+    @include breakpoints(mobile nav tablet lg_tablet) {
+      padding: 0 15px;
+    }
+    .st-byline {
+      margin-right: 15px;
+    }
+    .date {
+      color: map-get($army-branding, grey50);
+    }
+  }
+  .alt-social-bar {
+    margin: 35px 0;
+  }
+  .two-column-body > div.left-column {
+    display: table-cell;
+    width: 60%;
+    @include breakpoints(mobile nav tablet lg_tablet) {
+      width: 100%;
+      padding: 0 5px;
+      display: block;
+    }
+  }
+  .two-column-body > div.right-column {
+    display: table-cell;
+    padding-left: 30px;
+    width: 35%;
+    @include breakpoints(mobile nav tablet lg_tablet) {
+      width: 100%;
+      margin-top: 15px;
+      display: block;
+      padding: 30px 5px 0 5px;
+    }
+  }
+  .sub-box {
+    padding: 30px;
+    border: 1px solid map-get($army-branding, gold);
+    margin-bottom: 30px;
+    .subscribe {
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 1.25em;
+      }
+      input#email1.email-input {
+        padding: 15px;
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 1em;
+        border-radius: 0;
+        border: 1px solid #b3b3b3;
+      }
+      .btn {
+        > div {
+          display: block;
+          margin: 15px 0 0;
+        }
+      }
+    }
+  }
+  .top-stories {
+    background-color: $lighter-gray-color;
+    padding: 30px;
+    h4::after {
+      background-color: map-get($army-branding, black);
+    }
+  }
+  .body {
+    a {
+      text-decoration: none;
+      font-weight: 400;
+      color: #0071bb;
+      border-bottom: 1px solid #ccc;
+    }
+    ol {
+      li {
+        line-height: 1.375em;
+        list-style-type: disc;
+        margin: 0 0 14px 18px;
+        padding: 0 0 0 5px;
+      }
+    }
+    ul {
+      li {
+        line-height: 1.375em;
+        list-style-type: disc;
+        margin: 0 0 14px 18px;
+        padding: 0 0 0 5px;
+      }
+    }
+  }
+}
+
+.notification-contain {
+  margin: 0px 0px 0;
+  z-index: 4;
+  .notification {
+    width: 507px;
+    @include breakpoints(mobile nav tablet lg_tablet) {
+      width: 100%;
+    }
+    .notification-header {
+      font: 400 1.125em/1.3 "Overpass", sans-serif;
+    }
+    .notification-title {
+      font: 400 1.125em/1.3 "Overpass", sans-serif;
+      padding: 3px 0px 0 15px;
+    }
+  }
+}
+
+.responsive-slider {
+  margin-bottom: 50px;
+}
+
+.accordion > ul > li > label {
+  text-transform: none;
+}
+
+.accordion ul li a {
+  font-weight: 600;
+  position: relative;
+  top: 0px;
+}
+.accordion > ul > li > ul {
+  padding: 0 0px;
+}
+.accordion ul li,
+.accordion ol li {
+  list-style: none;
+}
+.clearboth {
+  clear: both;
+}
+
+nav {
+  ul.container {
+    @include breakpoints(sm_desktop desktop large really_big) {
+      max-width: 100%;
+    }
+  }
+}

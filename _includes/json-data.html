@@ -1,0 +1,12 @@
+
+{% for data in site.data.network %}
+
+{% assign name = data[0] | slice: 0,2 %}
+
+{% assign date = data[0] | replace: name, '' %}
+
+{% assign list = data[1] %}
+
+{% include results.html %}
+
+{% endfor %}

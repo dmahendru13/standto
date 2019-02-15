@@ -1,0 +1,58 @@
+---
+
+layout: default
+metaTitle: Archive | U.S. Army STAND-TO!
+pagetitle: archive
+active: archive
+id: archive
+
+---
+
+<div class="archive">
+
+    <div class="standto-search">
+        <div class="container">
+            <div class="inner-container">
+                <div class="row">
+                    <div class="sm-search-box" role="search">
+                        <form id="sm-search-form">
+                            <label for="sm-search">Search</label>
+                            <input type="text" id="sm-search" name="search" placeholder="SEARCH KEYWORDS..." value=""
+                                aria-label="Search" />
+                            <div class="search-btn"><span></span></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="inner-container">
+            <h2>Stand-To! Archive</h2>
+            <h5>Most Recent Focus Topics</h5>
+            <div id="results-text" class="results-text">
+                <h4>No results found!</h4>
+            </div>
+            <div id="social-results" class="social-results">
+
+                {% for data in site.data.networks %}
+                <!-- loop thru files in data folder -->
+                <!-- data[0] is the name of the file, which to keep the same order as before, I had to enumerate -->
+                {% assign name = data[0] | slice: 0,2 %}
+                <!-- slice: 0,2 saves the 1-, 2-, 3-, etc at the beginning of the file names into a var -->
+                {% assign date = data[0] | replace: name, '' %}
+                <!-- remove 1-, 2-, 3-, etc and use file name as the category date -->
+                {% assign list = data[1] %}
+                <!-- data array -->
+                {% include results.html %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include side-nav.html %}
+
+{% include globals/top-btn.html %}

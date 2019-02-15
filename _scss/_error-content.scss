@@ -1,0 +1,34 @@
+.error-content {
+  display: block;
+  margin-top: 32px;
+  padding: 15px;
+  .container {
+    margin-top: 0;
+    .inner-container {
+      .row {
+        margin-left: 15px;
+        margin-right: 15px;
+        h1.error-heading {
+          @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
+            font: 700 10em/1.25 Overpass, sans-serif;
+            text-align: center !important;
+          }
+          @include breakpoints(tablet nav mobile) {
+            font: 700 8em/1.333 Overpass, sans-serif;
+          }
+        }
+        &h1.error-heading,
+        &h2.error-heading {
+          text-align: center;
+        }
+      }
+    }
+  }
+  h2.error-heading-2 {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .btn {
+    margin: 40px auto 0;
+  }
+}

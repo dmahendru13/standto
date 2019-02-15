@@ -1,0 +1,106 @@
+.accordion {
+  @include bodytext-list();
+  
+  ul li a {
+    font-weight: 400;
+    position: relative;
+    top: 2px;
+  }
+
+  input[type=checkbox] { display: none; }
+  
+  > a {
+    font: 600 1em/1.375em $font-family;
+    text-decoration: none;
+    
+    &:hover { text-decoration: none; }
+  }
+  
+  > ul {
+    > li {
+      border-top: 1px solid map-get($army-branding, grey30);
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      &:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
+      
+      > ul {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 30px;
+        
+        @include custom-transition(max-height .5s ease, padding .5s ease);
+        
+        @include breakpoints(mobile) {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
+      
+      > label {
+        cursor: pointer;
+        display: block;
+        font: 600 1.125em $font-family;
+        padding: 28px 45px 23px 5px;
+        position: relative;
+        text-transform: uppercase;
+        top: 0;
+        
+        span {
+          background: map-get($army-branding, gold);
+          border-radius: 50%;
+          display: inline-block;
+          height: 34px;
+          margin-top: -17px;
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          width: 34px;
+          
+          &:before, &:after {
+            background: map-get($army-branding, black);
+            content: '';
+            position: absolute;
+            @include custom-transition(transform .25s ease);
+          }
+          &:before {
+            height: 12px;
+            left: 50%;
+            margin-left: -2px;
+            margin-top: -6px;
+            top: 50%;
+            width: 4px;
+          }
+          &:after {
+            height: 4px;
+            left: 50%;
+            margin-left: -6px;
+            margin-top: -2px;
+            top: 50%;
+            width: 12px;
+          }
+        }
+      }
+    } // end li
+    
+    // expanded state, based on checkbox status
+    > li input[type=checkbox]:checked ~ ul {
+      max-height: 1000px;
+      padding-bottom: 1.8em;
+    }
+    
+    // spinning plus/minus symbol
+    > li input[type=checkbox]:checked ~ label span {
+      &:before {
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+      }
+      
+      &:after {
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+      }
+    }
+  }
+}

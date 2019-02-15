@@ -1,0 +1,215 @@
+$submenu-height: 56px;
+
+nav {
+  background: map-get($army-branding, grey10);
+  position: relative;
+  z-index: 1;
+  
+  ul {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-user-select: none;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    text-align: center;
+    
+    &::-webkit-scrollbar { display: none; }
+    
+    // inside bottom border
+    &::before {
+      background-color: map-get($army-branding, grey30);
+      bottom: 0;
+      content: "";
+      height: 4px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  
+    li {
+      display: inline-block;
+      margin: 0 25px;
+      
+      @include breakpoints(mobile) {
+        margin: 0 10px;
+      }
+      
+      a {
+        @extend %h5;
+        display: block;
+        line-height: #{$submenu-height};
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        
+        &:hover { text-decoration: none; }
+        
+        // gold bar
+        &::after {
+          background: map-get($army-branding, gold);
+          bottom: 0;
+          content: '';
+          height: 4px;
+          left: 0;
+          position: absolute;
+          width: 0;
+          z-index: 1;
+        }
+        
+        &.filter-btn:after { display: none; }
+        
+        &.active::after { width: 100%; }
+      }
+    }
+  }
+}
+
+// extra markup overrides some of the nav behavior for dropdown
+nav {
+  
+  .subnav-container {
+    max-height: $submenu-height;
+    overflow: hidden;
+    
+    ul {
+      overflow: hidden;
+      white-space: normal;
+      &.container {
+        margin: 0 auto;
+      }
+    }
+  }
+  
+  input[type=checkbox] { display: none; }
+  
+  .subnav-inner {
+    max-height: $submenu-height * 2;
+    position: relative;
+  }
+
+  &.dropdown .subnav-inner {
+    height: $submenu-height * 2;
+  }
+  
+  label {
+    @extend %h5;
+    background: map-get($army-branding, grey10);
+    bottom: $submenu-height;
+    cursor: pointer;
+    left: -15px;
+    line-height: #{$submenu-height};
+    max-height: $submenu-height;
+    right: -15px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 2;
+    
+    // inside bottom border
+    &::before {
+      background-color: map-get($army-branding, grey30);
+      bottom: 0;
+      content: "";
+      height: 4px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+    
+    // dropdown arrow toggle icon
+    &::after {
+      background: transparent $social-button-sprite no-repeat scroll -169px -50px;
+      content: "";
+      height: 8px;
+      display: inline-block;
+      margin: 2px 0 2px 10px;
+      width: 11px;
+    }
+  }
+  
+  // uses the checkbox to toggle the dropdown (no JS required!)
+  input[type=checkbox]:checked ~ .subnav-container {
+    max-height: none;
+    
+    .subnav-inner {
+      background: $lighter-gray-color;
+      max-height: none;
+      height: auto;
+      padding: ($submenu-height + 45px) 0 30px;
+      
+      ul::before {
+        display: none;
+      }
+
+      // mimic filter dropdown styling
+      li {
+        display: inline-block;
+        margin: 0 auto 15px;
+        padding: 0 8px;
+        
+        a.active:after { display: none; }
+        
+        a {
+          background: map-get($army-branding, white);
+          border: 1px solid map-get($army-branding, grey30);
+          line-height: 47px;
+          padding: 3px 20px 0;
+          text-align: left;
+          
+          @include custom-transition(background .25s ease);
+        }
+        
+        a::after {
+          display: none;
+        }
+        
+        a.active, a:hover {
+          background-color: map-get($army-branding, gold);
+          outline: none;
+        }
+      }
+
+      @include breakpoints(mobile) {
+        li {
+          display: block;
+          padding: 0;
+
+          a {
+            padding: 3px 35px 0;
+          }
+        }
+      }
+    }
+    label {
+      top: 0;
+      bottom: auto;
+      
+      // dropdown arrow ^
+      &::after {
+        background-position: -181px -50px;
+      }
+    }
+  }
+  
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    //Prevents double click issue on iOS
+    ul li {
+      a::after {
+        @include custom-transition(width .25s ease);
+      }
+      a:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// DOM elements the menu open/closes
+.subnav-selectable {
+  display: none;
+
+  &.subnav-selected {
+    display: block;
+  }
+}

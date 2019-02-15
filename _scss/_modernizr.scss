@@ -1,0 +1,15 @@
+
+@mixin yep($features...) {
+	@each $feature in $features {
+		.#{$feature} & { 
+			@content;
+		}
+	}
+}
+
+@mixin nope($feature) {
+	.no-js &,
+	.no-#{$feature} & {
+		@content;
+	}
+}

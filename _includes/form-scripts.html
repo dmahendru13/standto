@@ -1,0 +1,149 @@
+<!-- SCRIPTS -->
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+<script type="text/javascript" src="https://www.army.mil/e2/js/rv7/3rdparty/livefilter/jquery.fastLiveFilter.js"></script>
+<script type="text/javascript">
+    function initFilters() {
+        $('#sm-search').fastLiveFilter('.sm-results', {
+            timeout: 200,
+            selector: '.sm-division',
+            callback: updateResultsText
+        });
+        $('#sm-select').change(onSelectChange);
+
+        function onSelectChange(e) {
+            var selected = e.target.value;
+
+            $('#sm-select option').attr('aria-selected', false);
+            $('#sm-select option:selected').attr('aria-selected', true);
+
+            if (selected === 'All') {
+                $('#social-results div').show();
+
+                // if ($('#sm-search').val() === '')
+                //     $('#army-social-container').show();
+
+            } else {
+
+                $('#social-results div').hide(); // hide everything
+                $('.' + selected + '-wrapper').show(); // show selected
+
+                // $('#army-social-container').hide();
+
+            }
+
+            updateResultsText();
+        }
+
+        function htmlEntities(str) {
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g,
+                '&quot;');
+        }
+
+        //this code will hide sections with no results
+        function showHideResultsSection(section) {
+
+            if (section === 'All') {
+                $('#social-results div').show();
+            } else {
+                $('.' + section + '-wrapper').show();
+            }
+
+            $('#social-results div').each(function () {
+
+                if ($(this).find('.sm-item:visible').length === 0)
+                    $(this).hide();
+
+            });
+
+        }
+
+        function updateResultsText() {
+            var directory = $('.archive').first(),
+                search = $('#sm-search').val(),
+                sectionSelect = $('#sm-select option:selected');
+
+            if (search !== '') search = htmlEntities(search);
+
+            /*
+             * in case the user came to #register or #resources
+             * the following code would hide each section
+             * by default and show the "No results found" text
+             * so this is a way of checking that the user
+             * is on the directory tab
+             */
+            if (directory && directory.is(':visible')) {
+                showHideResultsSection(sectionSelect.val());
+
+                //This code manipulated the results found text
+                if ($('.sm-item:visible').length === 0) {
+                    $('#results-text').show();
+                } else {
+                    $('#results-text').hide();
+                }
+            }
+        }
+
+    } // end initFilters
+
+    (function ($) {
+        initFilters();
+
+        $('.reset-form').on('click', function (e) {
+            e.preventDefault();
+            $('.status').hide();
+            $('.registration-form').show();
+        });
+
+
+
+        //Manages search and clear buttons
+        $('#sm-search').change(function () {
+            var sectionSelect = $('#sm-select option:selected');
+
+            // $('#army-social-container').hide();
+
+            if ($('#sm-search').val() === '') {
+                $('#sm-search-form div')
+                    .removeClass('clear-btn')
+                    .addClass('search-btn');
+
+                if (sectionSelect.val() === 'All') {
+                    // $('#army-social-container').show();
+                }
+            } else {
+                $('#sm-search-form div')
+                    .addClass('clear-btn')
+                    .removeClass('search-btn');
+            }
+        });
+
+        //Resets results after clicking clear button
+        $('#sm-search-form div').click(function () {
+            var e = $.Event('keydown', {
+                keyCode: 8
+            }), //'keydown' if that's what you're doing
+                sectionSelect = $('#sm-select option:selected');
+
+            if ($(this).hasClass('clear-btn')) {
+                $('#sm-search-form')[0].reset();
+
+                // if (sectionSelect.val() === 'All')
+                //     $('#army-social-container').show();
+
+                $('#sm-search').trigger(e);
+            }
+
+        });
+
+        //disables enter key on search field
+        $('#sm-search').on('keyup keypress', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+    })(jQuery);
+</script>
+<!-- END SCRIPTS -->

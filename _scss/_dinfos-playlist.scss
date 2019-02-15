@@ -1,0 +1,166 @@
+
+//  @mixin accentFont() {
+//      font-family: "Overpass", sans-serif;
+//  }
+
+//  @mixin Opacity($value) {
+//      $IEValue: $value*100;
+//      opacity: $value;
+//      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+//      filter: alpha(opacity=$IEValue);
+//  }
+
+//  $accent_color: #e3e2dc;
+//  $path: '/e2/images/rv7/socialmedia/'; //Video Mastheads:
+//  $sprite: $path+"graphics/sprite.png";
+//  $sprite-svg: $path+"graphics/sprite.svg";
+//  $sprite-png: $path+"graphics/sprite.png";
+//  $play-svg: $path+"graphics/play.svg";
+//  $play-2x: $path+"graphics/play_2x.png";
+//  $play-hover-2x: $path+"graphics/play_hover_2x.png";
+//  $arrow-right-svg: $path+"graphics/arrow_right.svg";
+//  $arrow-right-hover-svg: $path+"graphics/arrow_right_hover.svg";
+//  $arrow-left-svg: $path+"graphics/arrow_left.svg";
+//  $arrow-left-hover-svg: $path+"graphics/arrow_left_hover.svg";
+//  $close-button-svg: $path+"graphics/close.svg";
+//  $close-button-hover-svg: $path+"graphics/close_hover.svg";
+//  $lightbox-background: $path+"graphics/bg.png";
+//  $video_background: #3d3d3d;
+//  $base:#555847;
+//  $divider_color: #ccc;
+//  $standout_text: #6a6862;
+//  $text_base_color: #343330;
+//  $video-mastheads: $path+"parallax/480_video.jpg",
+//  $path+"parallax/768_video.jpg",
+//  $path+"parallax/992_video.jpg",
+//  $path+"parallax/1200_video.jpg",
+//  $path+"parallax/2500_video.jpg";
+//  @import 'lightbox';
+//  .masthead_container {
+//      padding: 0 0 56.25%;
+//      position: relative;
+//      width: 100%;
+//      .full_width_image {
+//          background-color: $base;
+//          background-position: center top;
+//          background-repeat: no-repeat;
+//          background-size: contain;
+//          height: 100%;
+//          margin: 0 auto;
+//          overflow: hidden;
+//          position: absolute;
+//          width: 100%;
+//          &#battle_video {
+//              // default image
+//              background-size: cover;
+//              background-image: url(nth($video-mastheads, 5));
+//              @each $img in $video-mastheads {
+//                  $i: index($video-mastheads, $img);
+//                  @include masthead($i) {
+//                      background-image: url($img);
+//                  }
+//              }
+//              .overlay {
+//                  background-color: $video-background;
+//                  left: 0;
+//                  height: 100%;
+//                  position: absolute;
+//                  top: 0;
+//                  width: 100%;
+//                  @include Opacity(0.7);
+//              }
+//              .overlay-2 {
+//                  left: 0;
+//                  position: absolute;
+//                  text-align: center;
+//                  top: 33%;
+//                  width: 100%;
+//                  z-index: 1;
+//                  div {
+//                      padding: 0 15px;
+//                  }
+//                  a {
+//                      display: inline;
+//                      height: 100px;
+//                      width: 100px;
+//                  }
+//                  h2 {
+//                      color: #fff;
+//                      font-weight: 700;
+//                      margin: 15px 0 0;
+//                      text-transform: uppercase;
+//                  }
+//                  p {
+//                      color: $divider-color;
+//                      font-weight: 600;
+//                  }
+//                  h2,
+//                  p {
+//                      text-align: center;
+//                  }
+//                  span {
+//                      background-repeat: no-repeat;
+//                      display: inline-block;
+//                      height: 100px;
+//                      width: 100px;
+//                      @include yep(backgroundsize) {
+//                          background-image: url($play-2x);
+//                          background-size: 100px 100px;
+//                      }
+//                      @include nope(backgroundsize) {
+//                          background-image: url($sprite);
+//                          background-position: -100px -82px;
+//                      }
+//                      @include yep(svg) {
+//                          background-image: url($play-svg);
+//                          background-size: inherit;
+//                      }
+//                      &:hover {
+//                          @include yep(backgroundsize) {
+//                              background-image: url($play-hover-2x);
+//                              background-size: 100px 100px;
+//                          }
+//                          @include nope(backgroundsize) {
+//                              background-image: url($sprite);
+//                              background-position: -201px -82px;
+//                          }
+//                          @include yep(svg) {
+//                              background-image: url($play-svg);
+//                              background-position: -100px 0px;
+//                              background-size: inherit;
+//                          }
+//                      }
+//                  }
+//                  @include breakpoints(tablet) {
+//                      top: 25%;
+//                  }
+//                  @include breakpoints(mobile) {
+//                      top: 25%;
+//                      h2,
+//                      p {
+//                          display: none;
+//                      }
+//                  }
+//              } // end overlay-2
+//          }
+//      }
+//  }
+
+//  .video-caption {
+//      background-color: $standout-text;
+//      display: none;
+//      padding: 20px 10px;
+//      h2 {
+//          font-weight: 700;
+//          text-transform: uppercase;
+//      }
+//      h2,
+//      p {
+//          color: #fff;
+//          margin: 0;
+//          text-align: center;
+//      }
+//      @include breakpoints(mobile) {
+//          display: block;
+//      }
+//  }
