@@ -423,7 +423,7 @@ $social-buttons: url("/e2/images/rv7/socialmedia/formoresafetytipsv3_spritesheet
         font-weight: 600;
         margin-bottom: 1.25em;
       }
-      input#email1.email-input {
+      input[type="text"] {
         padding: 15px;
         display: block;
         width: 100%;

@@ -41,6 +41,7 @@
     <script type="text/javascript" src="/e2/js/rv7/3rdparty/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/e2/js/rv7/3rdparty/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="/e2/js/rv7/3rdparty/waypoints/noframework.waypoints.min.js"></script>
+    <!-- <script src="/_data/email-dummy-data/emails.json"></script> -->
 
     <!-- Include script files if page.active == 'archvie' -->
     {% if page.active == 'archive' %}
@@ -48,7 +49,7 @@
     {% endif %}
 
     <!-- Include script files if page.active == 'about' -->
-    {% if page.active == 'about' or page.active == 'stand-to' %}
+    {% if page.active == 'about' or page.active == 'standto' %}
         {% include standto-scripts.html %}
     {% endif %}
 
