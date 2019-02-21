@@ -1,0 +1,51 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+        - locale-gen en_US en_US.UTF-8
+        - dpkg-reconfigure locales
+        - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+        - apt-get install -y nodejs
+        - gem install bundler
+        - bundle install
+        - npm install
+        - npm install -g grunt-cli
+  build:
+    commands:
+        - export LC_ALL=en_US.UTF-8
+        - export LC_TYPE=en_US.UTF-8
+        - export LANGUAGE=en_US.UTF-8
+        - export LANG=en_US.UTF-8
+        - echo "******** CHANGE BRANCH ********"
+        - git checkout $GIT_BRANCH_0
+        - echo "******** UPDATE SUBMODULE ********"
+        - git submodule init
+        - git submodule update
+        - git submodule foreach git pull origin master
+        - echo "******** Run Pre Task ********"
+        - grunt production
+        - echo "******** Building Jekyll site ********"
+        - jekyll build -t
+        - echo "******** Run Post Task ********"
+        - grunt post-production
+        - echo "******** Uploading to S3 ********"
+        - aws s3 sync _site/ s3://$S3_BUCKET_0/socialmedia --exclude "e2/*"
+        - aws s3 sync _site/e2/js/rv7/social-media s3://$S3_BUCKET_0/e2/js/rv7/social-media
+        - aws s3 sync _site/e2/css/rv7/social-media s3://$S3_BUCKET_0/e2/css/rv7/social-media
+        - echo "******** CHANGE BRANCH ********"
+        - git checkout $GIT_BRANCH_1
+        - echo "******** UPDATE SUBMODULE ********"
+        - git submodule init
+        - git submodule update
+        - git submodule foreach git pull origin master
+        - echo "******** Run Pre Task ********"
+        - grunt production
+        - echo "******** Building Jekyll site ********"
+        - jekyll build -t
+        - echo "******** Run Post Task ********"
+        - grunt post-production
+        - echo "******** Uploading to S3 ********"
+        - aws s3 sync _site/ s3://$S3_BUCKET_1/socialmedia  --exclude "e2/*"
+        - aws s3 sync _site/e2/js/rv7/social-media s3://$S3_BUCKET_1/e2/js/rv7/social-media
+        - aws s3 sync _site/e2/css/rv7/social-media s3://$S3_BUCKET_1/e2/css/rv7/social-media
