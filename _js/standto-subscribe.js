@@ -1,8 +1,7 @@
-<!-- <script type="text/javascript">
-//alert("file has loaded correctly");
-var SocialBar = require('../_js/globals/modules/SocialBar'),
-    SubNav = require('../_js/globals/modules/SubNav'),
-    Helper = require('../_js/globals/modules/Helper'),
+alert("file has loaded correctly");
+var SocialBar = require('./globals/modules/SocialBar'),
+    SubNav = require('./globals/modules/SubNav'),
+    Helper = require('./globals/modules/Helper'),
     json = require('../_data/email-dummy-data/emails.json'),
     Client = require('node-rest-client').Client;
 // var SocialBar = require('./modules/SocialBar'),
@@ -176,4 +175,3 @@ var obj = JSON.parse(json);
     };
 
 })();
-</script> -->

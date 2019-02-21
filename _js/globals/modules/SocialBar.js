@@ -1,4 +1,5 @@
 /*jshint -W032 */ /* ignore unnecessary semicolon */
+//For Mobile devices
 var Waypoint = require('./commonjs.waypoints.js'),
     Helper = require('./Helper');
 
