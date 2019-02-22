@@ -594,8 +594,9 @@ nav {
   }
   .small {
     font-size: 0.875em;
-    @include breakpoints(mobile nav tablet lg_tablet) {
-      padding: 0 15px;
+    margin-bottom: 1.25em;
+    @include breakpoints(mobile nav tablet){
+      text-align: center;
     }
     .st-byline {
       margin-right: 15px;
