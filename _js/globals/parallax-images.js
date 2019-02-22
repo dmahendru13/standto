@@ -1,11 +1,11 @@
-// /*global window,require*/
+/*global window,require*/
 
-// var ParallaxImg = require('./modules/ParallaxImage');
+var ParallaxImg = require('./modules/ParallaxImage');
 
-// (function() {
-//     'use strict';
-//     // var header = document.getElementsByClassName('navbar'),
-//     //     headerHeight = (header.length) ? header[0].clientHeight : 0;
+(function() {
+    'use strict';
+    // var header = document.getElementsByClassName('navbar'),
+    //     headerHeight = (header.length) ? header[0].clientHeight : 0;
 
-//     new ParallaxImg();
-// })();
+    new ParallaxImg();
+})();

@@ -26,7 +26,7 @@ var CustomSelect = require('./globals/modules/CustomSelect'),
         );
     }
 
-    new ParallaxImg(headerHeight);
+    // new ParallaxImg(headerHeight);
 
     if (customSelect.length > 0) {
         new CustomSelect(customSelect[0]);

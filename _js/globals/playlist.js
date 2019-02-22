@@ -1,11 +1,11 @@
-// /*global document,require*/
+/*global document,require*/
 
-// var Playlist = require('./modules/Playlist');
+var Playlist = require('./modules/Playlist');
 
-// (function() {
-//     'use strict';
+(function() {
+    'use strict';
 
-//     var playlist = new Playlist();
+    var playlist = new Playlist();
 
-//     playlist.loadYTPlayer();
-// })();
+    playlist.loadYTPlayer();
+})();
