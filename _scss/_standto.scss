@@ -253,8 +253,6 @@ nav {
         margin: 40px auto;
       }
     }
-    span.register-button {
-    }
     .register-button:hover {
       color: #fff;
     }
@@ -428,18 +426,18 @@ nav {
       }
     }
   } // end .register
-  .page-overview {
-    .didyouknow {
-      background: url(/e2/images/rv7/socialmedia/didyouknow_overview.svg) no-repeat top center;
-      width: 100%;
-      height: auto;
-      padding: 40%;
-      margin: 2.5em 0;
-      @include breakpoints(mobile nav tablet lg_tablet) {
-        margin: 1.875em 0;
-      }
-    }
-  }
+  // .page-overview {
+  //   .didyouknow {
+  //     background: url(/e2/images/rv7/socialmedia/didyouknow_overview.svg) no-repeat top center;
+  //     width: 100%;
+  //     height: auto;
+  //     padding: 40%;
+  //     margin: 2.5em 0;
+  //     @include breakpoints(mobile nav tablet lg_tablet) {
+  //       margin: 1.875em 0;
+  //     }
+  //   }
+  // }
   .policies {
     a {
       text-decoration: none;
