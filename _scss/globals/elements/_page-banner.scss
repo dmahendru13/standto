@@ -305,34 +305,66 @@
   }
 }
 
-.standto {
-  .main-header {
-    .header-logo {
-      background: url("/e2/images/rv7/mobile_redesign_sprite_icons_v2.svg") -53px -99px no-repeat;
-      width: 275px;
-      height: 60px;
-      margin: 0 auto;
-      @include breakpoints(sm_desktop desktop large really_big) {
-        transform: scale(2);
-      }
-      @include breakpoints(lg_tablet) {
-        transform: scale(1.4);
-      }
-      @include breakpoints(tablet) {
-        transform: scale(1.25);
-      }
-      @include breakpoints(nav mobile){
-        transform: scale(1.2);
-      }
-    }
-  }
+div.main-header {
   position: relative;
   padding-top: 8%;
   padding-bottom: 8%;
-  color: #fff;
-  // background-image: url("/e2/images/rv7/stand_to_banner_v5.jpg");
+  color: #ffffff;
+  background-image: url('/e2/images/rv7/stand_to_banner_v5.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   z-index: 1;
+
+  div.header-logo {
+    background: transparent $social-button-sprite no-repeat scroll -53px -99px;
+    width: 275px;
+    height: 60px;
+    margin: 0 auto;
+
+    @include breakpoints(nav) {
+      @include scale(1.2);
+    }
+    @include breakpoints(tablet) {
+      @include scale(1.25);
+    }
+    @include breakpoints(lg_tablet) {
+      @include scale(1.4);
+    }
+    @include breakpoints(sm_desktop desktop large really_big) {
+      @include scale(2);
+    }
+  }
 }
+
+// .standto {
+//   .main-header {
+//     .header-logo {
+//       background: url("/e2/images/rv7/mobile_redesign_sprite_icons_v2.svg") -53px -99px no-repeat;
+//       width: 275px;
+//       height: 60px;
+//       margin: 0 auto;
+//       @include breakpoints(nav) {
+//         @include scale(1.2);
+//       }
+//       @include breakpoints(tablet) {
+//         @include scale(1.25);
+//       }
+//       @include breakpoints(lg_tablet) {
+//         @include scale(1.4);
+//       }
+//       @include breakpoints(sm_desktop desktop large really_big) {
+//         @include scale(2);
+//       }
+//     }
+//   }
+//   position: relative;
+//   padding-top: 8%;
+//   padding-bottom: 8%;
+//   color: #fff;
+//   // background-image: url("/e2/images/rv7/stand_to_banner_v5.jpg");
+//   background-repeat: no-repeat;
+//   background-position: center top;
+//   background-size: cover;
+//   z-index: 1;
+// }

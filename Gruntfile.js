@@ -84,7 +84,8 @@ module.exports = function(grunt) {
         browserify: {
             libs: {
                 files: {
-                    '_js/bundled/header.js': ['_js/globals/header.js', '_js/globals/top-btn.js']
+                    '_js/bundled/header.js': ['_js/globals/header.js']
+                    // '_js/bundled/header.js': ['_js/globals/header.js', '_js/globals/top-btn.js']
                 },
                 options: {
                     transform: ['babelify']
@@ -92,7 +93,8 @@ module.exports = function(grunt) {
             },
             social: {
                 files: {
-                    '_js/bundled/stand-to.js': [configs, '_js/stand-to.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js' ]
+                    // '_js/bundled/stand-to.js': [configs, '_js/stand-to.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js' ]
+                    '_js/bundled/stand-to.js': [configs, '_js/stand-to.js', '_js/globals/modules/SocialBar.js',  '_js/standto-subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js' ]
                 },
                 options: {
                     transform: ['babelify'],

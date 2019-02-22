@@ -3,6 +3,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
     Helper = require('./globals/modules/Helper'),
     Client = require('node-rest-client').Client;
     console.log('test-1 of 10 standto-subscribejs');
+
 (function () {
     'use strict';
     var subnav = document.getElementsByTagName('nav')[0],
@@ -163,14 +164,14 @@ var SocialBar = require('./globals/modules/SocialBar'),
     //----------------------------------------------------------------------
     // GovSearch StandTo Search
     //----------------------------------------------------------------------
-    searchForm.onsubmit = function (e) {
-        if (this.query.value === '') {
-            e.preventDefault();
-            return false;
-        } else {
-            this.query.value = 'stand to ' + this.query.value;
-            return true;
-        }
-    };
+    // searchForm.onsubmit = function (e) {
+    //     if (this.query.value === '') {
+    //         e.preventDefault();
+    //         return false;
+    //     } else {
+    //         this.query.value = 'stand to ' + this.query.value;
+    //         return true;
+    //     }
+    // };
     console.log('test-10 of 10 standto-subscribejs');
 })();

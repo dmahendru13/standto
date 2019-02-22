@@ -6,6 +6,7 @@ src/to_origin/rv5_downloads/**/*
 build
 .DS_Store
 node_modules
+social-media
 npm-debug.log
 json
 *.php

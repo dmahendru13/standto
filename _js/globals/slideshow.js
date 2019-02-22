@@ -1,9 +1,9 @@
-/*global window,require*/
+// /*global window,require*/
 
-var PhotoSlideshow = require('./modules/PhotoSlideshow');
+// var PhotoSlideshow = require('./modules/PhotoSlideshow');
 
-(function() {
-    'use strict';
+// (function() {
+//     'use strict';
     
-    new PhotoSlideshow();
-})();
+//     new PhotoSlideshow();
+// })();
