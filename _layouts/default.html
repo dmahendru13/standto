@@ -29,33 +29,25 @@
         {% include masthead.html %}
 
         {% include nav.html %}
-    {% endif %}
+        {% endif %}
 
         {{ content }}
 
-    {% if page.active != 'error' %}
+        {% if page.active != 'error' %}
     </div>
     {% endif %}
-
     {% include globals/footer.html %}
+    {% include social-bar.html %}
     <script type="text/javascript" src="/e2/js/rv7/3rdparty/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/e2/js/rv7/3rdparty/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="/e2/js/rv7/3rdparty/waypoints/noframework.waypoints.min.js"></script>
-    <!-- <script src="/_data/email-dummy-data/emails.json"></script> -->
-
+    
     <!-- Include script files if page.active == 'archvie' -->
     {% if page.active == 'archive' %}
-        {% include form-scripts.html %}
+    {% include form-scripts.html %}
     {% endif %}
 
-    <!-- Include script files if page.active == 'about' -->
-    <!-- {% if page.active == 'about' or page.active == 'standto' %}
-        {% include standto-scripts.html %}
-    {% endif %} -->
 
-    <!-- {% if page.active == 'register' %} 
-    {% include register-scripts.html %}
-  {% endif %}  -->
     {% include scripts.html %}
 </body>
 

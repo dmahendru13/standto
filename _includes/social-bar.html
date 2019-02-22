@@ -1,0 +1,37 @@
+<!-- 
+    *Twitter
+        href="https://twitter.com/share?url={{ urlencode($url) }}&amp;text={{ rawurlencode($title) }}"
+    *Facebook
+        href="https://www.facebook.com/dialog/feed?app_id=1466422700342708&amp;display=popup&amp;link={{ urlencode($url) }}&amp;description={{ rawurlencode($description) }}&amp;picture={{ urlencode($image) }}&amp;redirect_uri={{ urlencode($url) }}"
+    *Reddit
+        href="https://www.reddit.com/submit?url={{ urlencode($url) }}"
+    *LinkedIn
+        href="https://www.linkedin.com/cws/share?url={{ urlencode($url) }}"
+    *Email
+        href="mailto:?Subject={{ rawurlencode($title) }}&amp;body={{ urlencode($url) }}"
+ -->
+<section id="social-bar-id" class="social-bar">
+    <h2 class="hidden">Social Sharing</h2>
+    <ul>
+        <li class="social-button no-hover twitter-button">
+            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+                    on Twitter</span></a>
+        </li>
+        <li class="social-button no-hover facebook-button">
+            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+                    on Facebook</span></a>
+        </li>
+        <li class="social-button no-hover reddit-button">
+            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+                    on Reddit</span></a>
+        </li>
+        <li class="social-button no-hover linkedin-button">
+            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+                    on LinkedIn</span></a>
+        </li>
+        <li class="social-button no-hover email-button">
+            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+                    via Email</span></a>
+        </li>
+    </ul>
+</section>

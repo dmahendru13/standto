@@ -92,7 +92,7 @@ module.exports = function(grunt) {
             },
             social: {
                 files: {
-                    '_js/bundled/stand-to.js': [configs, '_js/stand-to.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js']
+                    '_js/bundled/stand-to.js': [configs, '_js/stand-to.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js', 'e2/js/rv7/3rdparty/jquery/jquery.min.js', 'e2/js/rv7/3rdparty/underscore/underscore-min.js' ]
                 },
                 options: {
                     transform: ['babelify'],
@@ -151,7 +151,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-banner');
 
-    grunt.registerTask('production', ['browserify', 'uglify', 'sass']);
+    //grunt.registerTask('production', ['browserify', 'sass']);
+     grunt.registerTask('production', ['browserify', 'uglify', 'sass']);
 
     grunt.registerTask('post-production', ['usebanner', 'critical']);
 
