@@ -1,45 +1,29 @@
-<!-- <div class="sub-box">
-    <p>Subscribe to STAND-TO! to learn about the U.S. Army initiatives.</p>
-    <p class="sub-results"></p>
-    <div class="subscribe">
-        <label for="email1">Email</label>
-        <input id="email1" class="email-input" type="text" name="email">
-        <div class="btn">
-            <div>
-                <div><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <input class="sub-link" type="button" value="Subscribe" data-email="0">
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- https://www.youtube.com/watch?v=TJcn_PJ2100 -->
 <div class="sub-box">
-    {% if include.unsubcribe %}
-    <p>Unsubscribe to STAND-TO!</p>
-    <p>We are sorry that you are no longer interested in learning about U.S. Army’s overarching current operations,
-        doctrine and programs published in STAND-TO!. To be removed from the email list, opt out by adding your email
-        below.</p>
-    {% else %}
-    <p>Subscribe to STAND-TO! to learn about the U.S. Army initiatives.</p>
-    {% endif %}
-    <p class="sub-results"></p>
-    <div class="subscribe">
-        <label for="{{ include.email_id }}">Email</label>
-        <input id="{{ include.email_id }}" class="email-input" type="text" name="email">
-        <div class="btn">
-            <div>
-                <div><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    {% if include.unsubscribe %}
-                        <input id="sub-link" class="sub-link" type="button" value="{{ 'Unsubscribe' }}">
-                    {% else %}
-                        <input id="sub-link" class="sub-link" type="button" value="{{ 'Subscribe' }}">
-                    {% endif %}
+        {% if include.unsubcribe %}
+        <p>Unsubscribe to STAND-TO!</p>
+        <p>We are sorry that you are no longer interested in learning about U.S. Army’s overarching current operations,
+            doctrine and programs published in STAND-TO!. To be removed from the email list, opt out by adding your email
+            below.</p>
+        {% else %}
+        <p>Subscribe to STAND-TO! to learn about the U.S. Army initiatives.</p>
+        {% endif %}
+        <p class="sub-results"></p>
+        <div class="subscribe">
+            <label for="{{ include.email_id }}">Email</label>
+            <input id="{{ include.email_id }}" class="email-input" type="text" name="email">
+            <div class="btn">
+                <div>
+                    <div><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                        {% if include.unsubscribe %}
+                            <input id="sub-link" class="sub-link" type="button" value="{{ 'Unsubscribe' }}">
+                        {% else %}
+                            <input id="sub-link" class="sub-link" type="button" value="{{ 'Subscribe' }}">
+                        {% endif %}
+                </div>
             </div>
         </div>
     </div>
-    <p class="demo"></p>
-</div>
-<!-- https://stackoverflow.com/questions/17976064/using-or-in-liquid-for-optional-template-variable -->
-{% if unsubscribe %}
-<p>You may add a new email address to re-subscribe at <a href="https://www.army.mil/standto#about">https://www.army.mil/standto#about</a></p>
-{% endif %}
+    <!-- https://stackoverflow.com/questions/17976064/using-or-in-liquid-for-optional-template-variable -->
+    {% if unsubscribe %}
+    <p>You may add a new email address to re-subscribe at <a href="https://www.army.mil/standto#about">https://www.army.mil/standto#about</a></p>
+    {% endif %}

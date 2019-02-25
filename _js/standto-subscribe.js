@@ -1,23 +1,15 @@
-//console.log("jelly");
+// https://stackoverflow.com/questions/51906675/pure-js-json-parsing-with-many-objects-from-local-json-file
 
-// var ev = document.getElementById('sub-link');
-
-// ev.addEventListener('click', myFunction);
-
-// function myFunction() {
-//     //alert("great success");
-//     var body = document.getElementsByTagName('body');
-//     body.addClass('hidden');
-// }
+//https://stackoverflow.com/questions/4295386/how-can-i-check-if-a-value-is-a-json-object
 
 var Helper = require('./globals/modules/Helper'),
     Client = require('node-rest-client').Client,
-    Emails = JSON.parse('../_data/email-dummy-data/emails.json');
+    Emails = require('../_data/email-dummy-data/emails.json');
 
 (function () {
 
     'use strict';
-    var 
+    var
         subscribeLink = document.getElementsByClassName('sub-link'),
         i;
 
@@ -25,9 +17,9 @@ var Helper = require('./globals/modules/Helper'),
     // Subscribe/Unsubscribe
     // ----------------------------------------------------------------------
     // add click to sub/unsub buttons
-    for (i = 0; i < aubscribeLink.length; i++) {
+    for (i = 0; i < subscribeLink.length; i++) {
         subscribeLink[i].setAttribute('data-email', i);
-        subscribeLink[i].onclick = function() {
+        subscribeLink[i].onclick = function () {
             var unsub = (this.value.toLowerCase() === 'unsubscribe');
             getEmailValue(this.getAttribute('data-email'), unsub);
         }
@@ -40,11 +32,13 @@ var Helper = require('./globals/modules/Helper'),
     * @param {bool} unsub
     */
     function getEmailValue(index, unsub) {
-        var emailInput = document.getElementsByClassName('email-input');
+        //var emailInput = document.getElementsByClassName('email-input');
+        var emailInput = document.getElementsByClassName('email-input').value;
         if (emailInput.length > index) {
             setResultText(index, '...');
             getSubResponse(index, emailInput[index].value, unsub);
         }
+        alert(emailInput);
     }
 
     /**
@@ -52,20 +46,39 @@ var Helper = require('./globals/modules/Helper'),
     * @param {str} emailAdd
     * @param {bool} unsub
     */
-    function getResponse(index, emailAdd, unsub) {
+    function getSubResponse(index, emailAdd, unsub) {
         var client = new Client(),
-            subtext = (unsub) ? 'unsubscribe' : "subscribe",
-            apiPath = Configs.API_DOMAIN + '/api/v1/' + subText + '?email=' + emailAdd;
-
+        subtext = (unsub) ? 'unsubscribe' : "subscribe",
+        //response = Emails;
+        //var obj = require('../_data/email-dummy-data/emails.json');
+        //var data = obj[0];
+        //document.getElementById('demo').textContent = data.email;
+        response = Emails;
+        //apiPath = Configs.API_DOMAIN + '/api/v1/' + subText + '?email=' + emailAdd;
+        //https://stackoverflow.com/questions/6384421/check-whether-a-value-exists-in-json-object
         if (emailAdd === '') {
             setResultText(index, 'Please enter a valid email.');
         } else {
-            client.get(
-                apiPath,
-                function (data, response) {
-                    processResultData(index, data, subText);
+            var hasMatch = false;
+            for (var i = 0; i < JSON.length; ++i) {
+                var animal = JSON[i];
+                if (animal.Email == 'dog') {
+                    hasMatch = true;
+                    break;
                 }
-            )
+            }
+            // client.get(
+            //     response,
+            //     function (data, response) {
+            //         processResultData(index, data, subText)
+            //     }
+            // )
+            // client.get(
+            //     apiPath,
+            //     function (data, response) {
+            //         processResultData(index, data, subText);
+            //     }
+            // )
         }
     }
 
