@@ -1,5 +1,5 @@
 <div class="sub-box">
-        {% if include.unsubcribe %}
+        {% if include.unsubscribe %}
         <p>Unsubscribe to STAND-TO!</p>
         <p>We are sorry that you are no longer interested in learning about U.S. Army’s overarching current operations,
             doctrine and programs published in STAND-TO!. To be removed from the email list, opt out by adding your email
@@ -8,6 +8,7 @@
         <p>Subscribe to STAND-TO! to learn about the U.S. Army initiatives.</p>
         {% endif %}
         <p class="sub-results"></p>
+        <p id="success"></p>
         <div class="subscribe">
             <label for="{{ include.email_id }}">Email</label>
             <input id="{{ include.email_id }}" class="email-input" type="text" name="email">

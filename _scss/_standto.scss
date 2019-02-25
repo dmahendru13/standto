@@ -737,3 +737,15 @@ nav {
     }
   }
 }
+
+.stand-to {
+  .sub-box {
+    #success {
+      color: #28a745;
+      .email-span {
+        color: map-get($army-branding, black);
+        font-weight: 700;
+      }
+    }
+  }
+}

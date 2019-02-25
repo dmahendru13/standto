@@ -3,14 +3,13 @@
 //https://stackoverflow.com/questions/4295386/how-can-i-check-if-a-value-is-a-json-object
 
 var Helper = require('./globals/modules/Helper'),
-    Client = require('node-rest-client').Client,
+    //Client = require('node-rest-client').Client,
     Emails = require('../_data/email-dummy-data/emails.json');
 
 (function () {
 
     'use strict';
-    var
-        subscribeLink = document.getElementsByClassName('sub-link'),
+    var subscribeLink = document.getElementsByClassName('sub-link'),
         i;
 
     // ----------------------------------------------------------------------
@@ -32,13 +31,11 @@ var Helper = require('./globals/modules/Helper'),
     * @param {bool} unsub
     */
     function getEmailValue(index, unsub) {
-        //var emailInput = document.getElementsByClassName('email-input');
-        var emailInput = document.getElementsByClassName('email-input').value;
+        var emailInput = document.getElementsByClassName('email-input');
         if (emailInput.length > index) {
             setResultText(index, '...');
             getSubResponse(index, emailInput[index].value, unsub);
         }
-        alert(emailInput);
     }
 
     /**
@@ -47,32 +44,24 @@ var Helper = require('./globals/modules/Helper'),
     * @param {bool} unsub
     */
     function getSubResponse(index, emailAdd, unsub) {
-        var client = new Client(),
-        subtext = (unsub) ? 'unsubscribe' : "subscribe",
-        //response = Emails;
-        //var obj = require('../_data/email-dummy-data/emails.json');
-        //var data = obj[0];
-        //document.getElementById('demo').textContent = data.email;
-        response = Emails;
-        //apiPath = Configs.API_DOMAIN + '/api/v1/' + subText + '?email=' + emailAdd;
+        var response = Emails;
         //https://stackoverflow.com/questions/6384421/check-whether-a-value-exists-in-json-object
         if (emailAdd === '') {
             setResultText(index, 'Please enter a valid email.');
         } else {
             var hasMatch = false;
-            for (var i = 0; i < JSON.length; ++i) {
-                var animal = JSON[i];
-                if (animal.Email == 'dog') {
+            for (var i = 0; i < response.length; ++i) {
+                var data = response[i];
+                if (data.email == emailAdd) {
+                    console.log("step3")
                     hasMatch = true;
+                    subSuccess(emailAdd);
+                    setResultText(index, '');
                     break;
+                } else {
+                    console.log("failure");
                 }
             }
-            // client.get(
-            //     response,
-            //     function (data, response) {
-            //         processResultData(index, data, subText)
-            //     }
-            // )
             // client.get(
             //     apiPath,
             //     function (data, response) {
@@ -80,6 +69,15 @@ var Helper = require('./globals/modules/Helper'),
             //     }
             // )
         }
+    }
+
+    /*
+    * Success msg to display if the email has already been added to the subscribe list.
+    */
+    function subSuccess(emailAdd) {
+        var success = document.getElementById('success');
+        success.innerHTML = 'The email you submitted:<br />' + '<span class="email-span">' + emailAdd + '</span>' + '<br /> submitted is already subscribed to receive the Stand-To! email.';
+        //alert(success);
     }
 
     /**
