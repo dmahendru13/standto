@@ -1,10 +1,10 @@
 /*global document, require*/
 
 var CustomSelect = require('./globals/modules/CustomSelect'),
-    ParallaxImg = require('./globals/modules/ParallaxImage'),
-    Subnav = require('./globals/modules/SubNav'),
-    Validity = require('./globals/modules/Validity'),
-    SideNav = require('./side-nav');
+    //ParallaxImg = require('./globals/modules/ParallaxImage'),
+    //Subnav = require('./globals/modules/SubNav'),
+    Validity = require('./globals/modules/Validity');
+    //SideNav = require('./side-nav');
 
 (function () {
     'use strict';

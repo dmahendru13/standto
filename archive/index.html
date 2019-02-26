@@ -13,46 +13,56 @@ id: archive
     <div class="standto-search">
         <div class="container">
             <div class="inner-container">
-                <div class="row">
-                    <div class="sm-search-box" role="search">
-                        <form id="sm-search-form">
+
+                <div class="search-form-container">
+                    <form accept-charset="UTF-8" id="standto_search_form" method="get" autocomplete="off" action="//search.usa.gov/search">
+                        <input name="utf8" type="hidden" value="&#x2713;" />
+                        <input name="affiliate" type="hidden" value="www.army.mil" />
+                        <label for="query">Search Stand-To! Archive</label>
+                        <input id="archive-search-input" autocomplete="off" placeholder="SEARCH KEYWORDS..." id="query"
+                            name="query" type="text" />
+                        <button id="archive-search-btn" name="commit" type="submit" value=""></button>
+                    </form>
+                    <!-- <form id="sm-search-form">
                             <label for="sm-search">Search</label>
                             <input type="text" id="sm-search" name="search" placeholder="SEARCH KEYWORDS..." value=""
                                 aria-label="Search" />
                             <div class="search-btn"><span></span></div>
-                        </form>
-                    </div>
+                        </form> -->
                 </div>
+
             </div>
         </div>
 
     </div>
-    <div class="container">
-        <div class="inner-container">
-            <h2>Stand-To! Archive</h2>
-            <h5>Most Recent Focus Topics</h5>
-            <div id="results-text" class="results-text">
-                <h4>No results found!</h4>
-            </div>
-            <div id="social-results" class="social-results">
+    <div class="results-archive">
+        <div class="container">
+            <div class="inner-container">
+                <h2>Stand-To! Archive</h2>
+                <h5>Most Recent Focus Topics</h5>
+                <div id="results-text" class="results-text">
+                    <h4>No results found!</h4>
+                </div>
+                <div id="social-results" class="headlines">
 
-                {% for data in site.data.networks %}
-                <!-- loop thru files in data folder -->
-                <!-- data[0] is the name of the file, which to keep the same order as before, I had to enumerate -->
-                {% assign name = data[0] | slice: 0,2 %}
-                <!-- slice: 0,2 saves the 1-, 2-, 3-, etc at the beginning of the file names into a var -->
-                {% assign date = data[0] | replace: name, '' %}
-                <!-- remove 1-, 2-, 3-, etc and use file name as the category date -->
-                {% assign list = data[1] %}
-                <!-- data array -->
-                {% include results.html %}
-                {% endfor %}
+                    {% for data in site.data.networks %}
+                    <!-- loop thru files in data folder -->
+                    <!-- data[0] is the name of the file, which to keep the same order as before, I had to enumerate -->
+                    {% assign name = data[0] | slice: 0,2 %}
+                    <!-- slice: 0,2 saves the 1-, 2-, 3-, etc at the beginning of the file names into a var -->
+                    {% assign date = data[0] | replace: name, '' %}
+                    <!-- remove 1-, 2-, 3-, etc and use file name as the category date -->
+                    {% assign list = data[1] %}
+                    <!-- data array -->
+                    {% include results.html %}
+                    {% endfor %}
 
+                </div>
             </div>
         </div>
     </div>
 </div>
 
- <!-- include side-nav.html  -->
+<!-- include side-nav.html  -->
 
 {% include globals/top-btn.html %}

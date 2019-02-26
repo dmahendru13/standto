@@ -20,7 +20,7 @@
 @import "globals/elements/lists";
 @import "globals/elements/two-column-body";
 @import "globals/elements/quotes";
-
+@import "globals/elements/forms";
 
 // ----------------------------------------------------------------------
 // CSS
@@ -47,7 +47,7 @@
 
     @include breakpoints(mobile nav tablet) {
       text-align: center;
-      
+
       .st-byline,
       .date {
         margin: 0;
@@ -69,7 +69,7 @@
     padding-top: 8%;
     padding-bottom: 8%;
     color: #ffffff;
-    background-image: url(/e2/images/rv7/stand_to_banner_v5.jpg);
+    background-image: url('/e2/images/rv7/stand_to_banner_v5.jpg');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -119,7 +119,6 @@
         padding: 0 0 7px;
         text-transform: none;
       }
-
 
       h3.body-header {
         margin-bottom: 15px;
@@ -184,22 +183,9 @@
         margin: 25px 0;
         text-align: center;
       }
-      .container, .inner-container {
+      .container,
+      .inner-container {
         overflow: visible;
-      }
-    }
-
-    .archive {
-      h2 {
-        font-size: 28px;
-
-        &::after {
-          display: none;
-        }
-      }
-      h4 {
-        font-size: 18px;
-        margin: 0;
       }
     }
 
@@ -217,22 +203,6 @@
         padding: 20px 0 0;
         text-align: left;
         margin-bottom: 0px;
-      }
-    }
-
-    .about {
-      h3 {
-        font-size: 27px;
-        padding-bottom: 20px;
-      }
-      h2 {
-        text-align: center;
-        margin: 0;
-
-        &::after {
-          margin-left: auto;
-          margin-right: auto;
-        }
       }
     }
   } // END .oldarchive
@@ -255,14 +225,13 @@
     }
 
     .subscribe {
-      
       label {
         display: block;
         font-weight: 600;
         margin-bottom: em(20);
       }
-      
-      input[type=text] {
+
+      input.email-input {
         padding: 15px;
         display: block;
         width: 100%;
@@ -272,7 +241,7 @@
         border: 1px solid #b3b3b3;
       }
 
-      .btn > div{
+      .btn > div {
         display: block;
         margin: 15px 0 0 0;
       }
@@ -287,7 +256,10 @@
       font-size: 0.875em;
     }
   }
+}
 
+// THIS IS CSS FOR THE ARCHIVE SECTION
+.archive {
   .standto-search {
     background-color: #f2f2f2;
     overflow: hidden;
@@ -307,15 +279,15 @@
       @include replace-text;
     }
 
-    input[type="text"] {
+    input#archive-search-input {
       border-width: 0;
       font: 1.2em/49px $font-family;
       padding: 3px 60px 0 15px;
       width: 100%;
     }
 
-    button[type="submit"] {
-      background-color: #F2C628;
+    button#archive-search-btn {
+      background-color: #f2c628;
       border: 1px solid #b3b3b3;
       border-width: 0 0 0 1px;
       height: 100%;
@@ -325,7 +297,7 @@
       width: 54px;
     }
 
-    button[type="submit"]::after {
+    button#archive-search-btn::after {
       background: transparent $social-button-sprite no-repeat scroll -258px -25px;
       content: "";
       cursor: pointer;
@@ -343,99 +315,157 @@
         margin-bottom: 40px;
       }
 
-      input[type="text"] {
+      input.email-input {
         font-size: 1em;
         line-height: 43px;
       }
     }
   }
-
-  .archive {
-    h2 {
-      margin: 0 0 20px;
-    }
-
-    .headlines {
-      margin-top: 35px;
-    }
+  h2 {
+    margin: 0 0 20px;
   }
 
+  .headlines {
+    margin-top: 35px;
+  }
+  h2 {
+    &::after {
+      display: none;
+    }
+  }
+  h4 {
+    font-size: 18px;
+    margin: 0;
+  }
+}
 
-  // THIS IS CSS FOR THE ABOUT SECTION
+// THIS IS CSS FOR THE ABOUT SECTION
 
-  .about {
-    .info {
-      background-color: #333c33;
-      color: #ffffff;
+.about {
+  h3 {
+    font-size: 27px;
+    padding-bottom: 20px;
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+
+    &::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .info {
+    background-color: #333c33;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+
+    h4 {
       text-align: center;
-      padding: 40px 20px 20px 20px;
+      margin: 0;
 
-      h4 {
-        text-align: center;
-        margin: 0;
-
-        &::after {
-          margin-left: auto;
-          margin-right: auto;
-        }
+      &::after {
+        margin-left: auto;
+        margin-right: auto;
       }
+    }
 
-      .info-inner {
-        border-spacing: 20px;
-        display: table;
-        margin: 0 auto;
-        max-width: 940px;
-        overflow: hidden;
-        padding: 30px;
+    .info-inner {
+      border-spacing: 20px;
+      display: table;
+      margin: 0 auto;
+      max-width: 940px;
+      overflow: hidden;
+      padding: 30px;
 
-        a {
-          border: 1px solid #ffffff;
-          display: table-cell;
-          position: relative;
-          text-decoration: none;
-          width: 33%;
+      a {
+        border: 1px solid #ffffff;
+        display: table-cell;
+        position: relative;
+        text-decoration: none;
+        width: 33%;
 
-          .info-box {
-            .icon {
-              background: transparent $social-button-sprite no-repeat scroll -463px 0;
-              height: 100px;
-              width: 102px;
-              display: inline-block;
-              margin: 30px;
-            }
+        .info-box {
+          .icon {
+            background: transparent $social-button-sprite no-repeat scroll -463px 0;
+            height: 100px;
+            width: 102px;
+            display: inline-block;
+            margin: 30px;
+          }
 
-            &.box2 .icon{
-              background-position: -564px 0;
-            }
-            &.box3 .icon{
-              background-position: -665px 0;
-            }
+          &.box2 .icon {
+            background-position: -564px 0;
+          }
+          &.box3 .icon {
+            background-position: -665px 0;
+          }
 
-            .box-text {
-              margin: 0px 30px 30px 30px;
+          .box-text {
+            margin: 0px 30px 30px 30px;
 
-              p {
-                font: 18px $font-family;
+            p {
+              font: 18px $font-family;
+              color: #ffffff;
+
+              a {
                 color: #ffffff;
-
-                a {
-                  color: #ffffff;
-                }
               }
             }
           }
         }
-        @include breakpoints(mobile nav) {
-          display: block;
-          max-width: 545px;
-          padding: 30px 0;
+      }
+      @include breakpoints(mobile nav) {
+        display: block;
+        max-width: 545px;
+        padding: 30px 0;
 
-          a {
-            display: block;
-            width: auto;
-            margin-top: 20px;
-          }
+        a {
+          display: block;
+          width: auto;
+          margin-top: 20px;
         }
+      }
+    }
+  }
+  .sub-box {
+    padding: 30px;
+    border: 1px solid #ffd530;
+    margin-bottom: 30px;
+
+    .sub-results {
+      color: #bd081c;
+
+      &.good {
+        color: #333c33;
+      }
+    }
+
+    p {
+      font-weight: 600;
+    }
+
+    .subscribe {
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: em(20);
+      }
+
+      input.email-input {
+        padding: 15px;
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 1em;
+        border-radius: 0;
+        border: 1px solid #b3b3b3;
+      }
+
+      .btn > div {
+        display: block;
+        margin: 15px 0 0 0;
       }
     }
   }
@@ -459,7 +489,7 @@
       font-size: 2em;
       text-align: left;
     }
-    
+
     .small {
       text-align: left;
       .date {
@@ -468,14 +498,17 @@
       }
     }
 
-    ul, ol, p {
+    ul,
+    ol,
+    p {
       line-height: 1.3em;
       margin-bottom: 1em;
     }
 
     .body {
       padding: 0;
-      ul li, ol li {
+      ul li,
+      ol li {
         line-height: 1.3em;
         margin-bottom: 5px;
       }

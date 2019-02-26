@@ -22,27 +22,29 @@
 @import "globals/elements/lists";
 @import "globals/elements/nav";
 @import "globals/elements/top-button";
-@import "globals/elements/forms";
+@import "globals/base/reset";
 @import "globals/elements/page-banner";
 //@import "globals/elements/parallax-image";
 @import "globals/elements/notifications";
 //@import "globals/elements/accordion";
 @import "globals/elements/news-list";
+@import "globals/elements/forms";
+
 // ----------------------------------------------------------------------
 // project scss
 // ----------------------------------------------------------------------
 @import "standto-base";
 @import "error-content";
-@import "about";
-@import "archive";
+//@import "about";
+//@import "archive";
 //@import "dinfos-playlist";
 //@import "managers";
 @import "modernizr";
-@import "standto";
+//@import "standto";
 //@import "overview";
 //@import "leaders";
 //@import "scams";
 //@import "side-nav";
 @import "print";
-@import "social-media";
+//@import "social-media";
 @import "extra-standto-styles";

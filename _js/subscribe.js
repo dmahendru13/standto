@@ -2,7 +2,8 @@
 
 //https://stackoverflow.com/questions/4295386/how-can-i-check-if-a-value-is-a-json-object
 
-var SubNav = require('./globals/modules/SubNav'),
+var SocialBar = require('./globals/modules/SocialBar'),
+    //SubNav = require('./globals/modules/SubNav'),
     Helper = require('./globals/modules/Helper'),
     //Client = require('node-rest-client').Client,
     Emails = require('../_data/email-dummy-data/emails.json');
@@ -11,27 +12,30 @@ var SubNav = require('./globals/modules/SubNav'),
 
     'use strict';
     var subscribeLink = document.getElementsByClassName('sub-link'),
-        hash = window.location.hash,
+        href = window.location.href,
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         subnav = document.getElementsByTagName('nav')[0],
+        socialbarwaypoint = document.getElementsByTagName('footer')[0],
         //index = this.getAttribute('data-email'),
         i;
 
+    SocialBar.initWaypoint(socialbarwaypoint);
+
     //Display Unsubscribe box:
-    if (subnav) {
-        if (unsubDiv && hash === '#unsubscribe') {
-            Helper.removeClass(unsubDiv, 'hidden');
-            new SubNav(subnav,
-                function () {
-                    Helper.addClass(unsubDiv, 'hidden');
-                    setResultText(false, '');
-                },
-                { initializeEmpty: true }
-            );
-        } else {
-            new SubNav(subnav);
-        }
-    }
+    // if (subnav) {
+    //     if (unsubDiv && href === '#unsubscribe') {
+    //         Helper.removeClass(unsubDiv, 'hidden');
+    //         new SubNav(subnav,
+    //             function () {
+    //                 Helper.addClass(unsubDiv, 'hidden');
+    //                 setResultText(false, '');
+    //             },
+    //             { initializeEmpty: true }
+    //         );
+    //     } else {
+    //         new SubNav(subnav);
+    //     }
+    // }
 
     // ----------------------------------------------------------------------
     // Subscribe/Unsubscribe
