@@ -595,7 +595,7 @@ nav {
   .small {
     font-size: 0.875em;
     margin-bottom: 1.25em;
-    @include breakpoints(mobile nav tablet){
+    @include breakpoints(mobile nav tablet) {
       text-align: center;
     }
     .st-byline {
@@ -740,11 +740,23 @@ nav {
 
 .stand-to {
   .sub-box {
-    #success {
-      color: #28a745;
-      .email-span {
-        color: map-get($army-branding, black);
-        font-weight: 700;
+    .sub-results {
+      .fail {
+        color: map-get($stand-to, fail);
+        .email-span {
+          color: map-get($army-branding, black);
+          font-weight: 700;
+        }
+      }
+      &.success {
+        color: map-get($stand-to, success);
+        .email-span {
+          color: map-get($army-branding, black);
+          font-weight: 700;
+        }
+      }
+      p {
+        font-weight: 600;
       }
     }
   }

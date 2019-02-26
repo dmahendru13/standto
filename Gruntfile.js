@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     minify: true,
                     base: './',
                     css: [
-                        '_site/e2/css/rv7/social-media/style.css'
+                        '_site/e2/css/rv7/standto/style.css'
                     ],
                     dimensions: [{
                         height: 768,
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
                     minify: true,
                     base: './',
                     css: [
-                        '_site/e2/css/rv7/social-media/style.css'
+                        '_site/e2/css/rv7/standto/style.css'
                     ],
                     dimensions: [{
                         height: 768,
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
                     minify: true,
                     base: './',
                     css: [
-                        '_site/e2/css/rv7/social-media/style.css'
+                        '_site/e2/css/rv7/standto/style.css'
                     ],
                     dimensions: [{
                         height: 768,
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'e2/css/rv7/social-media/style.css': '_scss/_style.scss'
+                    'e2/css/rv7/standto/style.css': '_scss/_style.scss'
                 }
             }
         }
