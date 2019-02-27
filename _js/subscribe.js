@@ -12,9 +12,11 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
     'use strict';
     var subscribeLink = document.getElementsByClassName('sub-link'),
+
         // I don't believe that this is necessary for the sake of this file
         //href = window.location.href,
         // I don't believe that this is necessary for the sake of this file
+        
         //unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         //subnav = document.getElementsByTagName('nav')[0],
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
