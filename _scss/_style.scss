@@ -1,50 +1,32 @@
-// ----------------------------------------------------------------------
-// Mixins
-// ----------------------------------------------------------------------
-@import "globals/base/mixins";
-@import "globals/base/custom-mixins";
+@import "globals/base/reset";
+// 
 // ----------------------------------------------------------------------
 // Base
 // ----------------------------------------------------------------------
 @import "globals/base";
+
 // ----------------------------------------------------------------------
 // Layout
 // ----------------------------------------------------------------------
 @import "globals/layout";
+
 // ----------------------------------------------------------------------
-// globals/modules
+// Elements
 // ----------------------------------------------------------------------
 @import "globals/elements/buttons";
 @import "globals/elements/header";
+@import "globals/elements/nav";
 @import "globals/elements/social";
 @import "globals/elements/footer";
-@import "globals/elements/custom-select";
+@import "globals/elements/headlines";
 @import "globals/elements/lists";
-@import "globals/elements/nav";
-@import "globals/elements/top-button";
-@import "globals/base/reset";
-@import "globals/elements/page-banner";
-//@import "globals/elements/parallax-image";
-@import "globals/elements/notifications";
-//@import "globals/elements/accordion";
-@import "globals/elements/news-list";
+@import "globals/elements/two-column-body";
+@import "globals/elements/quotes";
 @import "globals/elements/forms";
 
 // ----------------------------------------------------------------------
-// project scss
+// Elements
 // ----------------------------------------------------------------------
-@import "standto-base";
-@import "error-content";
-//@import "about";
-//@import "archive";
-//@import "dinfos-playlist";
-//@import "managers";
-@import "modernizr";
-//@import "standto";
-//@import "overview";
-//@import "leaders";
-//@import "scams";
-//@import "side-nav";
-@import "print";
-//@import "social-media";
-@import "extra-standto-styles";
+@import "_standto-base";
+@import "_stand-to";
+@import "_print";

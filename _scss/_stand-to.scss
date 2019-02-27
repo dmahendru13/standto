@@ -1,31 +1,3 @@
-// ----------------------------------------------------------------------
-// Base
-// ----------------------------------------------------------------------
-@import "globals/base";
-
-// ----------------------------------------------------------------------
-// Layout
-// ----------------------------------------------------------------------
-@import "globals/layout";
-
-// ----------------------------------------------------------------------
-// Elements
-// ----------------------------------------------------------------------
-@import "globals/elements/buttons";
-@import "globals/elements/header";
-@import "globals/elements/nav";
-@import "globals/elements/social";
-@import "globals/elements/footer";
-@import "globals/elements/headlines";
-@import "globals/elements/lists";
-@import "globals/elements/two-column-body";
-@import "globals/elements/quotes";
-@import "globals/elements/forms";
-
-// ----------------------------------------------------------------------
-// CSS
-// ----------------------------------------------------------------------
-
 .wordbreak {
   word-break: break-all;
   display: inline-block;
@@ -69,7 +41,7 @@
     padding-top: 8%;
     padding-bottom: 8%;
     color: #ffffff;
-    background-image: url('/e2/images/rv7/stand_to_banner_v5.jpg');
+    background-image: url("/e2/images/rv7/stand_to_banner_v5.jpg");
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -214,9 +186,17 @@
 
     .sub-results {
       color: #bd081c;
+      .email-span {
+        color: map-get($army-branding, black);
+        font-weight: 700;
+      }
 
       &.good {
         color: #333c33;
+        .email-span {
+          color: map-get($army-branding, black);
+          font-weight: 700;
+        }
       }
     }
 
@@ -276,10 +256,11 @@
 
     label {
       display: block;
+      margin: 0;
       @include replace-text;
     }
 
-    input#archive-search-input {
+    input[name="query"] {
       border-width: 0;
       font: 1.2em/49px $font-family;
       padding: 3px 60px 0 15px;
@@ -435,10 +416,18 @@
     margin-bottom: 30px;
 
     .sub-results {
-      color: #bd081c;
+      color: map-get($stand-to, fail);
+      .email-span {
+        color: map-get($army-branding, black);
+        font-weight: 700;
+      }
 
       &.good {
-        color: #333c33;
+        color: map-get($stand-to, success);
+        .email-span {
+          color: map-get($army-branding, black);
+          font-weight: 700;
+        }
       }
     }
 
