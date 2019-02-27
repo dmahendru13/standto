@@ -16,7 +16,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         subnav = document.getElementsByTagName('nav')[0],
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
-        //index = this.getAttribute('data-email'),
         i;
 
     SocialBar.initWaypoint(socialbarwaypoint);
@@ -131,13 +130,13 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 if (i == index) {
                     subResults[i].innerHTML = result;
                     if (good) {
-                        Helper.addClass(subResults[i], 'success');
+                        Helper.addClass(subResults[i], 'good');
                     } else {
-                        Helper.removeClass(subResults[i], 'success');
+                        Helper.removeClass(subResults[i], 'good');
                     }
                 } else {
                     subResults[i].innerHTML = result;
-                    Helper.removeClass(subResults[i], 'success');
+                    Helper.removeClass(subResults[i], 'good');
                 }
             }
         }
@@ -190,9 +189,9 @@ var SocialBar = require('./globals/modules/SocialBar'),
     //     }
     // }
 
-    //----------------------------------------------------------------------
-    // GovSearch StandTo Search
-    //----------------------------------------------------------------------
+    // //----------------------------------------------------------------------
+    // // GovSearch StandTo Search
+    // //----------------------------------------------------------------------
     // searchForm.onsubmit = function (e) {
     //     if (this.query.value === '') {
     //         e.preventDefault();
@@ -202,6 +201,5 @@ var SocialBar = require('./globals/modules/SocialBar'),
     //         return true;
     //     }
     // };
-    //console.log('test-10 of 10 standto-subscribejs');
-
+    
 })();
