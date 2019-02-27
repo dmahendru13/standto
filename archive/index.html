@@ -43,19 +43,9 @@ id: archive
                 <div id="results-text" class="results-text hidden">
                     <h4>No results found!</h4>
                 </div>
-                <div id="social-results" class="headlines">
+                <div class="headlines">
 
-                    {% for data in site.data.networks %}
-                    <!-- loop thru files in data folder -->
-                    <!-- data[0] is the name of the file, which to keep the same order as before, I had to enumerate -->
-                    {% assign name = data[0] | slice: 0,2 %}
-                    <!-- slice: 0,2 saves the 1-, 2-, 3-, etc at the beginning of the file names into a var -->
-                    {% assign date = data[0] | replace: name, '' %}
-                    <!-- remove 1-, 2-, 3-, etc and use file name as the category date -->
-                    {% assign list = data[1] %}
-                    <!-- data array -->
                     {% include results.html %}
-                    {% endfor %}
 
                 </div>
             </div>

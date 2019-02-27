@@ -1,21 +1,6 @@
-<div id="{{ title }}" class="{{ title }}-wrapper">
-    <h4 class="hidden">{{ title | upcase | replace: '-', ' ' }}</h4>
-    <ul class="sm-results {{ title }}">
-
-        {% assign sortedlist = list | sort: 'title' %}
-        {% for item in sortedlist %}
-        <li class="sm-item">
-
-            <p class="sm-division">
-                <span class="sm-division date">{{ item.date }}</span>
-                <span class="date">
-                    <a href="{{ networks.link }}" rel="noopener noreferrer" target="_blank" title="{{ item.title }} {{ network.name | capitalize }}">
-                        {{ item.title }}</a>
-                </span>
-            </p>
-
-        </li>
-        {% endfor %}
-
-    </ul>
-</div>
+<ul id="archive-results">
+    <!-- <li>
+        <span class="date archive-date"></span>
+        <a class="archive-link" href=""></a>
+    </li> -->
+</ul>
