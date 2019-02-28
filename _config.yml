@@ -16,5 +16,5 @@ sass:
 jekyll-minifier:
   exclude: ['*.html','*.css','*.scss']
 
-title: Social-Media
+title: StandTo
 
