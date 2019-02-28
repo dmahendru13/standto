@@ -12,11 +12,12 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
     'use strict';
     var subscribeLink = document.getElementsByClassName('sub-link'),
-
+        clearDiv = document.getElementById('clear-div'),
+        clearBtn = document.getElementById('clear-btn'),
         // I don't believe that this is necessary for the sake of this file
         //href = window.location.href,
         // I don't believe that this is necessary for the sake of this file
-        
+
         //unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         //subnav = document.getElementsByTagName('nav')[0],
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
@@ -51,7 +52,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
     // add click to sub/unsub buttons
     for (i = 0; i < subscribeLink.length; i++) {
         subscribeLink[i].setAttribute('data-email', i);
-        subscribeLink[i].onclick = function() {
+        subscribeLink[i].onclick = function () {
             var unsub = (this.value.toLowerCase() === 'unsubscribe');
             getEmailValue(this.getAttribute('data-email'), unsub);
         };
@@ -63,12 +64,12 @@ var SocialBar = require('./globals/modules/SocialBar'),
     * @param {int} index
     * @param {bool} unsub
     */
-    function getEmailValue(index, unsub) {
+    function getEmailValue(index) {
         var emailInput = document.getElementsByClassName('email-input');
 
         if (emailInput.length > index) {
             setResultText(index, '...');
-            getSubResponse(index, emailInput[index].value, unsub);
+            getSubResponse(index, emailInput[index].value);
         }
     }
 
@@ -88,33 +89,14 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 var data = response[i];
                 if (data.email == emailAdd) {
                     hasMatch = true;
-                    // subSuccess(emailAdd);
-                    // setResultText(index, '');
                     processResultData(index, hasMatch, emailAdd);
                     break;
                 } else {
-                    // subFail(emailAdd);
-                    // setResultText(index, '');
                     processResultData(index, hasMatch, emailAdd);
-                    console.log("failure");
                 }
             }
         }
     }
-
-    /*
-    * Success msg to display if the email has already been added to the subscribe list.
-    */
-    // function subSuccess(emailAdd) {
-    //     var success = document.getElementById('sub-results');
-    //     success.innerHTML = '<span class="success">The email you submitted:<br />' + '<span class="email-span">' + emailAdd + '</span>' + '<br /> is already subscribed to receive the Stand-To! email.</span>';
-    //     //alert(success);
-    // }
-
-    // function subFail() {
-    //     var fail = document.getElementById('sub-results');
-    //     fail.innerHTML = '<span class="fail">You were unable to subscribe. Please try again.</span>';
-    // }
 
     function processResultData(index, hasMatch, emailAdd) {
         var good = false,
@@ -142,15 +124,36 @@ var SocialBar = require('./globals/modules/SocialBar'),
                         Helper.addClass(subResults[i], 'good');
                     } else {
                         Helper.removeClass(subResults[i], 'good');
+                        //Helper.removeClass(clearDiv, 'hidden');
                     }
                 } else {
                     subResults[i].innerHTML = result;
                     Helper.removeClass(subResults[i], 'good');
+                    //Helper.removeClass(clearDiv, 'hidden');
                 }
             }
         }
+        // if ((subResults[0].classList.contains('good')) == false) {
+        //     Helper.removeClass(clearDiv, 'hidden');
+        // }
     }
 
+    // function reset() {
+    //     var subResults = document.getElementsByClassName('sub-results')[0],
+    //         input = document.getElementById('email1');
+    //     subResults.innerHTML = '';
+    //     input.value = '';
+    //     Helper.addClass(clearDiv, 'hidden');
+    //     Helper.removeClass(subResults, 'good');
+
+    // }
+
+    // clearBtn.onclick = function () {
+    //     var input = document.getElementById('email1');
+    //     if (input.value != '') {
+    //         reset();
+    //     }
+    // }
     /**
     * Receives data from request and generates appropriate response
     * @param {obj} data
@@ -198,17 +201,4 @@ var SocialBar = require('./globals/modules/SocialBar'),
     //     }
     // }
 
-    // //----------------------------------------------------------------------
-    // // GovSearch StandTo Search
-    // //----------------------------------------------------------------------
-    // searchForm.onsubmit = function (e) {
-    //     if (this.query.value === '') {
-    //         e.preventDefault();
-    //         return false;
-    //     } else {
-    //         this.query.value = 'stand to ' + this.query.value;
-    //         return true;
-    //     }
-    // };
-    
 })();
