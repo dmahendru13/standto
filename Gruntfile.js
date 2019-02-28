@@ -93,8 +93,8 @@ module.exports = function(grunt) {
             },
             social: {
                 files: {
-                    // '_js/bundled/stand-to.js': [configs, '_js/stand-to.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js' ]
-                    '_js/bundled/stand-to.js': [configs, '_js/stand-to.js', '_js/archive.js', '_js/globals/modules/SocialBar.js',  '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js' ]
+                    // '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js' ]
+                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/archive.js', '_js/globals/modules/SocialBar.js',  '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js' ]
                 },
                 options: {
                     transform: ['babelify'],
@@ -116,9 +116,9 @@ module.exports = function(grunt) {
                 files: [{
                     src: [
                         '_js/bundled/header.js',
-                        '_js/bundled/stand-to.js'
+                        '_js/bundled/standto.js'
                     ],
-                    dest: 'e2/js/rv7/stand-to/<%= pkg.name %>.min.js'
+                    dest: 'e2/js/rv7/standto/<%= pkg.name %>.min.js'
                 }]
             }
         },
