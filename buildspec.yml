@@ -8,6 +8,7 @@ phases:
         - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
         - apt-get install -y nodejs
         - gem install bundler
+        - gem list bundle
         - bundle install
         - npm install
         - npm install -g grunt-cli
@@ -31,8 +32,8 @@ phases:
         - grunt post-production
         - echo "******** Uploading to S3 ********"
         - aws s3 sync _site/ s3://$S3_BUCKET_0/socialmedia --exclude "e2/*"
-        - aws s3 sync _site/e2/js/rv7/social-media s3://$S3_BUCKET_0/e2/js/rv7/social-media
-        - aws s3 sync _site/e2/css/rv7/social-media s3://$S3_BUCKET_0/e2/css/rv7/social-media
+        - aws s3 sync _site/e2/js/rv7/standto s3://$S3_BUCKET_0/e2/js/rv7/standto
+        - aws s3 sync _site/e2/css/rv7/standto s3://$S3_BUCKET_0/e2/css/rv7/standto
         - echo "******** CHANGE BRANCH ********"
         - git checkout $GIT_BRANCH_1
         - echo "******** UPDATE SUBMODULE ********"
@@ -47,5 +48,5 @@ phases:
         - grunt post-production
         - echo "******** Uploading to S3 ********"
         - aws s3 sync _site/ s3://$S3_BUCKET_1/socialmedia  --exclude "e2/*"
-        - aws s3 sync _site/e2/js/rv7/social-media s3://$S3_BUCKET_1/e2/js/rv7/social-media
-        - aws s3 sync _site/e2/css/rv7/social-media s3://$S3_BUCKET_1/e2/css/rv7/social-media
+        - aws s3 sync _site/e2/js/rv7/standto s3://$S3_BUCKET_1/e2/js/rv7/standto
+        - aws s3 sync _site/e2/css/rv7/standto s3://$S3_BUCKET_1/e2/css/rv7/standto
