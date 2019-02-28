@@ -7,44 +7,57 @@ var Helper = require('./globals/modules/Helper'),
     'use strict';
     var searchForm = document.getElementById('standto_search_form');
     if (window.location.pathname == '/archive/') {
+
         //----------------------------------------------------------------------
-        // Filter Stand-To! Articles on the Archive page
+        //  Search
         //----------------------------------------------------------------------
-        function populateArchive() {
-            //https://stackoverflow.com/questions/28256271/populate-ul-in-html-with-json-data
-            var archive = Archive,
-                list = document.getElementById('archive-results');
 
-            for (var i = 0; i < archive.length; i++) {
-
-                var li = document.createElement('li');
-                li.innerHTML = '<span class="date archive-date">' + archive[i].date + '</span';
-                li.innerHTML += '<a class="archive-link" href="' + archive[i].networks[0].link + '" target="">' + archive[i].title + '</a>';
-                list.appendChild(li);
-            }
-
-        };
-
-        populateArchive();
+        //  Function that searches the on page content and displays results based off of what
+        //  the user has entered into the input.
 
         searchForm.onkeyup = function () {
             var input = document.getElementById('archive-search-input'),
                 filter = input.value.toUpperCase(),
                 ul = document.getElementById('archive-results'),
-                li = ul.getElementsByTagName('li');
+                li = ul.getElementsByTagName('li'),
+                i = 0;
 
-            for (var i = 0; i < li.length; i++) {
+            for (i = 0; i < li.length; i++) {
                 var a = li[i].getElementsByTagName('a')[0],
                     txtValue = a.textContent || a.innerText;
 
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
+                    Helper.removeClass(li[i], 'hidden');
                 } else {
-                    li[i].style.display = "none";
+                    Helper.addClass(li[i], 'hidden');
                 }
             }
+            results(li);
         };
 
+        //----------------------------------------------------------------------
+        //
+        // Displays "No Results found"
+        // 
+        //----------------------------------------------------------------------
+
+        // if the input search produces no results
+        // Alternatively, if the user has searched for something that has produced no results,
+        // then
+
+        function results(li) {
+            var results = document.getElementById('results-text'),
+                noResults = document.getElementById('no-results-text'),
+                listItems = document.querySelectorAll('li.hidden');
+
+            if (listItems.length == li.length) {
+                Helper.removeClass(noResults, 'hidden');
+                Helper.addClass(results, 'hidden');
+            } else {
+                Helper.addClass(noResults, 'hidden');
+                Helper.removeClass(results, 'hidden');
+            }
+        }
 
 
         //----------------------------------------------------------------------

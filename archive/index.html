@@ -13,7 +13,6 @@ id: archive
     <div class="standto-search">
         <div class="container">
             <div class="inner-container">
-
                 <div class="search-form-container">
                     <form accept-charset="UTF-8" id="standto_search_form" method="get" autocomplete="off" action="//search.usa.gov/search">
                         <input name="utf8" type="hidden" value="&#x2713;" />
@@ -23,12 +22,6 @@ id: archive
                             name="query" type="text" />
                         <button id="archive-search-btn" name="commit" type="submit" value=""></button>
                     </form>
-                    <!-- <form id="sm-search-form">
-                            <label for="sm-search">Search</label>
-                            <input type="text" id="sm-search" name="search" placeholder="SEARCH KEYWORDS..." value=""
-                                aria-label="Search" />
-                            <div class="search-btn"><span></span></div>
-                        </form> -->
                 </div>
 
             </div>
@@ -39,13 +32,20 @@ id: archive
         <div class="container">
             <div class="inner-container">
                 <h2>Stand-To! Archive</h2>
-                <h5>Most Recent Focus Topics</h5>
-                <div id="results-text" class="results-text hidden">
+                <h5 id="results-text">Most Recent Focus Topics</h5>
+                <div id="no-results-text" class="results-text hidden">
                     <h4>No results found!</h4>
                 </div>
                 <div class="headlines">
+                    {% for data in site.data.networks %}
+
+                    {% assign date = data[0] | replace: name, '' %}
+
+                    {% assign list = data[1] %}
 
                     {% include results.html %}
+
+                    {% endfor %}
 
                 </div>
             </div>

@@ -3,6 +3,9 @@
     word-break: break-all;
     display: inline-block;
   }
+  .body {
+    @include bodytext();
+  }
   .main-header {
     position: relative;
     padding-top: 8%;
@@ -33,6 +36,10 @@
         @include scale(2);
       }
     }
+  }
+  .hidden {
+    display: none !important;
+    margin: 0 !important;
   }
 }
 
