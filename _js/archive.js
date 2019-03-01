@@ -6,7 +6,7 @@ var Helper = require('./globals/modules/Helper'),
 (function () {
     'use strict';
     var searchForm = document.getElementById('standto_search_form');
-    if (window.location.pathname == '/archive/') {
+    if (window.location.pathname == '/archive/' || window.location.pathname == '/standto/archive/') {
 
         //----------------------------------------------------------------------
         //  Search
