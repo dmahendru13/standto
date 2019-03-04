@@ -13,6 +13,7 @@ json
 .sass-cache
 sftpCache.json
 .ftppass
+_plugins
 _site
 .jekyll-metadata
 src/e2/rv5_images/**/*

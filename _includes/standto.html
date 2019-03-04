@@ -1,0 +1,42 @@
+{%- if site.data.standto.todays-focus.body -%}
+
+    <!-- 
+        Print text if the data file has this content: 
+    -->
+    {%- for a in site.data.standto.todays-focus.body -%}
+
+        <!-- If there is a heading object, it prints the heading here: -->
+        {%- if a.heading -%}
+            <p><strong>{{ a.heading }}</strong></p>
+        {%- endif -%}
+
+        <!-- If there is a paragraph object, it prints the paragraph here: -->
+        {%- if a.paragraph -%}
+            <p>{{ a.paragraph }}</p>
+        {%- endif -%}
+
+        <!-- If there is a list object, it prints the list here: -->
+        {%- if a.list -%}
+            <ul>
+                
+                {%- for li in a.list -%}
+                    {%- if li -%}
+                        <li>{{ li.item }}</li>
+                    {%- endif -%}
+                {%- endfor -%}
+
+            </ul>
+        {%- endif -%}
+
+    {%- endfor -%}
+
+{% else %}
+
+<h4>
+    Unfortunately there is no STAND-TO! Article today. 
+    <br>
+    <span class="small">Sorry for any inconvenience that this may cause. <strong>Hooah!</strong></span>
+</h4>
+
+{%- endif -%}
+
