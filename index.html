@@ -14,29 +14,29 @@ id: standto
         <div class="container">
 
             <div class="inner-contianer">
-                <h3>{{ site.data.standto.todays-focus.title }}</h3>
+                <h1>{{ site.data.standto.todays-focus.title }}</h1>
                 <p class="small">
                     <span class="st-byline">{{ site.data.standto.todays-focus.subtitle }}</span>
                     <span class="date">{{ site.data.standto.todays-focus.date }}</span>
                 </p>
-            </div>
-            {% include alt-social.html %}
-            <div class="body two-column-body">
-                <div class="left-column">
-
-                    {% include todays-focus.html %}
-
-                    {% include links.html %}
-
-                </div>
-                <div class="right-column">
-                    {% include sub-box.html email_id="email1" %}
-                    <div class="events top-stories">
-                        <h4>Events</h4>
-                        <p><strong>FEBRUARY 2019</strong></p>
-                        <p>African American/ Black History Month - Visit <a href="https://www.army.mil/africanamericans/">African
-                                Americans in the U.S. Army</a></p>
-                        <p>Feb. 18: Presidents Day</p>
+                {% include alt-social.html %}
+                <div class="body two-column-body">
+                    <div class="left-column">
+    
+                        {% include todays-focus.html %}
+    
+                        {% include links.html %}
+    
+                    </div>
+                    <div class="right-column">
+                        {% include sub-box.html email_id="email1" %}
+                        <div class="events top-stories">
+                            <h4>Events</h4>
+                            <p><strong>FEBRUARY 2019</strong></p>
+                            <p>African American/ Black History Month - Visit <a href="https://www.army.mil/africanamericans/">African
+                                    Americans in the U.S. Army</a></p>
+                            <p>Feb. 18: Presidents Day</p>
+                        </div>
                     </div>
                 </div>
             </div>
