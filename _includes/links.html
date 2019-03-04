@@ -1,0 +1,34 @@
+{% if site.data.standto.todays-focus.links %}
+
+    {% for b in site.data.standto.todays-focus.links %}
+
+        {% if b.section %}
+
+            {% for title in b.section %}
+
+                <p><strong>{{ title.section-title }}</strong></p>
+
+                <ul>
+
+                    {% if title.list %}
+    
+                        {% for link in title.list %}
+    
+                            <li>
+                                <a href="{{ link.url }}">{{ link.title }}</a>
+                            </li>
+        
+                        {% endfor %}
+    
+                    {% endif %}
+
+                </ul>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endfor %}
+
+{% endif %}
+

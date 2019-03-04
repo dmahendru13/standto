@@ -28,30 +28,39 @@ body:
   - paragraph: ESB-E will inform Army network design decisions and force structure for future ESBs. This effort will help shape future equipment needs and the force structure of the Army's 24 ESBs. 
   - paragraph: The ESB-E effort supports the Army's tactical network modernization line of effort to unify the network by providing assured network transport in congested environments.   The ESB-E's tactical network communications support will enable a more lethal, mobile, and hardened joint and coalition force, helping the Army retain overmatch against increasingly capable adversaries.
 
-resources:
-  - title: Program Executive Office Command, Control, Communications-Tactical
-    link: http://peoc3t.army.mil/c3t/
+links:
+  - section: 
+    - section-title: Resources
+    - list:
+      - title: Program Executive Office Command, Control, Communications-Tactical
+        url: http://peoc3t.army.mil/c3t/
 
-related:
-  - title: 2018 Army Modernization Strategy - AKO Login Required
-    link: https://www.ako1.us.army.mil/suite/files/50180655
+  - section:
+    - section-title: Related Document
+    - list:
+      - title: 2018 Army Modernization Strategy - AKO Login Required
+        url: https://www.ako1.us.army.mil/suite/files/50180655
 
-related-stand-to:
-  - title: Army Modernization Strategy
-    link: https://www.army.mil/standto/2018-06-06
-  - title: Army Modernization
-    link: https://www.army.mil/standto/2018-01-16
-  - title: Army Network
-    link: https://www.army.mil/standto/archive_2018-03-08
-  - title: Army Futures Command
-    link: https://www.army.mil/standto/2018-03-28
-  - title: Integrated Tactical Network
-    link: https://www.army.mil/standto/2018-08-22
-  - title: WIN-T Increment 1&#58; Tactical Network Upgrades
-    link: https://www.army.mil/standto/archive_2016-01-21
+  - section:
+    - section-title: Related STAND-TO!
+    - list:
+      - title: Army Modernization Strategy
+        url: https://www.army.mil/standto/2018-06-06
+      - title: Army Modernization
+        url: https://www.army.mil/standto/2018-01-16
+      - title: Army Network
+        url: https://www.army.mil/standto/archive_2018-03-08
+      - title: Army Futures Command
+        url: https://www.army.mil/standto/2018-03-28
+      - title: Integrated Tactical Network
+        url: https://www.army.mil/standto/2018-08-22
+      - title: WIN-T Increment 1&#58; Tactical Network Upgrades
+        url: https://www.army.mil/standto/archive_2016-01-21
 
-related-articles:
-  - title: New signal battalion uses expeditionary comms kit in first mission
-    link: https://www.army.mil/article/215238/new_signal_battalion_uses_expeditionary_comms_kit_in_first_mission
-  - title: Army pilots new signal battalion for scalable expeditionary comms support (ESB-E)
-    link: https://www.army.mil/article/212220/
+  - section:
+    - section-title: Related Articles
+    - list:
+      - title: New signal battalion uses expeditionary comms kit in first mission
+        url: https://www.army.mil/article/215238/new_signal_battalion_uses_expeditionary_comms_kit_in_first_mission
+      - title: Army pilots new signal battalion for scalable expeditionary comms support (ESB-E)
+        url: https://www.army.mil/article/212220/
