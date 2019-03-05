@@ -85,7 +85,6 @@ module.exports = function(grunt) {
             libs: {
                 files: {
                     '_js/bundled/header.js': ['_js/globals/header.js']
-                    // '_js/bundled/header.js': ['_js/globals/header.js', '_js/globals/top-btn.js']
                 },
                 options: {
                     transform: ['babelify']
@@ -93,7 +92,6 @@ module.exports = function(grunt) {
             },
             social: {
                 files: {
-                    // '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js' ]
                     '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/archive.js', '_js/globals/modules/SocialBar.js',  '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js' ]
                 },
                 options: {
@@ -154,7 +152,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-banner');
 
     grunt.registerTask('production', ['browserify', 'uglify', 'sass']);
-    //grunt.registerTask('production', ['uglify', 'sass']);
 
     grunt.registerTask('post-production', ['usebanner', 'critical']);
 
