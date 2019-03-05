@@ -22,26 +22,31 @@ id: standto
                 {% include alt-social.html %}
                 <div class="body two-column-body">
                     <div class="left-column">
-    
+
                         {% include todays-focus.html %}
-    
+
                         {% include links.html %}
-    
+
                     </div>
                     <div class="right-column">
+
                         {% include sub-box.html email_id="email1" %}
-                        <div class="events top-stories">
-                            <h4>Events</h4>
-                            <p><strong>FEBRUARY 2019</strong></p>
-                            <p>African American/ Black History Month - Visit <a href="https://www.army.mil/africanamericans/">African
-                                    Americans in the U.S. Army</a></p>
-                            <p>Feb. 18: Presidents Day</p>
-                        </div>
+
+                        {% include events.html %}
+
                     </div>
                 </div>
             </div>
         </div>
 
+        {% include quote.html %}
+
+
+    </div>
+    <div class="container unsubscribe-div hidden">
+        <div class="inner-container">
+            {% include sub-box.html unsubscribe="true" %}
+        </div>
     </div>
 </div>
 

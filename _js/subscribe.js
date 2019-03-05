@@ -3,23 +3,17 @@
 //https://stackoverflow.com/questions/4295386/how-can-i-check-if-a-value-is-a-json-object
 
 var SocialBar = require('./globals/modules/SocialBar'),
-    //SubNav = require('./globals/modules/SubNav'),
     Helper = require('./globals/modules/Helper'),
-    //Client = require('node-rest-client').Client,
     Emails = require('../_data/email-dummy-data/emails.json');
 
 (function () {
 
     'use strict';
-    var subscribeLink = document.getElementsByClassName('sub-link'),
-        clearDiv = document.getElementById('clear-div'),
-        clearBtn = document.getElementById('clear-btn'),
-        // I don't believe that this is necessary for the sake of this file
-        //href = window.location.href,
-        // I don't believe that this is necessary for the sake of this file
-
-        //unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
-        //subnav = document.getElementsByTagName('nav')[0],
+    var subnav = document.getElementsByTagName('nav')[0],
+        subscribeLink = document.getElementsByClassName('sub-link'),
+        unsub = document.querySelector('.stand-to .focus'),
+        hash = window.location.hash,
+        unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
         i;
 
@@ -28,23 +22,21 @@ var SocialBar = require('./globals/modules/SocialBar'),
     // ----------------------------------------------------------------------
     SocialBar.initWaypoint(socialbarwaypoint);
 
-    // I don't believe that this is necessary for the sake of this file
-    //Display Unsubscribe box:
-    // if (subnav) {
-    //     if (unsubDiv && href === '#unsubscribe') {
-    //         Helper.removeClass(unsubDiv, 'hidden');
-    //         new SubNav(subnav,
-    //             function () {
-    //                 Helper.addClass(unsubDiv, 'hidden');
-    //                 setResultText(false, '');
-    //             },
-    //             { initializeEmpty: true }
-    //         );
-    //     } else {
-    //         new SubNav(subnav);
-    //     }
-    // }
-    // I don't believe that this is necessary for the sake of this file
+    if (subnav) {
+        if (unsubDiv && hash === '#unsubscribe') {
+            Helper.removeClass(unsubDiv, 'hidden');
+            Helper.addClass(unsub, 'hidden')
+            // new SubNav(subnav,
+            //     function () {
+            //         Helper.addClass(unsubDiv, 'hidden');
+            //         setResultText(false, '');
+            //     },
+            //     { initializeEmpty: true }
+            // );
+        // } else {
+        //     new SubNav(subnav);
+        }
+    }
 
     // ----------------------------------------------------------------------
     // Subscribe/Unsubscribe

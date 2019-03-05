@@ -1,0 +1,15 @@
+{% if site.data.standto.todays-focus.quote != null %}
+
+  <div class="quote">
+    <div class="container">
+        <div class="inner-container">
+            @if ($hasBlockquote)
+            {!! $quote !!}
+            @else
+            <blockquote>{!! $quote !!}</blockquote>
+            @endif
+        </div>
+    </div>
+  </div>
+
+{% endif %}

@@ -206,10 +206,10 @@ nav {
 }
 
 // // DOM elements the menu open/closes
-// .subnav-selectable {
-//   display: none;
+.subnav-selectable {
+  display: none;
 
-//   &.subnav-selected {
-//     display: block;
-//   }
-// }
+  &.subnav-selected {
+    display: block;
+  }
+}
