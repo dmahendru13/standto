@@ -1,6 +1,6 @@
 // https://stackoverflow.com/questions/51906675/pure-js-json-parsing-with-many-objects-from-local-json-file
 
-//https://stackoverflow.com/questions/4295386/how-can-i-check-if-a-value-is-a-json-object
+// https://stackoverflow.com/questions/4295386/how-can-i-check-if-a-value-is-a-json-object
 
 var SocialBar = require('./globals/modules/SocialBar'),
     Helper = require('./globals/modules/Helper'),
@@ -25,16 +25,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
     if (subnav) {
         if (unsubDiv && hash === '#unsubscribe') {
             Helper.removeClass(unsubDiv, 'hidden');
-            Helper.addClass(unsub, 'hidden')
-            // new SubNav(subnav,
-            //     function () {
-            //         Helper.addClass(unsubDiv, 'hidden');
-            //         setResultText(false, '');
-            //     },
-            //     { initializeEmpty: true }
-            // );
-        // } else {
-        //     new SubNav(subnav);
+            Helper.addClass(unsub, 'hidden');
         }
     }
 
@@ -56,12 +47,12 @@ var SocialBar = require('./globals/modules/SocialBar'),
     * @param {int} index
     * @param {bool} unsub
     */
-    function getEmailValue(index) {
+    function getEmailValue(index, unsub) {
         var emailInput = document.getElementsByClassName('email-input');
 
         if (emailInput.length > index) {
             setResultText(index, '...');
-            getSubResponse(index, emailInput[index].value);
+            getSubResponse(index, emailInput[index].value, unsub);
         }
     }
 
@@ -70,8 +61,10 @@ var SocialBar = require('./globals/modules/SocialBar'),
     * @param {str} emailAdd
     * @param {bool} unsub
     */
-    function getSubResponse(index, emailAdd) {
-        var response = Emails;
+    function getSubResponse(index, emailAdd, unsub) {
+        var response = Emails,
+            subText = (unsub) ? 'unsubscribe' : 'subscribe';
+
         //https://stackoverflow.com/questions/6384421/check-whether-a-value-exists-in-json-object
         if (emailAdd === '') {
             setResultText(index, 'Please enter a valid email.');
@@ -81,28 +74,37 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 var data = response[i];
                 if (data.email == emailAdd) {
                     hasMatch = true;
-                    processResultData(index, hasMatch, emailAdd);
+                    processResultData(index, hasMatch, emailAdd, subText);
                     break;
                 } else {
-                    processResultData(index, hasMatch, emailAdd);
+                    processResultData(index, hasMatch, emailAdd, subText);
                 }
             }
         }
     }
 
-    function processResultData(index, hasMatch, emailAdd) {
+
+    function processResultData(index, hasMatch, emailAdd, subText) {
         var good = false,
             resultText = '';
         if (emailAdd == '' || hasMatch == false) {
-            resultText = 'Please enter a valid email.';
+            resultText = 'You were unable to ' + subText + ' Please enter a valid email.';
         } else if (emailAdd != '' || hasMatch == true) {
             resultText = 'The email you submitted:<br />' + '<span class="email-span">' + emailAdd + '</span>' + '<br /> is already subscribed to receive the Stand-To! email.';
             good = true;
+
+            // LEFT OFF HERE // SO THAT I CAN TAKE UP TOMORROW
+            if (subText == 'unsubscribe') {
+                resultText = 'You have been ubsubscribed from receiveing the Army\'s daily focus in <href="https://www.army.mil/standto">STAND-TO!</a>'
+            }
+
         } else {
-            resultText = '<span class="fail">You were unable to subscribe. Please try again.</span>';
+            resultText = '<span class="fail">You were unable to ' + subText + ' subscribe. Please try again.</span>';
         }
         setResultText(index, resultText, good);
     }
+
+    
 
     function setResultText(index, result, good) {
         var i,
@@ -125,27 +127,8 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 }
             }
         }
-        // if ((subResults[0].classList.contains('good')) == false) {
-        //     Helper.removeClass(clearDiv, 'hidden');
-        // }
     }
 
-    // function reset() {
-    //     var subResults = document.getElementsByClassName('sub-results')[0],
-    //         input = document.getElementById('email1');
-    //     subResults.innerHTML = '';
-    //     input.value = '';
-    //     Helper.addClass(clearDiv, 'hidden');
-    //     Helper.removeClass(subResults, 'good');
-
-    // }
-
-    // clearBtn.onclick = function () {
-    //     var input = document.getElementById('email1');
-    //     if (input.value != '') {
-    //         reset();
-    //     }
-    // }
     /**
     * Receives data from request and generates appropriate response
     * @param {obj} data

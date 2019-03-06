@@ -1,32 +1,32 @@
 <div class="events top-stories">
 
   <h4>Events</h4>
-  {% if site.data.standto.todays-focus.events %}
+  {%- if site.data.standto.todays-focus.events -%}
 
-    {% for c in site.data.standto.todays-focus.events %}
+    {%- for c in site.data.standto.todays-focus.events -%}
     
-      {% if c.section %}
+      {%- if c.section -%}
 
-        {% for item in c.section %}
+        {%- for item in c.section -%}
             
           <p><strong>{{ item.date}}</strong></p>
 
-          {% if item.content != null %}
+          {%- if item.content != null -%}
 
-            {% for a in item.content %}
+            {%- for a in item.content -%}
               
               <p>{{ a.subcontent }} &ndash; Visit <a href="{{ a.url }}">{{ a.title }}</a></p>
 
-            {% endfor %}
+            {%- endfor -%}
 
-          {% endif %}
+          {%- endif -%}
 
-        {% endfor %}
+        {%- endfor -%}
         
-      {% endif %}
+      {%- endif -%}
         
-    {% endfor %}
+    {%- endfor -%}
 
-  {% endif %}
+  {%- endif -%}
       
 </div>

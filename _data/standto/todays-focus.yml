@@ -8,6 +8,7 @@ subtitle: Provided by Program Executive Office Command, Control, Communications-
 
 date: Thursday, February 28, 2019
 
+# Body content to be added to the left column
 body:
   - heading: What is it?
   - paragraph: Expeditionary Signal Battalions (ESB) enable the U.S. Army with uninterrupted mission command and the ability to rapidly deploy and maneuver across the battlefield. 
@@ -28,6 +29,7 @@ body:
   - paragraph: ESB-E will inform Army network design decisions and force structure for future ESBs. This effort will help shape future equipment needs and the force structure of the Army's 24 ESBs. 
   - paragraph: The ESB-E effort supports the Army's tactical network modernization line of effort to unify the network by providing assured network transport in congested environments.   The ESB-E's tactical network communications support will enable a more lethal, mobile, and hardened joint and coalition force, helping the Army retain overmatch against increasingly capable adversaries.
 
+# Resources to be added below the left column
 links:
   - section: 
     - section-title: Resources
@@ -65,6 +67,9 @@ links:
       - title: Army pilots new signal battalion for scalable expeditionary comms support (ESB-E)
         url: https://www.army.mil/article/212220/
 
+# Quote content to be added before the 
+
+# Events to be added to the right column
 events:
   - section:
       - date: FEBRUARY 2019
