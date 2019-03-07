@@ -1,7 +1,7 @@
 //alert('archive-js is connected and live');
 
-var Helper = require('./globals/modules/Helper'),
-    Archive = require('../_data/networks/2-archive.json');
+var Helper = require('./globals/modules/Helper');
+    //Archive = require('../_data/networks/2-archive.json');
 
 (function () {
     'use strict';

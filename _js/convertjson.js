@@ -1,107 +1,63 @@
-/**
- * this file not actually used on page
- * only used as a script to format the json from https://api.army.mil/api/v1/social/networks
- * into a readable format
- * which will then be split into separate files based on groupings
- * 
- * to use it, you'll need to include the script in the html and in Gruntfile.js
- */
+// https://github.com/christian-fei/Simple-Jekyll-Search
 
-/*global $*/
+//https://stackoverflow.com/questions/9703117/variable-in-json-path
 
-// http://stackoverflow.com/a/21776652/6071953
-function groupBy(collection, property) {
-    var i = 0, val, index,
-        values = [], result = [];
-    for (; i < collection.length; i++) {
-        val = collection[i][property];
-        index = values.indexOf(val);
-        if (index > -1)
-            result[index].push(collection[i]);
-        else {
-            values.push(val);
-            result.push([collection[i]]);
-        }
+//https://github.com/facebook/react-native/issues/6391
+
+var Data = require('url');
+
+(function () {
+  var link = document.querySelector(".article-link");
+
+  // create variable to pull in different data files
+  (function printUrl() {
+    var urlBase = './_data/archive/',
+      base = '-date.json',
+      year = ['year'],
+      month = ['month'],
+      num = 1,
+      i = 1;
+
+    for (i = 1; i <= 31; i++) {
+      //var num = 1;
+      if (base) {
+        var url = num + base;
+      }
+      num++;
+      url = urlBase + year[0] + "/" + month[0] + "/" + url;
+      console.log(url);
     }
-    return result;
-}
+    return url;
+  })();
 
-var data = []; // global data array
+  console.log(Data);
 
-/**
- * for this part you'll need a json file called social.json
- * in the main folder of the project
- * that contains data from https://api.army.mil/api/v1/social/networks
- */
-$.ajax({
-    url: 'http://127.0.0.1:4000/social.json',
-    type: 'get',
-    dataType: 'json',
-    success: function(res) {
-        // group by category first - "Leaders", "Installations" etc.
-        var results = groupBy(res, "category");
+  // LEFT OFF HERE 
+  // LEFT OFF HERE 
+  // LEFT OFF HERE 
+  // LEFT OFF HERE 
+  for (var i = 0; i < link.length; i++) {
+    var dataId = link[i].getAttribute('data-id');
+    link.onclick = function () {
+      alert(dataId);
+    };
+  }
+  // link.onclick = function () {
+  //   var e = this.getAttribute('href');
+  //   e
+  //   //window.location = ""
+  //   window.location.href = 'http://stackoverflow.com';
+  //redirectUrl(e);
+  // jekyll dynamic sites:
+  // --https://medium.com/tmw-interactive/creating-dynamic-layouts-with-jekyll-3bbb7fc57d1f
+  //    --https://dev.to/mrmartineau/creating-dynamic-layouts-with-jekyll
 
-        // then sort, group by title and add objects to data array
-        for (var i = 0; i < results.length; i++) {
-            results[i] = sortData(results[i]);
-            data.push(groupBy(results[i], "title"));
-        }
-    },
-    error: function() {},
-    complete: function() {
-        convert();
-    }
-});
+  //alert(e);
 
-function sortData(arr) {
-    var sortable = [];
+  // };
 
-    for (var key in arr) {
-        if (arr.hasOwnProperty(key)) sortable.push(arr[key]);
-    }
+  // function redirectUrl(e) {
+  //   alert(e);
+  // }
 
-    sortable.sort(function(a,b) {
-        var x=a.title.toLowerCase(),
-            y=b.title.toLowerCase();
-        return x<y ? -1 : x>y ? 1 : 0;
-    });
-
-    return sortable;
-}
-
-function convert() {
-    var newObj = {};
-
-    // loops :dizzy:
-    for (var i = 0; i < data.length; i++) {
-
-        newObj[i] = [];
-
-        for (var j = 0; j < data[i].length; j++) {
-
-            newObj[i].push({
-                'title': data[i][j][0].title,
-                'networks': []
-            });
-
-            for (var k = 0; k < data[i][j].length; k++) {
-                newObj[i][j].networks.push({
-                    'name': data[i][j][k].network,
-                    'link': data[i][j][k].link
-                });
-            }
-
-        }
-
-        // JSON stringify everything to console so we can copy/paste to new files in data folder
-        console.log('****************************************************************');
-        console.log(JSON.stringify(newObj[i]));
-        console.log('****************************************************************');
-    }
-
-    // console.log('****************************************************************');
-    // console.log(newObj);
-    // console.log('****************************************************************');
-}
-
-
+})();

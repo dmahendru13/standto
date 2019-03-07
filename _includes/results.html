@@ -6,10 +6,13 @@
         {% assign list = data[1] %}
 
         {% for article in data %}
-            <li>
-                <span class="date">{{ article.date }}</span>
-                <a href="/standto/{{ article.id }}">{{ article.title }}</a>
-            </li>
+            {% if article.id %}
+                <li>
+                    <span class="date">{{ article.date }}</span>
+                    <a class="article-link" href="#" data-id="{{ article.id }}">{{ article.title }}</a>
+                    <!-- <a class="article-link" href="/standto/{{ article.id }}">{{ article.title }}</a> -->
+                </li>
+            {% endif %}
         {% endfor %}
     {% endfor %}
 </ul>
