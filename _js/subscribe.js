@@ -71,9 +71,13 @@ var SocialBar = require('./globals/modules/SocialBar'),
             client = new Client(),
             subText = (unsub) ? 'unsubscribe' : 'subscribe',
             Configs = window.Configs || {};
-
+    
+            // This returns the following error:
+            // Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://api.army.mil/api/v1/subscribe?email=ji. (Reason: CORS header ‘Access-Control-Allow-Origin’ does not match ‘https://www.army.mil’).
             Configs.API_DOMAIN = 'https://api.army.mil';
             window.Configs = Configs;
+            // This returns the following error:
+            // Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://api.army.mil/api/v1/subscribe?email=ji. (Reason: CORS header ‘Access-Control-Allow-Origin’ does not match ‘https://www.army.mil’).
 
             apiPath = Configs.API_DOMAIN + '/api/v1/' + subText + '?email=' + emailAdd;
         

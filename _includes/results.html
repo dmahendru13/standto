@@ -1,9 +1,41 @@
 <ul id="archive-results">
-    {% assign sortedlist = list | sort: 'title' %}
-    {% for item in sortedlist %}
-    <li>
-        <span class="date">{{ item.date }}</span>
-        <a href="{{ item.networks[0].link }}">{{ item.title }}</a>
-    </li>
+    {% for data in site.data.archive.year.month %}
+
+        {% assign name = data[0] | slice: 0,2 %}
+        {% assign title = data[0] | replace: name, '' %}
+        {% assign list = data[1] %}
+
+        {% for article in data %}
+            <li>
+                <span class="date">{{ article.date }}</span>
+                <a href="/standto/{{ article.id }}">{{ article.title }}</a>
+            </li>
+        {% endfor %}
     {% endfor %}
 </ul>
+
+
+
+
+<!-- <ul id="archive-results">
+
+    - assign sortedList = list | sort: 'title' -
+    - for item in sortedlist -
+    <li>
+        <span class="date"> item.id </span>
+        <a href=" item.networks[0].link "> item.date </a>
+    </li>
+    - endfor -
+</ul> -->
+
+
+
+<!-- <ul id="archive-results">
+        - assign sortedlist = list | sort: 'title' -
+        - for item in sortedlist -
+        <li>
+            <span class="date"> item.date </span>
+            <a href=" item.networks[0].link "> item.title </a>
+        </li>
+        - endfor -
+    </ul> -->

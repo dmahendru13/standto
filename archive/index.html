@@ -38,15 +38,8 @@ id: archive
                     <h4>No results found!</h4>
                 </div>
                 <div class="headlines">
-                    {% for data in site.data.networks %}
-
-                    {% assign date = data[0] | replace: name, '' %}
-
-                    {% assign list = data[1] %}
 
                     {% include results.html %}
-
-                    {% endfor %}
 
                 </div>
             </div>
