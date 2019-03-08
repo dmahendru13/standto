@@ -4,44 +4,84 @@
 
 //https://github.com/facebook/react-native/issues/6391
 
-var Data = require('url');
+var Data = require('../_data/archive/year/month/18-day.json'),
+    Helper = require('./globals/modules/Helper');
 
 (function () {
-  var link = document.querySelector(".article-link");
+  var link = document.querySelectorAll(".article-link"),
+      content = document.querySelector('div.archive');;
 
   // create variable to pull in different data files
-  (function printUrl() {
-    var urlBase = './_data/archive/',
-      base = '-date.json',
-      year = ['year'],
-      month = ['month'],
-      num = 1,
-      i = 1;
+  //  Add this back to the global variables when done testing.
+  // Data = require('url')
+  // (function printUrl() {
+  //   var urlBase = './_data/archive/',
+  //     base = '-date.json',
+  //     year = ['year'],
+  //     month = ['month'],
+  //     num = 1,
+  //     i = 1;
 
-    for (i = 1; i <= 31; i++) {
-      //var num = 1;
-      if (base) {
-        var url = num + base;
-      }
-      num++;
-      url = urlBase + year[0] + "/" + month[0] + "/" + url;
-      console.log(url);
-    }
-    return url;
-  })();
+  //   for (i = 1; i <= 31; i++) {
+  //     //var num = 1;
+  //     if (base) {
+  //       var url = num + base;
+  //     }
+  //     num++;
+  //     url = urlBase + year[0] + "/" + month[0] + "/" + url;
+  //     // use to test path to DATA FILES console.log(url);
+  //   }
+  //   return url;
+  // })();
 
-  console.log(Data);
+  //Verify that I'm pulling in the data files
+  //console.log(Data);
 
-  // LEFT OFF HERE 
-  // LEFT OFF HERE 
-  // LEFT OFF HERE 
-  // LEFT OFF HERE 
+  // Get the Data Id to pass into the function.
   for (var i = 0; i < link.length; i++) {
-    var dataId = link[i].getAttribute('data-id');
-    link.onclick = function () {
-      alert(dataId);
-    };
+    link[i].getAttribute('data-id');
+    link[i].onclick = function () {
+      // console.log(this.getAttribute('data-id'));
+      checkArchives(this.getAttribute('data-id'));
+    }
+
   }
+
+  // check the archive directories to see if the data id produces a match.
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+  function checkArchives(index) {
+    //console.log(index);
+    // console.log(typeof index);
+    // console.log(Data);
+    if ((Data.hasOwnProperty("id")) == true) {
+      if (Data.id == index) {
+        console.log(Data.id);
+        console.log("great success");
+        
+        displayArchive();
+        
+      } else {
+        console.log('you clicked this: ' + index);
+        //location.reload(true);
+        //console.log(false);
+      }
+    }
+  }
+
+  function displayArchive() {
+    window.location.href = "/standto/"; 
+  }
+
+  // link.onclick = function (link) {
+  //   if(this.href) {
+  //     link.preventDefault();
+  //     return false;
+  //   } else {
+  //     var newLink = this.getAttribute('href');
+  //     newLink.setAttribute('href', linkId);
+  //     console.log(newLink);
+  //   }
+  // }
   // link.onclick = function () {
   //   var e = this.getAttribute('href');
   //   e

@@ -17,4 +17,3 @@ jekyll-minifier:
   exclude: ['*.html','*.css','*.scss']
 
 title: StandTo
-
