@@ -1,3 +1,4 @@
+
 // https://github.com/christian-fei/Simple-Jekyll-Search
 
 //https://stackoverflow.com/questions/9703117/variable-in-json-path
@@ -5,11 +6,26 @@
 //https://github.com/facebook/react-native/issues/6391
 
 var Data = require('../_data/archive/year/month/18-day.json'),
-    Helper = require('./globals/modules/Helper');
+  Helper = require('./globals/modules/Helper');
 
-(function () {
+function selectFunction() {
+  if (window.location.href === 'http://localhost:4000/standto/') {
+    standto(Data);
+} else if (window.location.href === 'http://localhost:4000/archive/') {
+    archive();
+    
+    console.log(window.location.href);
+
+  } else {
+    console.log(window.location.href + " failure");
+  }
+}
+
+selectFunction();
+
+function archive() {
   var link = document.querySelectorAll(".article-link"),
-      content = document.querySelector('div.archive');;
+    content = document.querySelector('div.archive');
 
   // create variable to pull in different data files
   //  Add this back to the global variables when done testing.
@@ -41,63 +57,56 @@ var Data = require('../_data/archive/year/month/18-day.json'),
   for (var i = 0; i < link.length; i++) {
     link[i].getAttribute('data-id');
     link[i].onclick = function () {
-      // console.log(this.getAttribute('data-id'));
+
       checkArchives(this.getAttribute('data-id'));
     }
 
   }
 
-  // check the archive directories to see if the data id produces a match.
+  // check the _data/archive directories to see if the data id produces a match.
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
   function checkArchives(index) {
-    //console.log(index);
-    // console.log(typeof index);
-    // console.log(Data);
+
     if ((Data.hasOwnProperty("id")) == true) {
+
       if (Data.id == index) {
-        console.log(Data.id);
-        console.log("great success");
-        
-        displayArchive();
-        
+        console.log(Data);
+        alert(Data.id);
+        //alert(Data.id);
+
+        return Data;
+
       } else {
         console.log('you clicked this: ' + index);
-        //location.reload(true);
-        //console.log(false);
       }
     }
   }
 
-  function displayArchive() {
-    window.location.href = "/standto/"; 
-  }
+  // function printData(Data) {
+  //   //console.log(Data);
+  //   console.log(window.location.href);
+  //   var archiveContent = Data;
 
-  // link.onclick = function (link) {
-  //   if(this.href) {
-  //     link.preventDefault();
-  //     return false;
-  //   } else {
-  //     var newLink = this.getAttribute('href');
-  //     newLink.setAttribute('href', linkId);
-  //     console.log(newLink);
-  //   }
-  // }
-  // link.onclick = function () {
-  //   var e = this.getAttribute('href');
-  //   e
-  //   //window.location = ""
-  //   window.location.href = 'http://stackoverflow.com';
-  //redirectUrl(e);
-  // jekyll dynamic sites:
-  // --https://medium.com/tmw-interactive/creating-dynamic-layouts-with-jekyll-3bbb7fc57d1f
-  //    --https://dev.to/mrmartineau/creating-dynamic-layouts-with-jekyll
+  //   var print = document.getElementById("archive-content");
+  //   print.innerHTML = archiveContent.title;
 
-  //alert(e);
-
-  // };
-
-  // function redirectUrl(e) {
-  //   alert(e);
+  //   console.log(archiveContent.title);
   // }
 
-})();
+}
+
+function standto(Data) {
+    console.log(Data);
+
+    var print = document.getElementById("archive-content");
+
+    print.innerHTML = Data.title;
+    // if (window.location.href == 'http://localhost:4000/standto/') {
+    //   console.log(window.location.href)
+    // } else {
+    //   console.log(window.location.href);
+    // }
+}
+
+
+
