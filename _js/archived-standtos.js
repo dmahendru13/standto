@@ -1,16 +1,17 @@
-
 // https://github.com/christian-fei/Simple-Jekyll-Search
 
 //https://stackoverflow.com/questions/9703117/variable-in-json-path
 
 //https://github.com/facebook/react-native/issues/6391
 
-var Data = require('../_data/archive/year/month/18-day.json'),
+var modules = require('./archive-modules'),
   Helper = require('./globals/modules/Helper');
+
+console.log(modules);
 
 function selectFunction() {
   if (window.location.href === 'http://localhost:4000/standto/') {
-    standto(Data);
+    standto(modules);
 } else if (window.location.href === 'http://localhost:4000/archive/') {
     archive();
     
@@ -67,14 +68,14 @@ function archive() {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
   function checkArchives(index) {
 
-    if ((Data.hasOwnProperty("id")) == true) {
+    if ((modules.hasOwnProperty("id")) == true) {
 
-      if (Data.id == index) {
-        console.log(Data);
-        alert(Data.id);
-        //alert(Data.id);
+      if (modules.id == index) {
+        console.log(modules);
+        alert(modules.id);
+        //alert(modules.id);
 
-        return Data;
+        return modules;
 
       } else {
         console.log('you clicked this: ' + index);
@@ -95,18 +96,15 @@ function archive() {
 
 }
 
-function standto(Data) {
-    console.log(Data);
+function standto(modules) {
+    console.log(modules);
 
     var print = document.getElementById("archive-content");
 
-    print.innerHTML = Data.title;
+    print.innerHTML = modules.title;
     // if (window.location.href == 'http://localhost:4000/standto/') {
     //   console.log(window.location.href)
     // } else {
     //   console.log(window.location.href);
     // }
 }
-
-
-
