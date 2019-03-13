@@ -7,9 +7,9 @@
 // // modules.a.title();
 
 module.exports = {
-    a : require('../_data/archive/year/month/day_22.json'),
-    b : require('../_data/archive/year/month/day_23.json'),
-    c : require('../_data/archive/year/month/day_24.json'),
-    d : require('../_data/archive/year/month/day_25.json'),
-    e : require('../_data/archive/year/month/day_18.json')
+    0 : require('../_data/archive/year/month/day_22.json'),
+    1 : require('../_data/archive/year/month/day_23.json'),
+    2 : require('../_data/archive/year/month/day_24.json'),
+    3 : require('../_data/archive/year/month/day_25.json'),
+    4 : require('../_data/archive/year/month/day_18.json')
 }
