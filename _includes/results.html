@@ -8,7 +8,23 @@
         {% for article in data %}
             {% if article.id %}
                 <li>
-                    <span class="date">{{ article.date }}</span>
+                    <span class="date">
+                            {% assign d = article.date | date: "%-d" %} 
+                            {% assign m = article.date | date: "%B" %} 
+                            
+                            {% case m %}
+                              {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
+                              {% when 'September' %}Sept.
+                              {% else %}{{ article.date | date: "%b" }}.
+                              {% endcase %}
+                            {% case d %}
+                              {% when '1' or '21' or '31' %}{{ d }}
+                              {% when '2' or '22' %}{{ d }}
+                              {% when '3' or '23' %}{{ d }}
+                              {% else %}{{ d }}
+                              {% endcase %}, 
+                        {{ article.date | date: "%Y" }}
+                    </span>
                     <a class="article-link" href="/standto/" data-id="{{ article.id }}">{{ article.title }}</a>
                     <!-- <a class="article-link" href="/standto/{{ article.id }}">{{ article.title }}</a> -->
                 </li>

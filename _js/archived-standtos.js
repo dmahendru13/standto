@@ -1,12 +1,25 @@
+// Google search: jekyll generate pages from data
+
+//// https://stackoverflow.com/questions/41772360/create-a-page-for-every-data-file
+
+
+
+
+
+
+
+
+
+
+
+
 // check the _data/archive directories to see if the data id produces a match.
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
 // GLOBAL VARIABLES
-var Modules = require("./archive-Modules"),
+var data, dataId, index, 
   newObj = {},
-  data,
-  dataId,
-  index;
+  Modules = require("./archive-Modules");
 // GLOBAL VARIABLES
 
 // LAST WORKING CONFIGURATION
@@ -35,7 +48,7 @@ var Modules = require("./archive-Modules"),
         dataId = this.getAttribute('data-id');
 
         // Store the id of the clicked article in localStorage so that it can be accessed in /standto/
-        localStorage.setItem("storageName", dataId);
+        localStorage.setItem("data-id", dataId);
 
       }
 
@@ -52,17 +65,16 @@ var Modules = require("./archive-Modules"),
 
   if (window.location.pathname === "/standto/") {
     // Verify that the page is pulling in the article id from localStorage
-    document.onload = console.log(localStorage.getItem("storageName"));
+    document.onload = console.log(localStorage.getItem("data-id"));
     // assign the id to a variable to be used on /standto/
-    index = localStorage.getItem("storageName");
-
+    index = localStorage.getItem("data-id");
     function standto(index) {
       history.pushState(index, "page 2", index);
       data = checkArchives(index);
 
-      var archiveTitle = document.querySelector("#archive-content h1");
-      var archiveDate = document.querySelector("#archive-content .small .date");
-      var archiveBody = document.querySelector("#archive-content .archive-body");
+      var archiveTitle = document.querySelector(".archive-content h1");
+      var archiveDate = document.querySelector(".archive-content .small .date");
+      var archiveBody = document.querySelector(".archive-content .archive-body");
 
       archiveTitle.innerHTML = data.title;
       archiveDate.innerHTML = data.date;
@@ -95,7 +107,7 @@ var Modules = require("./archive-Modules"),
     }
     standto(index);
   } else {
-    alert(window.location.href);
+    console.log(window.location.href);
   }
 
 })();
