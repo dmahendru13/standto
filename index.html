@@ -8,15 +8,20 @@ active: standto
 id: standto
 
 ---
-{% for staff_member in site.archived_standtos %}
-  <h2>
-    <a href="{{ staff_member.url }}">
-      {{ staff_member.name }} - {{ staff_member.position }}
-      <p>updated</p>
-    </a>
-  </h2>
-  <p>{{ staff_member.content | markdownify }}</p>
-{% endfor %}
+
+<div class="container">
+    <div class="inner-container">
+        {% for staff_member in site.archived_standtos %}
+        <h2>
+          <a href="{{ staff_member.url }}">
+            {{ staff_member.name }} - {{ staff_member.position }}
+            <p>updated</p>
+          </a>
+        </h2>
+      {% endfor %}
+      
+    </div>
+</div>
 
 
 <div class="stand-to">
@@ -25,18 +30,18 @@ id: standto
         <div class="container">
 
             <div class="inner-contianer">
-                <div class="standto">
+                
                     <h1>{{ site.data.standto.todays-focus.title }}</h1>
                     <p class="small">
                         <span class="st-byline">{{ site.data.standto.todays-focus.subtitle }}</span>
                         <span class="date">{{ site.data.standto.todays-focus.date }}</span>
                     </p>
-                </div>
+                
                 {% include alt-social.html %}
                 <div class="body two-column-body">
                     <div class="left-column">
 
-                        <div class="standto">{% include standto-body.html %}</div>
+                        {% include standto-body.html %}
 
                         {% include standto-links.html %}
 

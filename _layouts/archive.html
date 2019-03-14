@@ -33,7 +33,27 @@
         {% include nav.html %}
         {% endif %}
 
-        {{ content }}
+        <div class="stand-to archived">
+            <div class="focus subnav-selectable subnav-selected">
+        
+                <div class="container">
+        
+                    {{ content }}
+                    
+                </div>
+        
+                {% include quote.html %}
+        
+        
+            </div>
+            <div class="container unsubscribe-div hidden">
+                <div class="inner-container">
+        
+                    {% include sub-box.html email_id='email' unsubscribe="true" %}
+        
+                </div>
+            </div>
+        </div>
 
         {% if page.active != 'error' %}
     </div>
