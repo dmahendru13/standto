@@ -3,10 +3,10 @@
 layout: archive
 year: Eighteen
 month: October
-file: day_18
-permalink: "2018_03_18"
-date: Thursday, October 18, 2018
-title: "2018 Workplace and Gender Relations Survey of Active Duty Members"
+file: day_22
+permalink: "2018_03_22"
+date: Monday, October 22, 2018
+title: "Army Ground Mobility Vehicles Program"
 
 ---
 <!-- https://stackoverflow.com/questions/40598976/access-json-lumps-in-metafields-with-shopify-liquid-templates -->
@@ -47,7 +47,7 @@ title: "2018 Workplace and Gender Relations Survey of Active Duty Members"
                 <div class="body two-column-body">
                     <div class="left-column">
             
-                        <p>{{ content.body }}</p>
+                        <p>{{ content.body | remove: "#######" | replace: "**", " REPLACED ASTERICKS " }}</p>
             
                         {% include standto-links.html %}
             
