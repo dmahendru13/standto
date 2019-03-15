@@ -34,7 +34,7 @@
                 <div class="body two-column-body">
                     <div class="left-column archived-standto">
                         
-                        {{ content.body }}
+                        <p>{{ content.body | replace: " **", "</p><p><strong>" | replace: "** ", "</strong></p><p>" }}</p>
             
                         <!-- 1 include standto-links.html 2 -->
             
