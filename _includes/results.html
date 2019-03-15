@@ -20,7 +20,8 @@
             {{ archive.date | date: "%Y" }}
 
             </span>
-            <a class="article-link" href="{{ archive.url }}">{{ archive.title }}</a>
+            <!-- Should work on aws but not necessarily on local -->
+            <a class="article-link" href="{{ site.baseurl }}/standto{{ archive.url }}">{{ archive.title }}</a>
         </li>
         <p class="hidden">testing</p>
         {% endfor %}
