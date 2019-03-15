@@ -9,21 +9,6 @@ id: standto
 
 ---
 
-<div class="container">
-    <div class="inner-container">
-        {% for staff_member in site.archived_standtos %}
-        <h2>
-          <a href="{{ staff_member.url }}">
-            {{ staff_member.name }} - {{ staff_member.position }}
-            <p>updated</p>
-          </a>
-        </h2>
-      {% endfor %}
-      
-    </div>
-</div>
-
-
 <div class="stand-to">
     <div class="focus subnav-selectable subnav-selected">
 

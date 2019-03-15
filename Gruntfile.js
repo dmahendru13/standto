@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     var configs = '_js/globals/configs/production.js',
         i = 0,
@@ -79,28 +79,6 @@ module.exports = function(grunt) {
                 },
                 src: './_site/archive/index.html',
                 dest: './_site/archive/index.html'
-            },
-            standto: {
-                options: {
-                    inline: true,
-                    minify: true,
-                    base: './',
-                    css: [
-                        '_site/e2/css/rv7/standto/style.css'
-                    ],
-                    dimensions: [{
-                        height: 768,
-                        width: 1366
-                    }, {
-                        height: 640,
-                        width: 360
-                    }, {
-                        height: 568,
-                        width: 320
-                    }]
-                },
-                src: './_site/standto/index.html',
-                dest: './_site/standto/index.html'
             }
         },
         browserify: {
@@ -114,7 +92,7 @@ module.exports = function(grunt) {
             },
             social: {
                 files: {
-                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/archived-standtos.js', '_js/archive-filter.js', '_js/archive-modules.js', '_js/globals/modules/SocialBar.js',  '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js' ]
+                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/archive.js', '_js/globals/modules/SocialBar.js', '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js']
                 },
                 options: {
                     transform: ['babelify'],
@@ -133,13 +111,21 @@ module.exports = function(grunt) {
                 beautify: true
             },
             build: {
-                files: [{
-                    src: [
-                        '_js/bundled/header.js',
-                        '_js/bundled/standto.js'
-                    ],
-                    dest: 'e2/js/rv7/standto/<%= pkg.name %>.min.js'
-                }]
+                files: [
+                    {
+                        src: [
+                            '_js/bundled/header.js',
+                            '_js/bundled/standto.js'
+                        ],
+                        dest: 'e2/js/rv7/standto/<%= pkg.name %>.min.js'
+                    },
+                    {
+                        src: [
+                            '_js/archive-standto.js'
+                        ],
+                        dest: 'e2/js/rv7/standto/<%= pkg.name %>-archive.min.js'
+                    }
+                ]
             }
         },
         usebanner: {

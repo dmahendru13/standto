@@ -1,60 +1,26 @@
 <ul id="archive-results">
-    {% for data in site.data.archive.year.month %}
-
-        {% assign name = data[0] | slice: 0,2 %}
-        {% assign title = data[0] | replace: name, '' %}
-        {% assign list = data[1] %}
-
-        {% for article in data %}
-            {% if article.id %}
-                <li>
-                    <span class="date">
-                            {% assign d = article.date | date: "%-d" %} 
-                            {% assign m = article.date | date: "%B" %} 
-                            
-                            {% case m %}
-                              {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
-                              {% when 'September' %}Sept.
-                              {% else %}{{ article.date | date: "%b" }}.
-                              {% endcase %}
-                            {% case d %}
-                              {% when '1' or '21' or '31' %}{{ d }}
-                              {% when '2' or '22' %}{{ d }}
-                              {% when '3' or '23' %}{{ d }}
-                              {% else %}{{ d }}
-                              {% endcase %}, 
-                        {{ article.date | date: "%Y" }}
-                    </span>
-                    <a class="article-link" href="/standto/" data-id="{{ article.id }}">{{ article.title }}</a>
-                    <!-- <a class="article-link" href="/standto/{{ article.id }}">{{ article.title }}</a> -->
-                </li>
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-</ul>
-
-
-
-
-<!-- <ul id="archive-results">
-
-    - assign sortedList = list | sort: 'title' -
-    - for item in sortedlist -
-    <li>
-        <span class="date"> item.id </span>
-        <a href=" item.networks[0].link "> item.date </a>
-    </li>
-    - endfor -
-</ul> -->
-
-
-
-<!-- <ul id="archive-results">
-        - assign sortedlist = list | sort: 'title' -
-        - for item in sortedlist -
+        {% for archive in site.archived_standtos %}
         <li>
-            <span class="date"> item.date </span>
-            <a href=" item.networks[0].link "> item.title </a>
+            <h2></h2>
+            <span class="date">
+                {% assign d = archive.date | date: "%-d" %} 
+                {% assign m = archive.date | date: "%B" %} 
+                
+                {% case m %}
+                    {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
+                    {% when 'September' %}Sept.
+                    {% else %}{{ archive.date | date: "%b" }}.
+                    {% endcase %}
+                {% case d %}
+                    {% when '1' or '21' or '31' %}{{ d }}
+                    {% when '2' or '22' %}{{ d }}
+                    {% when '3' or '23' %}{{ d }}
+                    {% else %}{{ d }}
+                    {% endcase %}, 
+            {{ archive.date | date: "%Y" }}
+
+            </span>
+            <a class="article-link" href="{{ archive.url }}">{{ archive.title }}</a>
         </li>
-        - endfor -
-    </ul> -->
+        {% endfor %}
+    </ul>

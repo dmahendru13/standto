@@ -38,34 +38,8 @@ id: archive
                     <h4>No results found!</h4>
                 </div>
                 <div class="headlines">
-
-                    <ul>
-                        {% for archive in site.archived_standtos %}
-                        <li>
-                            <h2></h2>
-                            <span class="date">
-                                {% assign d = archive.date | date: "%-d" %} 
-                                {% assign m = archive.date | date: "%B" %} 
-                                
-                                {% case m %}
-                                    {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
-                                    {% when 'September' %}Sept.
-                                    {% else %}{{ archive.date | date: "%b" }}.
-                                    {% endcase %}
-                                {% case d %}
-                                    {% when '1' or '21' or '31' %}{{ d }}
-                                    {% when '2' or '22' %}{{ d }}
-                                    {% when '3' or '23' %}{{ d }}
-                                    {% else %}{{ d }}
-                                    {% endcase %}, 
-                            {{ archive.date | date: "%Y" }}
-
-                            </span>
-                            <a class="article-link" href="{{ archive.url }}">{{ archive.title }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    <!-- _ include results.html _ -->
+                    
+                    {% include results.html %}
 
                 </div>
             </div>
