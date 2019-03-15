@@ -18,3 +18,24 @@ jekyll-minifier:
 
 title: StandTo
 
+# testing to see if this works for pulling in data from _data.
+# https://stackoverflow.com/questions/41714029/jekyll-generate-pages-for-items-in-a-collection-similar-to-posts
+# https://jekyllrb.com/docs/collections/
+# https://ben.balter.com/2015/02/20/jekyll-collections/
+# https://alligator.io/jekyll/collections/
+
+#  TOMORROW LOOK OVER THESE FILES:
+# https://mademistakes.com/articles/using-jekyll-2017/
+# https://github.com/jekyll/jekyll/issues/2983
+#  TOMORROW LOOK OVER THESE FILES:
+
+# https://jekyllrb.com/docs/permalinks/#global
+# See if the above page can provide insight as to how I might change the url of a page based off of the json document that's populating it. That is, if it is possible to use one file to pull in many different json files (for example, one page for each month then within that month, display content based off of info fed into that page.)
+
+collections:
+  archived_standtos:
+    output: true
+    permalink: /:year/:month/:id
+
+
+# http://assemble.io/docs/YAML-front-matter.html

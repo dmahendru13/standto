@@ -1,3 +1,9 @@
+<!-- https://blog.webjeda.com/jekyll-subscribe-form/ -->
+
+<!-- RSS Feed for Jekyll Site: https://joelglovier.com/writing/rss-for-jekyll -->
+
+<!-- https://blog.webjeda.com/jekyll-subscribe-form/ -->
+
 <div class="sub-box">
     {% if include.unsubscribe %}
     <p>Unsubscribe to STAND-TO!</p>
@@ -8,7 +14,6 @@
     <p>Subscribe to STAND-TO! to learn about the U.S. Army initiatives.</p>
     {% endif %}
     <p class="sub-results"></p>
-    <!-- <p id="success"></p> -->
     <div class="subscribe">
         <label for="{{ include.email_id }}">Email</label>
         <input id="{{ include.email_id }}" class="email-input" type="text" name="email">
@@ -21,13 +26,10 @@
                 <input class="sub-link" type="button" value="{{ 'Subscribe' }}">
                 {% endif %}
             </div>
-            <div id="clear-div" class="hidden">
-                <input id="clear-btn" class="sub-link" type="button" value="Clear">
-            </div>
         </div>
     </div>
 </div>
 <!-- https://stackoverflow.com/questions/17976064/using-or-in-liquid-for-optional-template-variable -->
-{% if unsubscribe %}
+{% if include.unsubscribe %}
 <p>You may add a new email address to re-subscribe at <a href="https://www.army.mil/standto#about">https://www.army.mil/standto#about</a></p>
 {% endif %}

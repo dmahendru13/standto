@@ -1,7 +1,7 @@
 ---
 
 layout: default
-metaTitle: U.S. Army STAND-TO!
+metaTitle: Archive
 pagetitle: Archive
 description: STAND-TO! provides the official focus of the US Army.
 active: archive
@@ -38,22 +38,11 @@ id: archive
                     <h4>No results found!</h4>
                 </div>
                 <div class="headlines">
-                    {% for data in site.data.networks %}
-
-                    {% assign date = data[0] | replace: name, '' %}
-
-                    {% assign list = data[1] %}
-
+                    
                     {% include results.html %}
-
-                    {% endfor %}
 
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- include side-nav.html  -->
-
-<!-- include globals/top-btn.html  -->

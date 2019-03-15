@@ -1,0 +1,60 @@
+---
+
+layout: archive
+permalink: /standto/
+metaTitle: STAND-TO
+pagetitle: STAND-TO
+description: STAND-TO! provides the official focus of the US Army.
+active: standto/
+id: standto/
+
+---
+
+<!-- Making dynamic pages with local data:
+    https://forum.middlemanapp.com/t/when-making-dynamic-pages-with-local-data-is-it-possible-to-add-dynamic-content-to-the-frontmatter/1231/3
+-->
+
+<!-- https://stackoverflow.com/questions/54222610/using-front-matter-title-as-for-url-permalink -->
+
+<!-- https://gist.github.com/Phlow/bde855633b01c41c51715f0a108d987f -->
+
+<!-- http://talk.jekyllrb.com/t/how-do-you-make-jekyll-execute-liquid-variables-in-front-matter/1638/5 -->
+
+<div class="stand-to">
+  <div class="container">
+    <div class="inner-contianer">
+      <div class="archive-content">
+        <h1></h1>
+        <p class="small">
+          <span class="st-byline"></span>
+          <span class="date"></span>
+        </p>
+      </div>
+      {% include alt-social.html %}
+      <div class="body two-column-body">
+        <div class="left-column">
+          <div class="archive-content">
+
+            <p class="archive-body"></p>
+          </div>
+          {% include standto-links.html %}
+        </div>
+        <div class="right-column">
+
+          {% include sub-box.html email_id="email1" %}
+
+          {% include standto-events.html %}
+
+        </div>
+      </div>
+    </div>
+    {% include quote.html %}
+  </div>
+  <div class="container unsubscribe-div hidden">
+    <div class="inner-container">
+
+      {% include sub-box.html email_id='email' unsubscribe="true" %}
+
+    </div>
+  </div>
+</div>

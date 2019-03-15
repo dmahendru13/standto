@@ -1,115 +1,56 @@
 ---
 
 layout: default
-metaTitle: U.S. Army STAND-TO!
+metaTitle: Expeditionary Signal Battalion - Enhanced
 pagetitle: Meet Your Army
 description: STAND-TO! provides the official focus of the US Army.
 active: standto
 id: standto
 
 ---
+
 <div class="stand-to">
     <div class="focus subnav-selectable subnav-selected">
 
         <div class="container">
 
             <div class="inner-contianer">
+                
+                    <h1>{{ site.data.standto.todays-focus.title }}</h1>
+                    <p class="small">
+                        <span class="st-byline">{{ site.data.standto.todays-focus.subtitle }}</span>
+                        <span class="date">{{ site.data.standto.todays-focus.date }}</span>
+                    </p>
+                
+                {% include alt-social.html %}
+                <div class="body two-column-body">
+                    <div class="left-column">
 
-                <h1>Meet Your Army</h1>
-                <p class="small">
-                    <span class="st-byline">Provided by the Office of the Chief of Public Affairs</span>
-                    <span class="date">Thursday, February 7, 2019</span>
-                </p>
-            </div>
-            {% include alt-social.html %}
-            <div class="body two-column-body">
-                <div class="left-column">
-                    <p><strong>What is it?</strong></p>
+                        {% include standto-body.html %}
 
-                    <p>Meet Your Army is an outreach initiative to connect, inspire and educate the American public to
-                        support and sustain their Army. Through strategically planned engagements, Meet Your Army
-                        builds upon America's trust and confidence in the Army by contributing to the knowledge of and
-                        public support for the Army and the Soldiers.</p>
+                        {% include standto-links.html %}
 
-                    <p>The Office of the Chief of Public Affairs' (OCPA) Outreach Division runs this initiative.</p>
+                    </div>
+                    <div class="right-column">
 
-                    <p><strong>What are the current and past efforts of the Army?</strong></p>
+                        {% include sub-box.html email_id="email1" %}
 
-                    <p>The Army is focused on 22 priority cities throughout the country where the Army can most
-                        effectively tell the Army story. These cities were chosen based upon demographics and the local
-                        populations to support Army accessions.</p>
+                        {% include standto-events.html %}
 
-                    <p>Brigadier and major generals from all three components, Active, Reserve and Guard, are the core
-                        strategic messengers. There are also opportunities for all general officers, senior enlisted
-                        and senior civilians. Meet Your Army planners match strategic messengers to events where their
-                        stories resonate. Other Army outreach assets -- such as bands, color guards, national anthem
-                        singers, parachute demonstration teams, static displays and aerial demonstrations -- are also
-                        used to display the professional Army while projecting a lasting positive image of what it
-                        means to serve the nation as a Soldier.</p>
-
-                    <p>Meet Your Army engagements are coordinated with the following Army commands that are near
-                        priority cities:</p>
-
-                    <ul>
-                        <li>U.S. Army Recruiting Command</li>
-                        <li>U.S. Army Cadet Command</li>
-                        <li>U.S. Army Reserve</li>
-                        <li>U.S. Army National Guard</li>
-                        <li>U.S. Army Corps of Engineers</li>
-                    </ul>
-
-                    <p>The Civilian Aides to the Secretary of the Army (CASA) help set conditions before, during and
-                        after the engagements to sustain awareness.</p>
-
-                    <p><strong>What are the continued efforts planned by the Army?</strong></p>
-
-                    <p>The Meet Your Army program will continue to create new connections and strengthen existing ones.
-                        Meet Your Army will support the Accessions Enterprise by promoting awareness of the Army's
-                        capabilities and functions, and by enhancing the understanding of the Army through outreach
-                        activities in priority cities.</p>
-
-                    <p><strong>Why is this important to the Army?</strong></p>
-
-                    <p>The trust and confidence of the American people forms the cornerstone of the Army. Since 1973,
-                        the Army has transitioned to an all-volunteer force and the percentage of Americans with a
-                        personal connection to a Soldier has dropped dramatically. Focus groups reveal that Americans
-                        generally respect the military, but they do not have a strong understanding of the Army or feel
-                        a deep emotional connection to it.</p>
-
-                    <p><strong>Resources:</strong></p>
-
-                    <ul>
-                        <li>Office of the Chief of Public Affairs</li>
-                        <li>U.S. Army</li>
-                        <li>U.S. Army Field Band</li>
-                        <li>U.S. Army Recruiting Command</li>
-                        <li>U.S. Army Cadet Command</li>
-                        <li>U.S. Army Reserve</li>
-                        <li>U.S. Army National Guard</li>
-                        <li>U.S. Army Corps of Engineers</li>
-                    </ul>
-
-                </div>
-                <div class="right-column">
-                    {% include sub-box.html email_id="email1" %}
-                    <div class="events top-stories">
-                        <h4>Events</h4>
-                        <p><strong>FEBRUARY 2019</strong></p>
-                        <p>African American/ Black History Month - Visit <a href="https://www.army.mil/africanamericans/">African
-                                Americans in the U.S. Army</a></p>
-                        <p>Feb. 18: Presidents Day</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        {% include quote.html %}
+
+
+    </div>
+    <div class="container unsubscribe-div hidden">
+        <div class="inner-container">
+
+            {% include sub-box.html email_id='email' unsubscribe="true" %}
+
+        </div>
     </div>
 </div>
-
-<div id="list">
-
-</div>
-
-<!-- include side-nav.html  -->
-
-{% include globals/top-btn.html %}

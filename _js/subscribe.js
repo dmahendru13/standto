@@ -1,50 +1,38 @@
-// https://stackoverflow.com/questions/51906675/pure-js-json-parsing-with-many-objects-from-local-json-file
-
-//https://stackoverflow.com/questions/4295386/how-can-i-check-if-a-value-is-a-json-object
-
 var SocialBar = require('./globals/modules/SocialBar'),
     //SubNav = require('./globals/modules/SubNav'),
     Helper = require('./globals/modules/Helper'),
-    //Client = require('node-rest-client').Client,
-    Emails = require('../_data/email-dummy-data/emails.json');
+    //Configs = require('./production'),
+    Client = require('node-rest-client').Client;
 
-(function () {
-
+(function() {
     'use strict';
-    var subscribeLink = document.getElementsByClassName('sub-link'),
-        clearDiv = document.getElementById('clear-div'),
-        clearBtn = document.getElementById('clear-btn'),
-        // I don't believe that this is necessary for the sake of this file
-        //href = window.location.href,
-        // I don't believe that this is necessary for the sake of this file
-
-        //unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
-        //subnav = document.getElementsByTagName('nav')[0],
+    var subnav = document.getElementsByTagName('nav')[0],
+        hash = window.location.hash,
+        unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
+        h3Ele = document.getElementsByTagName('h3'),
+        subscribeLink = document.getElementsByClassName('sub-link'),
+        //searchForm = document.getElementById('standto_search_form'),
+        //archiveDates = document.querySelectorAll('.results-archive .date'),
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
         i;
 
-    // ----------------------------------------------------------------------
-    // Incorporate Social bar on mobile devices
-    // ----------------------------------------------------------------------
     SocialBar.initWaypoint(socialbarwaypoint);
 
-    // I don't believe that this is necessary for the sake of this file
-    //Display Unsubscribe box:
-    // if (subnav) {
-    //     if (unsubDiv && href === '#unsubscribe') {
-    //         Helper.removeClass(unsubDiv, 'hidden');
-    //         new SubNav(subnav,
-    //             function () {
-    //                 Helper.addClass(unsubDiv, 'hidden');
-    //                 setResultText(false, '');
-    //             },
-    //             { initializeEmpty: true }
-    //         );
-    //     } else {
-    //         new SubNav(subnav);
+    if (subnav) {
+        if (unsubDiv && hash === '#unsubscribe') {
+            Helper.removeClass(unsubDiv, 'hidden');
+            Helper.addClass(unsub, 'hidden');
+        }
+    }
+
+    //Add special classes to markup headings
+    // for (i = 0; i < h3Ele.length; i++) {
+    //     if (h3Ele[i].innerHTML.toLowerCase() == 'resources:' ||
+    //         h3Ele[i].innerHTML.toLowerCase() == 'related video:' ||
+    //         h3Ele[i].innerHTML.toLowerCase() == 'related documents:') {
+    //         h3Ele[i].setAttribute('class', 'body-header');
     //     }
     // }
-    // I don't believe that this is necessary for the sake of this file
 
     // ----------------------------------------------------------------------
     // Subscribe/Unsubscribe
@@ -52,153 +40,112 @@ var SocialBar = require('./globals/modules/SocialBar'),
     // add click to sub/unsub buttons
     for (i = 0; i < subscribeLink.length; i++) {
         subscribeLink[i].setAttribute('data-email', i);
-        subscribeLink[i].onclick = function () {
+        subscribeLink[i].onclick = function() {
             var unsub = (this.value.toLowerCase() === 'unsubscribe');
             getEmailValue(this.getAttribute('data-email'), unsub);
         };
     }
 
     /**
-    * gets email input that cooresponds to subscribe button,
-    * then sends the email value to be processed
-    * @param {int} index
-    * @param {bool} unsub
-    */
-    function getEmailValue(index) {
+     * gets email input that cooresponds to subscribe button,
+     * then sends the email value to be processed
+     * @param {int} index
+     * @param {bool} unsub
+     */
+    function getEmailValue(index, unsub) {
         var emailInput = document.getElementsByClassName('email-input');
-
+        
         if (emailInput.length > index) {
             setResultText(index, '...');
-            getSubResponse(index, emailInput[index].value);
+            getSubResponse(index, emailInput[index].value, unsub);
         }
     }
 
     /**
-    * Send email value to client, and process result data
-    * @param {str} emailAdd
-    * @param {bool} unsub
-    */
-    function getSubResponse(index, emailAdd) {
-        var response = Emails;
-        //https://stackoverflow.com/questions/6384421/check-whether-a-value-exists-in-json-object
+     * send email value to client, and process result data
+     * @param {str} emailAdd
+     * @param {bool} unsub
+     */
+    function getSubResponse(index, emailAdd, unsub) {
+        var client, subText, Configs, apiPath;
+            client = new Client(),
+            subText = (unsub) ? 'unsubscribe' : 'subscribe',
+            Configs = window.Configs || {};
+    
+            // This returns the following error:
+            // Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://api.army.mil/api/v1/subscribe?email=ji. (Reason: CORS header ‘Access-Control-Allow-Origin’ does not match ‘https://www.army.mil’).
+            Configs.API_DOMAIN = 'https://api.army.mil';
+            window.Configs = Configs;
+            // This returns the following error:
+            // Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://api.army.mil/api/v1/subscribe?email=ji. (Reason: CORS header ‘Access-Control-Allow-Origin’ does not match ‘https://www.army.mil’).
+
+            apiPath = Configs.API_DOMAIN + '/api/v1/' + subText + '?email=' + emailAdd;
+        
+        console.log(apiPath);
+
         if (emailAdd === '') {
             setResultText(index, 'Please enter a valid email.');
         } else {
-            var hasMatch = false;
-            for (var i = 0; i < response.length; ++i) {
-                var data = response[i];
-                if (data.email == emailAdd) {
-                    hasMatch = true;
-                    processResultData(index, hasMatch, emailAdd);
-                    break;
-                } else {
-                    processResultData(index, hasMatch, emailAdd);
+            client.get(
+                apiPath,
+                function(data, response) {
+                    processResultData(index, data, subText);
                 }
-            }
+            );
         }
     }
 
-    function processResultData(index, hasMatch, emailAdd) {
+    /**
+     * Receives data from request and generates appropriate response
+     * @param {obj} data
+     * @param {str} subText ('subscribe'/'unsubscribe')
+     */
+    function processResultData(index, data, subText) {
         var good = false,
             resultText = '';
-        if (emailAdd == '' || hasMatch == false) {
-            resultText = 'Please enter a valid email.';
-        } else if (emailAdd != '' || hasMatch == true) {
-            resultText = 'The email you submitted:<br />' + '<span class="email-span">' + emailAdd + '</span>' + '<br /> is already subscribed to receive the Stand-To! email.';
+            
+        if (typeof data.error != 'undefined') {
+            resultText = 'You were unable to ' +
+                subText + '. Invalid email provided.';
+        } else if (data.success === true) {
+            resultText = 'Your ' + subText + ' request has been received.' + ' Please check your email for confirmation.';
+            
+            if (subText == 'unsubscribe') {
+              resultText = "You have been unsubscribed from receiving the Army's daily focus in <a href='https://www.army.mil/standto'>STAND-TO!</a>.";
+            }
+            
             good = true;
         } else {
-            resultText = '<span class="fail">You were unable to subscribe. Please try again.</span>';
+            resultText = 'You were unable to ' +
+                subText + '. Please try again.';
         }
+
         setResultText(index, resultText, good);
     }
-
-    function setResultText(index, result, good) {
-        var i,
-            subResults = document.getElementsByClassName('sub-results');
-
-        for (i = 0; i < subResults.length; i++) {
-            if (index) {
-                if (i == index) {
-                    subResults[i].innerHTML = result;
-                    if (good) {
-                        Helper.addClass(subResults[i], 'good');
-                    } else {
-                        Helper.removeClass(subResults[i], 'good');
-                        //Helper.removeClass(clearDiv, 'hidden');
-                    }
-                } else {
-                    subResults[i].innerHTML = result;
-                    Helper.removeClass(subResults[i], 'good');
-                    //Helper.removeClass(clearDiv, 'hidden');
-                }
-            }
-        }
-        // if ((subResults[0].classList.contains('good')) == false) {
-        //     Helper.removeClass(clearDiv, 'hidden');
-        // }
-    }
-
-    // function reset() {
-    //     var subResults = document.getElementsByClassName('sub-results')[0],
-    //         input = document.getElementById('email1');
-    //     subResults.innerHTML = '';
-    //     input.value = '';
-    //     Helper.addClass(clearDiv, 'hidden');
-    //     Helper.removeClass(subResults, 'good');
-
-    // }
-
-    // clearBtn.onclick = function () {
-    //     var input = document.getElementById('email1');
-    //     if (input.value != '') {
-    //         reset();
-    //     }
-    // }
-    /**
-    * Receives data from request and generates appropriate response
-    * @param {obj} data
-    * @param {str} subText ('subscribe'/'unsubscribe')
-    */
-    // function processResultData(index, data, subText) {
-    //     var good = false,
-    //         resultText = '';
-    //     if (typeof data.error != 'undefined') {
-    //         resultText = 'You were unable to ' + subText + '. Invalid email provided.';
-    //     } else if (data.success === true) {
-    //         resultText = 'Your ' + subText + ' request has been received.' + ' Please check your email for confirmation.';
-    //         if (subText == 'unsubscribe') {
-    //             resultText = 'You have been unsubscribed from receiving the Army\'s daily focus in <a href="https://www.army.mil/standto">STAND-TO!</a>';
-    //         }
-    //         good = true;
-    //     } else {
-    //         resultText = 'You were unable to ' + subText + '. Please try again.';
-    //     }
-    //     setResultText(index, resultText, good);
-    // }
 
     /**
      * sets the result text of the subscribe request
      * @param {str} result
      * @param {bool} good
      */
-    // function setResultText(index, result, good) {
-    //     var i, subResults = document.getElementsByClassName('sub-results');
-
-    //     for (i = 0; i < subResults.length; i++) {
-    //         if (index) {
-    //             if (i == index) {
-    //                 subResults[i].innerHTML = result;
-    //                 if (good) {
-    //                     Helper.addClass(subResults[i], 'good');
-    //                 } else {
-    //                     Helper.removeClass(subResults[i], 'good');
-    //                 }
-    //             }
-    //         } else {
-    //             subResults[i].innerHTML = results;
-    //             Helper.removeClass(subResults[i], 'good');
-    //         }
-    //     }
-    // }
+    function setResultText(index, result, good) {
+        var i, subResults = document.getElementsByClassName('sub-results');
+        
+        for (i = 0; i < subResults.length; i++) {
+          if (index) {
+            if (i == index) {
+                subResults[i].innerHTML = result;
+                if (good) {
+                    Helper.addClass(subResults[i], 'good');
+                } else {
+                    Helper.removeClass(subResults[i], 'good');
+                }
+            }
+          } else {
+            subResults[i].innerHTML = result;
+            Helper.removeClass(subResults[i], 'good');
+          }
+        }
+    }
 
 })();

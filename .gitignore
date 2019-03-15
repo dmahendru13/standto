@@ -1,4 +1,5 @@
 copy
+contact
 public
 .env
 src/to_origin/rv5_images/**/*
@@ -13,6 +14,7 @@ json
 .sass-cache
 sftpCache.json
 .ftppass
+_plugins
 _site
 .jekyll-metadata
 src/e2/rv5_images/**/*
