@@ -21,9 +21,12 @@
 
             </span>
             <!-- Should work on aws but not necessarily on local -->
-            <!-- <a class="article-link" href="{{ site.baseurl }}/standto{{ archive.url }}">{{ archive.title }}</a> -->
-            <a class="article-link" href="{{ archive.url }}">{{ archive.title }}</a>
+            {% if site.baseurl == 'localhost:4000' %}
+                <a class="article-link" href="{{ site.baseurl }}/standto{{ archive.url }}">{{ archive.title }}</a>
+            {% else %}
+                <a class="article-link" href="{{ archive.url }}">{{ archive.title }}</a>
+            {% endif %}
         </li>
-        <p class="hidden">testing</p>
+        <h3>{{ site.baseurl }}</h3>
         {% endfor %}
     </ul>
