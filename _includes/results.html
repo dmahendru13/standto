@@ -23,12 +23,10 @@
             <!-- Should work on aws but not necessarily on local -->
             {% if site.url == 'http://localhost:4000' %}
             <a class="article-link" href="{{ archive.url }}">{{ archive.title }}</a>
-            <p>testing green</p>
+            <!-- <p>testing green</p> -->
             {% else %}
-            <a class="article-link" href="{{ site.url }}">{{ archive.title }}</a>
-            <a class="article-link" href="{{ site.baseurl }}">{{ archive.title }}</a>
             <a class="article-link" href="{{ site.baseurl }}/standto{{ archive.url }}">{{ archive.title }}</a>
-            <p>purple testing</p>
+            <!-- <p>purple testing</p> -->
             {% endif %}
         </li>
         <h3>{{ site.baseurl }}</h3>
