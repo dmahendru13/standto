@@ -92,7 +92,7 @@ module.exports = function (grunt) {
             },
             social: {
                 files: {
-                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/archive.js', '_js/globals/modules/SocialBar.js', '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js']
+                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/archive-standto.js', '_js/archive.js', '_js/globals/modules/SocialBar.js', '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js']
                 },
                 options: {
                     transform: ['babelify'],
@@ -118,12 +118,12 @@ module.exports = function (grunt) {
                             '_js/bundled/standto.js'
                         ],
                         dest: 'e2/js/rv7/standto/<%= pkg.name %>.min.js'
-                    },
-                    {
-                        src: [
-                            '_js/archive-standto.js'
-                        ],
-                        dest: 'e2/js/rv7/standto/<%= pkg.name %>-archive.min.js'
+                    // },
+                    // {
+                    //     src: [
+                    //         '_js/archive-standto.js'
+                    //     ],
+                    //     dest: 'e2/js/rv7/standto/<%= pkg.name %>-archive.min.js'
                     }
                 ]
             }

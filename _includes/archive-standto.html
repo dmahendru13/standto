@@ -1,5 +1,3 @@
-
-
 <!-- https://stackoverflow.com/questions/40598976/access-json-lumps-in-metafields-with-shopify-liquid-templates -->
 
 <!-- 
@@ -12,50 +10,110 @@
     These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
 -->
 
+<div class="stand-to archived">
+    <div class="focus subnav-selectable subnav-selected">
 
-<!-- IT WORKS IT WORKS IT WORKS -->
-{% for data in site.data.archive[year][month] %}
-    {% if data contains file %}
+        <div class="container">
 
-        {% for content in data %}
+            <!-- IT WORKS IT WORKS IT WORKS -->
+            {% for data in site.data.archive[year][month] %}
+            {% if data contains file %}
 
-        {% if content != null %}
+            {% for content in data %}
+
+            {% if content != null %}
             {% if content.id %}
 
             <div class="inner-contianer">
-    
-                    <h1>{{ content.title }}</h1>
-                    <p class="small">
-                        <span class="st-byline">{{ content.subtitle }}</span>
-                        <span class="date">{{ content.date }}</span>
-                    </p>
-                
+
+                <h1>{{ content.title }}</h1>
+                <p class="small">
+                    <!-- <span class="st-byline">- content.subtitle -</span> -->
+                    <span class="date">{{ content.date }}</span>
+                </p>
+
                 {% include alt-social.html %}
                 <div class="body two-column-body">
                     <div class="left-column archived-standto">
-                        
-                        <p>{{ content.body | replace: " **", "</p><p><strong>" | replace: "** ", "</strong></p><p>" }}</p>
-            
+
+                        <!-- | prepend: "<p class='byline'>"
+                            | replace_first: "#######", "" 
+                            | replace_first: ' **', "</p>
+                                <p><strong>" 
+                            | replace: "**Resources**:", "</strong></p><div class='links'><p><strong>Resources:"
+                            | replace: "**. ", "</strong></p><p>"
+                            | replace: " **", "</p>
+                                <p><strong>" 
+                            | replace: "** ", "</strong></p>
+                                <p>" 
+                            | replace: "**", "</strong></p>"
+                            | replace_first: "  * ", "</p><ul><li>"
+                            | replace: ". * ", "</p><ul>"
+                            | replace: ". ", ".</li>"
+                            | replace: " * ", "</li><li>"
+                            | replace: "   <p><strong>", "</li></ul><p><strong>" -->
+
+                        {{ content.body 
+                            | prepend: "<p class='byline'>"
+                            | replace_first: "#######", "" 
+                            | replace_first: ' **', "</p>
+                                <p><strong>" 
+                            | replace: "**Resources**:", "</strong></p><div class='links'><p><strong>Resources:"
+                            | replace_first: ".  * ", "</p><ul><li>"
+                            | replace: ".  * ", "</li><li>"
+                            | replace: ".   ", "</li></ul>"
+                            | replace: "**. ", "</strong></p><p>"
+                            | replace: " **", "</p>
+                                <p><strong>" 
+                            | replace: "** ", "</strong></p>
+                                <p>"
+                            | replace: "**", "</strong></p>"
+
+                        }}</div></p>
+
+
+
+                        <!-- https://daringfireball.net/projects/markdown/syntax#html -->
+                        <!-- https://stackoverflow.com/questions/29368902/how-can-i-wrap-my-markdown-in-an-html-div -->
+
+                        <!-- test pages w/lists in body: 22, 24  -->
+
                         <!-- 1 include standto-links.html 2 -->
-            
+
                     </div>
                     <div class="right-column">
-            
+
                         {% include sub-box.html email_id="email1" %}
-            
+
                         {% include standto-events.html %}
-            
+
                     </div>
                 </div>
             </div>
-            
+
             {% endif %}
-        {% endif %}    
+            {% endif %}
 
-        {% endfor %}
+            {% endfor %}
 
-    {% endif %}
+            {% endif %}
 
-{% endfor %}
-<!-- IT WORKS IT WORKS IT WORKS -->
+            {% endfor %}
+            <!-- IT WORKS IT WORKS IT WORKS -->
 
+
+
+        </div>
+
+        {% include quote.html %}
+
+
+    </div>
+    <div class="container unsubscribe-div hidden">
+        <div class="inner-container">
+
+            {% include sub-box.html email_id='email' unsubscribe="true" %}
+
+        </div>
+    </div>
+</div>

@@ -1,18 +1,42 @@
-// //https://stackoverflow.com/questions/13363567/jquery-javascript-split-a-text-node-into-two-or-three
-// // https://codeburst.io/adding-line-breaks-paragraphs-to-dynamic-text-in-javascript-569cc474c89
+//var Helper = require('./globals/modules/Helper');
+// var showdown  = require('showdown'),
+//     converter = new showdown.Converter(),
+//     text      = '# hello, markdown!',
+//     html      = converter.makeHtml(text);
+//     console.log(html);
+var showdown = require('showdown');
 
+//
+// The purpose of this file is to format the archived standtos in a way that is consistent.
+//
+(function () {
+    'use strict';
+    $(function () {
+        if ($('body').hasClass('archived-standto-body')) {
 
+            var archivedStandto = document.querySelector('.left-column.archived-standto').textContent,
+                byline = document.querySelector('.byline'),
+                stByline,
+                newBodyText;
 
-// console.log("connected, great success");
-// (function () {
-//     var content = document.querySelector(".left-column.archived-standto"),
-//         newContent;
-//         //console.log(content);
+            function getByline() {
+                stByline = '<span class="st-byline">' + byline.textContent + '</span>';
 
-//     $.each(content, function () {
-//         newContent = $(this).find('what').text();
-//         console.log(newContent);
-//     });
+                byline.parentNode.removeChild(byline);
 
-//     //replaceAsterick();
-// })();
+                $(stByline).prependTo('.small');
+
+                getListItems();
+            }
+
+            function getListItems() {
+                archivedStandto = document.querySelector('.left-column.archived-standto');
+                console.log(archivedStandto)
+            }
+
+            getByline();
+        } else {
+            console.log("not archive page");
+        }
+    });
+})();
