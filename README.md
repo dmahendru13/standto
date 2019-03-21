@@ -103,3 +103,9 @@ Once this is done, you can view the site locally using one of the two links belo
   Add back this to the jquery files:
   # sourceMappingURL=jquery-1.10.2.min.map
 -->
+
+<!-- Notes for pulling over archived content -->
+<!-- 
+    -- Replace \n with a space: " "
+    -- 
+ -->

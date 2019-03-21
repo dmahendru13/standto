@@ -47,32 +47,34 @@ var showdown = require('showdown');
 
                             pio = text;
                             
-                            if (pio.indexOf('*') > -1) {
+                            if (pio.indexOf('*') > -1 && pio.indexOf('--') > -1) {
+
+                                console.log("if statement success");
+
+                                var antioch = pio.substring(pio.indexOf(": ") +1, pio.length -4);
+
+                                console.log(antioch);
+
+                            } else if (pio.indexOf('*') > -1) {
+                                console.log("else if statement success")
                                 // this checks to see if there are any astericks in the text after having been converted to HTML and if so, replaces the asterick with the designated text below:
                                 var antioch = pio.substring(pio.indexOf(": ") +1, pio.length -4);
-                                //console.log(antioch);
 
                                 var removeAntioch = pio.replace(antioch, "");
-                                
+
                                 var newAntioch = antioch.replace(/\*/g, "</li><li>");
 
-                                // pio = removeAntioch;
-                                // pio += antioch
-                                
                                 var ignatius = "<ul><li>" + newAntioch + "</li></ul>";
-                                var newIgnatius = ignatius.replace("<li> </li>", "");
-                                console.log(newIgnatius);
-                                pio = removeAntioch + newIgnatius;
-                                console.log(pio);
 
-                                //console.log('looking for asterick');
-                                var result = pio.replace(/\*/g, "<br> • ");
-                                var newResult = converter.makeHtml(result);
-                                //console.log(pio);
-                                pio = newResult;
-                                //console.log(pio);
+                                var newIgnatius = ignatius.replace("<li> </li>", "");
+
+                                console.log(newIgnatius);
+
+                                pio = removeAntioch + newIgnatius;
+
+                                console.log(pio);
                             }
-                            //console.log(result);
+
                             pio = pio;
                         }
                         bummy += pio;

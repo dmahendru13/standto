@@ -42,8 +42,9 @@
                                 | replace_first: "#######", "" 
                                 | replace_first: "**", "</p><p>**" 
                                 | replace: "**Resources**", "<div class='links'><p>**Resources**"
-                                | replace: " **", "</p><p>**"
-                                | replace: "** ", "**</p><p>" }} </div>
+                                | replace: "  **", "</p><p>**"
+                                | replace: "**  ", "**</p><p>"
+                                | replace: ".   ", "</p><p>" }} </div>
 
                             <!-- __ content.body 
                                 | prepend: "<p class='byline'>"
