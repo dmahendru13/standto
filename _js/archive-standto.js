@@ -47,15 +47,7 @@ var showdown = require('showdown');
 
                             pio = text;
                             
-                            if (pio.indexOf('*') > -1 && pio.indexOf('--') > -1) {
-
-                                console.log("if statement success");
-
-                                var antioch = pio.substring(pio.indexOf(": ") +1, pio.length -4);
-
-                                console.log(antioch);
-
-                            } else if (pio.indexOf('*') > -1) {
+                            if (pio.indexOf('*') > -1) {
                                 console.log("else if statement success")
                                 // this checks to see if there are any astericks in the text after having been converted to HTML and if so, replaces the asterick with the designated text below:
                                 var antioch = pio.substring(pio.indexOf(": ") +1, pio.length -4);
@@ -82,14 +74,6 @@ var showdown = require('showdown');
 
                     replaceText(bummy);
                 }
-            }
-
-            function formatBody(text) {
-                console.log(text);
-
-
-
-                //alert("formatBody function");
             }
 
             function replaceText(bummy) {
