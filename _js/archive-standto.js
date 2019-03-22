@@ -1,9 +1,5 @@
-//var Helper = require('./globals/modules/Helper');
-// var showdown  = require('showdown'),
-//     converter = new showdown.Converter(),
-//     text      = '# hello, markdown!',
-//     html      = converter.makeHtml(text);
-//     console.log(html);
+//https://alligator.io/js/string-replace/
+
 var showdown = require('showdown');
 
 //
@@ -14,28 +10,34 @@ var showdown = require('showdown');
     $(function () {
         if ($('body').hasClass('archived-standto-body')) {
 
-            var stByline, archivedStandto, paraSt, para, text, converter, i,
-                archivedLinks = document.querySelector('.archived-standto .hidden .links'),
-                byline = document.querySelector('.byline');
+            var archivedStandto, archivedLinks, byline, converter, i, stByline, text;
+
+                archivedLinks   = document.querySelector('.archived-standto .hidden .links');
+                byline          = document.querySelector('.byline');
+                converter       = new showdown.Converter({disableForced4SpacesIndentedSublists: true});
 
             function getByline() {
-                archivedStandto = document.querySelector('.left-column.archived-standto .hidden').textContent,
-                    stByline = '<span class="st-byline">' + byline.textContent + '</span>';
 
+                archivedStandto = document.querySelector('.left-column.archived-standto .hidden').textContent,
+                stByline        = '<span class="st-byline">' + byline.textContent + '</span>';
+
+                //remove links and byline from standto body, as extracted from json data file
                 archivedLinks.parentNode.removeChild(archivedLinks);
                 byline.parentNode.removeChild(byline);
 
                 $(stByline).prependTo('.small');
 
                 convertBodyHtml();
+                convertLinksHtml();
             }
 
             function convertBodyHtml() {
-                para = document.querySelectorAll('.archived-standto .hidden > p'),
-                    converter = new showdown.Converter({disableForced4SpacesIndentedSublists: true});
-                console.log(para);
+                var antioch, ignatius, newIgnatius, para, removeAntioch, updatedAntioch;
+
+                para = document.querySelectorAll('.archived-standto .hidden > p');
+                
                 if (para) {
-                    var bummy = '';
+                    var content = '';
                     for (i = 0; i < para.length; i++) {
                         var newPara,
                             pio = '';
@@ -48,49 +50,78 @@ var showdown = require('showdown');
                             pio = text;
                             
                             if (pio.indexOf('*') > -1) {
-                                console.log("else if statement success")
                                 // this checks to see if there are any astericks in the text after having been converted to HTML and if so, replaces the asterick with the designated text below:
-                                var antioch = pio.substring(pio.indexOf(": ") +1, pio.length -4);
-
-                                var removeAntioch = pio.replace(antioch, "");
-
-                                var newAntioch = antioch.replace(/\*/g, "</li><li>");
-
-                                var ignatius = "<ul><li>" + newAntioch + "</li></ul>";
-
-                                var newIgnatius = ignatius.replace("<li> </li>", "");
-
-                                console.log(newIgnatius);
-
-                                pio = removeAntioch + newIgnatius;
-
-                                console.log(pio);
+                                
+                                // Extract the list from the paragraph && store in variable
+                                antioch         = pio.substring(pio.indexOf(": ") +1, pio.length -4);
+                                // Remove the list (by virtue of variable name) from the paragraph
+                                removeAntioch   = pio.replace(antioch, "");
+                                // format list as such
+                                updatedAntioch      = antioch.replace(/\*/g, "</li><li>");
+                                ignatius        = "<ul><li>" + updatedAntioch + "</li></ul>";
+                                newIgnatius     = ignatius.replace("<li> </li>", "");
+                                // add the list back into the paragraph.
+                                //in the future, this might need to change, depending on where exactly the list resides within the paragraph.
+                                // One work around could be replacing the list with '</p> <p>' to format the surrounding text properly and simply using the list as it's own element.
+                                pio             = removeAntioch + newIgnatius;
                             }
-
                             pio = pio;
                         }
-                        bummy += pio;
+                        content += pio;
                     }
 
-                    replaceText(bummy);
+                    replaceBodyText(content);
                 }
             }
 
-            function replaceText(bummy) {
+            function replaceBodyText(content) {
                 var newText;
+
                 archivedStandto = document.querySelector('.left-column.archived-standto');
-//https://alligator.io/js/string-replace/
-                if (bummy != "") {
-                    newText = '<div class="left-column archived-standto">' + bummy + '</div>';
-                    //var testing = newText.textContent;
-                    
+
+                if (content != "") {
+                    newText = '<div class="left-column archived-standto">' + content + '</div>';
+
                     $(archivedStandto).replaceWith(newText);
                 } else {
-                    console.log("bummy cannot be found");
+                    console.log("content cannot be found");
                 }
 
             }
 
+            function convertLinksHtml() {
+                var longinus, anselm, frank, augustine, athanasius;
+
+                if (archivedLinks) {
+
+                    longinus = archivedLinks.textContent;
+                    anselm = converter.makeHtml(longinus);
+                    
+                    if (anselm) {
+                        
+                        if (anselm.indexOf(" * ") > -1) {
+
+                            //Format each category of link
+                            frank = anselm.replace(/<\/?p>/g, "").replace(/<strong>/g, "<p><strong>").replace(/<\/strong>/g, "<\/strong><\/p>");
+                            //format links into lists
+                            augustine = frank.replace(/<\/p> \*/g, "<ul><li>").replace(/<\/a><p>/g, "<\/a><\/li><\/ul><p>").replace(/\*/g, "</li><li>").replace(/<\/a>([^<\/a>]*)$/, "<\a></li></ul>");
+
+                            anselm = augustine;
+
+                        }
+                    } else {
+                        console.log("not available");
+                    }
+
+                    //Take formatted list and add it to the page.
+                    athanasius = "<div class='links'>" + anselm + "</div>";
+                    $(athanasius).appendTo('.left-column.archived-standto');
+
+                } else {
+                    console.log('There are no available links');
+                }
+
+            }
 
             getByline();
         } else {
@@ -98,41 +129,3 @@ var showdown = require('showdown');
         }
     });
 })();
-
-
-// for all intents and purposes, this function "works" but not 100% yet.
-// function convertBodyHtml() {
-//     para = document.querySelectorAll('.archived-standto .hidden > p'),
-//         converter = new showdown.Converter({disableForced4SpacesIndentedSublists: true});
-//     console.log(para);
-//     if (para) {
-//         var bummy = '';
-//         for (i = 0; i < para.length; i++) {
-//             var newPara,
-//                 pio = '';
-
-//             if (para.length > 0) {
-//                 // this checks to see if there are paragraphs and if so converts them individually to HTML
-//                 newPara = para[i].textContent;
-//                 text = converter.makeHtml(newPara);
-
-//                 pio = text;
-                
-//                 if (pio.indexOf('*') > -1) {
-//                     // this checks to see if there are any astericks in the text after having been converted to HTML and if so, replaces the asterick with the designated text below:
-//                     console.log('looking for asterick');
-//                     var result = pio.replace(/\*/g, "<br> • ");
-//                     var newResult = converter.makeHtml(result);
-//                     console.log(pio);
-//                     pio = newResult;
-//                     console.log(pio);
-//                 }
-//                 console.log(result);
-//                 pio = pio;
-//             }
-//             bummy += pio;
-//         }
-
-//         replaceText(bummy);
-//     }
-// }
