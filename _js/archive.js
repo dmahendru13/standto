@@ -1,6 +1,33 @@
 var Helper = require('./globals/modules/Helper');
     //Archive = require('../_data/networks/2-archive.json');
 
+// (function () {
+//     // Filter out previous Stand-tos
+//     !function (a) {
+//         a.fn.dateFilter = function (b) {
+//             var c = a.extend({ cutoff: new Date, buffer: -1}, b); c.cutoff.setDate(c.cutoff.getDate() + c.buffer); var d = this.parent(); return this.each(function () { new Date(a(this).data("date-filter")).getTime() < c.cutoff.getTime() && this.remove() }), 0 == d.prop("childElementCount"), this
+//         }
+//     }(jQuery);
+
+//     $('.headlines ul#archive-results li').dateFilter();
+
+//     $(function() {
+//         if ($('.headlines ul#archive-results li').length <= 0) {
+
+//             var results = document.getElementById('results-text'),
+//                 noResults = document.getElementById('no-results-text');
+
+//                 Helper.removeClass(noResults, 'hidden');
+//                 Helper.addClass(results, 'hidden');
+
+//         }
+//     });
+
+
+
+// })();
+
+
 (function () {
     'use strict';
     var searchForm = document.getElementById('standto_search_form');

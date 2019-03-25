@@ -68,7 +68,7 @@ links:
         url: https://www.army.mil/article/212220/
 
 # Quote content to be added before the 
-
+quote: ""
 # Events to be added to the right column
 events:
   - section:

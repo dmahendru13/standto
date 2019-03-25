@@ -1,7 +1,7 @@
 <div class="events top-stories">
 
+  {%- if page.active == 'standto' or include.events == null or include.events == '' -%}
   <h4>Events</h4>
-  {%- if site.data.standto.todays-focus.events -%}
 
     {%- for c in site.data.standto.todays-focus.events -%}
     
@@ -27,6 +27,11 @@
         
     {%- endfor -%}
 
+    {% else %}
+    
+    {{ include.events | markdownify }}
+
   {%- endif -%}
-      
+
+
 </div>

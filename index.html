@@ -42,7 +42,13 @@ id: standto
             </div>
         </div>
 
-        {% include quote.html %}
+        {% if site.data.standto.todays-focus.quote and site.data.standto.todays-focus.quote != "" %}
+
+            {% include quote.html testing = site.data.standto.todays-focus.quote %}
+
+        {% else if site.data.standto.todays-focus.quote == "" %}
+        {% endif %}
+
 
 
     </div>
