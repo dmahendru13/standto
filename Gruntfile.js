@@ -118,12 +118,6 @@ module.exports = function (grunt) {
                             '_js/bundled/standto.js'
                         ],
                         dest: 'e2/js/rv7/standto/<%= pkg.name %>.min.js'
-                    // },
-                    // {
-                    //     src: [
-                    //         '_js/archive-standto.js'
-                    //     ],
-                    //     dest: 'e2/js/rv7/standto/<%= pkg.name %>-archive.min.js'
                     }
                 ]
             }

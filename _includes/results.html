@@ -1,8 +1,7 @@
 <ul id="archive-results">
 
     {% for archive in site.archived_standtos %}
-    <li data-date-filter="{{archive.id | slice: 1, 10}}">
-        <h2></h2>
+    <li data-date-filter="{{archive.id | slice: 18,}}">
         <span class="date">
             {% assign d = archive.date | date: "%-d" %} 
             {% assign m = archive.date | date: "%B" %} 
@@ -24,12 +23,10 @@
         <!-- Should work on aws but not necessarily on local -->
         {% if site.url == 'http://localhost:4000' %}
         <a class="article-link" href="{{ archive.url }}" data-date-filter="{{archive.id | slice: 1, 10}}">{{ archive.title }}</a>
-        <!-- <p>testing green</p> -->
+        <!-- <a class="article-link" href="{{ archive.url }}" data-date-filter="{{archive.id | slice: 1, 10}}">{{ archive.title }}</a> -->
         {% else %}
         <a class="article-link" href="{{ site.baseurl }}/standto{{ archive.url }}" data-date-filter="{{archive.id | slice: 1, 9}}">{{ archive.title }}</a>
-        <!-- <p>purple testing</p> -->
         {% endif %}
     </li>
     {% endfor %}
 </ul>
-
