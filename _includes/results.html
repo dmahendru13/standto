@@ -23,9 +23,13 @@
         <!-- Should work on aws but not necessarily on local -->
         {% if site.url == 'http://localhost:4000' %}
         <a class="article-link" href="{{ archive.url }}" data-date-filter="{{archive.id | slice: 9, 15}}">{{ archive.title }}</a>
+        <p><strong>{{site.url}}</strong></p>
+        <p><strong>{{site.baseurl}}</strong></p>
         <!-- <a class="article-link" href="{{ archive.url }}" data-date-filter="{{archive.id | slice: 9, 15}}">{{ archive.title }}</a> -->
         {% else %}
-        <a class="article-link" href="{{ site.baseurl }}/{{ archive.url }}" data-date-filter="{{archive.id | slice: 9, 15}}">{{ archive.title }}</a>
+        <a class="article-link" href="{{ site.baseurl }}/standto/{{ archive.url }}" data-date-filter="{{archive.id | slice: 9, 15}}">{{ archive.title }}</a>
+        <p><strong>{{site.url}}</strong></p>
+        <p><strong>{{site.baseurl}}</strong></p>
         {% endif %}
     </li>
     {% endfor %}
