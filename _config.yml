@@ -21,7 +21,7 @@ title: StandTo
 collections:
   archived_standtos:
     output: true
-    permalink: /:name
+    permalink: archive/:name
   staff_members:
     people: true
     output: false
