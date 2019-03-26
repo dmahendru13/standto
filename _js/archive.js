@@ -5,7 +5,7 @@ var Helper = require('./globals/modules/Helper');
     // Filter out previous Stand-tos older than X number of weeks
     !function (a) {
         a.fn.dateFilter = function (b) {
-            var c = a.extend({ cutoff: new Date, buffer: -30}, b); c.cutoff.setDate(c.cutoff.getDate() + c.buffer); var d = this.parent(); return this.each(function () { new Date(a(this).data("date-filter")).getTime() < c.cutoff.getTime() && this.remove() }), 0 == d.prop("childElementCount"), this
+            var c = a.extend({ cutoff: new Date, buffer: -35}, b); c.cutoff.setDate(c.cutoff.getDate() + c.buffer); var d = this.parent(); return this.each(function () { new Date(a(this).data("date-filter")).getTime() < c.cutoff.getTime() && this.remove() }), 0 == d.prop("childElementCount"), this
         }
     }(jQuery);
 

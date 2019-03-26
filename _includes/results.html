@@ -1,7 +1,7 @@
 <ul id="archive-results">
 
     {% for archive in site.archived_standtos %}
-    <li data-date-filter="{{archive.id | slice: 9, 15}}">
+    <li data-date-filter="{{archive.id | slice: 10, 20 }}">
         <span class="date">
             {% assign d = archive.date | date: "%-d" %} 
             {% assign m = archive.date | date: "%B" %} 
