@@ -1,0 +1,67 @@
+<div class="events top-stories">
+
+  {%- if include.standto-events -%}
+  <h4>Events</h4>
+
+    {%- for a in include.standto-events -%}
+    
+      {%- if a.section -%}
+
+        {%- for item in a.section -%}
+            
+          <p><strong>{{ item.date }}</strong></p>
+
+          {%- if item.content != null -%}
+
+            {%- for b in item.content -%}
+              
+              <p>{{ b.subcontent }} &ndash; Visit <a href="{{ b.url }}">{{ b.title }}</a></p>
+
+            {%- endfor -%}
+
+          {%- endif -%}
+
+        {%- endfor -%}
+        
+      {%- endif -%}
+        
+    {%- endfor -%}
+
+    {%- else if include.archive-events -%}
+
+      {%- if include.archive-events contains "####" -%}
+
+        {{ include.archive-events | markdownify }}
+
+      {%- else -%}
+
+        <h4>Events</h4>
+        {%- for a in include.archive-events -%}
+    
+          {%- if a.section -%}
+
+            {%- for item in a.section -%}
+                
+              <p><strong>{{ item.date}}</strong></p>
+
+              {%- if item.content != null -%}
+
+                {%- for b in item.content -%}
+                  
+                  <p>{{ b.subcontent }} &ndash; Visit <a href="{{ b.url }}">{{ b.title }}</a></p>
+
+                {%- endfor -%}
+
+              {%- endif -%}
+
+            {%- endfor -%}
+            
+          {%- endif -%}
+            
+        {%- endfor -%}
+    
+      {%- endif -%}
+
+  {%- endif -%}
+
+</div>

@@ -8,6 +8,7 @@ active: standto
 id: standto
 
 ---
+{% assign standto-data = site.data.standto.todays-focus %}
 
 <div class="stand-to">
     <div class="focus subnav-selectable subnav-selected">
@@ -15,38 +16,34 @@ id: standto
         <div class="container">
 
             <div class="inner-contianer">
-                
-                    <h1>{{ site.data.standto.todays-focus.title }}</h1>
-                    <p class="small">
-                        <span class="st-byline">{{ site.data.standto.todays-focus.subtitle }}</span>
-                        <span class="date">{{ site.data.standto.todays-focus.date }}</span>
-                    </p>
-                
+
+                <h1>{{ standto-data.title }}</h1>
+                <p class="small">
+                    <span class="st-byline">{{ standto-data.subtitle }}</span>
+                    <span class="date">{{ standto-data.date }}</span>
+                </p>
+
                 {% include alt-social.html %}
                 <div class="body two-column-body">
                     <div class="left-column">
 
-                        {% include standto-body.html %}
-
-                        {% include standto-links.html %}
+                        {% include st-body-text.html standto-data = standto-data %}
 
                     </div>
                     <div class="right-column">
 
                         {% include sub-box.html email_id="email1" %}
 
-                        {% include standto-events.html %}
+                        {% include st-events.html standto-events = standto-data.events %}
 
                     </div>
                 </div>
             </div>
         </div>
 
-        {% if site.data.standto.todays-focus.quote and site.data.standto.todays-focus.quote != "" %}
-
-            {% include quote.html testing = site.data.standto.todays-focus.quote %}
-
-        {% else if site.data.standto.todays-focus.quote == "" %}
+        {% if standto-data.quote and standto-data.quote != "" %}
+        {% include quote.html quote = standto-data.quote %}
+        {% else if standto-data.quote == "" %}
         {% endif %}
 
 

@@ -1,5 +1,4 @@
 var Helper = require('./globals/modules/Helper');
-    //Archive = require('../_data/networks/2-archive.json');
 
 (function () {
     // Filter out previous Stand-tos older than X number of weeks
@@ -12,7 +11,7 @@ var Helper = require('./globals/modules/Helper');
     $('.headlines ul#archive-results li').dateFilter();
 
     $(function() {
-        if ($('.headlines ul#archive-results li').length <= 0) {
+        if ($('.headlines ul#archive-results li').length == -1) {
 
             var results = document.getElementById('results-text'),
                 noResults = document.getElementById('no-results-text');
@@ -20,8 +19,9 @@ var Helper = require('./globals/modules/Helper');
                 Helper.removeClass(noResults, 'hidden');
                 Helper.addClass(results, 'hidden');
 
-        }
+        } 
     });
+
 })();
 
 

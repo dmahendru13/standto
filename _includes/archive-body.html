@@ -1,10 +1,9 @@
-<!-- https://stackoverflow.com/questions/40598976/access-json-lumps-in-metafields-with-shopify-liquid-templates -->
-
 <!-- 
     These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
 -->
 {% assign year = page.year %}
 {% assign month = page.month %}
+{% assign archive-data = site.data.archive[year][month] %}
 {% assign file = page.file %}
 <!-- 
     These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
@@ -13,7 +12,7 @@
 <div class="stand-to archived">
     <div class="focus subnav-selectable subnav-selected">
 
-        {% for data in site.data.archive[year][month] %}
+        {% for data in archive-data %}
         
         <!-- IT WORKS IT WORKS IT WORKS -->
         {% if data contains file %}
@@ -44,18 +43,16 @@
                                     | markdownify }}
                             
                         {% else if %}
-                            <h1>Theory testing</h1>
+                        {% assign link = content.links %}
+                            {% include st-body-text.html body=body link=link %}
                         {% endif %}
-                    
-                        <!-- https://daringfireball.net/projects/markdown/syntax#html -->
-                        <!-- https://stackoverflow.com/questions/29368902/how-can-i-wrap-my-markdown-in-an-html-div -->
 
                     </div>
                     <div class="right-column">
 
                         {% include sub-box.html email_id="email1" %}
 
-                        {% include standto-events.html events = content.events %}
+                        {% include st-events.html archive-events = content.events %}
 
                     </div>
                 </div>
@@ -64,7 +61,7 @@
         
         {% if content.quote and content.quote != "" %}
             
-            {% include quote.html testing = content.quote %}
+            {% include quote.html quote = content.quote %}
 
         {% else if content.quote == "" %}
             

@@ -72,14 +72,14 @@ quote: ""
 # Events to be added to the right column
 events:
   - section:
-      - date: FEBRUARY 2020
+      - date: FEBRUARY 2019
       - content:
         - subcontent: African American/ Black History Month
           url: https://www.army.mil/africanamericans/
           title: African Americans in the U.S. Army
 
   - section:
-      - date: MARCH 2193
+      - date: MARCH 2019
       - content: 
         - subcontent: Women's History Month
           url: https://www.army.mil/women/?st
