@@ -22,7 +22,7 @@ collections:
   archived_standtos:
     output: true
     # permalink: archived/:name/
-    permalink: archive_:name/
+    permalink: /:name/
   testing:
     output: true
     permalink: archives/:year/:month/:day
