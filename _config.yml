@@ -23,6 +23,6 @@ collections:
     output: true
     # permalink: archived/:name/
     permalink: archive_:name/
-  staff_members:
-    people: true
-    output: false
+  testing:
+    output: true
+    permalink: archives/:year/:month/:day
