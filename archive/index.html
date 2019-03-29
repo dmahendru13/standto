@@ -15,7 +15,6 @@ otherwise, I will make one page/file for year/month respectively, with a for loo
 
 {% assign archives = site.data.archived-standto | sort %}
 
-
 <!-- When using numbers in file paths for getting to data, put the 
 numbered directory in parenthesis, within square brackets:
     site.data.archived-standto['2018']['01']
@@ -33,12 +32,12 @@ numbered directory in parenthesis, within square brackets:
             <div class="col">
                 <div class="ar-lst">
                     <p class="hd-yr"><strong>{{ yr }}</strong></p>
+                    {% assign archiveYear = site.data.archived-standto[yr] | sort %}
                     <ul>
-
-                        {% for month in year %}
-                        {% for item in month reversed %}
-                            {% if item %}
-                                {% assign a = item.first %}
+                        {% for item in archiveYear %}
+                        
+                        {% if item %}
+                        {% assign a = item.first %}
                                 {% case a %}
                                     {% when '01' %}
                                     <li><a href="#">January</a>
@@ -66,7 +65,7 @@ numbered directory in parenthesis, within square brackets:
                                     <li><a href="#">December</a>
                                 {% endcase %}
                                 {% endif %}
-                        {% endfor %}
+                        
                         {% endfor %}
                         
                     </ul>

@@ -157,7 +157,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             if ($('.sub-box')[0] && $('body').hasClass('archived-standto-body')) {
                 moveByline();
             }
-        } else if ($('body').hasClass('archive-body')) {
+        } else if ($('body').hasClass('archives-body')) {
             (function () {
                 // TAKEN FROM ORIGINAL archive.js
                 // Filter out previous Stand-tos older than X number of weeks
