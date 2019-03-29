@@ -40,29 +40,29 @@ numbered directory in parenthesis, within square brackets:
                         {% assign a = item.first %}
                                 {% case a %}
                                     {% when '01' %}
-                                    <li><a href="#">January</a>
+                                    <li><a href="{{yr}}/{{a}}/{{a}}">January</a>
                                     {% when '02' %}
-                                    <li><a href="#">February</a>
+                                    <li><a href="{{yr}}/{{a}}">February</a>
                                     {% when '03' %}
-                                    <li><a href="#">March</a>
+                                    <li><a href="{{yr}}/{{a}}">March</a>
                                     {% when '04' %}
-                                    <li><a href="#">April</a>
+                                    <li><a href="{{yr}}/{{a}}">April</a>
                                     {% when '05' %}
-                                    <li><a href="#">May</a>
+                                    <li><a href="{{yr}}/{{a}}">May</a>
                                     {% when '06' %}
-                                    <li><a href="#">June</a>
+                                    <li><a href="{{yr}}/{{a}}">June</a>
                                     {% when '07' %}
-                                    <li><a href="#">July</a>
+                                    <li><a href="{{yr}}/{{a}}">July</a>
                                     {% when '08' %}
-                                    <li><a href="#">August</a>
+                                    <li><a href="{{yr}}/{{a}}">August</a>
                                     {% when '09' %}
-                                    <li><a href="#">September</a>
+                                    <li><a href="{{yr}}/{{a}}">September</a>
                                     {% when '10' %}
-                                    <li><a href="#">October</a>
+                                    <li><a href="{{yr}}/{{a}}">October</a>
                                     {% when '11' %}
-                                    <li><a href="#">November</a>
+                                    <li><a href="{{yr}}/{{a}}">November</a>
                                     {% when '12' %}
-                                    <li><a href="#">December</a>
+                                    <li><a href="{{yr}}/{{a}}">December</a>
                                 {% endcase %}
                                 {% endif %}
                         

@@ -11,16 +11,18 @@
           @include span(3);
           margin-top: 15px;
           margin-bottom: 15px;
-          
+
           .ar-lst {
-              border: 1px solid map-get($army-branding, mediumcamo);
-              min-height: 376px;
+            border: 1px solid map-get($army-branding, mediumcamo);
+            min-height: 376px;
             .hd-yr {
               background-color: map-get($army-branding, darkcamo);
               color: map-get($army-branding, white);
               text-align: center;
+
               margin-bottom: 0;
-              line-height: 2em;
+
+              padding: 9px 0;
             }
             ul {
               padding: 15px;
