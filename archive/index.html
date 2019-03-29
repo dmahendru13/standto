@@ -13,26 +13,13 @@ metaTitle: Archive
 
 otherwise, I will make one page/file for year/month respectively, with a for loop that will generat content based off of whether or not there is a data file for that corresponding year/month before leading to the page with all of the "days" -->
 
-{% assign archives = site.data.archived-standto %}
+{% assign archives = site.data.archived-standto | sort %}
+
 
 <!-- When using numbers in file paths for getting to data, put the 
 numbered directory in parenthesis, within square brackets:
     site.data.archived-standto['2018']['01']
 -->
-<!-- https://www.google.com/search?safe=active&client=firefox-b-1-d&ei=XiCdXNb3DpK8sAWK-6boAw&q=sort+filter+to+sort+numerically+in+liquid+jekyll&oq=sort+filter+to+sort+numerically+in+liquid+jekyll&gs_l=psy-ab.3..33i160l2.9527.19529..19785...2.0..0.207.4892.2j35j1......0....1..gws-wiz.......0i71j0i20i263j0j0i22i30j0i22i10i30j33i22i29i30j33i299.xubVoDyv0XM -->
-
-<div class="container">
-    <div class="inner-container">
-        {% assign test = archives %}
-        {% for item in test reversed %}
-        <!-- https://help.shopify.com/en/themes/liquid/tags/iteration-tags -->
-                {% assign year = item.first %}
-                <p><strong>{{year}}</strong></p>
-            
-        {% endfor %}
-    </div>
-</div>
-
 
 <div class="container">
     <div class="inner-container">
@@ -41,16 +28,16 @@ numbered directory in parenthesis, within square brackets:
                 <h3>Stand-To! <span class="text-uppercase">Archive</span></h3>
             </div>
             {% for year in archives reversed %}
-            {% assign yr = year.first | to_integer %}
+            {% assign yr = year.first %}
 
             <div class="col">
                 <div class="ar-lst">
                     <p class="hd-yr"><strong>{{ yr }}</strong></p>
                     <ul>
+
                         {% for month in year %}
                         {% for item in month reversed %}
                             {% if item %}
-                                {% assign item = item %}
                                 {% assign a = item.first %}
                                 {% case a %}
                                     {% when '01' %}
@@ -86,64 +73,6 @@ numbered directory in parenthesis, within square brackets:
                 </div>
             </div>
             {% endfor %}
-
-            <!-- <div class="col">
-                <div class="ar-lst">
-                    <p class="hd-yr"><strong>2016</strong></p>
-                    <ul>
-                        <li><a href="#">January</a></li>
-                        <li><a href="#">February</a></li>
-                        <li><a href="#">March</a></li>
-                        <li><a href="#">April</a></li>
-                        <li><a href="#">May</a></li>
-                        <li><a href="#">June</a></li>
-                        <li><a href="#">July</a></li>
-                        <li><a href="#">August</a></li>
-                        <li><a href="#">September</a></li>
-                        <li><a href="#">October</a></li>
-                        <li><a href="#">November</a></li>
-                        <li><a href="#">December</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="ar-lst">
-                    <p class="hd-yr"><strong>2015</strong></p>
-                    <ul>
-                        <li><a href="#">January</a></li>
-                        <li><a href="#">February</a></li>
-                        <li><a href="#">March</a></li>
-                        <li><a href="#">April</a></li>
-                        <li><a href="#">May</a></li>
-                        <li><a href="#">June</a></li>
-                        <li><a href="#">July</a></li>
-                        <li><a href="#">August</a></li>
-                        <li><a href="#">September</a></li>
-                        <li><a href="#">October</a></li>
-                        <li><a href="#">November</a></li>
-                        <li><a href="#">December</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="ar-lst">
-                    <p class="hd-yr"><strong>2014</strong></p>
-                    <ul>
-                        <li><a href="#">January</a></li>
-                        <li><a href="#">February</a></li>
-                        <li><a href="#">March</a></li>
-                        <li><a href="#">April</a></li>
-                        <li><a href="#">May</a></li>
-                        <li><a href="#">June</a></li>
-                        <li><a href="#">July</a></li>
-                        <li><a href="#">August</a></li>
-                        <li><a href="#">September</a></li>
-                        <li><a href="#">October</a></li>
-                        <li><a href="#">November</a></li>
-                        <li><a href="#">December</a></li>
-                    </ul>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>
