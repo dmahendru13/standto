@@ -23,6 +23,3 @@ collections:
     output: true
     # permalink: archived/:name/
     permalink: /:name/
-  testing:
-    output: true
-    permalink: archives/:year/:month/:day

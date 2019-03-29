@@ -1,133 +1,49 @@
 ---
 
 layout: default
+metaTitle: Archives
+pagetitle: Archives
+description: STAND-TO! provides the official focus of the US Army.
+active: archives
 pageid: archives
 id: archives
-title: archives
-metaTitle: Archives
 
 ---
-<!-- this specific loop will only be present for each day, so it will link directly to that particular days standto
 
-otherwise, I will make one page/file for year/month respectively, with a for loop that will generat content based off of whether or not there is a data file for that corresponding year/month before leading to the page with all of the "days" -->
+<div class="archive">
 
-{% assign archives = site.data.archived-standto %}
+    <div class="standto-search">
+        <div class="container">
+            <div class="inner-container">
+                <div class="search-form-container">
+                    <form accept-charset="UTF-8" id="standto_search_form" method="get" autocomplete="off" action="//search.usa.gov/search">
+                        <input name="utf8" type="hidden" value="&#x2713;" />
+                        <input name="affiliate" type="hidden" value="www.army.mil" />
+                        <label for="query">Search Stand-To! Archive</label>
+                        <input id="archive-search-input" autocomplete="off" placeholder="SEARCH KEYWORDS..." id="query"
+                            name="query" type="text" />
+                        <button id="archive-search-btn" name="commit" type="submit" value=""></button>
+                    </form>
+                </div>
 
-<!-- When using numbers in file paths for getting to data, put the 
-numbered directory in parenthesis, within square brackets:
-    site.data.archived-standto['2018']['01']
--->
-
-<div class="container">
-    <div class="inner-container">
-        <div class="row">
-            <div class="col-hd">
-                <h3>Stand-To! <span class="text-uppercase">Archive</span></h3>
             </div>
-            {% for year in archives reversed %}
-            {% assign yr = year.first | to_integer %}
+        </div>
 
-            <div class="col">
-                <div class="ar-lst">
-                    <p class="hd-yr"><strong>{{ yr }}</strong></p>
-                    <ul>
-                        {% for month in year %}
-                        {% for item in month reversed %}
-                            {% if item %}
-                                {% assign item = item %}
-                                {% assign a = item.first %}
-                                {% case a %}
-                                    {% when '01' %}
-                                    <li><a href="#">January</a>
-                                    {% when '02' %}
-                                    <li><a href="#">February</a>
-                                    {% when '03' %}
-                                    <li><a href="#">March</a>
-                                    {% when '04' %}
-                                    <li><a href="#">April</a>
-                                    {% when '05' %}
-                                    <li><a href="#">May</a>
-                                    {% when '06' %}
-                                    <li><a href="#">June</a>
-                                    {% when '07' %}
-                                    <li><a href="#">July</a>
-                                    {% when '08' %}
-                                    <li><a href="#">August</a>
-                                    {% when '09' %}
-                                    <li><a href="#">September</a>
-                                    {% when '10' %}
-                                    <li><a href="#">October</a>
-                                    {% when '11' %}
-                                    <li><a href="#">November</a>
-                                    {% when '12' %}
-                                    <li><a href="#">December</a>
-                                {% endcase %}
-                                {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                        
-                    </ul>
+    </div>
+    <div class="results-archive">
+        <div class="container">
+            <div class="inner-container">
+                <h2>Stand-To! Archive</h2>
+                <h5 id="results-text">Most Recent Focus Topics</h5>
+                <div id="no-results-text" class="results-text hidden">
+                    <h4>No results found!</h4>
+                </div>
+                <div class="headlines">
+                    
+                    {% include results.html %}
+
                 </div>
             </div>
-            {% endfor %}
-
-            <!-- <div class="col">
-                <div class="ar-lst">
-                    <p class="hd-yr"><strong>2016</strong></p>
-                    <ul>
-                        <li><a href="#">January</a></li>
-                        <li><a href="#">February</a></li>
-                        <li><a href="#">March</a></li>
-                        <li><a href="#">April</a></li>
-                        <li><a href="#">May</a></li>
-                        <li><a href="#">June</a></li>
-                        <li><a href="#">July</a></li>
-                        <li><a href="#">August</a></li>
-                        <li><a href="#">September</a></li>
-                        <li><a href="#">October</a></li>
-                        <li><a href="#">November</a></li>
-                        <li><a href="#">December</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="ar-lst">
-                    <p class="hd-yr"><strong>2015</strong></p>
-                    <ul>
-                        <li><a href="#">January</a></li>
-                        <li><a href="#">February</a></li>
-                        <li><a href="#">March</a></li>
-                        <li><a href="#">April</a></li>
-                        <li><a href="#">May</a></li>
-                        <li><a href="#">June</a></li>
-                        <li><a href="#">July</a></li>
-                        <li><a href="#">August</a></li>
-                        <li><a href="#">September</a></li>
-                        <li><a href="#">October</a></li>
-                        <li><a href="#">November</a></li>
-                        <li><a href="#">December</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="ar-lst">
-                    <p class="hd-yr"><strong>2014</strong></p>
-                    <ul>
-                        <li><a href="#">January</a></li>
-                        <li><a href="#">February</a></li>
-                        <li><a href="#">March</a></li>
-                        <li><a href="#">April</a></li>
-                        <li><a href="#">May</a></li>
-                        <li><a href="#">June</a></li>
-                        <li><a href="#">July</a></li>
-                        <li><a href="#">August</a></li>
-                        <li><a href="#">September</a></li>
-                        <li><a href="#">October</a></li>
-                        <li><a href="#">November</a></li>
-                        <li><a href="#">December</a></li>
-                    </ul>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>
