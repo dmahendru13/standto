@@ -1,202 +1,205 @@
 .stand-to {
-    //amend to hidden class
-    .unsubscribe-div.hidden {
-      margin: 0;
+  //amend to hidden class
+  .unsubscribe-div.hidden {
+    margin: 0;
+  }
+
+  .small {
+    .st-byline {
+      margin-right: 18px;
     }
-  
-    .small {
-      .st-byline {
-        margin-right: 18px;
-      }
+    .date {
+      color: map-get($army-branding, grey50);
+    }
+
+    @include breakpoints(mobile nav tablet) {
+      text-align: center;
+
+      .st-byline,
       .date {
-        color: map-get($army-branding, grey50);
+        margin: 0;
+        display: block;
       }
-  
+    }
+  }
+
+  .body {
+    @include bodytext();
+  }
+
+  .alt-social-bar {
+    margin: 35px 0;
+  }
+
+  // ----------------------------------------------------------------------
+  // Archive styles, for markdown prior to rv7...
+  // ----------------------------------------------------------------------
+
+  &.oldarchive {
+    .focus {
+      h2,
+      h3.body-header {
+        font-size: 24px;
+        text-transform: uppercase;
+        margin: 50px 0 40px;
+
+        @include header-underline(gold);
+        @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+          margin: 60px 0 54px;
+        }
+      }
+
+      h3 {
+        font-size: 15px;
+        padding: 0 0 7px;
+        text-transform: none;
+      }
+
+      h3.body-header {
+        margin-bottom: 15px;
+      }
+
+      h4 {
+        font-size: 16px;
+        margin: 0;
+        padding-bottom: 10px;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .small {
       @include breakpoints(mobile nav tablet) {
         text-align: center;
-  
-        .st-byline,
-        .date {
-          margin: 0;
-          display: block;
-        }
       }
     }
-  
-    .body {
-      @include bodytext();
+    .events {
+      h2 {
+        margin: 0;
+      }
+
+      h2::after {
+        background-color: map-get($army-branding, grey80);
+      }
+
+      h5 {
+        font-size: 12px;
+        font-weight: 500;
+        padding: 35px 0 0;
+        text-transform: none;
+      }
+
+      h4 {
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 15px;
+      }
     }
-  
-    .alt-social-bar {
-      margin: 35px 0;
+    .quote {
+      h2 {
+        margin-top: 0;
+        text-align: center;
+
+        &::after {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      blockquote h3 {
+        margin: 25px 30px;
+        position: relative;
+        z-index: 1;
+      }
+      h3 {
+        margin: 25px 0;
+        text-align: center;
+      }
+      .container,
+      .inner-container {
+        overflow: visible;
+      }
     }
-  
-    // ----------------------------------------------------------------------
-    // Archive styles, for markdown prior to rv7...
-    // ----------------------------------------------------------------------
-  
-    &.oldarchive {
-      .focus {
-        h2,
-        h3.body-header {
-          font-size: 24px;
-          text-transform: uppercase;
-          margin: 50px 0 40px;
-  
-          @include header-underline(gold);
-          @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-            margin: 60px 0 54px;
-          }
-        }
-  
-        h3 {
-          font-size: 15px;
-          padding: 0 0 7px;
-          text-transform: none;
-        }
-  
-        h3.body-header {
-          margin-bottom: 15px;
-        }
-  
-        h4 {
-          font-size: 16px;
-          margin: 0;
-          padding-bottom: 10px;
-  
-          &::after {
-            display: none;
-          }
-        }
+
+    .events {
+      h2 {
+        padding: 0 0 10px;
       }
-  
-      .small {
-        @include breakpoints(mobile nav tablet) {
-          text-align: center;
-        }
+
+      h4 {
+        padding: 30px 0 0;
+        text-align: left;
       }
-      .events {
-        h2 {
-          margin: 0;
-        }
-  
-        h2::after {
-          background-color: map-get($army-branding, grey80);
-        }
-  
-        h5 {
-          font-size: 12px;
-          font-weight: 500;
-          padding: 35px 0 0;
-          text-transform: none;
-        }
-  
-        h4 {
-          font-weight: 400;
-        }
-  
-        p {
-          font-size: 15px;
-        }
+
+      p {
+        padding: 20px 0 0;
+        text-align: left;
+        margin-bottom: 0px;
       }
-      .quote {
-        h2 {
-          margin-top: 0;
-          text-align: center;
-  
-          &::after {
-            margin-left: auto;
-            margin-right: auto;
-          }
-        }
-        blockquote h3 {
-          margin: 25px 30px;
-          position: relative;
-          z-index: 1;
-        }
-        h3 {
-          margin: 25px 0;
-          text-align: center;
-        }
-        .container,
-        .inner-container {
-          overflow: visible;
-        }
+    }
+  } // END .oldarchive
+
+  .sub-box {
+    padding: 30px;
+    border: 1px solid #ffd530;
+    margin-bottom: 30px;
+
+    .sub-results {
+      color: map-get($stand-to, fail);
+      .email-span {
+        color: map-get($army-branding, black);
+        font-weight: 700;
       }
-  
-      .events {
-        h2 {
-          padding: 0 0 10px;
-        }
-  
-        h4 {
-          padding: 30px 0 0;
-          text-align: left;
-        }
-  
-        p {
-          padding: 20px 0 0;
-          text-align: left;
-          margin-bottom: 0px;
-        }
-      }
-    } // END .oldarchive
-  
-    .sub-box {
-      padding: 30px;
-      border: 1px solid #ffd530;
-      margin-bottom: 30px;
-  
-      .sub-results {
-        color: map-get($stand-to, fail);
+
+      &.good {
+        color: map-get($stand-to, success);
         .email-span {
           color: map-get($army-branding, black);
           font-weight: 700;
         }
-  
-        &.good {
-          color: map-get($stand-to, success);
-          .email-span {
-            color: map-get($army-branding, black);
-            font-weight: 700;
-          }
-        }
-      }
-  
-      p {
-        font-weight: 600;
-      }
-  
-      .subscribe {
-        label {
-          display: block;
-          font-weight: 600;
-          margin-bottom: em(20);
-        }
-  
-        input.email-input {
-          padding: 15px;
-          display: block;
-          width: 100%;
-          text-align: left;
-          font-size: 1em;
-          border-radius: 0;
-          border: 1px solid #b3b3b3;
-        }
-  
-        .btn > div {
-          display: block;
-          margin: 15px 0 0 0;
-        }
       }
     }
-  
-    .events {
-      background-color: #e5e5e5;
-      padding: 30px;
-  
-      p:last-child > em {
-        font-size: 0.875em;
+
+    p {
+      font-weight: 600;
+    }
+
+    .subscribe {
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: em(20);
+      }
+
+      input.email-input {
+        padding: 15px;
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 1em;
+        border-radius: 0;
+        border: 1px solid #b3b3b3;
+      }
+
+      .btn > div {
+        display: block;
+        margin: 15px 0 0 0;
       }
     }
   }
+
+  .events {
+    background-color: #e5e5e5;
+    padding: 30px;
+
+    p:last-child > em {
+      font-size: 0.875em;
+    }
+  }
+  .norm-fnt-lb {
+    font-weight: 500;
+  }
+}

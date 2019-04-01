@@ -1,35 +1,80 @@
-.archive-body {
-  @include box-sizing(border-box);
-  .container {
-    .inner-container {
-      .row {
-        .col-hd {
-          @include span(12, 10);
-          margin-left: 15px;
+.archive {
+    .standto-search {
+      background-color: #f2f2f2;
+      overflow: hidden;
+  
+      .container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+  
+      .search-form-container {
+        border: 1px solid #b3b3b3;
+        position: relative;
+      }
+  
+      label {
+        display: block;
+        margin: 0;
+        @include replace-text;
+      }
+  
+      input[name="query"] {
+        border-width: 0;
+        font: 1.2em/49px $font-family;
+        padding: 3px 60px 0 15px;
+        width: 100%;
+      }
+  
+      button#archive-search-btn {
+        background-color: #f2c628;
+        border: 1px solid #b3b3b3;
+        border-width: 0 0 0 1px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 54px;
+      }
+  
+      button#archive-search-btn::after {
+        background: transparent $social-button-sprite no-repeat scroll -258px -25px;
+        content: "";
+        cursor: pointer;
+        height: 22px;
+        margin: -11px -14px 0 0;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        width: 26px;
+      }
+  
+      @include breakpoints(mobile nav) {
+        .container {
+          margin-top: 40px;
+          margin-bottom: 40px;
         }
-        .col {
-          @include span(3);
-          margin-top: 15px;
-          margin-bottom: 15px;
-
-          .ar-lst {
-            border: 1px solid map-get($army-branding, mediumcamo);
-            min-height: 376px;
-            .hd-yr {
-              background-color: map-get($army-branding, darkcamo);
-              color: map-get($army-branding, white);
-              text-align: center;
-
-              margin-bottom: 0;
-
-              padding: 9px 0;
-            }
-            ul {
-              padding: 15px;
-            }
-          }
+  
+        input.email-input {
+          font-size: 1em;
+          line-height: 43px;
         }
       }
     }
+    h2 {
+      margin: 0 0 20px;
+    }
+  
+    .headlines {
+      margin-top: 35px;
+    }
+    h2 {
+      &::after {
+        display: none;
+      }
+    }
+    h4 {
+      font-size: 18px;
+      margin: 0;
+    }
   }
-}
