@@ -1,35 +1,35 @@
-{% assign year = page.year %}
-{% assign month = page.month %}
+{%- assign year = page.year -%}
+{%- assign month = page.month -%}
 
 <!-- path to archive data files -->
-{% assign archive = site.data.archived-standto[year][month] | sort %}
+{%- assign archive = site.data.archived-standto[year][month] | sort -%}
 
 <!-- Convert month from number to name -->
-{% if month == '01' %}
-{% assign this-month = 'January '%}
-{% else if month == '02'%}
-{% assign this-month = 'February' %}
-{% else if month == '03'%}
-{% assign this-month = 'March' %}
-{% else if month == '04'%}
-{% assign this-month = 'April' %}
-{% else if month == '05'%}
-{% assign this-month = 'May' %}
-{% else if month == '06'%}
-{% assign this-month = 'June' %}
-{% else if month == '07'%}
-{% assign this-month = 'July' %}
-{% else if month == '08'%}
-{% assign this-month = 'August' %}
-{% else if month == '09'%}
-{% assign this-month = 'September' %}
-{% else if month == '10'%}
-{% assign this-month = 'October' %}
-{% else if month == '11'%}
-{% assign this-month = 'November' %}
-{% else %}
-{% assign this-month = 'December' %}
-{% endif %}
+{%- if month == '01' -%}
+    {%- assign this-month = 'January ' -%}
+{%- elsif month == '02' -%}
+    {%- assign this-month = 'February' -%}
+{%- elsif month == '03' -%}
+    {%- assign this-month = 'March' -%}
+{%- elsif month == '04' -%}
+    {%- assign this-month = 'April' -%}
+{%- elsif month == '05' -%}
+    {%- assign this-month = 'May' -%}
+{%- elsif month == '06' -%}
+    {%- assign this-month = 'June' -%}
+{%- elsif month == '07' -%}
+    {%- assign this-month = 'July' -%}
+{%- elsif month == '08' -%}
+    {%- assign this-month = 'August' -%}
+{%- elsif month == '09' -%}
+    {%- assign this-month = 'September' -%}
+{%- elsif month == '10' -%}
+    {%- assign this-month = 'October' -%}
+{%- elsif month == '11' -%}
+    {%- assign this-month = 'November' -%}
+{%- else -%}
+    {%- assign this-month = 'December' -%}
+{%- endif -%}
 
 <div class="container">
     <div class="inner-container">
@@ -38,7 +38,7 @@
                 <h3>Stand-To! Archive</h3>
             </div>
             <div class="col-month">
-                <h5><strong>
+                <h5 class="hd-month"><strong>
                     {{ this-month }}
                     {{ page.year }}
                     &#124;
@@ -46,27 +46,23 @@
                 </strong></h5>
                 <div class="ar-lst">
                     <ul>
-                        {% for item in archive %}
-
+                        {%- for item in archive -%}
                         <li>
-                            <a href="#">
+                            <a href="{{item.first}}">
                                 {{ this-month }}
                                 {{ item.first | abs }},
                                 {{ page.year }}
                                 &#124;
                                 <span class="norm-fnt-lb">
-
+                                    {%- for title in item -%}
+                                        {%- if title.title -%}
+                                            {{title.title}}
+                                        {%- endif -%}
+                                    {%- endfor -%}
                                 </span>
-                                {% for title in item %}
-                                    {% if title.title %}
-                                        {{title.title}}
-                                    {% endif %}
-                                {% endfor %}
                             </a>
                         </li>
-                        
-                        {% endfor %}
-
+                        {%- endfor -%}
                     </ul>
                 </div>
             </div>

@@ -13,7 +13,7 @@ metaTitle: Archive
 
 otherwise, I will make one page/file for year/month respectively, with a for loop that will generat content based off of whether or not there is a data file for that corresponding year/month before leading to the page with all of the "days" -->
 
-{% assign archives = site.data.archived-standto | sort %}
+{%-  assign archives = site.data.archived-standto | sort  -%}
 
 <!-- When using numbers in file paths for getting to data, put the 
 numbered directory in parenthesis, within square brackets:
@@ -26,52 +26,52 @@ numbered directory in parenthesis, within square brackets:
             <div class="col-hd">
                 <h3>Stand-To! Archive</h3>
             </div>
-            {% for year in archives reversed %}
-            {% assign yr = year.first %}
+            {%- for year in archives reversed -%}
+            {%- assign yr = year.first -%}
 
             <div class="col-yr">
                 <div class="ar-lst">
                     <p class="hd-yr"><strong>{{ yr }}</strong></p>
-                    {% assign archiveYear = site.data.archived-standto[yr] | sort %}
+                    {%- assign archiveYear = site.data.archived-standto[yr] | sort -%}
                     <ul>
-                        {% for item in archiveYear %}
+                        {%- for item in archiveYear -%}
                         
-                        {% if item %}
-                        {% assign a = item.first %}
-                            {% case a %}
-                                {% when '01' %}
+                        {%- if item -%}
+                        {%- assign a = item.first -%}
+                            {%- case a -%}
+                                {%- when '01' -%}
                                 <li><a href="{{yr}}/{{a}}/">January</a>
-                                {% when '02' %}
+                                {%- when '02' -%}
                                 <li><a href="{{yr}}/{{a}}">February</a>
-                                {% when '03' %}
+                                {%- when '03' -%}
                                 <li><a href="{{yr}}/{{a}}">March</a>
-                                {% when '04' %}
+                                {%- when '04' -%}
                                 <li><a href="{{yr}}/{{a}}">April</a>
-                                {% when '05' %}
+                                {%- when '05' -%}
                                 <li><a href="{{yr}}/{{a}}">May</a>
-                                {% when '06' %}
+                                {%- when '06' -%}
                                 <li><a href="{{yr}}/{{a}}">June</a>
-                                {% when '07' %}
+                                {%- when '07' -%}
                                 <li><a href="{{yr}}/{{a}}">July</a>
-                                {% when '08' %}
+                                {%- when '08' -%}
                                 <li><a href="{{yr}}/{{a}}">August</a>
-                                {% when '09' %}
+                                {%- when '09' -%}
                                 <li><a href="{{yr}}/{{a}}">September</a>
-                                {% when '10' %}
+                                {%- when '10' -%}
                                 <li><a href="{{yr}}/{{a}}">October</a>
-                                {% when '11' %}
+                                {%- when '11' -%}
                                 <li><a href="{{yr}}/{{a}}">November</a>
-                                {% when '12' %}
+                                {%- when '12' -%}
                                 <li><a href="{{yr}}/{{a}}">December</a>
-                            {% endcase %}
-                        {% endif %}
+                            {%- endcase -%}
+                        {%- endif -%}
                         
-                        {% endfor %}
+                        {%- endfor -%}
                         
                     </ul>
                 </div>
             </div>
-            {% endfor %}
+            {%- endfor -%}
         </div>
     </div>
 </div>

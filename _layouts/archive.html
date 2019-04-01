@@ -24,27 +24,27 @@
 
 <body class="{{ page.pageid }}-body">
     
-    {% include globals/upgrade.html %}
-    {% include globals/header.html %}
+    {%-include globals/upgrade.html-%}
+    {%-include globals/header.html-%}
 
-    {% if page.active != 'error' %}
+    {%-if page.active != 'error'-%}
     <div class="main" role="main">
 
-        {% include masthead.html %}
+        {%-include masthead.html-%}
 
-        {% include nav.html %}
-        {% endif %}
+        {%-include nav.html-%}
+        {%-endif-%}
 
         {{ content }}
 
-        {% if page.active != 'error' %}
+        {%-if page.active != 'error'-%}
     </div>
-    {% endif %}
-    {% include globals/footer.html %}
-    {% include social-bar.html %}
+    {%-endif-%}
+    {%-include globals/footer.html-%}
+    {%-include social-bar.html-%}
     
 
-    {% include scripts.html %}
+    {%-include scripts.html-%}
 
 
 </body>

@@ -5,14 +5,14 @@
 <!-- https://blog.webjeda.com/jekyll-subscribe-form/ -->
 
 <div class="sub-box">
-    {% if include.unsubscribe %}
+    {%- if include.unsubscribe -%}
     <p>Unsubscribe to STAND-TO!</p>
     <p>We are sorry that you are no longer interested in learning about U.S. Army’s overarching current operations,
         doctrine and programs published in STAND-TO!. To be removed from the email list, opt out by adding your email
         below.</p>
-    {% else %}
+    {%- else -%}
     <p>Subscribe to STAND-TO! to learn about the U.S. Army initiatives.</p>
-    {% endif %}
+    {%- endif -%}
     <p class="sub-results"></p>
     <div class="subscribe">
         <label for="{{ include.email_id }}">Email</label>
@@ -20,16 +20,16 @@
         <div class="btn">
             <div>
                 <div><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                {% if include.unsubscribe %}
+                {%- if include.unsubscribe -%}
                 <input class="sub-link" type="button" value="{{ 'Unsubscribe' }}">
-                {% else %}
+                {%- else -%}
                 <input class="sub-link" type="button" value="{{ 'Subscribe' }}">
-                {% endif %}
+                {%- endif -%}
             </div>
         </div>
     </div>
 </div>
 <!-- https://stackoverflow.com/questions/17976064/using-or-in-liquid-for-optional-template-variable -->
-{% if include.unsubscribe %}
+{%- if include.unsubscribe -%}
 <p>You may add a new email address to re-subscribe at <a href="https://www.army.mil/standto#about">https://www.army.mil/standto#about</a></p>
-{% endif %}
+{%- endif -%}

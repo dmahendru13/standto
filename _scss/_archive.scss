@@ -5,23 +5,35 @@
       .row {
         .col-hd {
           @include span(12, 10);
-          margin-left: 15px;
+          @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
+            margin-left: 15px;
+          }
         }
         .col-yr {
           @include span(3);
-          margin-top: 15px;
+          margin-top: 5px;
           margin-bottom: 15px;
-
+          @include breakpoints(lg_tablet tablet nav) {
+            @include span(6);
+          }
+          @include breakpoints(mobile) {
+            @include span(12);
+          }
           .ar-lst {
             border: 1px solid map-get($army-branding, mediumcamo);
-            min-height: 376px;
+            background-color: map-get($army-branding, grey10);
+
+            @include breakpoints(really_big large desktop sm_desktop) {
+              min-height: 390px;
+            }
+            @include breakpoints(lg_tablet tablet nav) {
+              min-height: 390px;
+            }
             .hd-yr {
               background-color: map-get($army-branding, darkcamo);
               color: map-get($army-branding, white);
               text-align: center;
-
               margin-bottom: 0;
-
               padding: 9px 0;
             }
             ul {
@@ -30,29 +42,39 @@
           }
         }
         .col-month {
-          @include span(12);
-          margin: 15px 0;
+          margin: 5px 0 0;
+          .sub-title {
+            margin-bottom: 10px;
+          }
+          .hd-month {
+            background-color: map-get($army-branding, darkcamo);
+            color: map-get($army-branding, white);
+            @include breakpoints(really_big large desktop sm_desktop lg_tablet tablet) {
+              padding: 14px 20px 9px;
+            }
+            @include breakpoints(nav mobile) {
+              padding: 14px 10px 9px;
+            }
+          }
           .ar-lst {
             background-color: map-get($army-branding, grey10);
             border: 1px solid map-get($army-branding, mediumcamo);
-            min-height: 376px;
-            @include box-shadow(0, 2px, 8px, 2px, rgba(0,0,0, .2));
-            .hd-yr {
-              background-color: map-get($army-branding, darkcamo);
-              color: map-get($army-branding, white);
-              text-align: center;
-
-              margin-bottom: 0;
-
-              padding: 9px 0;
-            }
+            @include box-shadow(0, 4px, 8px, 2px, rgba(0, 0, 0, 0.2));
             ul {
               padding: 15px 20px;
+              li:not(:last-child) {
+                @include breakpoints(nav mobile) {
+                  padding-bottom: 5px;
+                }
+              }
             }
           }
+          @include span(12);
+        }
+        .norm-fnt-lb {
+          font-weight: 500;
         }
       }
     }
   }
 }
-

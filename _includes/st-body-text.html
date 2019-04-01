@@ -1,5 +1,5 @@
 <!-- -- if page.active == 'standto' and page.layout == 'default' -- -->
-{% if include.standto-data %}
+{%- if include.standto-data -%}
 
     <!-- 
         Print text if the data file has this content: 
@@ -64,7 +64,7 @@
 
 {%- else -%}
 
-    {% for a in body %}
+    {%- for a in body -%}
 
         {%- if a.heading -%}
         <p><strong>{{ a.heading }}</strong></p>
@@ -88,7 +88,7 @@
             </ul>
         {%- endif -%}
 
-    {% endfor %}
+    {%- endfor -%}
 
     {%- for b in link -%}
 
@@ -120,4 +120,4 @@
 
     {%- endfor -%}
 
-{% endif %}
+{%- endif -%}
