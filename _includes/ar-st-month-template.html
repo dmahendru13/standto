@@ -6,29 +6,29 @@
 
 <!-- Convert month from number to name -->
 {%- if month == '01' -%}
-    {%- assign this-month = 'January ' -%}
+{%- assign this-month = 'January ' -%}
 {%- elsif month == '02' -%}
-    {%- assign this-month = 'February' -%}
+{%- assign this-month = 'February' -%}
 {%- elsif month == '03' -%}
-    {%- assign this-month = 'March' -%}
+{%- assign this-month = 'March' -%}
 {%- elsif month == '04' -%}
-    {%- assign this-month = 'April' -%}
+{%- assign this-month = 'April' -%}
 {%- elsif month == '05' -%}
-    {%- assign this-month = 'May' -%}
+{%- assign this-month = 'May' -%}
 {%- elsif month == '06' -%}
-    {%- assign this-month = 'June' -%}
+{%- assign this-month = 'June' -%}
 {%- elsif month == '07' -%}
-    {%- assign this-month = 'July' -%}
+{%- assign this-month = 'July' -%}
 {%- elsif month == '08' -%}
-    {%- assign this-month = 'August' -%}
+{%- assign this-month = 'August' -%}
 {%- elsif month == '09' -%}
-    {%- assign this-month = 'September' -%}
+{%- assign this-month = 'September' -%}
 {%- elsif month == '10' -%}
-    {%- assign this-month = 'October' -%}
+{%- assign this-month = 'October' -%}
 {%- elsif month == '11' -%}
-    {%- assign this-month = 'November' -%}
+{%- assign this-month = 'November' -%}
 {%- else -%}
-    {%- assign this-month = 'December' -%}
+{%- assign this-month = 'December' -%}
 {%- endif -%}
 
 <div class="container">
@@ -38,26 +38,26 @@
                 <h3>Stand-To! Archive</h3>
             </div>
             <div class="col-month">
-                <h5 class="hd-month"><strong>
-                    {{ this-month }}
-                    {{ page.year }}
-                    &#124;
-                    FOCUS TOPICS
-                </strong></h5>
                 <div class="ar-lst">
+                    <h5 class="hd-month"><strong>
+                            {{ this-month }}
+                            {{ page.year }}
+                            &#124;
+                            FOCUS TOPICS
+                        </strong></h5>
                     <ul>
                         {%- for item in archive -%}
                         <li>
-                            <a href="{{item.first}}">
+                            <a href="{%- assign yr = page.year | to_integer -%}{%- if yr <= 2013 -%}{{item.first}}{%- else -%}/archive_{{page.year}}-{{month}}-{{item.first}}/{%- endif -%}">
                                 {{ this-month }}
                                 {{ item.first | abs }},
                                 {{ page.year }}
                                 &#124;
                                 <span class="norm-fnt-lb">
                                     {%- for title in item -%}
-                                        {%- if title.title -%}
-                                            {{title.title}}
-                                        {%- endif -%}
+                                    {%- if title.title -%}
+                                    {{title.title}}
+                                    {%- endif -%}
                                     {%- endfor -%}
                                 </span>
                             </a>

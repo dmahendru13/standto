@@ -16,6 +16,7 @@ sftpCache.json
 .ftppass
 _plugins
 _site
+_drafts
 .jekyll-metadata
 src/e2/rv5_images/**/*
 src/e2/rv5_downloads/**/*
