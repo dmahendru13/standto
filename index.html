@@ -9,7 +9,7 @@ pageid: standto
 id: standto
 
 ---
-{%-assign standto-data = site.data.standto.todays-focus-%}
+{%- assign standto-data = site.data.standto.todays-focus -%}
 
 <div class="stand-to">
     <div class="focus subnav-selectable subnav-selected">
@@ -24,36 +24,48 @@ id: standto
                     <span class="date">{{ standto-data.date }}</span>
                 </p>
 
-                {%-include alt-social.html-%}
+                {%- include alt-social.html -%}
                 <div class="body two-column-body">
                     <div class="left-column">
 
-                        {%-include st-body-text.html standto-data = standto-data-%}
+                            {%- assign body = standto-data.body -%}
+
+                            {%- if body contains "#######" -%}
+                                {{ body | replace: "#######" , "<p class='byline'>"
+                                        | replace_first: "**", "</p>**"
+                                        | markdownify }}
+                            {%- else -%}
+                            {%- assign link = content.links -%}
+                                {%- include st-body-text.html body=body link=link -%}
+                            {%- endif -%}
 
                     </div>
                     <div class="right-column">
 
-                        {%-include sub-box.html email_id="email1"-%}
+                        {%- include sub-box.html email_id="email1" -%}
 
-                        {%-include st-events.html standto-events = standto-data.events-%}
+                        <!-- -include st-events.html standto-events = standto-data.events- -->
+                        {%- if standto-data.events and standto-data.events != '' -%}
+                            {%- include st-events.html standto-events = standto-data.events -%}
+                        {%- else -%}
+                        {%- endif -%}
 
                     </div>
                 </div>
             </div>
         </div>
 
-        {%-if standto-data.quote and standto-data.quote != ""-%}
-        {%-include quote.html quote = standto-data.quote-%}
-        {%-else if standto-data.quote == ""-%}
-        {%-endif-%}
-
+        {%- if standto-data.quote and standto-data.quote != "" -%}
+        {%- include quote.html quote = standto-data.quote -%}
+        {%- else -%}
+        {%- endif -%}
 
 
     </div>
     <div class="container unsubscribe-div hidden">
         <div class="inner-container">
 
-            {%-include sub-box.html email_id='email' unsubscribe="true"-%}
+            {%- include sub-box.html email_id='email' unsubscribe="true" -%}
 
         </div>
     </div>

@@ -19,7 +19,7 @@ jekyll-minifier:
 title: StandTo
 
 collections:
-  archived_standtos:
+  recent_archived_standtos:
     output: true
     # permalink: archived/:name/
     permalink: /:name/

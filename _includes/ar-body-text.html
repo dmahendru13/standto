@@ -43,7 +43,7 @@
                                     | replace_first: "**", "</p>**"
                                     | markdownify }}
                             
-                        {%- else if -%}
+                        {%- else -%}
                         {%- assign link = content.links -%}
                             {%- include st-body-text.html body=body link=link -%}
                         {%- endif -%}
@@ -66,10 +66,8 @@
             
             {%- include quote.html quote = content.quote -%}
 
-        {%- else if content.quote == "" -%}
+        {%- elsif content.quote == "" -%}
             
-            
-
         {%- endif -%}
 
             {%- endif -%}
