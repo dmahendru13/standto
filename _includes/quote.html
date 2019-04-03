@@ -1,9 +1,45 @@
-<!-- https://www.army.mil/standto/2019-02-21 -->
-
 <div class="quote">
-  <div class="container">
-    <div class="inner-container">
-      {{ include.quote | markdownify }}
-    </div>
-  </div>
+    <div class="container">
+        <div class="inner-container">
+          {%- if include.quote and include.quote contains "####" -%}
+
+            {{ include.quote | markdownify }}
+
+          {%- elsif include.quote and include.quote != "" -%}
+
+            {%- for item in include.quote -%}
+
+              {%- if item.heading and item.heading != "" -%}
+
+                <h4 id="focus-quote-for-the-day">{{ item.heading }}</h4>
+
+              {%- endif -%}
+
+              {%- if item.blockquote and item.blockquote != "" -%}
+
+                <blockquote><p>{{ item.blockquote }}</p></blockquote>
+
+              {%- endif -%}
+
+              {%- if item.source and item.source != "" -%}
+
+                <p>{{ item.source }}</p>
+
+              {%- endif -%}
+
+              {%- if item.link and item.link != "" -%}
+
+                <p>{{ item.link | markdownify }}</p>
+
+              {%- endif -%}
+
+            {%- endfor -%}
+
+            {%- else -%}
+
+          {%- endif -%}
+
+        </div>
+      </div>
 </div>
+

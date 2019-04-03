@@ -15,11 +15,12 @@
             
           <p><strong>{{ item.date }}</strong></p>
 
-          {%- if item.content != null -%}
+          {%- if item.content and item.content != "" -%}
 
             {%- for b in item.content -%}
               
-              <p>{{ b.subcontent }} &ndash; Visit <a href="{{ b.url }}">{{ b.title }}</a></p>
+              {{ b.item | markdownify }}
+              <!-- <p>{{ b.subcontent }} &ndash; Visit <a href="{{ b.url }}">{{ b.title }}</a></p> -->
 
             {%- endfor -%}
 
@@ -48,11 +49,12 @@
                 
               <p><strong>{{ item.date}}</strong></p>
 
-              {%- if item.content != null -%}
+              {%- if item.content and item.content != "" -%}
 
                 {%- for b in item.content -%}
                   
-                  <p>{{ b.subcontent }} &ndash; Visit <a href="{{ b.url }}">{{ b.title }}</a></p>
+                  {{ b.item | markdownify }}
+                  <!-- <p>{{ b.subcontent }} &ndash; Visit <a href="{{ b.url }}">{{ b.title }}</a></p> -->
 
                 {%- endfor -%}
 

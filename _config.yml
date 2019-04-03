@@ -22,4 +22,4 @@ collections:
   recent_archived_standtos:
     output: true
     # permalink: archived/:name/
-    permalink: /:name/
+    permalink: /archive_:name/

@@ -34,53 +34,60 @@ links:
   - section: 
     - section-title: Resources
     - list:
-      - title: Program Executive Office Command, Control, Communications-Tactical
-        url: http://peoc3t.army.mil/c3t/
+      - link: >
+          [Program Executive Office Command, Control, Communications-Tactical](http://peoc3t.army.mil/c3t/)
 
   - section:
     - section-title: Related Document
     - list:
-      - title: 2018 Army Modernization Strategy - AKO Login Required
-        url: https://www.ako1.us.army.mil/suite/files/50180655
+      - link: >
+          [2018 Army Modernization Strategy - AKO Login Required](https://www.ako1.us.army.mil/suite/files/50180655)
 
   - section:
     - section-title: Related STAND-TO!
     - list:
-      - title: Army Modernization Strategy
-        url: https://www.army.mil/standto/2018-06-06
-      - title: Army Modernization
-        url: https://www.army.mil/standto/2018-01-16
-      - title: Army Network
-        url: https://www.army.mil/standto/archive_2018-03-08
-      - title: Army Futures Command
-        url: https://www.army.mil/standto/2018-03-28
-      - title: Integrated Tactical Network
-        url: https://www.army.mil/standto/2018-08-22
-      - title: WIN-T Increment 1&#58; Tactical Network Upgrades
-        url: https://www.army.mil/standto/archive_2016-01-21
+      - link: >
+          [Army Modernization Strategy](https://www.army.mil/standto/2018-06-06)
+      - link: >
+          [Army Modernization](https://www.army.mil/standto/2018-01-16)
+      - link: >
+          [Army Network](https://www.army.mil/standto/archive_2018-03-08)
+      - link: >
+          [Army Futures Command](https://www.army.mil/standto/2018-03-28)
+      - link: >
+          [Integrated Tactical Network](https://www.army.mil/standto/2018-08-22)
+      - link: >
+          [WIN-T Increment 1&#58; Tactical Network Upgrades](https://www.army.mil/standto/archive_2016-01-21)
 
   - section:
     - section-title: Related Articles
     - list:
-      - title: New signal battalion uses expeditionary comms kit in first mission
-        url: https://www.army.mil/article/215238/new_signal_battalion_uses_expeditionary_comms_kit_in_first_mission
-      - title: Army pilots new signal battalion for scalable expeditionary comms support (ESB-E)
-        url: https://www.army.mil/article/212220/
+      - link: >
+          [New signal battalion uses expeditionary comms kit in first mission](https://www.army.mil/article/215238/new_signal_battalion_uses_expeditionary_comms_kit_in_first_mission) CAC Required
+      - link: >
+          [Army pilots new signal battalion for scalable expeditionary comms support (ESB-E)](https://www.army.mil/article/212220/), beginning at 4:00 p.m.
 
 # Quote content to be added before the 
-quote: ""
-# Events to be added to the right column
+quote: 
+  - heading: "Focus Quote for the Day"
+  - blockquote: "The Army mission remains constant: to deploy, fight, and win our nation's wars by providing ready, prompt, and sustained land dominance by Army forces across the full spectrum of conflict as part of the Joint Force.  Our Army is ready today to win in the unforgiving crucible of combat."
+  - source: "- Secretary of the Army Mark T. Esper and Chief of Staff of the Army Gen. Mark A. Milley, in the Army's posture statement presented to the Senate Armed Services Committee, Mar. 26, 2019."
+  - link: >
+      [2019 Army Posture Statement](https://www.army.mil/e2/downloads/rv7/aps/aps_2019.pdf?st) (*Page 13*)
+# "#### Focus Quote for the Day\n\n> The Army mission remains constant: to deploy, fight, and win our nation's wars by providing ready, prompt, and sustained land dominance by Army forces across the full spectrum of conflict as part of the Joint Force.  Our Army is ready today to win in the unforgiving crucible of combat.\n\n\n\\- Secretary of the Army Mark T. Esper and Chief of Staff of the Army Gen. Mark A. Milley, in the Army's posture statement presented to the Senate Armed Services Committee, Mar. 26, 2019. \n\n\n[2019 Army Posture Statement](https://www.army.mil/e2/downloads/rv7/aps/aps_2019.pdf?st) (*Page 13*)\n"
+
+  # Events to be added to the right column
 events:
   - section:
-      - date: FEBRUARY 2019
+      - date: FEBRUARY 2020
       - content:
-        - subcontent: African American/ Black History Month
-          url: https://www.army.mil/africanamericans/
-          title: African Americans in the U.S. Army
+        - item: >
+            African American/ Black History Month - Visit [African Americans in the U.S. Army](https://www.army.mil/africanamericans/)
+
 
   - section:
-      - date: MARCH 2019
+      - date: MARCH 2193
       - content: 
-        - subcontent: Women's History Month
-          url: https://www.army.mil/women/?st
-          title: Women in the U.S. Army
+        - item: >
+            Women's History Month - Visit [Women in the U.S. Army](https://www.army.mil/women/?st)
+

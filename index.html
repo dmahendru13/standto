@@ -35,8 +35,8 @@ id: standto
                                         | replace_first: "**", "</p>**"
                                         | markdownify }}
                             {%- else -%}
-                            {%- assign link = content.links -%}
-                                {%- include st-body-text.html body=body link=link -%}
+                            
+                            {% include st-body-text.html standto-data = standto-data %}
                             {%- endif -%}
 
                     </div>
@@ -44,10 +44,9 @@ id: standto
 
                         {%- include sub-box.html email_id="email1" -%}
 
-                        <!-- -include st-events.html standto-events = standto-data.events- -->
                         {%- if standto-data.events and standto-data.events != '' -%}
                             {%- include st-events.html standto-events = standto-data.events -%}
-                        {%- else -%}
+                        
                         {%- endif -%}
 
                     </div>
@@ -56,8 +55,9 @@ id: standto
         </div>
 
         {%- if standto-data.quote and standto-data.quote != "" -%}
-        {%- include quote.html quote = standto-data.quote -%}
-        {%- else -%}
+
+            {%- include quote.html quote = standto-data.quote -%}
+
         {%- endif -%}
 
 
