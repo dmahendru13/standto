@@ -2,7 +2,7 @@
 {%- assign month = page.month -%}
 
 <!-- path to archive data files -->
-{%- assign archive = site.data.archived-standto[year][month] | sort -%}
+{%- assign archive = site.data.archived-standto.older-archives[year][month] | sort -%}
 
 <!-- Convert month from number to name -->
 {%- if month == '01' -%}

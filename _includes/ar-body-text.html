@@ -1,10 +1,10 @@
 <!-- 
     These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
 -->
-{%- assign page-id = page.data-path -%}
+{%- assign data-path = page.data-path -%}
 {%- assign year = page.year -%}
 {%- assign month = page.month -%}
-{%- assign archive-data = site.data[page-id][year][month] -%}
+{%- assign archive-data = site.data.archived-standto[data-path][year][month] -%}
 {%- assign file = page.file -%}
 <!-- 
     These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 

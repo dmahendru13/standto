@@ -13,7 +13,7 @@ metaTitle: Archive
 
 otherwise, I will make one page/file for year/month respectively, with a for loop that will generat content based off of whether or not there is a data file for that corresponding year/month before leading to the page with all of the "days" -->
 
-{%-  assign archives = site.data.archived-standto | sort  -%}
+{%-  assign archives = site.data.archived-standto.older-archives | sort  -%}
 
 <!-- When using numbers in file paths for getting to data, put the 
 numbered directory in parenthesis, within square brackets:
@@ -32,7 +32,7 @@ numbered directory in parenthesis, within square brackets:
             <div class="col-yr">
                 <div class="ar-lst">
                     <p class="hd-yr"><strong>{{ yr }}</strong></p>
-                    {%- assign archiveYear = site.data.archived-standto[yr] | sort -%}
+                    {%- assign archiveYear = site.data.archived-standto.older-archives[yr] | sort -%}
                     <ul>
                         {%- for item in archiveYear -%}
                         
