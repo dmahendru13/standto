@@ -27,6 +27,9 @@
 
                                 <h1>{{ content.title }}</h1>
                                 <p class="small">
+                                    {%- if content.subtitle and content.subtitle != "" -%}
+                                        <span class="st-byline">{{ content.subtitle }}</span>
+                                    {%- endif -%}
                                     <!-- <span class="st-byline"></span> -->
                                     <span class="date">{{ content.date }}</span>
                                 </p>

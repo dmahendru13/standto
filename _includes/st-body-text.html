@@ -7,12 +7,12 @@
 
         <!-- If there is a heading object, it prints the heading here: -->
         {%- if a.heading and a.heading != "" -%}
-            <p><strong>{{ a.heading }}</strong></p>
+            <p><strong>{{ a.heading | markdownify }}</strong></p>
         {%- endif -%}
 
         <!-- If there is a paragraph object, it prints the paragraph here: -->
         {%- if a.paragraph and a.paragraph != "" -%}
-            <p>{{ a.paragraph }}</p>
+            <p>{{ a.paragraph | markdownify }}</p>
         {%- endif -%}
 
         <!-- If there is a list object, it prints the list here: -->
@@ -21,7 +21,7 @@
                 
                 {%- for li in a.list -%}
                     {%- if li -%}
-                        <li>{{ li.item }}</li>
+                        <li>{{ li.item | markdownify }}</li>
                     {%- endif -%}
                 {%- endfor -%}
 
@@ -66,12 +66,12 @@
     {%- for a in body -%}
 
         {%- if a.heading and a.heading != "" -%}
-        <p><strong>{{ a.heading }}</strong></p>
+        <p><strong>{{ a.heading | markdownify }}</strong></p>
         {%- endif -%}
 
         <!-- If there is a paragraph object, it prints the paragraph here: -->
         {%- if a.paragraph  and a.paragraph != "" -%}
-            <p>{{ a.paragraph }}</p>
+            <p>{{ a.paragraph | markdownify }}</p>
         {%- endif -%}
 
         <!-- If there is a list object, it prints the list here: -->
@@ -80,7 +80,7 @@
             
             {%- for li in a.list -%}
                 {%- if li -%}
-                    <li>{{ li.item }}</li>
+                    <li>{{ li.item | markdownify }}</li>
                 {%- endif -%}
             {%- endfor -%}
 
