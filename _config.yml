@@ -18,8 +18,8 @@ jekyll-minifier:
 
 title: StandTo
 
-collections:
-  recent_archived_standtos:
-    output: true
-    # permalink: archived/:name/
-    permalink: /archive_:name/
+# collections:
+#   recent_archived_standtos:
+#     output: true
+#     # permalink: archived/:name/
+#     permalink: /archive_:name/
