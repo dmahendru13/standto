@@ -48,13 +48,13 @@
                     <ul>
                         {%- for item in archive -%}
                         <li>
-                            <a href="
-                            {%- assign yr = page.year | to_integer -%}{%- if yr <= 2013 -%}{{item.first}}
+                            {%- assign yr = page.year | to_integer -%}
+                            {%- if yr <= 2013 -%}
+                                <a href="{{item.first}}">
                             {%- else -%}
-                            {%- if site.url == 'http://localhost:4000' -%}/archive_{{page.year}}-{{month}}-{{item.first}}/
-                            {%- else -%}{{ site.baseurl }}/standto/archive_{{page.year}}-{{month}}-{{item.first}}/{%- endif -%}
+                            <a href="../../../archive_{{page.year}}-{{month}}-{{item.first}}/">
                             {%- endif -%}
-                            ">
+                            
                                 {{ this-month }}
                                 {{ item.first | abs }},
                                 {{ page.year }}
