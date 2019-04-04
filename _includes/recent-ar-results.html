@@ -22,8 +22,11 @@
                                     {%- endcase -%}{{d | prepend: " " }}, 
                                 {{ content.date | date: "%Y" }}
                             </span>
-                            <a class="article-link" href="/archive_{{content.id }}/">
-                                {{ content.title }}
+                            <a class="article-link" href="{{content.id | prepend: '/archive_' | relative_url }}/">
+                                {{ content.title }}relative
+                            </a>
+                            <a class="article-link" href="{{content.id | prepend: '/archive_' | absolute_url }}/">
+                                {{ content.title }}absolute
                             </a>
                         </li>
                     {%- endif -%}
