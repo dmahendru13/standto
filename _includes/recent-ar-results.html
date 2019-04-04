@@ -1,6 +1,7 @@
 {%- assign year = 'now' | date: '%Y' -%}
 
 <!-- set up abilit to pull content from two years, not just one -->
+{% include base.html %}
 
 {% assign archive-path = site.data.archived-standto.recent-archives['2019'] | sort %}
 
@@ -22,11 +23,11 @@
                                     {%- endcase -%}{{d | prepend: " " }}, 
                                 {{ content.date | date: "%Y" }}
                             </span>
-                            <a class="article-link" href="{{content.id | prepend: '/archive_' | relative_url }}/">
-                                {{ content.title }}relative
+                            <a class="article-link" href="../archive_{{ content.id }}/">
+                                {{ content.title }}
                             </a>
-                            <a class="article-link" href="{{content.id | prepend: '/archive_' | absolute_url }}/">
-                                {{ content.title }}absolute
+                            <a class="article-link" href="./archive_{{ content.id }}/">
+                                {{ content.title }}
                             </a>
                         </li>
                     {%- endif -%}
