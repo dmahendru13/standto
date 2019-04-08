@@ -37,8 +37,8 @@
 
   &.oldarchive {
     .focus {
-      h2,
-      h3.body-header {
+      h4,
+      p.body-header {
         font-size: 24px;
         text-transform: uppercase;
         margin: 50px 0 40px;
@@ -55,18 +55,8 @@
         text-transform: none;
       }
 
-      h3.body-header {
+      p.body-header {
         margin-bottom: 15px;
-      }
-
-      h4 {
-        font-size: 16px;
-        margin: 0;
-        padding-bottom: 10px;
-
-        &::after {
-          display: none;
-        }
       }
     }
 
@@ -76,12 +66,24 @@
       }
     }
     .events {
-      h2 {
+      h4#events { 
+        padding: 0 0 10px;
         margin: 0;
-      }
 
-      h2::after {
-        background-color: map-get($army-branding, grey80);
+        &::after {
+          background-color: map-get($army-branding, grey80);
+        }
+      }
+      // h4 {
+      //   font-weight: 400;
+      //   padding: 30px 0 0;
+      //   text-align: left;
+      // }
+
+      p {
+        padding: 20px 0 0;
+        text-align: left;
+        margin-bottom: 0px;
       }
 
       h5 {
@@ -89,10 +91,6 @@
         font-weight: 500;
         padding: 35px 0 0;
         text-transform: none;
-      }
-
-      h4 {
-        font-weight: 400;
       }
 
       p {
@@ -124,22 +122,6 @@
       }
     }
 
-    .events {
-      h2 {
-        padding: 0 0 10px;
-      }
-
-      h4 {
-        padding: 30px 0 0;
-        text-align: left;
-      }
-
-      p {
-        padding: 20px 0 0;
-        text-align: left;
-        margin-bottom: 0px;
-      }
-    }
   } // END .oldarchive
 
   .sub-box {

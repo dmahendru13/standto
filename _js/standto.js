@@ -18,12 +18,26 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //searchForm = document.getElementById('standto_search_form'),
         //archiveDates = document.querySelectorAll('.results-archive .date'),
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
+        oldArchive = document.querySelector('.stand-to.oldarchive'),
         i;
 
     if (subBox) {
         SocialBar.initWaypoint(socialbarwaypoint);
 
         if (subnav) {
+            // if (unsubDiv && hash === '#unsubscribe') {
+            //     Helper.removeClass(unsubDiv, 'hidden');
+            //     Helper.addClass(unsub, 'hidden');
+            //     new SubNav(subnav,
+            //         function() {
+            //             Helper.addClass(unsubDiv, 'hidden');
+            //             setResultText(false, '');
+            //         },
+            //         { initializeEmpty: true }
+            //         );
+            // } else {
+            //     new SubNav(subnav);
+            // }
             if (unsubDiv && hash === '#unsubscribe') {
                 Helper.removeClass(unsubDiv, 'hidden');
                 Helper.addClass(unsub, 'hidden');
@@ -72,28 +86,17 @@ var SocialBar = require('./globals/modules/SocialBar'),
          * @param {bool} unsub
          */
         function getSubResponse(index, emailAdd, unsub) {
-            var client, subText, Configs, apiPath;
-            client = new Client(),
+            var client = new Client(),
                 subText = (unsub) ? 'unsubscribe' : 'subscribe',
-                Configs = window.Configs || {};
-
-            // This returns the following error:
-            // Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://api.army.mil/api/v1/subscribe?email=ji. (Reason: CORS header ‘Access-Control-Allow-Origin’ does not match ‘https://www.army.mil’).
-            Configs.API_DOMAIN = 'https://api.army.mil';
-            window.Configs = Configs;
-            // This returns the following error:
-            // Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://api.army.mil/api/v1/subscribe?email=ji. (Reason: CORS header ‘Access-Control-Allow-Origin’ does not match ‘https://www.army.mil’).
-
-            apiPath = Configs.API_DOMAIN + '/api/v1/' + subText + '?email=' + emailAdd;
-
-            console.log(apiPath);
+                apiPath = Configs.API_DOMAIN + '/api/v1/' + subText +
+                    '?email=' + emailAdd;
 
             if (emailAdd === '') {
                 setResultText(index, 'Please enter a valid email.');
             } else {
                 client.get(
                     apiPath,
-                    function (data, response) {
+                    function(data, response) {
                         processResultData(index, data, subText);
                     }
                 );
@@ -260,6 +263,38 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 };
             }
         })();
+    } else if (oldArchive){
+            var archivedStandto = document.querySelectorAll('.archived-standto > p'),
+                searchText = 'Resources:',
+                victoria;
+        
+            function balderdash() {
+                function isInPage(node) {
+                    return (node === document.body) ? false : document.body.contains(node);
+                }
+                if (isInPage(oldArchive)) {
+                    //console.log(isInPage(archivedStandto));
+                    //console.log(archivedStandto);
+                    for (var i = 0; i < archivedStandto.length; i++) {
+                        if (archivedStandto[i].textContent === searchText || 'Resources') {
+                            victoria = archivedStandto[i];
+                            Helper.addClass(victoria, 'body-header');
+                            console.log('<h1>' + victoria + '</h1>');
+                            break;
+                        } else {
+                            console.log('')
+                        }
+                    } 
+                } else {
+                    console.log('loompa oompa');
+                }
+        
+        
+            }
+        
+            balderdash();
+
     }
 
 })();
+

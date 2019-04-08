@@ -10,7 +10,8 @@
     These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
 -->
 
-<div class="stand-to archived">
+{%- assign yr = page.year | to_integer -%}
+<div class="stand-to {% if yr < 2017 %}oldarchive{% endif %}">
     <div class="focus subnav-selectable subnav-selected">
 
         {%- for data in archive-data -%}
@@ -56,8 +57,11 @@
                                         {%- include sub-box.html email_id="email1" -%}
 
                                         {%- if content.events and content.events != '' -%}
-                                            {%- include st-events.html archive-events = content.events -%}
-                                        {%- else -%}
+                                            {%- if yr < 2017 -%}
+                                                {%- include st-events.html archive-events=content.events yr=yr -%}
+                                            {%- else -%}
+                                                {%- include st-events.html archive-events=content.events -%}
+                                            {%- endif -%}
                                         {%- endif -%}
 
                                     </div>
@@ -66,7 +70,7 @@
                         </div>
 
                         {%- if content.quote and content.quote != "" -%}
-                            {%- include quote.html quote = content.quote -%}
+                            {%- include quote.html quote=content.quote -%}
                         {%- else -%}
                         {%- endif -%}
 
