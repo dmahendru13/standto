@@ -10,28 +10,55 @@
     *Email
         href="mailto:?Subject={{ rawurlencode($title) }}&amp;body={{ urlencode($url) }}"
  -->
+ <!-- https://mycyberuniverse.com/social-media-share-bar-jekyll-blog-website.html -->
 <section id="social-bar-id" class="social-bar">
     <h2 class="hidden">Social Sharing</h2>
     <ul>
         <li class="social-button no-hover twitter-button">
-            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+            <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url={{ urlencode($url) }}&amp;text={{ rawurlencode($title) }}"><span>Share
                     on Twitter</span></a>
         </li>
         <li class="social-button no-hover facebook-button">
-            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+            <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1466422700342708&amp;display=popup&amp;link={{ urlencode($url) }}&amp;description={{ rawurlencode($description) }}&amp;picture={{ urlencode($image) }}&amp;redirect_uri={{ urlencode($url) }}"><span>Share
                     on Facebook</span></a>
         </li>
         <li class="social-button no-hover reddit-button">
-            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+            <a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/submit?url={{ urlencode($url) }}"><span>Share
                     on Reddit</span></a>
         </li>
         <li class="social-button no-hover linkedin-button">
-            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/cws/share?url={{ urlencode($url) }}"><span>Share
                     on LinkedIn</span></a>
         </li>
         <li class="social-button no-hover email-button">
-            <a rel="noopener noreferrer" target="_blank" href="#"><span>Share
+            <a rel="noopener noreferrer" target="_blank" href="mailto:?Subject={{ rawurlencode($title) }}&amp;body={{ urlencode($url) }}"><span>Share
                     via Email</span></a>
         </li>
     </ul>
 </section>
+
+<!-- <section id="social-bar-id" class="social-bar">
+    <h2 class="hidden">Social Sharing</h2>
+    <ul>
+        <li class="social-button no-hover twitter-button">
+            <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url=http%3A%2F%2Fwww.army.mil%2Fstandto&amp;text=STAND-TO%21%20-%20Meet%20Your%20Army"><span>Share
+                    on Twitter</span></a>
+        </li>
+        <li class="social-button no-hover facebook-button">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1466422700342708&amp;display=popup&amp;link=http%3A%2F%2Fwww.army.mil%2Fstandto&amp;description=Check%20out%20today%27s%20STAND-TO%21%20Focus%20topic%20-%20Meet%20Your%20Army&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto"><span>Share
+                    on Facebook</span></a>
+        </li>
+        <li class="social-button no-hover reddit-button">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/submit?url=http%3A%2F%2Fwww.army.mil%2Fstandto"><span>Share
+                    on Reddit</span></a>
+        </li>
+        <li class="social-button no-hover linkedin-button">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/cws/share?url=http%3A%2F%2Fwww.army.mil%2Fstandto"><span>Share
+                    on LinkedIn</span></a>
+        </li>
+        <li class="social-button no-hover email-button">
+            <a rel="noopener noreferrer" target="_blank" href="mailto:?Subject=STAND-TO%21%20-%20Meet%20Your%20Army&amp;body=http%3A%2F%2Fwww.army.mil%2Fstandto"><span>Share
+                    via Email</span></a>
+        </li>
+    </ul>
+</section> -->

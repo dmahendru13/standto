@@ -8,7 +8,7 @@ plugins:
   - octopress-minify-html
   - octopress-autoprefixer
   - jekyll-minifier
-  
+
 sass:
   sass_dir: _scss
   style: compressed
@@ -18,3 +18,8 @@ jekyll-minifier:
 
 title: StandTo
 
+# collections:
+#   recent_archived_standtos:
+#     output: true
+#     # permalink: archived/:name/
+#     permalink: /archive_:name/

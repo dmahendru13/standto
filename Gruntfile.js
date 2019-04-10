@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     var configs = '_js/globals/configs/production.js',
         i = 0,
@@ -85,7 +85,6 @@ module.exports = function(grunt) {
             libs: {
                 files: {
                     '_js/bundled/header.js': ['_js/globals/header.js']
-                    // '_js/bundled/header.js': ['_js/globals/header.js', '_js/globals/top-btn.js']
                 },
                 options: {
                     transform: ['babelify']
@@ -93,8 +92,7 @@ module.exports = function(grunt) {
             },
             social: {
                 files: {
-                    // '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/dinfos-playlist.js', '_js/side-nav.js',  '_js/standto-subscribe.js' ]
-                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/archive.js', '_js/globals/modules/SocialBar.js',  '_js/subscribe.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js' ]
+                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/globals/modules/SocialBar.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js']
                 },
                 options: {
                     transform: ['babelify'],
@@ -113,13 +111,15 @@ module.exports = function(grunt) {
                 beautify: true
             },
             build: {
-                files: [{
-                    src: [
-                        '_js/bundled/header.js',
-                        '_js/bundled/standto.js'
-                    ],
-                    dest: 'e2/js/rv7/standto/<%= pkg.name %>.min.js'
-                }]
+                files: [
+                    {
+                        src: [
+                            '_js/bundled/header.js',
+                            '_js/bundled/standto.js'
+                        ],
+                        dest: 'e2/js/rv7/standto/<%= pkg.name %>.min.js'
+                    }
+                ]
             }
         },
         usebanner: {
@@ -154,7 +154,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-banner');
 
     grunt.registerTask('production', ['browserify', 'uglify', 'sass']);
-    //grunt.registerTask('production', ['uglify', 'sass']);
+    // grunt.registerTask('production', ['uglify', 'sass']);
 
     grunt.registerTask('post-production', ['usebanner', 'critical']);
 

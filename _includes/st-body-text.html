@@ -1,0 +1,122 @@
+{%- if include.standto-data -%}
+
+    <!-- 
+        Print text if the data file has this content: 
+    -->
+    {%- for a in standto-data.body -%}
+
+        <!-- If there is a heading object, it prints the heading here: -->
+        {%- if a.heading and a.heading != "" -%}
+            <p><strong>{{ a.heading | markdownify }}</strong></p>
+        {%- endif -%}
+
+        <!-- If there is a paragraph object, it prints the paragraph here: -->
+        {%- if a.paragraph and a.paragraph != "" -%}
+            <p>{{ a.paragraph | markdownify }}</p>
+        {%- endif -%}
+
+        <!-- If there is a list object, it prints the list here: -->
+        {%- if a.list and a.list != "" -%}
+            <ul>
+                
+                {%- for li in a.list -%}
+                    {%- if li -%}
+                        <li>{{ li.item | markdownify }}</li>
+                    {%- endif -%}
+                {%- endfor -%}
+
+            </ul>
+        {%- endif -%}
+
+    {%- endfor -%}
+
+    {%- for b in standto-data.links -%}
+
+        {%- if b.section -%}
+
+            {%- for title in b.section -%}
+
+                <p><strong>{{ title.section-title }}</strong></p>
+
+                <ul>
+
+                    {%- if title.list -%}
+
+                        {%- for link in title.list -%}
+
+                            <li>
+                                {{ link.link | markdownify }}
+                            </li>
+
+                        {%- endfor -%}
+
+                    {%- endif -%}
+
+                </ul>
+
+            {%- endfor -%}
+
+        {%- endif -%}
+
+    {%- endfor -%}
+
+
+{%- else -%}
+
+    {%- for a in body -%}
+
+        {%- if a.heading and a.heading != "" -%}
+        <p><strong>{{ a.heading | markdownify }}</strong></p>
+        {%- endif -%}
+
+        <!-- If there is a paragraph object, it prints the paragraph here: -->
+        {%- if a.paragraph  and a.paragraph != "" -%}
+            <p>{{ a.paragraph | markdownify }}</p>
+        {%- endif -%}
+
+        <!-- If there is a list object, it prints the list here: -->
+        {%- if a.list and a.list != "" -%}
+            <ul>
+            
+            {%- for li in a.list -%}
+                {%- if li -%}
+                    <li>{{ li.item | markdownify }}</li>
+                {%- endif -%}
+            {%- endfor -%}
+
+            </ul>
+        {%- endif -%}
+
+    {%- endfor -%}
+
+    {%- for b in link -%}
+
+        {%- if b.section -%}
+
+            {%- for title in b.section -%}
+
+                <p><strong>{{ title.section-title }}</strong></p>
+
+                <ul>
+
+                    {%- if title.list -%}
+
+                        {%- for link in title.list -%}
+
+                            <li>
+                                {{ link.link | markdownify }}
+                            </li>
+
+                        {%- endfor -%}
+
+                    {%- endif -%}
+
+                </ul>
+
+            {%- endfor -%}
+
+        {%- endif -%}
+
+    {%- endfor -%}
+
+{%- endif -%}

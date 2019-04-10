@@ -1,9 +1,0 @@
-<ul id="archive-results">
-    {% assign sortedlist = list | sort: 'title' %}
-    {% for item in sortedlist %}
-    <li>
-        <span class="date">{{ item.date }}</span>
-        <a href="{{ item.networks[0].link }}">{{ item.title }}</a>
-    </li>
-    {% endfor %}
-</ul>

@@ -1,38 +1,36 @@
 ---
 
 layout: default
-metaTitle: U.S. Army STAND-TO!
+metaTitle: About
 pagetitle: About
 description: STAND-TO! provides the official focus of the US Army.
 active: about
+pageid: about
 id: about
 
 ---
-
-<!-- id_email: email1
-email: email1 -->
 
 <div class="about">
     <div class="container">
         <div class="inner-container">
             <div class="body two-column-body">
                 <div class="left-column">
-                    <h1>STAND-TO!</h1>
+                    <h3>STAND-TO!</h3>
                     <p>STAND-TO! is an information paper-based web platform that supports the U.S. Army’s strategic
                         communication objectives.</p>
 
                     <p>The information papers -- written, approved and submitted by the Army agencies -- provide a
                         broad, objective view of the Army’s current operations, doctrine and programs. The "Today’s
                         Focus" topics highlight Army Staff initiatives and support Army wide strategic-level issues.</p>
-
-                    <p>All published editions are sent to subscribers via email and archived daily in the <a href="//www.army.mil/standto/archive/">STAND-TO!
-                            Archives</a>.</p>
+                    <p>All published editions are sent to subscribers via email and archived daily in the <a class="article-link" {%-if site.url == 'http://localhost:4000'-%}
+                        href="/archive/" {%-else-%} href="/standto/archive/"{%-endif-%}>STAND-TO!
+                        Archives</a>.</p>
 
                     <p>STAND-TO! falls under the management of the Online and Social Media Division (OSMD) in the
                         Office of the Chief of Public Affairs (OCPA).</p>
                 </div>
                 <div class="right-column">
-                    {% include sub-box.html email_id="email1" %}
+                    {%-include sub-box.html email_id="email1"-%}
                 </div>
 
             </div>
@@ -69,12 +67,8 @@ email: email1 -->
         </div>
         <div class="container unsubscribe-div hidden">
             <div class="inner-container">
-                {% include sub-box.html unsubscribe="true" %}
+                {%-include sub-box.html unsubscribe="true"-%}
             </div>
         </div>
     </div>
 </div>
-
-<!-- include side-nav.html  -->
-
-<!-- include globals/top-btn.html  -->

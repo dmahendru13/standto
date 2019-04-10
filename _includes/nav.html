@@ -6,8 +6,8 @@
         <div class="subnav-inner">
             <label for="subnav-toggle{% if include.dropdown %}1{% endif %}">{% if page.active == 'archive' %}{{'archive' }}{% else %}{{ page.active }}{% endif %}</label>
             <ul class="container">
-                <li><a {% if page.active == 'standto' %} class="active" {% endif %} href="{{ base }}">Today's Focus</a></li>
-                <li><a {% if page.active == 'archive' %} class="active" {% endif %} href="{{ base }}/archive/">ARCHIVE</a></li>
+                <li><a {% if page.active == 'standto' or page.pageid == 'archived-standto' %} class="active" {% endif %} href="{{ base }}">Today's Focus</a></li>
+                <li><a {% if page.active == 'archive' or page.active == 'archives' %} class="active" {% endif %} href="{{ base }}/archives/">ARCHIVE</a></li>
                 <li><a {% if page.active == 'about' %} class="active" {% endif %} href="{{ base }}/about/">ABOUT</a></li>
                 {% if include.dropdown %}
                 {% endif %}

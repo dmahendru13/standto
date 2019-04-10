@@ -1,0 +1,94 @@
+<!-- 
+    These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
+-->
+{%- assign data-path = page.data-path -%}
+{%- assign year = page.year -%}
+{%- assign month = page.month -%}
+{%- assign archive-data = site.data.archived-standto[data-path][year][month] -%}
+{%- assign file = page.file -%}
+<!-- 
+    These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
+-->
+
+{%- assign yr = page.year | to_integer -%}
+<div class="stand-to {% if yr < 2017 %}oldarchive{% endif %}">
+    <div class="focus subnav-selectable subnav-selected">
+
+        {%- for data in archive-data -%}
+
+            {%- if data contains file -%}
+
+                {%- for content in data -%}
+
+                    {%- if content != null -%}
+                        {%- if content.id -%}
+                        <div class="container">
+
+                            <div class="inner-contianer">
+
+                                <h1>{{ content.title }}</h1>
+                                <p class="small">
+                                    {%- if content.subtitle and content.subtitle != "" -%}
+                                        <span class="st-byline">{{ content.subtitle }}</span>
+                                    {%- endif -%}
+                                    <!-- <span class="st-byline"></span> -->
+                                    <span class="date">{{ content.date }}</span>
+                                </p>
+
+                                {%- include alt-social.html -%}
+                                <div class="body two-column-body">
+                                    <div class="left-column archived-standto">
+
+                                        {%- assign body = content.body -%}
+
+                                        {%- if body contains "#######" -%}
+                                        {{ body | replace: "#######" , "<p class='byline'>"
+                                            | replace_first: "**", "</p>**"
+                                        | markdownify }}
+
+                                        {%- else -%}
+                                        {%- assign link = content.links -%}
+                                        {%- include st-body-text.html body=body link=link -%}
+                                        {%- endif -%}
+
+                                    </div>
+                                    <div class="right-column">
+
+                                        {%- include sub-box.html email_id="email1" -%}
+
+                                        {%- if content.events and content.events != '' -%}
+                                            {%- if yr < 2017 -%}
+                                                {%- include st-events.html archive-events=content.events yr=yr -%}
+                                            {%- else -%}
+                                                {%- include st-events.html archive-events=content.events -%}
+                                            {%- endif -%}
+                                        {%- endif -%}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {%- if content.quote and content.quote != "" -%}
+                            {%- include quote.html quote=content.quote -%}
+                        {%- else -%}
+                        {%- endif -%}
+
+                    {%- endif -%}
+                    
+                {%- endif -%}
+
+                {%- endfor -%}
+
+            {%- endif -%}
+        {%- endfor -%}
+
+    </div>
+    <div class="container unsubscribe-div hidden">
+        <div class="inner-container">
+
+            {%- include sub-box.html email_id='email' unsubscribe="true" -%}
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{%- assign archive-path = site.data.archived-standto.recent-archives.most-recent | sort -%}
+
+<ul id="archive-results">
+    {%- for archive in archive-path reversed -%}
+        {%- for month in archive -%}
+            {%- for archived-standto in month -%}
+                {%- for content in archived-standto -%}
+                    {%- if content.first and content != "" reverse -%}
+                        <li data-date-filter="{{content.id}}">
+                            <span class="date">
+                                {%- assign d = content.date | date: "%-d" -%} 
+                                {%- assign m = content.date | date: "%B" -%} 
+                                
+                                {%- case m -%}
+                                    {%- when 'April' or 'May' or 'June' or 'July' or 'March' -%}{{ m }} 
+                                    {%- when 'September' -%}Sept. 
+                                    {%- else -%}{{ content.date | date: "%b" }}. 
+                                    {%- endcase -%}{{d | prepend: " " }}, 
+                                {{ content.date | date: "%Y" }}
+                            </span>
+                            <a class="article-link" href="../archive_{{ content.id }}/">
+                                {{ content.title }}
+                            </a>
+                        </li>
+                    {%- endif -%}
+                {%- endfor -%}
+            {%- endfor -%}
+        {%- endfor -%}
+    {%- endfor -%}
+</ul>
