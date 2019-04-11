@@ -74,11 +74,6 @@
           background-color: map-get($army-branding, grey80);
         }
       }
-      // h4 {
-      //   font-weight: 400;
-      //   padding: 30px 0 0;
-      //   text-align: left;
-      // }
 
       p {
         padding: 20px 0 0;
@@ -99,6 +94,16 @@
     }
     .quote {
       h2 {
+        margin-top: 0;
+        text-align: center;
+
+        &::after {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      h4 {
         margin-top: 0;
         text-align: center;
 
