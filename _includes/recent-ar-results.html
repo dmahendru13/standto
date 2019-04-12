@@ -1,11 +1,13 @@
-{%- assign archive-path = site.data.archived-standto.recent-archives.most-recent | sort -%}
+{% assign year = 'now' | date: '%Y' %}
+
+{%- assign archive-path = site.data.archived-standto.recent-archives[year] -%}
 
 <ul id="archive-results">
     {%- for archive in archive-path reversed -%}
         {%- for month in archive -%}
             {%- for archived-standto in month -%}
                 {%- for content in archived-standto -%}
-                    {%- if content.first and content != "" reverse -%}
+                    {%- if content.first and content != "" -%}
                         <li data-date-filter="{{content.id}}">
                             <span class="date">
                                 {%- assign d = content.date | date: "%-d" -%} 

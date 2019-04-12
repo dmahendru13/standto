@@ -36,9 +36,18 @@
 
         {{ include.archive-events | markdownify }}
 
+      {%- elsif include.archive-events contains "------------" -%}
+
+      {{ include.archive-events | markdownify }}
+
       {%- else -%}
 
+      {% if yr < 2017 %}
+        <h2>Events</h2>
+      {% else%}
         <h4>Events</h4>
+      {% endif %}
+
         {%- for a in include.archive-events -%}
     
           {%- if a.section -%}

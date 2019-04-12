@@ -42,10 +42,13 @@
                                         {%- assign body = content.body -%}
 
                                         {%- if body contains "#######" -%}
-                                        {{ body | replace: "#######" , "<p class='byline'>"
-                                            | replace_first: "**", "</p>**"
-                                        | markdownify }}
-
+                                        {{ body | replace: "#######" , "<p class='byline'>" | replace_first: "**", "</p>**" | markdownify }}
+                                        {%- elsif body contains "#####" and yr < 2017 -%}
+                                            {{ body | replace: "#####" , "<p class='byline'>" | replace_first: "###", "</p>###" | markdownify }}
+                                        {%- elsif body contains "###" and yr < 2017 -%}
+                                            {{ body | markdownify }}
+                                        {%- elsif body contains "**" and yr < 2017 -%}
+                                            {{ body | markdownify }}
                                         {%- else -%}
                                         {%- assign link = content.links -%}
                                         {%- include st-body-text.html body=body link=link -%}
