@@ -1,8 +1,11 @@
 {%- assign year = page.year -%}
 {%- assign month = page.month -%}
+{%- assign file-path = page.data-path -%}
 
 <!-- path to archive data files -->
 {%- assign archive = site.data.archived-standto.older-archives[year][month] | sort -%}
+
+<!-- %- assign archive = site.data.archived-standto[file-path][year][month] | sort -% -->
 
 <!-- Convert month from number to name -->
 {%- if month == '01' -%}
