@@ -10,6 +10,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
     var subnav = document.getElementsByTagName('nav')[0],
         hash = window.location.hash,
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
+        unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
         // h3Ele = document.getElementsByTagName('h3'),
         subscribeLink = document.getElementsByClassName('sub-link'),
         subBox = document.querySelector('.sub-box'),
@@ -39,7 +40,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             //     new SubNav(subnav);
             // }
             if (unsubDiv && hash === '#unsubscribe') {
-                Helper.removeClass(unsubDiv, 'hidden');
+                Helper.removeClass(unsubDiv, 'subnav-selected');
                 Helper.addClass(unsub, 'hidden');
             }
         }

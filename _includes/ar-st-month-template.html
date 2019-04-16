@@ -52,7 +52,7 @@
                         {%- for item in archive -%}
                         <li>
                             {%- assign yr = page.year | to_integer -%}
-                            {%- if yr <= 2013 -%}
+                            {%- if yr <= 2012 -%}
                                 <a href="{{item.first}}">
                             {%- else -%}
                             <a href="../../../archive_{{page.year}}-{{month}}-{{item.first}}/">
