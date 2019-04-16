@@ -5,6 +5,14 @@
 
             {{ include.quote | markdownify }}
 
+          {%- elsif include.quote and include.quote contains "--------------------" -%}
+
+            <blockquote>{{ include.quote | markdownify }}</blockquote>
+
+          {%- elsif include.quote and include.quote contains "--------------" -%}
+
+            <blockquote>{{ include.quote | markdownify }}</blockquote>
+
           {%- elsif include.quote and include.quote != "" -%}
 
             {%- for item in include.quote -%}

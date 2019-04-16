@@ -1,4 +1,5 @@
 <div class="events top-stories">
+  
   {%- if include.standto-events and include.standto-events contains "####" -%}
 
   {{ include.standto-events | markdownify }}
@@ -36,10 +37,15 @@
 
         {{ include.archive-events | markdownify }}
 
+      {%- elsif include.archive-events contains "------------" -%}
+
+      {{ include.archive-events | markdownify }}
+
       {%- else -%}
 
         <h4>Events</h4>
-        {%- for a in include.archive-events -%}
+
+       {%- for a in include.archive-events -%}
     
           {%- if a.section -%}
 

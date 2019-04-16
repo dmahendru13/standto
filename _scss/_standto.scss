@@ -37,8 +37,8 @@
 
   &.oldarchive {
     .focus {
-      h4,
-      p.body-header {
+      h2,
+      h3.body-header {
         font-size: 24px;
         text-transform: uppercase;
         margin: 50px 0 40px;
@@ -55,8 +55,19 @@
         text-transform: none;
       }
 
-      p.body-header {
+
+      h3.body-header {
         margin-bottom: 15px;
+      }
+
+      h4 {
+        font-size: 16px;
+        margin: 0;
+        padding-bottom: 10px;
+
+        &::after {
+          display: none;
+        }
       }
     }
 
@@ -66,24 +77,12 @@
       }
     }
     .events {
-      h4#events { 
-        padding: 0 0 10px;
+      h2 {
         margin: 0;
-
-        &::after {
-          background-color: map-get($army-branding, grey80);
-        }
       }
-      // h4 {
-      //   font-weight: 400;
-      //   padding: 30px 0 0;
-      //   text-align: left;
-      // }
 
-      p {
-        padding: 20px 0 0;
-        text-align: left;
-        margin-bottom: 0px;
+      h2::after {
+        background-color: map-get($army-branding, grey80);
       }
 
       h5 {
@@ -91,6 +90,10 @@
         font-weight: 500;
         padding: 35px 0 0;
         text-transform: none;
+      }
+
+      h4 {
+        font-weight: 400;
       }
 
       p {
@@ -116,13 +119,58 @@
         margin: 25px 0;
         text-align: center;
       }
-      .container,
-      .inner-container {
+      .container, .inner-container {
         overflow: visible;
       }
     }
 
-  } // END .oldarchive
+    .archive {
+      h2 {
+        font-size: 28px;
+
+        &::after {
+          display: none;
+        }
+      }
+      h4 {
+        font-size: 18px;
+        margin: 0;
+      }
+    }
+
+    .events {
+      h2 {
+        padding: 0 0 10px;
+      }
+
+      h4 {
+        padding: 30px 0 0;
+        text-align: left;
+      }
+
+      p {
+        padding: 20px 0 0;
+        text-align: left;
+        margin-bottom: 0px;
+      }
+    }
+
+    .about {
+      h3 {
+        font-size: 27px;
+        padding-bottom: 20px;
+      }
+      h2 {
+        text-align: center;
+        margin: 0;
+
+        &::after {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }  // END .oldarchive
 
   .sub-box {
     padding: 30px;
@@ -180,5 +228,8 @@
     p:last-child > em {
       font-size: 0.875em;
     }
+    ul {
+      padding: 20px 0px 0px 20px;
+  }
   }
 }
