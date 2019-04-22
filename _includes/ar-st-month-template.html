@@ -5,8 +5,6 @@
 <!-- path to archive data files -->
 {%- assign archive = site.data.archived-standto.older-archives[year][month] | sort -%}
 
-<!-- %- assign archive = site.data.archived-standto[file-path][year][month] | sort -% -->
-
 <!-- Convert month from number to name -->
 {%- if month == '01' -%}
 {%- assign this-month = 'January ' -%}
@@ -50,27 +48,29 @@
                         </strong></h5>
                     <ul>
                         {%- for item in archive -%}
-                        <li>
-                            {%- assign yr = page.year | to_integer -%}
-                            {%- if yr <= 2012 -%}
-                                <a href="{{item.first}}">
-                            {%- else -%}
-                            <a href="../../../archive_{{page.year}}-{{month}}-{{item.first}}/">
-                            {%- endif -%}
-                            
-                                {{ this-month }}
-                                {{ item.first | abs }},
-                                {{ page.year }}
-                                &#124;
-                                <span class="norm-fnt-lb">
-                                    {%- for title in item -%}
-                                    {%- if title.title -%}
-                                    {{title.title}}
+                            <!-- This unless filters OUT links to pages that DO NOT have a corresponding data file -->
+                            {% unless item[1] == false %}
+                                <li>
+                                    {%- assign yr = page.year | to_integer -%}
+                                    {%- if yr <= 2012 -%}
+                                        <a href="{{item.first}}">
+                                    {%- else -%}
+                                    <a href="../../../archive_{{page.year}}-{{month}}-{{item.first}}/">
                                     {%- endif -%}
-                                    {%- endfor -%}
-                                </span>
-                            </a>
-                        </li>
+                                        {{ this-month }}
+                                        {{ item.first | abs }},
+                                        {{ page.year }}
+                                        &#124;
+                                        <span class="norm-fnt-lb">
+                                            {%- for title in item -%}
+                                            {%- if title.title -%}
+                                            {{title.title}}
+                                            {%- endif -%}
+                                            {%- endfor -%}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endunless %}
                         {%- endfor -%}
                     </ul>
                 </div>

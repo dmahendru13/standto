@@ -13,8 +13,8 @@
       }
     }
     .info {
-      background-color: #333c33;
-      color: #ffffff;
+      background-color: map-get($army-branding, darkcamo);
+      color: map-get($army-branding, white);
       text-align: center;
       padding: 40px 20px 20px 20px;
   
@@ -37,7 +37,7 @@
         padding: 30px;
   
         a {
-          border: 1px solid #ffffff;
+          border: 1px solid $secondary-text-color;
           display: table-cell;
           position: relative;
           text-decoration: none;
@@ -64,10 +64,10 @@
   
               p {
                 font: 18px $font-family;
-                color: #ffffff;
+                color: $secondary-text-color;
   
                 a {
-                  color: #ffffff;
+                  color: $secondary-text-color;
                 }
               }
             }
@@ -88,7 +88,7 @@
     }
     .sub-box {
       padding: 30px;
-      border: 1px solid #ffd530;
+      border: 1px solid map-get($army-branding, gold);
       margin-bottom: 30px;
   
       .sub-results {
