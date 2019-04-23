@@ -15,9 +15,11 @@
     <h2 class="hidden">Social Sharing</h2>
     <ul>
         <li class="social-button no-hover twitter-button">
-            <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url={{ urlencode($url) }}&amp;text={{ rawurlencode($title) }}"><span>Share
+            <!-- <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url={{ urlencode($url) }}&amp;text={{ rawurlencode($title) }}"><span>Share -->
+            <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url={{ site.url | url_encode }}{{ site.baseurl }}{{ page.url }}"><span>Share
                     on Twitter</span></a>
         </li>
+        <li>testing</li>
         <li class="social-button no-hover facebook-button">
             <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1466422700342708&amp;display=popup&amp;link={{ urlencode($url) }}&amp;description={{ rawurlencode($description) }}&amp;picture={{ urlencode($image) }}&amp;redirect_uri={{ urlencode($url) }}"><span>Share
                     on Facebook</span></a>
