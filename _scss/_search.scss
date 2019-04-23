@@ -1,194 +1,197 @@
 .search-body {
   .main {
-    .container {
-      .search-box {
-        @include breakpoints(really_big large desktop sm_desktop) {
-          // @include offset(1);
-          @include span(12);
-        }
+    .archive-search {
+      background-color: $lighter-gray-color;
+      overflow: hidden;
 
-        @include breakpoints(lg_tablet tablet nav mobile) {
-          @include span(12);
-        }
+      .container {
+        margin-top: 50px;
+        margin-bottom: 50px;
 
-        #search-searchbar {
-          
-          .ais-search-box {
-            .ais-search-box--input {
-              padding: 10px 10px 10px 20px;
-            }
-            .ais-search-box--magnifier-wrapper {
-              display: none;
-            }
-            max-width: 100%;
-            margin-bottom: 15px;
+        .search-box {
+          @include breakpoints(really_big large desktop sm_desktop) {
+            // @include offset(1);
+            @include span(12);
           }
+
+          @include breakpoints(lg_tablet tablet nav mobile) {
+            @include span(12);
+          }
+
+          #search-searchbar {
+            .ais-search-box {
+              .ais-search-box--input {
+                padding: 27px 10px 25px 20px;
+                border-radius: 0;
+                border-color: map-get($army-branding, grey30);
+              }
+
+              .ais-search-box--input[value=""] {
+                font: 1.2em/49px "Overpass",sans-serif;
+            }
+
+              .ais-search-box--magnifier-wrapper {
+                display: none;
+              }
+
+              max-width: 100%;
+              margin-bottom: 15px;
+            }
+          }
+
         }
+      }
+    }
 
-        .search-hits {
-          border: 1px solid map-get($stand-to, algolia);
-          border-radius: 4px;
-          padding: 2em 2em 0 2em;
+    .archive-search-results {
+      .container {
+        margin-top: 50px;
+        margin-bottom: 50px;
 
-          .ais-hits--item {
+        .search-results {
+          .search-hits {
 
-            .post-item {
-              margin-bottom: 30px;
+            padding-left: 2em;
+
+            .ais-hits--item {
+
+              .post-item {
+                margin-bottom: 30px;
+
+                .post-meta {
+                  color: map-get($army-branding, grey50);
+                  text-transform: uppercase;
+
+                }
+
+                .post-breadcrumbs {
+
+                  .ais-Highlight {
+                    color: map-get($army-branding, grey90);
+                    font-style: normal;
+                    text-decoration: underline;
+                  }
+
+                  .post-breadcrumb {
+                    font-size: 600 1em/1.375em "Overpass", sans-serif;
+                    color: map-get($army-branding, grey70);
+
+                    .ais-Highlight {
+                      font-weight: bold;
+                      font-style: normal;
+                    }
+                  }
+                }
+              }
+
+            }
+          }
+
+          .headlines {
+            p {
+              margin: 0 0 25px;
+              overflow: hidden;
+
+              &:last-child {
+                border: 0;
+                margin: 0;
+                padding: 0;
+              }
 
               .post-meta {
                 color: map-get($army-branding, grey50);
+                padding-right: 15px;
                 text-transform: uppercase;
-
-                // @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
-                //   width: 120px;
-                //   display: table-cell;
-                // }
               }
 
-              .post-breadcrumbs {
-                // 
-                // 
-                // padding-left: 4%;
-                // color: map-get($army-branding, grey70);
-
-                // @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
-                //   display: table-cell;
-                //   width: 720px;
-                // }
-
-                .ais-Highlight {
-                  color: map-get($army-branding, grey90);
-                  font-style: normal;
-                  text-decoration: underline;
-                }
-
-                .post-breadcrumb {
-                  font-size: 600 1em/1.375em "Overpass", sans-serif;
-                  color: map-get($army-branding, grey70);
-
-                  .ais-Highlight {
-                    font-weight: bold;
-                    font-style: normal;
-                  }
-                }
-              }
-            }
-
-            >.post-hr {
-              &:last-child {
-                display: none;
-              }
-            }
-          }
-          .ais-hits.ais-hits__empty {
-            padding-bottom: 2em;
-            font-size: 18px;
-          }
-        }
-
-        .headlines {
-          p {
-            margin: 0 0 25px;
-            overflow: hidden;
-
-            &:last-child {
-              border: 0;
-              margin: 0;
-              padding: 0;
-            }
-
-            .post-meta {
-              color: map-get($army-branding, grey50);
-              padding-right: 15px;
-              text-transform: uppercase;
-            }
-
-            a {
-              padding-right: 23px;
-
-              .view-more-arrow-sm {
-                display: none;
-              }
-
-              &:after {
-                background: transparent $social-button-sprite no-repeat scroll -442px 0;
-                content: "";
-                height: 12px;
-                margin-left: 9px;
-                margin-top: 7px;
-                position: absolute;
-                vertical-align: middle;
-                width: 14px;
-              }
-
-              &:hover {
-                text-decoration: none;
-              }
-            }
-
-            a,
-            .post-meta {
-              display: block;
-            }
-          }
-
-          @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-            p {
               a {
-                padding-right: 54px;
+                padding-right: 23px;
+
+                .view-more-arrow-sm {
+                  display: none;
+                }
 
                 &:after {
-                  @include opacity(0);
-                  @include transform(translateX, 40px);
-                  @include custom-transition(all .25s ease);
+                  background: transparent $social-button-sprite no-repeat scroll -442px 0;
+                  content: "";
+                  height: 12px;
+                  margin-left: 9px;
+                  margin-top: 7px;
+                  position: absolute;
+                  vertical-align: middle;
+                  width: 14px;
                 }
 
-                &:hover,
-                &:focus {
-                  &:after {
-                    @include opacity(1);
-                    @include transform(translateX, 0);
-                  }
+                &:hover {
+                  text-decoration: none;
                 }
               }
-            }
-          }
-
-          @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-            p {
-              display: table;
-              width: 100%;
 
               a,
               .post-meta {
-                display: table-cell;
-                font: 600 1em/1.375em $font-family;
+                display: block;
               }
+            }
 
-              .post-meta {
-                width: 140px;
+            @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+              p {
+                a {
+                  padding-right: 54px;
+
+                  &:after {
+                    @include opacity(0);
+                    @include transform(translateX, 40px);
+                    @include custom-transition(all .25s ease);
+                  }
+
+                  &:hover,
+                  &:focus {
+                    &:after {
+                      @include opacity(1);
+                      @include transform(translateX, 0);
+                    }
+                  }
+                }
               }
+            }
 
-              a:after {
-                margin-top: 5px;
+            @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+              p {
+                display: table;
+                width: 100%;
+
+                a,
+                .post-meta {
+                  display: table-cell;
+                  font: 600 1em/1.375em $font-family;
+                }
+
+                .post-meta {
+                  width: 140px;
+                }
+
+                a:after {
+                  margin-top: 5px;
+                }
+              }
+            }
+
+            @include breakpoints(mobile nav) {
+              p {
+                border-bottom: 1px solid map-get($army-branding, grey20);
+                padding-bottom: 20px;
+
+                .post-meta {
+                  font: 400 .875em $font-family;
+                  margin: 0 0 5px;
+                }
               }
             }
           }
 
-          @include breakpoints(mobile nav) {
-            p {
-              border-bottom: 1px solid map-get($army-branding, grey20);
-              padding-bottom: 20px;
-
-              .post-meta {
-                font: 400 .875em $font-family;
-                margin: 0 0 5px;
-              }
-            }
-          }
         }
-
       }
     }
+
   }
 }

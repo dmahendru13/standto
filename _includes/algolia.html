@@ -7,7 +7,10 @@
   const search = instantsearch({
     appId: '{{ site.algolia.application_id }}',
     apiKey: '{{ site.algolia.search_only_api_key }}',
-    indexName: '{{ site.algolia.index_name }}'
+    indexName: '{{ site.algolia.index_name }}',
+    searchParameters: {
+      hitsPerPage: 10,
+    }
   });
 
   const hitTemplate = function (hit) {
@@ -40,7 +43,6 @@
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-searchbar',
-      loadingIndicator: true,
       autofocus: true,
       searchOnEnterKeyPressOnly: true,
       placeholder: 'Search Archived STAND-TO\'s...',
@@ -52,11 +54,9 @@
     instantsearch.widgets.hits({
       container: '#search-hits',
       templates: {
+        empty: '<h4>No results found</h4>',
         item: hitTemplate
       }
-      // templates: {
-      //   item: hitTemplate
-      // }
     })
   );
 
