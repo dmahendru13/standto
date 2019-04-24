@@ -1,52 +1,44 @@
-<!-- {%- assign path = site.data.archived-standto.recent-archives['2019'] | sort -%}
-
-<p style="text-align: center">{{ site.time | date: '%B %d, %Y %H:%M:%S' }}</p>
-<p style="text-align: center">{{ 'now' | date: '%B %d, %Y %H:%M:%S' }}</p>
-
-{% assign anselm = 'now' | date: '%Y' %}
-{% if anselm == '2019' %}
-
+{%- assign anselm = 'now' | date: '%Y' -%}
 {%- assign path = site.data.archived-standto.recent-archives[anselm] | sort -%}
 
-{% for content in path reversed %}
-    {% assign test = content | size %}
-    {% unless test > 2 %}
-        {% for data in content %}
-            <h5>{{data.id}}</h5>
-            {% for items in data reversed %}
-                {% for content in items %}
-                    <p>{{content.id}}</p>
-                {% endfor %}
-            {% endfor %}
-        {% endfor %}
-    {% endunless %}
-{% endfor %}
-
-{% else %}
-<p>pillage</p>
-{% endif %} -->
-
 <ul id="archive-results">
-    {%- for content in path reversed limit: 10 -%}
-        {%- for item in content -%}
-            {%- if item.first and item != "" -%}
-                <li data-date-filter="{{item.id}}">
-                    <span class="date">
-                        {%- assign d = item.date | date: "%-d" -%} 
-                        {%- assign m = item.date | date: "%B" -%} 
-                        
-                        {%- case m -%}
-                            {%- when 'April' or 'May' or 'June' or 'July' or 'March' -%}{{ m }} 
-                            {%- when 'September' -%}Sept. 
-                            {%- else -%}{{ item.date | date: "%b" }}. 
-                            {%- endcase -%}{{d | prepend: " " }}, 
-                        {{ item.date | date: "%Y" }}
-                    </span>
-                    <a class="article-link" href="../archive_{{ item.id }}/">
-                        {{ item.title }}
-                    </a>
-                </li>
-            {%- endif -%}
+
+    {%- for content in path reversed -%}
+
+        {%- assign thisConten = content -%}
+
+        {%- assign month = content.first -%}
+
+        {%- assign newPath = site.data.archived-standto.recent-archives[anselm][month] | sort -%}
+
+        {%- for data in newPath reversed -%}
+
+            {%- for items in data -%}
+
+                {%- if items.first and items != "" -%}
+                
+                    <li data-date-filter="{{items.id}}">
+                        <span class="date">
+                            {%- assign d = items.date | date: "%-d" -%} 
+                            {%- assign m = items.date | date: "%B" -%} 
+                            {%- case m -%}
+                                {%- when 'April' or 'May' or 'June' or 'July' or 'March' -%}{{ m }} 
+                                {%- when 'September' -%}Sept. 
+                                {%- else -%}{{ items.date | date: "%b" }}. 
+                                {%- endcase -%}{{d | prepend: " " }}, 
+                            {{ items.date | date: "%Y" }}
+                        </span>
+                        <a class="article-link" href="../archive_{{ items.id }}/">
+                            {{ items.title }}
+                        </a>
+                    </li>
+
+                {%- endif -%}
+
+            {%- endfor -%}
+
         {%- endfor -%}
+        
     {%- endfor -%}
+
 </ul>
