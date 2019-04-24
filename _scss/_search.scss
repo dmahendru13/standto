@@ -1,0 +1,197 @@
+.search-body {
+  .main {
+    .archive-search {
+      background-color: $lighter-gray-color;
+      overflow: hidden;
+
+      .container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        .search-box {
+          @include breakpoints(really_big large desktop sm_desktop) {
+            // @include offset(1);
+            @include span(12);
+          }
+
+          @include breakpoints(lg_tablet tablet nav mobile) {
+            @include span(12);
+          }
+
+          #search-searchbar {
+            .ais-search-box {
+              .ais-search-box--input {
+                padding: 27px 10px 25px 20px;
+                border-radius: 0;
+                border-color: map-get($army-branding, grey30);
+              }
+
+              .ais-search-box--input[value=""] {
+                font: 1.2em/49px "Overpass",sans-serif;
+            }
+
+              .ais-search-box--magnifier-wrapper {
+                display: none;
+              }
+
+              max-width: 100%;
+              margin-bottom: 15px;
+            }
+          }
+
+        }
+      }
+    }
+
+    .archive-search-results {
+      .container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        .search-results {
+          .search-hits {
+
+            padding-left: 2em;
+
+            .ais-hits--item {
+
+              .post-item {
+                margin-bottom: 30px;
+
+                .post-meta {
+                  color: map-get($army-branding, grey50);
+                  text-transform: uppercase;
+
+                }
+
+                .post-breadcrumbs {
+
+                  .ais-Highlight {
+                    color: map-get($army-branding, grey90);
+                    font-style: normal;
+                    text-decoration: underline;
+                  }
+
+                  .post-breadcrumb {
+                    font-size: 600 1em/1.375em "Overpass", sans-serif;
+                    color: map-get($army-branding, grey70);
+
+                    .ais-Highlight {
+                      font-weight: bold;
+                      font-style: normal;
+                    }
+                  }
+                }
+              }
+
+            }
+          }
+
+          .headlines {
+            p {
+              margin: 0 0 25px;
+              overflow: hidden;
+
+              &:last-child {
+                border: 0;
+                margin: 0;
+                padding: 0;
+              }
+
+              .post-meta {
+                color: map-get($army-branding, grey50);
+                padding-right: 15px;
+                text-transform: uppercase;
+              }
+
+              a {
+                padding-right: 23px;
+
+                .view-more-arrow-sm {
+                  display: none;
+                }
+
+                &:after {
+                  background: transparent $social-button-sprite no-repeat scroll -442px 0;
+                  content: "";
+                  height: 12px;
+                  margin-left: 9px;
+                  margin-top: 7px;
+                  position: absolute;
+                  vertical-align: middle;
+                  width: 14px;
+                }
+
+                &:hover {
+                  text-decoration: none;
+                }
+              }
+
+              a,
+              .post-meta {
+                display: block;
+              }
+            }
+
+            @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+              p {
+                a {
+                  padding-right: 54px;
+
+                  &:after {
+                    @include opacity(0);
+                    @include transform(translateX, 40px);
+                    @include custom-transition(all .25s ease);
+                  }
+
+                  &:hover,
+                  &:focus {
+                    &:after {
+                      @include opacity(1);
+                      @include transform(translateX, 0);
+                    }
+                  }
+                }
+              }
+            }
+
+            @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+              p {
+                display: table;
+                width: 100%;
+
+                a,
+                .post-meta {
+                  display: table-cell;
+                  font: 600 1em/1.375em $font-family;
+                }
+
+                .post-meta {
+                  width: 140px;
+                }
+
+                a:after {
+                  margin-top: 5px;
+                }
+              }
+            }
+
+            @include breakpoints(mobile nav) {
+              p {
+                border-bottom: 1px solid map-get($army-branding, grey20);
+                padding-bottom: 20px;
+
+                .post-meta {
+                  font: 400 .875em $font-family;
+                  margin: 0 0 5px;
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+  }
+}

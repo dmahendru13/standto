@@ -1,7 +1,33 @@
-{%- assign path = site.data.archived-standto.recent-archives['2019'] | sort -%}
+<!-- {%- assign path = site.data.archived-standto.recent-archives['2019'] | sort -%}
+
+<p style="text-align: center">{{ site.time | date: '%B %d, %Y %H:%M:%S' }}</p>
+<p style="text-align: center">{{ 'now' | date: '%B %d, %Y %H:%M:%S' }}</p>
+
+{% assign anselm = 'now' | date: '%Y' %}
+{% if anselm == '2019' %}
+
+{%- assign path = site.data.archived-standto.recent-archives[anselm] | sort -%}
+
+{% for content in path reversed %}
+    {% assign test = content | size %}
+    {% unless test > 2 %}
+        {% for data in content %}
+            <h5>{{data.id}}</h5>
+            {% for items in data reversed %}
+                {% for content in items %}
+                    <p>{{content.id}}</p>
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endunless %}
+{% endfor %}
+
+{% else %}
+<p>pillage</p>
+{% endif %} -->
 
 <ul id="archive-results">
-    {%- for content in path reversed -%}
+    {%- for content in path reversed limit: 10 -%}
         {%- for item in content -%}
             {%- if item.first and item != "" -%}
                 <li data-date-filter="{{item.id}}">
@@ -24,37 +50,3 @@
         {%- endfor -%}
     {%- endfor -%}
 </ul>
-
-<!-- {% assign year = 'now' | date: '%Y' %}
-
-{%- assign archive-path = site.data.archived-standto.recent-archives[year] | sort -%}
-
-<ul id="archive-results">
-    {%- for archive in archive-path reversed -%}
-        {%- for month in archive -%}
-            {%- for archived-standto in month -%}
-                {%- for content in archived-standto -%}
-                    {%- if content.first and content != "" -%}
-                        
-                        <li data-date-filter="{{content.id}}">
-                            <span class="date">
-                                {%- assign d = content.date | date: "%-d" -%} 
-                                {%- assign m = content.date | date: "%B" -%} 
-                                
-                                {%- case m -%}
-                                    {%- when 'April' or 'May' or 'June' or 'July' or 'March' -%}{{ m }} 
-                                    {%- when 'September' -%}Sept. 
-                                    {%- else -%}{{ content.date | date: "%b" }}. 
-                                    {%- endcase -%}{{d | prepend: " " }}, 
-                                {{ content.date | date: "%Y" }}
-                            </span>
-                            <a class="article-link" href="../archive_{{ content.id }}/">
-                                {{ content.title }}
-                            </a>
-                        </li>
-                    {%- endif -%}
-                {%- endfor -%}
-            {%- endfor -%}
-        {%- endfor -%}
-    {%- endfor -%}
-</ul> -->

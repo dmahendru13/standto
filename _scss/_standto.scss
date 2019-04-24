@@ -174,7 +174,7 @@
 
   .sub-box {
     padding: 30px;
-    border: 1px solid #ffd530;
+    border: 1px solid map-get($army-branding, gold);
     margin-bottom: 30px;
 
     .sub-results {
@@ -211,7 +211,7 @@
         text-align: left;
         font-size: 1em;
         border-radius: 0;
-        border: 1px solid #b3b3b3;
+        border: 1px solid map-get($army-branding, grey30);
       }
 
       .btn > div {
@@ -222,7 +222,7 @@
   }
 
   .events {
-    background-color: #e5e5e5;
+    background-color: map-get($army-branding, grey10);
     padding: 30px;
 
     p:last-child > em {

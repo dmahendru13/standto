@@ -15,6 +15,7 @@ json
 sftpCache.json
 .ftppass
 _plugins
+_config.yml
 _site
 _drafts
 .jekyll-metadata

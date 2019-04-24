@@ -66,7 +66,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             };
         }
 
-        /**
+        /*
          * gets email input that cooresponds to subscribe button,
          * then sends the email value to be processed
          * @param {int} index
@@ -81,7 +81,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             }
         }
 
-        /**
+        /*
          * send email value to client, and process result data
          * @param {str} emailAdd
          * @param {bool} unsub
@@ -104,7 +104,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             }
         }
 
-        /**
+        /*
          * Receives data from request and generates appropriate response
          * @param {obj} data
          * @param {str} subText ('subscribe'/'unsubscribe')
@@ -132,7 +132,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             setResultText(index, resultText, good);
         }
 
-        /**
+        /*
          * sets the result text of the subscribe request
          * @param {str} result
          * @param {bool} good
@@ -258,7 +258,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                         e.preventDefault();
                         return false;
                     } else {
-                        this.query.value = 'stand to ' + this.query.value;
+                        this.query.value = 'Stand To ' + this.query.value;
                         return true;
                     }
                 };
@@ -274,8 +274,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     return (node === document.body) ? false : document.body.contains(node);
                 }
                 if (isInPage(oldArchive)) {
-                    //console.log(isInPage(archivedStandto));
-                    //console.log(archivedStandto);
+
                     for (var i = 0; i < archivedStandto.length; i++) {
                         if (archivedStandto[i].textContent === searchText || 'Resources') {
                             victoria = archivedStandto[i];
@@ -286,10 +285,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                             console.log('')
                         }
                     } 
-                } else {
-                    console.log('loompa oompa');
-                }
-        
+                }        
         
             }
         
