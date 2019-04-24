@@ -9,7 +9,7 @@
 {% if data-path == 'older-archives' %}
 {%- assign archive-data = site.data.archived-standto[data-path][year][month] -%}
 {% elsif data-path == 'recent-archives' %}
-{%- assign archive-data = site.data.archived-standto[data-path][year] -%}
+{%- assign archive-data = site.data.archived-standto[data-path][year][month] -%}
 {% endif %}
 <!-- 
     These liquid variables are used for assigning varaibles for each archive that will pull the correct content from the correct directory within the _archived_standtos directory 
@@ -83,64 +83,7 @@
             
             {% else %}
                 <!-- This is to account for recent archives and the file path I had to use in order to make /archives/ sort correctly -->
-                {% for content in data %}
-
-                    {% assign page-var = page.permalink | remove: "/archive_" | remove: "/" %}
-
-                    {% if page-var == content.id %}
-                        <div class="container">
-                            <div class="inner-contianer">
-                                <h1>{{ content.title }}</h1>
-                                <p class="small">
-                                    {%- if content.subtitle and content.subtitle != "" -%}
-                                        <span class="st-byline">{{ content.subtitle }}</span>
-                                    {%- endif -%}
-
-                                    <span class="date">{{ content.date }}</span>
-                                </p>
-                                {%- include dsktp-social.html -%}
-                                <div class="body two-column-body">
-                                    <div class="left-column archived-standto">
-
-                                        {%- assign body = content.body -%}
-
-                                        {%- if body contains "#######" -%}
-                                        {{ body | replace: "#######" , "<p class='byline'>" | replace_first: "**", "</p>**" | markdownify }}
-                                        {%- elsif body contains "#####" and yr < 2017 -%}
-                                            {{ body | replace: "#####" , "<p class='byline'>" | replace_first: "###", "</p>###" | markdownify }}
-                                        {%- elsif body contains "###" and yr < 2017 -%}
-                                            {{ body | markdownify }}
-                                        {%- elsif body contains "**" and yr < 2017 -%}
-                                            {{ body | markdownify }}
-                                        {%- else -%}
-                                        {%- assign link = content.links -%}
-                                        {%- include st-body-text.html body=body link=link -%}
-                                        {%- endif -%}
-                                    </div>
-                                    <div class="right-column">
-
-                                        {%- include sub-box.html email_id="email1" -%}
-
-                                        {%- if content.events and content.events != '' -%}
-                                            {%- if yr >= 2018 -%}
-                                                {%- include st-events.html archive-events=content.events -%}
-                                            {%- endif -%}
-                                        {%- endif -%}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {%- if content.quote and content.quote != "" -%}
-                            {%- if yr >= 2018 -%}
-                                {%- include quote.html quote=content.quote -%}
-                            {%- endif -%}
-                        {%- else -%}
-                        {%- endif -%}
-                    {% endif %}
-
-                {% endfor %}
+                
 
             {%- endif -%}
 

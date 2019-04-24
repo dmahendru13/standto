@@ -3,7 +3,14 @@
 {%- assign file-path = page.data-path -%}
 
 <!-- path to archive data files -->
-{%- assign archive = site.data.archived-standto.older-archives[year][month] | sort -%}
+
+{% assign yr = year | to_integer %}
+
+{% if yr >= 2019 %}
+    {%- assign archive = site.data.archived-standto.recent-archives[year][month] | sort -%}
+{% else %}
+    {%- assign archive = site.data.archived-standto.older-archives[year][month] | sort -%}
+{% endif %}
 
 <!-- Convert month from number to name -->
 {%- if month == '01' -%}
@@ -51,7 +58,6 @@
                             <!-- This unless filters OUT links to pages that DO NOT have a corresponding data file -->
                             {% unless item[1] == false %}
                                 <li>
-                                    {%- assign yr = page.year | to_integer -%}
                                     {%- if yr <= 2012 -%}
                                         <a href="{{item.first}}">
                                     {%- else -%}
