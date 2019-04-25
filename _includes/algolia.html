@@ -44,7 +44,7 @@
     instantsearch.widgets.searchBox({
       container: '#search-searchbar',
       autofocus: true,
-      searchOnEnterKeyPressOnly: true,
+      //searchOnEnterKeyPressOnly: true,
       placeholder: 'Search Archived STAND-TO\'s...',
       poweredBy: true // This is required if you're on the free Community plan
     })
@@ -62,84 +62,3 @@
 
   search.start();
 </script>
-
-<!-- <div class="post-item">
-
-
-
-
-<script type="text/javascript" src="/e2/js/rv7/3rdparty/instantsearch/instantsearch.min.js"></script>
-<script type="text/javascript" src="/e2/js/rv7/3rdparty/moment/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/e2/css/rv7/3rdparty/instantsearch/instantsearch.min.css">
-<link rel="stylesheet" type="text/css" href="/e2/css/rv7/3rdparty/instantsearch/instantsearch-theme-algolia.min.css">
-
-<script>
-  const search = instantsearch({
-    appId: '{{ site.algolia.application_id }}',
-    apiKey: '{{ site.algolia.search_only_api_key }}',
-    indexName: '{{ site.algolia.index_name }}'
-  });
-
-  const hitTemplate = function (hit) {
-    let date = '';
-    if (hit.date) {
-      date = moment.unix(hit.date).format('MMM D, YYYY');
-    }
-
-    let url = `{{ site.baseurl }}${hit.url}`;
-
-    let breadcrumbs = '';
-    if (hit._highlightResult.headings) {
-      breadcrumbs = hit._highlightResult.headings.map(match => {
-        return `<span class="post-breadcrumb">${match.value}</span>`
-      }).join(' > ')
-    }
-
-    return `
-    <div class="post-item">
-      <p>
-        <span class="post-meta">${date}</span>
-        <a href="${url}" class="post-breadcrumbs">
-          {{#breadcrumbs}}${breadcrumbs}{{/breadcrumbs}}
-        </a>
-      </p>
-    </div>
-  `;
-  }
-
-  search.addWidget(
-    instantsearch.widgets.searchBox({
-      container: '#search-searchbar',
-      loadingIndicator: true,
-      placeholder: 'Search Archived STAND-TO\'s...',
-      poweredBy: true // This is required if you're on the free Community plan
-    })
-  );
-
-  search.addWidget(
-    instantsearch.widgets.hits({
-      container: '#search-hits',
-      templates: {
-        item: function (hit) {
-          return `<div class="post-item">
-                <p>
-                  <span class="post-meta">
-                    <span>${hit.year}</span> <span>${hit.month}</span> <span>${hit.file}</span>
-                  </span>
-                  <a class="post-breadcrumbs" href="${hit.url}">
-                    ${hit.metaTitle}
-                  </a>
-                </p>
-              </div>`
-        }
-      }
-      // templates: {
-      //   item: hitTemplate
-      // }
-    })
-  );
-
-  search.start();
-</script>
-
--->

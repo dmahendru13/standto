@@ -12,8 +12,36 @@ permalink: ../../archives/
 
 ---
 
-<div class="archive">
+<div class="archive-search">
+    <div class="container">
+        <div class="inner-container">
+            <div class="search-box">
+    
+                <div id="search-searchbar">
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="archive-search-results">
+    <div class="container">
+        <div class="inner-container">
+            <div class="results">
 
+                <h2>Stand-To! Archive</h2>
+                <h5>Most Recent Focus Topics</h5>
+                <div class="search-results">
+                    <div id="search-hits" class="search-hits headlines">
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="archive">
     <div class="standto-search">
         <div class="container">
             <div class="inner-container">
@@ -30,7 +58,6 @@ permalink: ../../archives/
 
             </div>
         </div>
-
     </div>
     <div class="results-archive">
         <div class="container">
@@ -41,11 +68,14 @@ permalink: ../../archives/
                     <h4>No results found!</h4>
                 </div>
                 <div class="headlines">
-                    
+
                     {%- include recent-ar-results.html -%}
 
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+{% include algolia.html %}

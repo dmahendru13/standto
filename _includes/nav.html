@@ -7,25 +7,12 @@
             <label for="subnav-toggle{% if include.dropdown %}1{% endif %}">{% if page.active == 'archive' %}{{'archive' }}{% else %}{{ page.active }}{% endif %}</label>
             <ul class="container">
                 <li><a {% if page.active == 'standto' %} class="active" {% endif %} href="{% if page.pageid == 'archived-standto' %}{{ base }}{{ page.permalink }}{% else %}{{ base }}{% endif %}">Today's Focus</a></li>
-                <li><a {% if page.active == 'archive' or page.active == 'archives' or page.pageid == 'archived-standto' %} class="active" {% endif %} href="{{ base }}/archives/">ARCHIVE</a></li>
+                <li><a {% if page.active == 'archives' or page.pageid == 'archived-standto' %} class="active" {% endif %} href="{{ base }}/archives/">RECENT TOPICS</a></li>
                 <li><a {% if page.active == 'about' %} class="active" {% endif %} href="{{ base }}/about/">ABOUT</a></li>
+                <li><a {% if page.active == 'archive' %} class="active" {% endif %} href="{{ base }}/archive/">ARCHIVED</a></li>
                 {% if include.dropdown %}
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
-
-<!-- <ul class="container">
-    <li>
-        <a {% if page.active == 'standto' %} class="active" {% endif %} href="{% if page.pageid == 'archived-standto' %}{{ base }}{{ page.permalink }}{% else %}{{ base }}{% endif %}">Today's Focus</a>
-    </li>
-    <li>
-        <a {% if page.active == 'archive' or page.active == 'archives' or page.pageid == 'archived-standto' %} class="active" {% endif %} href="{% if page.pageid == 'archived-standto' %}{{ base }}{{ page.permalink }}{% else %}{{ base }}/archives/{% endif %}">ARCHIVE</a>
-    </li>
-    <li>
-        <a {% if page.active == 'about' %} class="active" {% endif %} href="{% if page.pageid == 'archived-standto' %}{{ base }}{{ page.permalink }}{% else %}{{ base }}/about/{% endif %}">ABOUT</a>
-    </li>
-    {% if include.dropdown %}
-    {% endif %}
-</ul> -->
