@@ -39,46 +39,48 @@
 {%- assign this-month = 'December' -%}
 {%- endif -%}
 
-<div class="container">
-    <div class="inner-container">
-        <div class="row">
-            <div class="col-hd">
-                <h3>Stand-To! Archive</h3>
-            </div>
-            <div class="col-month">
-                <div class="ar-lst">
-                    <h5 class="hd-month"><strong>
-                            {{ this-month }}
-                            {{ page.year }}
-                            &#124;
-                            FOCUS TOPICS
-                        </strong></h5>
-                    <ul>
-                        {%- for item in archive -%}
-                            <!-- This unless filters OUT links to pages that DO NOT have a corresponding data file -->
-                            {% unless item[1] == false %}
-                                <li>
-                                    {%- if yr <= 2012 -%}
-                                        <a href="{{item.first}}">
-                                    {%- else -%}
-                                    <a href="../../../archive_{{page.year}}-{{month}}-{{item.first}}/">
-                                    {%- endif -%}
-                                        {{ this-month }}
-                                        {{ item.first | abs }},
-                                        {{ page.year }}
-                                        &#124;
-                                        <span class="norm-fnt-lb">
-                                            {%- for title in item -%}
-                                            {%- if title.title -%}
-                                            {{title.title}}
-                                            {%- endif -%}
-                                            {%- endfor -%}
-                                        </span>
-                                    </a>
-                                </li>
-                            {% endunless %}
-                        {%- endfor -%}
-                    </ul>
+<div class="archived-standto">
+    <div class="container">
+        <div class="inner-container">
+            <div class="row">
+                <div class="col-hd">
+                    <h3>Stand-To! Archive</h3>
+                </div>
+                <div class="col-month">
+                    <div class="ar-lst">
+                        <h5 class="hd-month"><strong>
+                                {{ this-month }}
+                                {{ page.year }}
+                                &#124;
+                                FOCUS TOPICS
+                            </strong></h5>
+                        <ul>
+                            {%- for item in archive -%}
+                                <!-- This unless filters OUT links to pages that DO NOT have a corresponding data file -->
+                                {% unless item[1] == false %}
+                                    <li>
+                                        {%- if yr <= 2012 -%}
+                                            <a href="{{item.first}}">
+                                        {%- else -%}
+                                        <a href="../../../archive_{{page.year}}-{{month}}-{{item.first}}/">
+                                        {%- endif -%}
+                                            {{ this-month }}
+                                            {{ item.first | abs }},
+                                            {{ page.year }}
+                                            &#124;
+                                            <span class="norm-fnt-lb">
+                                                {%- for title in item -%}
+                                                {%- if title.title -%}
+                                                {{title.title}}
+                                                {%- endif -%}
+                                                {%- endfor -%}
+                                            </span>
+                                        </a>
+                                    </li>
+                                {% endunless %}
+                            {%- endfor -%}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
