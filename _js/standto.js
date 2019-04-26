@@ -9,6 +9,9 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
     var subnav = document.getElementsByTagName('nav')[0],
         hash = window.location.hash,
+        pathName = window.location.pathname,
+        tFocusNav = document.querySelector('.tf-nav-item'),
+        archiveNav = document.querySelector('.ar-nav-item'),
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
         // h3Ele = document.getElementsByTagName('h3'),
@@ -36,6 +39,17 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     },
                     { initializeEmpty: true }
                     );
+            // } else if (pathName.indexOf('archive_2') > 0) {
+            //     console.log(pathName);
+            //     Helper.addClass(tFocusNav, 'active');
+            //     new SubNav(subnav, 
+            //         function () {
+            //             Helper.removeClass(tFocusNav, 'active');
+            //             Helper.addClass(archiveNav, 'active');
+            //             setResultText(false, '');
+            //         },
+            //         { initializeEmpty: true }
+            //         );
             } else {
                 new SubNav(subnav);
             }

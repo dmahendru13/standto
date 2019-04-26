@@ -1,5 +1,48 @@
-
 {% if page.pageid == 'archive' %}
+    {% include base.html %}
+    <nav id="nav-bar" {% if include.dropdown %} class="dropdown" {% endif %}>
+            <input type="checkbox" id="subnav-toggle{% if include.dropdown %}1{% endif %}">
+            <div class="subnav-container">
+                <div class="subnav-inner">
+                    <label for="subnav-toggle{% if include.dropdown %}1{% endif %}">{% if page.active == 'archive' %}{{'archive' }}{% else %}{{ page.active }}{% endif %}</label>
+                    <ul class="container">
+                        <li>
+                            <a href="{% if page.pageid == 'archived-standto' %}{{ base }}{{ page.permalink }}{% else %}{{ base }}{% endif %}">Today's Focus</a>
+                        </li>
+                        <li>
+                            <a href="{{ base }}/#archive">Archive</a>
+                        </li>
+                        <li>
+                            <a {% if page.active == 'archive'%} class="active" {% endif %} href="{{ base }}/archive/">Stand-to! Archives</a>
+                        </li>
+                        <li>
+                            <a href="{{ base }}/#about">ABOUT</a>
+                        </li>
+                        {% if include.dropdown %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+{% else %}
+    <nav>
+        <input type="checkbox" id="subnav-toggle">
+        <div class="subnav-container">
+            <div class="subnav-inner">
+                <label for="subnav-toggle">STAND-TO! Menu</label>
+                <ul class="container">
+                    <li><a href="" id="focus" class="tf-nav-item">Today's Focus</a></li>
+                    <li><a href="#archive" class="ar-nav-item">Archive</a></li>
+                    <li><a href="#about" class="abt-nav-item">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endif %}
+
+
+
+<!-- {% if page.pageid == 'archive' %}
     {% include base.html %}
     <nav id="nav-bar" {% if include.dropdown %} class="dropdown" {% endif %}>
             <input type="checkbox" id="subnav-toggle{% if include.dropdown %}1{% endif %}">
@@ -40,5 +83,4 @@
         </div>
     </nav>
 {% endif %}
-
-
+ -->
