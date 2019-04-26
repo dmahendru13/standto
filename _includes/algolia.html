@@ -12,6 +12,7 @@
         let search = document.querySelector('.ais-search-box--input');
         let date = '';
         let newDate = '';
+        let filePath;
 
         if (hit.year) {
             let year = hit.year;
@@ -23,12 +24,17 @@
             newDate = moment(date).format("MMM D, YYYY");
         }
 
+        if (window.location.hostname === 'localhost') {
+            filePath = '';
+        } else if (window.location.hostname === 'static.ardev.us') {
+            filePath = window.location.origin + window.location.pathname;
+        }
         return `<div class="post-item">
                       <p>
                         <span class="post-meta">
                           <span>${newDate}</span>
                         </span>
-                        <a class="post-breadcrumbs" href="/standto${hit.url}">
+                        <a class="post-breadcrumbs" href="${filePath}${hit.url}">
                           ${hit.metaTitle}
                         </a>
                       </p>
