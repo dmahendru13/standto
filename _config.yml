@@ -28,3 +28,17 @@ algolia:
   extensions_to_include:
     - html
   nodes_to_index: 'h1, span.date, span.st-byline'
+  settings:
+    searchableAttributes:
+      - year
+      - month
+      - file
+      - unordered(title)
+      - content
+      - date
+    attributesToHighlight:
+      - file
+      - metaTitle
+      - month
+      - title
+      - year

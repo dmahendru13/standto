@@ -1,0 +1,47 @@
+{%- assign standto-data = site.data.current-standto.todays-focus -%}
+    
+<div class="container">
+
+    <div class="inner-contianer">
+
+        <h1>{{ standto-data.title }}</h1>
+        <p class="small">
+            <span class="st-byline">{{ standto-data.subtitle }}</span>
+            <span class="date">{{ standto-data.date }}</span>
+        </p>
+
+        {%- include dsktp-social.html -%}
+        <div class="body two-column-body">
+            <div class="left-column">
+
+                {%- assign body = standto-data.body -%}
+
+                {%- if body contains "#######" -%}
+                {{ body | replace: "#######" , "<p class='byline'>"
+                                | replace_first: "**", "</p>**"
+                                | markdownify }}
+                {%- else -%}
+
+                {% include st-body-text.html standto-data = standto-data %}
+                {%- endif -%}
+
+            </div>
+            <div class="right-column">
+
+                {%- include sub-box.html email_id="email1" -%}
+
+                {%- if standto-data.events and standto-data.events != '' -%}
+                {%- include st-events.html standto-events = standto-data.events -%}
+
+                {%- endif -%}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- if standto-data.quote and standto-data.quote != "" -%}
+
+{%- include quote.html quote = standto-data.quote -%}
+
+{%- endif -%}

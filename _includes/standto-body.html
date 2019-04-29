@@ -1,0 +1,116 @@
+{%- assign thisArchivedStandtoYr = page.year | to_integer -%}
+<div class="stand-to {% if page.pageid == 'archived-standto' and thisArchivedStandtoYr < 2017 %}oldarchive{% endif %}">
+    <!-- today's focus -->
+    <div class="focus subnav-selectable">
+        {% if page.pageid == 'archived-standto' %}
+            {% include ar-body-text.html %}
+        {% else %}
+            {% include tf-body-text.html %}
+        {% endif %}
+
+    </div>
+    <!-- today's focus -->
+
+    <!-- archive -->
+    <div class="archive subnav-selectable">
+        <div class="archive-search">
+            <div class="container">
+                <div class="inner-container">
+                    <div class="search-box">
+
+                        <div id="search-searchbar">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="archive-search-results">
+            <div class="container">
+                <div class="inner-container">
+                    <div class="results">
+                        <h2>Stand-To! Archive</h2>
+                        <h5>Most Recent Focus Topics</h5>
+                        <div class="search-results">
+                            <div id="search-hits" class="search-hits headlines">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- archive -->
+
+    <!-- about -->
+    <div class="about subnav-selectable">
+        <div class="container">
+            <div class="inner-container">
+                <div class="body two-column-body">
+                    <div class="left-column">
+                        <h3>STAND-TO!</h3>
+                        <p>STAND-TO! is an information paper-based web platform that supports the U.S. Army’s strategic
+                            communication objectives.</p>
+                        <p>The information papers -- written, approved and submitted by the Army agencies -- provide a
+                            broad, objective view of the Army’s current operations, doctrine and programs. The "Today’s
+                            Focus" topics highlight Army Staff initiatives and support Army wide strategic-level issues.
+                        </p>
+                        <p>All published editions are sent to subscribers via email and archived daily in the <a class="article-link" href="#archive">STAND-TO! Archives</a>.</p>
+
+                        <p>STAND-TO! falls under the management of the Online and Social Media Division (OSMD) in the
+                            Office of the Chief of Public Affairs (OCPA).</p>
+                    </div>
+                    <div class="right-column">
+                        {%-include sub-box.html email_id="email1"-%}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="info">
+            <h4 class="text-uppercase">FOR MORE INFO</h4>
+            <div class="info-inner">
+                <a href="mailto:usarmy.pentagon.hqda-ocpa.mbx.stand-to@mail.mil">
+                    <div class="info-box">
+                        <div class="icon"></div>
+                        <div class="box-text">
+                            <p>Contact us at <span class="wordbreak">usarmy.pentagon.hqda-ocpa.mbx.stand-to@mail.mil</span></p>
+                        </div>
+                    </div>
+                </a>
+                <a href="/e2/downloads/rv7/standto/stand_to_todays_focus_guidelines.pdf">
+                    <div class="info-box box2">
+                        <div class="icon"></div>
+                        <div class="box-text">
+                            <p>Download "Today's Focus Guidelines" for topic selection and format criteria</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="/e2/downloads/rv7/standto/army_themes.pdf">
+                    <div class="info-box box3">
+                        <div class="icon"></div>
+                        <div class="box-text">
+                            <p>Align your communication initiative with Army Strategic Themes</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="container unsubscribe-div hidden">
+                <div class="inner-container">
+                    {%-include sub-box.html unsubscribe="true"-%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about -->
+
+    <div class="container unsubscribe-div hidden">
+        <div class="inner-container">
+
+            {%- include sub-box.html email_id='email' unsubscribe="true" -%}
+
+        </div>
+    </div>
+</div>

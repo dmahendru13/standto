@@ -1,197 +1,227 @@
-.search-body {
-  .main {
-    .archive-search {
-      background-color: $lighter-gray-color;
-      overflow: hidden;
+// .archive {
+//   .archive-search {
+//     background-color: $lighter-gray-color;
+//     overflow: hidden;
 
-      .container {
-        margin-top: 50px;
-        margin-bottom: 50px;
+//     .container {
+//       margin-top: 50px;
+//       margin-bottom: 50px;
 
-        .search-box {
-          @include breakpoints(really_big large desktop sm_desktop) {
-            // @include offset(1);
-            @include span(12);
-          }
+//       .search-box {
+//         @include breakpoints(really_big large desktop sm_desktop) {
+//           // @include offset(1);
+//           @include span(12);
+//         }
 
-          @include breakpoints(lg_tablet tablet nav mobile) {
-            @include span(12);
-          }
+//         @include breakpoints(lg_tablet tablet nav mobile) {
+//           @include span(12);
+//         }
 
-          #search-searchbar {
-            .ais-search-box {
-              .ais-search-box--input {
-                padding: 27px 10px 25px 20px;
-                border-radius: 0;
-                border-color: map-get($army-branding, grey30);
-              }
+//         #search-searchbar {
+//           .ais-search-box {
+//             .ais-search-box--input {
+//               padding: 27px 10px 25px 20px;
+//               border-radius: 0;
+//               border-color: map-get($army-branding, grey30);
+//             }
 
-              .ais-search-box--input[value=""] {
-                font: 1.2em/49px "Overpass",sans-serif;
-            }
+//             .ais-search-box--input[value=""] {
+//               font: 1.2em/49px "Overpass", sans-serif;
+//             }
 
-              .ais-search-box--magnifier-wrapper {
-                display: none;
-              }
+//             .ais-search-box--magnifier-wrapper {
+//               display: none;
+//             }
 
-              max-width: 100%;
-              margin-bottom: 15px;
-            }
-          }
+//             max-width: 100%;
+//             margin-bottom: 15px;
+//           }
+//         }
 
-        }
-      }
-    }
+//       }
+//     }
+//   }
 
-    .archive-search-results {
-      .container {
-        margin-top: 50px;
-        margin-bottom: 50px;
+//   .archive-search-results {
+//     .container {
+//       margin-top: 50px;
+//       margin-bottom: 50px;
 
-        .search-results {
-          .search-hits {
+//       .results {
+//         //@include offset(1);
+//         @include span(12);
 
-            padding-left: 2em;
 
-            .ais-hits--item {
+//         @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
+//           h2 {
+//             margin: 0 0 0.5em 0.8em;
+//           }
 
-              .post-item {
-                margin-bottom: 30px;
+//           h5 {
+//             margin: 0 0 1.5em 1.8em;
+//           }
+//         }
 
-                .post-meta {
-                  color: map-get($army-branding, grey50);
-                  text-transform: uppercase;
+//         @include breakpoints(tablet nav mobile) {
 
-                }
+//           h2,
+//           h5 {
+//             margin: 0 0 .5em;
+//           }
+//         }
 
-                .post-breadcrumbs {
+//         .search-results {
+//           .search-hits {
 
-                  .ais-Highlight {
-                    color: map-get($army-branding, grey90);
-                    font-style: normal;
-                    text-decoration: underline;
-                  }
+//             @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
+//               padding-left: 2em;
+//             }
 
-                  .post-breadcrumb {
-                    font-size: 600 1em/1.375em "Overpass", sans-serif;
-                    color: map-get($army-branding, grey70);
+//             .ais-hits--item {
 
-                    .ais-Highlight {
-                      font-weight: bold;
-                      font-style: normal;
-                    }
-                  }
-                }
-              }
+//               .post-item {
+//                 margin-bottom: 30px;
 
-            }
-          }
+//                 .post-meta {
+//                   color: map-get($army-branding, grey50);
+//                   text-transform: uppercase;
 
-          .headlines {
-            p {
-              margin: 0 0 25px;
-              overflow: hidden;
+//                 }
 
-              &:last-child {
-                border: 0;
-                margin: 0;
-                padding: 0;
-              }
+//                 .post-breadcrumbs {
 
-              .post-meta {
-                color: map-get($army-branding, grey50);
-                padding-right: 15px;
-                text-transform: uppercase;
-              }
+//                   .ais-Highlight {
+//                     color: map-get($army-branding, grey90);
+//                     font-style: normal;
+//                     text-decoration: underline;
+//                   }
 
-              a {
-                padding-right: 23px;
+//                   .post-breadcrumb {
+//                     font-size: 600 1em/1.375em "Overpass", sans-serif;
+//                     color: map-get($army-branding, grey70);
 
-                .view-more-arrow-sm {
-                  display: none;
-                }
+//                     .ais-Highlight {
+//                       font-weight: bold;
+//                       font-style: normal;
+//                     }
+//                   }
+//                 }
+//               }
 
-                &:after {
-                  background: transparent $social-button-sprite no-repeat scroll -442px 0;
-                  content: "";
-                  height: 12px;
-                  margin-left: 9px;
-                  margin-top: 7px;
-                  position: absolute;
-                  vertical-align: middle;
-                  width: 14px;
-                }
+//             }
 
-                &:hover {
-                  text-decoration: none;
-                }
-              }
+//             .ais-hits.ais-hits__empty {
+//               h4 {
+//                 margin-top: 20px;
+//               }
+//             }
+//           }
 
-              a,
-              .post-meta {
-                display: block;
-              }
-            }
+//           .headlines {
+//             p {
+//               margin: 0 0 25px;
+//               overflow: hidden;
 
-            @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-              p {
-                a {
-                  padding-right: 54px;
+//               &:last-child {
+//                 border: 0;
+//                 margin: 0;
+//                 padding: 0;
+//               }
 
-                  &:after {
-                    @include opacity(0);
-                    @include transform(translateX, 40px);
-                    @include custom-transition(all .25s ease);
-                  }
+//               .post-meta {
+//                 color: map-get($army-branding, grey50);
+//                 padding-right: 15px;
+//                 text-transform: uppercase;
+//               }
 
-                  &:hover,
-                  &:focus {
-                    &:after {
-                      @include opacity(1);
-                      @include transform(translateX, 0);
-                    }
-                  }
-                }
-              }
-            }
+//               a {
+//                 padding-right: 23px;
 
-            @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-              p {
-                display: table;
-                width: 100%;
+//                 .view-more-arrow-sm {
+//                   display: none;
+//                 }
 
-                a,
-                .post-meta {
-                  display: table-cell;
-                  font: 600 1em/1.375em $font-family;
-                }
+//                 &:after {
+//                   background: transparent $social-button-sprite no-repeat scroll -442px 0;
+//                   content: "";
+//                   height: 12px;
+//                   margin-left: 9px;
+//                   margin-top: 7px;
+//                   position: absolute;
+//                   vertical-align: middle;
+//                   width: 14px;
+//                 }
 
-                .post-meta {
-                  width: 140px;
-                }
+//                 &:hover {
+//                   text-decoration: none;
+//                 }
+//               }
 
-                a:after {
-                  margin-top: 5px;
-                }
-              }
-            }
+//               a,
+//               .post-meta {
+//                 display: block;
+//               }
+//             }
 
-            @include breakpoints(mobile nav) {
-              p {
-                border-bottom: 1px solid map-get($army-branding, grey20);
-                padding-bottom: 20px;
+//             @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+//               p {
+//                 a {
+//                   padding-right: 54px;
 
-                .post-meta {
-                  font: 400 .875em $font-family;
-                  margin: 0 0 5px;
-                }
-              }
-            }
-          }
+//                   &:after {
+//                     @include opacity(0);
+//                     @include transform(translateX, 40px);
+//                     @include custom-transition(all .25s ease);
+//                   }
 
-        }
-      }
-    }
+//                   &:hover,
+//                   &:focus {
+//                     &:after {
+//                       @include opacity(1);
+//                       @include transform(translateX, 0);
+//                     }
+//                   }
+//                 }
+//               }
+//             }
 
-  }
-}
+//             @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+//               p {
+//                 display: table;
+//                 width: 100%;
+
+//                 a,
+//                 .post-meta {
+//                   display: table-cell;
+//                   font: 600 1em/1.375em $font-family;
+//                 }
+
+//                 .post-meta {
+//                   width: 140px;
+//                 }
+
+//                 a:after {
+//                   margin-top: 5px;
+//                 }
+//               }
+//             }
+
+//             @include breakpoints(mobile nav) {
+//               p {
+//                 border-bottom: 1px solid map-get($army-branding, grey20);
+//                 padding-bottom: 20px;
+
+//                 .post-meta {
+//                   font: 400 .875em $font-family;
+//                   margin: 0 0 5px;
+//                 }
+//               }
+//             }
+//           }
+
+//         }
+//       }
+
+//     }
+//   }
+// }
