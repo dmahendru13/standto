@@ -35,8 +35,10 @@ algolia:
       - file
       - unordered(title)
       - content
+      - date
     attributesToHighlight:
       - file
       - metaTitle
       - month
+      - title
       - year
