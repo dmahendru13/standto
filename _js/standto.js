@@ -194,14 +194,15 @@ var SocialBar = require('./globals/modules/SocialBar'),
             }
         });
 
-        var searchForm = document.getElementById('standto_search_form');
         //-----------------
         //  Search
         //--------------------------
-
+        
         //  Function that searches the on page content and displays results based off of what
         //  the user has entered into the input.
-
+        
+        var searchForm = document.getElementById('standto_search_form');
+        
         searchForm.onkeyup = function () {
             var input = document.querySelector('.archive-search-input'),
                 filter = input.value.toUpperCase(),
@@ -245,6 +246,10 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 Helper.removeClass(results, 'hidden');
             }
         }
+
+        searchForm.onsubmit = function(e) {
+            e.preventDefault();
+        };
 
 
     }
