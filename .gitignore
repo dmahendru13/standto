@@ -19,6 +19,7 @@ sftpCache.json
 _plugins
 _config.yml
 _site
+_drafts
 .jekyll-metadata
 src/e2/rv5_images/**/*
 src/e2/rv5_downloads/**/*
