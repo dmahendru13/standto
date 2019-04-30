@@ -1,93 +1,93 @@
-.archived-standto {
-  @include box-sizing(border-box);
-  .container {
-    .inner-container {
-      .row {
-        .col-hd {
-          @include span(12, 10);
-          @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
-            margin-left: 15px;
-          }
-        }
-        .col-yr {
-          @include span(3);
-          margin-top: 5px;
-          margin-bottom: 15px;
-          @include breakpoints(lg_tablet) {
-            @include span(4);
-          }
-          @include breakpoints(tablet nav) {
-            @include span(6);
-          }
-          @include breakpoints(mobile) {
-            @include span(10);
-            @include offset(1);
-          }
-          .ar-lst {
-            border: 1px solid map-get($army-branding, mediumcamo);
-            background-color: map-get($army-branding, grey10);
+// .archived-standto {
+//   @include box-sizing(border-box);
+//   .container {
+//     .inner-container {
+//       .row {
+//         .col-hd {
+//           @include span(12, 10);
+//           @include breakpoints(really_big large desktop sm_desktop lg_tablet) {
+//             margin-left: 15px;
+//           }
+//         }
+//         .col-yr {
+//           @include span(3);
+//           margin-top: 5px;
+//           margin-bottom: 15px;
+//           @include breakpoints(lg_tablet) {
+//             @include span(4);
+//           }
+//           @include breakpoints(tablet nav) {
+//             @include span(6);
+//           }
+//           @include breakpoints(mobile) {
+//             @include span(10);
+//             @include offset(1);
+//           }
+//           .ar-lst {
+//             border: 1px solid map-get($army-branding, mediumcamo);
+//             background-color: map-get($army-branding, grey10);
 
-            box-shadow: 0 5px 10px 0px rgba(0,0,0,0.45);
+//             box-shadow: 0 5px 10px 0px rgba(0,0,0,0.45);
 
-            @include breakpoints(really_big large desktop sm_desktop lg_tablet tablet nav) {
-              min-height: 388px;
-            }
-            // @include breakpoints(lg_tablet tablet nav) {
-            //   min-height: 390px;
-            // }
-            .hd-yr {
-              background-color: map-get($army-branding, darkcamo);
-              color: map-get($army-branding, white);
-              text-align: center;
-              margin-bottom: 0;
-              padding: 9px 0;
-            }
-            ul {
-              @include breakpoints(really_big large desktop sm_desktop lg_tablet tablet nav) {
-                padding: 15px;
-              }
-              @include breakpoints(mobile) {
-                margin: 10px 0;
-                text-align: center;
-              }
-            }
-          }
-        }
-        .col-month {
-          margin: 5px 0 0;
-          .sub-title {
-            margin-bottom: 10px;
-          }
-          .ar-lst {
-            .hd-month {
-              background-color: map-get($army-branding, darkcamo);
-              color: map-get($army-branding, white);
-              @include breakpoints(really_big large desktop sm_desktop lg_tablet tablet) {
-                padding: 14px 20px 9px;
-              }
-              @include breakpoints(nav mobile) {
-                padding: 14px 10px 9px;
-              }
-            }
-            background-color: map-get($army-branding, grey10);
-            border: 1px solid map-get($army-branding, mediumcamo);
-            @include box-shadow(0 5px 10px 0px rgba(0,0,0,0.45));
-            margin-bottom: 2em;
-            ul {
-              padding: 15px 20px;
-              li:not(:last-child) {
-                @include breakpoints(nav mobile) {
-                  padding-bottom: 5px;
-                }
-              }
-            }
-          }
-          @include span(12);
-        }
-        .norm-fnt-lb {
-          font-weight: 500;
-        }
-      }
-    }
-  }
-}
+//             @include breakpoints(really_big large desktop sm_desktop lg_tablet tablet nav) {
+//               min-height: 388px;
+//             }
+//             // @include breakpoints(lg_tablet tablet nav) {
+//             //   min-height: 390px;
+//             // }
+//             .hd-yr {
+//               background-color: map-get($army-branding, darkcamo);
+//               color: map-get($army-branding, white);
+//               text-align: center;
+//               margin-bottom: 0;
+//               padding: 9px 0;
+//             }
+//             ul {
+//               @include breakpoints(really_big large desktop sm_desktop lg_tablet tablet nav) {
+//                 padding: 15px;
+//               }
+//               @include breakpoints(mobile) {
+//                 margin: 10px 0;
+//                 text-align: center;
+//               }
+//             }
+//           }
+//         }
+//         .col-month {
+//           margin: 5px 0 0;
+//           .sub-title {
+//             margin-bottom: 10px;
+//           }
+//           .ar-lst {
+//             .hd-month {
+//               background-color: map-get($army-branding, darkcamo);
+//               color: map-get($army-branding, white);
+//               @include breakpoints(really_big large desktop sm_desktop lg_tablet tablet) {
+//                 padding: 14px 20px 9px;
+//               }
+//               @include breakpoints(nav mobile) {
+//                 padding: 14px 10px 9px;
+//               }
+//             }
+//             background-color: map-get($army-branding, grey10);
+//             border: 1px solid map-get($army-branding, mediumcamo);
+//             @include box-shadow(0 5px 10px 0px rgba(0,0,0,0.45));
+//             margin-bottom: 2em;
+//             ul {
+//               padding: 15px 20px;
+//               li:not(:last-child) {
+//                 @include breakpoints(nav mobile) {
+//                   padding-bottom: 5px;
+//                 }
+//               }
+//             }
+//           }
+//           @include span(12);
+//         }
+//         .norm-fnt-lb {
+//           font-weight: 500;
+//         }
+//       }
+//     }
+//   }
+// }

@@ -92,7 +92,7 @@ module.exports = function (grunt) {
             },
             social: {
                 files: {
-                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/search.js', '_js/globals/modules/SocialBar.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js']
+                    '_js/bundled/standto.js': [configs, '_js/standto.js', '_js/globals/modules/SocialBar.js', '_js/globals/modules/SubNav.js', '_js/globals/modules/Helper.js']
                 },
                 options: {
                     transform: ['babelify'],
