@@ -17,28 +17,3 @@ jekyll-minifier:
   exclude: ['*.html','*.css','*.scss']
 
 title: StandTo
-
-# algolia:
-#   application_id: ''
-#   index_name: jekyll
-#   search_only_api_key: 
-#   files_to_exclude: 
-#     - /archive/index.html
-#     - /archives/index.html
-#   extensions_to_include:
-#     - html
-#   nodes_to_index: 'h1, span.date, span.st-byline'
-#   settings:
-#     searchableAttributes:
-#       - year
-#       - month
-#       - file
-#       - unordered(title)
-#       - content
-#       - date
-#     attributesToHighlight:
-#       - file
-#       - metaTitle
-#       - month
-#       - title
-#       - year

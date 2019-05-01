@@ -2,6 +2,84 @@
 <script src="/e2/js/rv7/3rdparty/sjs/simple-jekyll-search.min.js"></script>
 
 <script>
+    $(document).ready(function () {
+        const archiveSearch = document.querySelector('.stand-to .archive-search-input');
+        const base = document.querySelector('.stand-to #archive-results');
+        const search = document.querySelector('.stand-to #results-container');
+
+        function thisEvent(e) {
+            if (!e) {
+                e = window.event;
+            }
+            if (archiveSearch.value != '') {
+                var baseResults, searchResults;
+
+                baseResults = base.getElementsByTagName('li');
+                searchResults = search.getElementsByTagName('li');
+
+                if (searchResults.length > -1) {
+                    var thisEl, anselm, antioch;
+
+                    for (var i = 0; i < searchResults.length; i++) {
+                        var test = '';
+                        var span = searchResults[i].getElementsByTagName('span')[0];
+                        var el = span.textContent;
+
+                        test = el;
+                    }
+
+                    thisEl = test;
+
+                    console.log(thisEl);
+
+                    // anselm = new RegExp(thisEl, 'gi');
+
+                    // antioch = $(".results .headlines").html().match(anselm);
+
+                    // if (antioch.length > 0) {
+                    //     console.log(antioch);
+                    // }
+
+                    // console.log(antioch);
+
+                    // console.log(thisEl);
+                    // console.log('space');
+
+
+                    // console.log('length');
+                    // console.log(searchResults);
+                    // console.log('length');
+                }
+
+            } 
+
+            //console.log($("*").html().match(/March/gi).length);
+            // var testing = 'april';
+            // var test = new RegExp(testing, 'gi');
+            // console.log($(".results .headlines").html().match(/march/gi).length);
+            // console.log($(".results .headlines").html().match(test).length);
+
+            // console.log('You ' + e.type + 'ed the search');
+        }
+
+        $(archiveSearch).on({
+            click: function (e) {
+                thisEvent(e);
+            },
+            keypress: function (e) {
+                thisEvent(e);
+            },
+            submit: function (e) {
+                alert('Sorry, but you cannot ' + e.type + ' this form');
+            }
+        });
+
+    });
+
+
+
+    //https://api.jquery.com/toggleClass/#toggleClass-className
+
     simpleJekyllSearch = new SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),

@@ -220,7 +220,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     Helper.addClass(li[i], 'hidden');
                 }
             }
-            results(li);
+            //results(li);
         };
 
         //----------------------
@@ -233,25 +233,23 @@ var SocialBar = require('./globals/modules/SocialBar'),
         // Alternatively, if the user has searched for something that has produced no results,
         // then
 
-        function results(li) {
-            var results = document.getElementById('results-text'),
-                noResults = document.getElementById('no-results-text'),
-                listItems = document.querySelectorAll('li.hidden');
+        // function results(li) {
+        //     var results = document.getElementById('results-text'),
+        //         // noResults = document.getElementById('no-results-text'),
+        //         listItems = document.querySelectorAll('li.hidden');
 
-            if (listItems.length == li.length) {
-                Helper.removeClass(noResults, 'hidden');
-                Helper.addClass(results, 'hidden');
-            } else {
-                Helper.addClass(noResults, 'hidden');
-                Helper.removeClass(results, 'hidden');
-            }
-        }
+        //     if (listItems.length == li.length) {
+        //         // Helper.removeClass(noResults, 'hidden');
+        //         Helper.addClass(results, 'hidden');
+        //     } else {
+        //         // Helper.addClass(noResults, 'hidden');
+        //         Helper.removeClass(results, 'hidden');
+        //     }
+        // }
 
-        searchForm.onsubmit = function(e) {
-            e.preventDefault();
-        };
-
-
+        // searchForm.onsubmit = function(e) {
+        //     e.preventDefault();
+        // };
     }
 
     if (oldArchive) {

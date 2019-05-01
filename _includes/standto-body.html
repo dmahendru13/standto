@@ -18,6 +18,8 @@
                 <div class="inner-container">
                     <div class="search-box search-form-container">
                         <form action="" id="standto_search_form">
+                            <!-- <input class="archive-search-input" type="text" placeholder="" id="search-input">
+                            <button type="submit"></button> -->
                             <input class="archive-search-input" type="text" placeholder="SEARCH KEYWORDS..." id="search-input">
                             <button type="submit" value=""></button>
                         </form>
@@ -32,9 +34,9 @@
                         <h2>Stand-To! Archive</h2>
                         <h5>Most Recent Focus Topics</h5>
                         <div class="headlines">
+                            {%- include recent-ar-results.html -%}
                             <ul id="results-container">
                             </ul>
-                            {%- include recent-ar-results.html -%}
                         </div>
                     </div>
                 </div>
