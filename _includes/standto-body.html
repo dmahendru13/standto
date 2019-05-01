@@ -3,9 +3,9 @@
     <!-- today's focus -->
     <div class="focus subnav-selectable">
         {% if page.pageid == 'archived-standto' %}
-            {% include ar-body-text.html %}
+        {% include ar-body-text.html %}
         {% else %}
-            {% include tf-body-text.html %}
+        {% include tf-body-text.html %}
         {% endif %}
 
     </div>
@@ -16,11 +16,11 @@
         <div class="archive-search">
             <div class="container">
                 <div class="inner-container">
-                    <div class="search-box">
-
-                        <div id="search-searchbar">
-
-                        </div>
+                    <div class="search-box search-form-container">
+                        <form action="" id="standto_search_form">
+                            <input class="archive-search-input" type="text" placeholder="SEARCH KEYWORDS..." id="search-input">
+                            <button type="submit" value=""></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -31,10 +31,10 @@
                     <div class="results">
                         <h2>Stand-To! Archive</h2>
                         <h5>Most Recent Focus Topics</h5>
-                        <div class="search-results">
-                            <div id="search-hits" class="search-hits headlines">
-
-                            </div>
+                        <div class="headlines">
+                            <ul id="results-container">
+                            </ul>
+                            {%- include recent-ar-results.html -%}
                         </div>
                     </div>
                 </div>

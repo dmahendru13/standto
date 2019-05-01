@@ -1,8 +1,8 @@
-{%- assign year = page.year -%}
+<!-- {%- assign year = page.year -%}
 {%- assign month = page.month -%}
 {%- assign file-path = page.data-path -%}
 
-<!-- path to archive data files -->
+path to archive data files 
 
 {% assign yr = year | to_integer %}
 
@@ -12,7 +12,7 @@
     {%- assign archive = site.data.archived-standto.older-archives[year][month] | sort -%}
 {% endif %}
 
-<!-- Convert month from number to name -->
+Convert month from number to name 
 {%- if month == '01' -%}
 {%- assign this-month = 'January ' -%}
 {%- elsif month == '02' -%}
@@ -56,7 +56,7 @@
                             </strong></h5>
                         <ul>
                             {%- for item in archive -%}
-                                <!-- This unless filters OUT links to pages that DO NOT have a corresponding data file -->
+                                This unless filters OUT links to pages that DO NOT have a corresponding data file 
                                 {% unless item[1] == false %}
                                     <li>
                                         {%- if yr <= 2012 -%}
@@ -85,4 +85,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
