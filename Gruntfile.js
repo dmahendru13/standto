@@ -98,8 +98,7 @@ module.exports = function (grunt) {
                     transform: ['babelify'],
                     alias: [
                         './_js/globals/modules/Helper.js:Helper',
-                        './_js/globals/navs.js:Nav'//,
-                        //'./node_modules/waypoints/src/waypoint.js:Waypoints'
+                        './_js/globals/navs.js:Nav'
                     ]
                 }
             }
