@@ -1,17 +1,15 @@
 <script src="/e2/js/rv7/3rdparty/sjs/simple-jekyll-search.js"></script>
 <script src="/e2/js/rv7/3rdparty/sjs/simple-jekyll-search.min.js"></script>
 
-{% include base.html %}
-
 <script>
     $(document).ready(function () {
-        const archiveSearch = document.querySelector('.stand-to .archive-search-input');
-        //const filter = archiveSearch.value.toUpperCase();
-        const base = document.querySelector('.stand-to #archive-results');
-        //const search = document.querySelector('.stand-to #results-container');
+        var archiveSearch = document.querySelector('.stand-to .archive-search-input');
+        //var filter = archiveSearch.value.toUpperCase();
+        var base = document.querySelector('.stand-to #archive-results');
+        //var search = document.querySelector('.stand-to #results-container');
 
         $(archiveSearch).on('keyup', function (e) {
-            let baseVeritas = (veritas) => {
+            var baseVeritas = function (veritas) {
                 if (!veritas) {
                     $(base).addClass('hidden')
                 } else {
@@ -21,9 +19,9 @@
             if (!e) {
                 e = window.event;
             }
-            let tart = () => {
-                let inputSearch = false;
-                let veritas = '';
+            var tart = function () {
+                var inputSearch = false;
+                var veritas = '';
                 if (archiveSearch.value === '') {
                     inputSearch = true;
                     if (inputSearch) {
@@ -38,8 +36,6 @@
             tart();
         });
     });
-
-
 
     //https://api.jquery.com/toggleClass/#toggleClass-className
 
