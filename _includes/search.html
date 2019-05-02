@@ -36,16 +36,34 @@
                 }
             }
             tart();
+
         });
     });
+    var urlPath = function () {
+        var hostName, path;
 
-    //https://api.jquery.com/toggleClass/#toggleClass-className
+        hostName = window.location.hostname;
+
+        if (hostName === 'localhost' || hostName === '127.0.0.1') {
+            path = '';
+            console.log('testing local');
+            return path;
+        } else if (hostName === '') {
+            path = window.location.origin + window.location.pathname;
+            return path;
+        } else {
+            path = '';
+            return path;
+            console.log('path not defined, fool');
+        }
+    }
 
     simpleJekyllSearch = new SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
         json: './search.json',
-        searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="../..{url}">{title}</a></li>',
+        searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
+            '{url}">{title}</a></li>',
         noResultsText: "<h4>No Results</h4>",
         fuzzy: false
     });
