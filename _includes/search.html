@@ -6,9 +6,7 @@
 <script>
     $(document).ready(function () {
         var archiveSearch = document.querySelector('.stand-to .archive-search-input');
-        //var filter = archiveSearch.value.toUpperCase();
         var base = document.querySelector('.stand-to #archive-results');
-        //var search = document.querySelector('.stand-to #results-container');
 
         $(archiveSearch).on('keyup', function (e) {
             var baseVeritas = function (veritas) {
@@ -18,9 +16,11 @@
                     $(base).removeClass('hidden')
                 }
             }
+
             if (!e) {
                 e = window.event;
             }
+
             var tart = function () {
                 var inputSearch = false;
                 var veritas = '';
@@ -45,7 +45,7 @@
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
         json: './search.json',
-        searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="..{url}">{title}</a></li>',
+        searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="../..{url}">{title}</a></li>',
         noResultsText: "<h4>No Results</h4>",
         fuzzy: false
     });
