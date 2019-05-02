@@ -197,12 +197,12 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //-----------------
         //  Search
         //--------------------------
-        
+
         //  Function that searches the on page content and displays results based off of what
         //  the user has entered into the input.
-        
+
         var searchForm = document.getElementById('standto_search_form');
-        
+
         searchForm.onkeyup = function () {
             var input = document.querySelector('.archive-search-input'),
                 filter = input.value.toUpperCase(),
@@ -220,7 +220,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     Helper.addClass(li[i], 'hidden');
                 }
             }
-            //results(li);
         };
 
         //----------------------
@@ -228,28 +227,82 @@ var SocialBar = require('./globals/modules/SocialBar'),
         // Displays "No Results found"
         // 
         //----------------------
+        $(document).ready(function () {
+            var archiveSearch = document.querySelector('.stand-to .archive-search-input');
+            var base = document.querySelector('.stand-to #archive-results');
 
-        // if the input search produces no results
-        // Alternatively, if the user has searched for something that has produced no results,
-        // then
+            //Hides/shows most recent archives results when using search feature.
+            $(archiveSearch).on('keyup', function (e) {
+                var baseVeritas = function (veritas) {
+                    if (!veritas) {
+                        $(base).addClass('hidden')
+                    } else {
+                        $(base).removeClass('hidden')
+                    }
+                }
 
-        // function results(li) {
-        //     var results = document.getElementById('results-text'),
-        //         // noResults = document.getElementById('no-results-text'),
-        //         listItems = document.querySelectorAll('li.hidden');
+                if (!e) {
+                    e = window.event;
+                }
 
-        //     if (listItems.length == li.length) {
-        //         // Helper.removeClass(noResults, 'hidden');
-        //         Helper.addClass(results, 'hidden');
-        //     } else {
-        //         // Helper.addClass(noResults, 'hidden');
-        //         Helper.removeClass(results, 'hidden');
-        //     }
-        // }
+                var tart = function () {
+                    var inputSearch = false;
+                    var veritas = '';
+                    if (archiveSearch.value === '') {
+                        inputSearch = true;
+                        if (inputSearch) {
+                            veritas = true;
+                            baseVeritas(veritas);
+                        }
+                    } else {
+                        veritas = false;
+                        baseVeritas(veritas);
+                    }
+                }
+                tart();
 
-        // searchForm.onsubmit = function(e) {
-        //     e.preventDefault();
-        // };
+            });
+        });
+
+        // Determines file path based off of hostname.
+        var urlPath = function () {
+            var hostName, path;
+
+            hostName = window.location.hostname;
+
+            if (hostName === 'localhost' || hostName === '127.0.0.1') {
+                path = '';
+                console.log('testing local');
+                return path;
+            } else if (hostName === 'static.ardev.us') {
+                path = window.location.origin + '/standto';
+                return path;
+            } else if (hostName === 'www.army.mil') {
+                path = window.location.origin + '/standto';
+                return path;
+            } else {
+                path = '';
+                return path;
+                console.log('path not defined, fool');
+            }
+        }
+
+        simpleJekyllSearch = new SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: './search.json',
+            searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
+                '{url}">{title}</a></li>',
+            noResultsText: "<h4>No Results</h4>",
+            fuzzy: false
+        });
+        //----------------------
+        //
+        // Displays "No Results found"
+        // 
+        //----------------------
+
+
     }
 
     if (oldArchive) {

@@ -1,6 +1,8 @@
 {%- assign anselm = 'now' | date: '%Y' -%}
 {%- assign path = site.data.archived-standto.recent-archives[anselm] | sort -%}
 
+{% include base.html %}
+
 <ul id="archive-results">
 
     {%- for content in path reversed -%}
@@ -28,7 +30,7 @@
                                 {%- endcase -%}{{d | prepend: " " }}, 
                             {{ items.date | date: "%Y" }}
                         </span>
-                        <a class="article-link" href="../archive_{{ items.id }}/">
+                        <a class="article-link" href="{{base}}/archive_{{ items.id }}/">
                             {{ items.title }}
                         </a>
                     </li>
