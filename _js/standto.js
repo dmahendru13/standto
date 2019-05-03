@@ -227,42 +227,47 @@ var SocialBar = require('./globals/modules/SocialBar'),
         // Displays "No Results found"
         // 
         //----------------------
-        $(document).ready(function () {
-            var archiveSearch = document.querySelector('.stand-to .archive-search-input');
-            var base = document.querySelector('.stand-to #archive-results');
+        // $(document).ready(function () {
+        var archiveSearch, base;
 
-            //Hides/shows most recent archives results when using search feature.
-            $(archiveSearch).on('keyup', function (e) {
-                var baseVeritas = function (veritas) {
-                    if (!veritas) {
-                        $(base).addClass('hidden')
-                    } else {
-                        $(base).removeClass('hidden')
-                    }
+        archiveSearch = document.querySelector('.stand-to .archive-search-input');
+        base = document.querySelector('.stand-to #archive-results');
+
+
+        // Hides || shows most recent archives results when using search feature.
+        $(archiveSearch).on('keyup', function (e) {
+            var baseVeritas = function (veritas) {
+                if (!veritas) {
+                    $(base).addClass('hidden')
+                } else {
+                    $(base).removeClass('hidden')
                 }
+            }
 
-                if (!e) {
-                    e = window.event;
-                }
-
-                var tart = function () {
-                    var inputSearch = false;
-                    var veritas = '';
-                    if (archiveSearch.value === '') {
-                        inputSearch = true;
-                        if (inputSearch) {
-                            veritas = true;
-                            baseVeritas(veritas);
-                        }
-                    } else {
-                        veritas = false;
+            if (!e) {
+                e = window.event;
+            }
+            
+            // Hide archive page results when using SJS
+            var hideArchiveResults = function () {
+                var inputSearch = false;
+                var veritas = '';
+                if (archiveSearch.value === '') {
+                    inputSearch = true;
+                    if (inputSearch) {
+                        veritas = true;
                         baseVeritas(veritas);
                     }
+                } else {
+                    veritas = false;
+                    baseVeritas(veritas);
                 }
-                tart();
+            }   
 
-            });
+            hideArchiveResults();
+
         });
+        //});
 
         // Determines file path based off of hostname.
         var urlPath = function () {
@@ -272,37 +277,47 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
             if (hostName === 'localhost' || hostName === '127.0.0.1') {
                 path = '';
-                console.log('testing local');
                 return path;
             } else if (hostName === 'static.ardev.us') {
-                path = window.location.origin + '/standto';
-                return path;
+                //if (window.location.pathname === '/standto/') {
+                    path = window.location.origin + '/standto';
+                    return path;
+                //} else 
             } else if (hostName === 'www.army.mil') {
                 path = window.location.origin + '/standto';
                 return path;
             } else {
                 path = '';
                 return path;
-                console.log('path not defined, fool');
             }
         }
 
-        simpleJekyllSearch = new SimpleJekyllSearch({
+        var searchPath = function () {
+            if (pathName === '/') {
+                console.log(pathName);
+                return './';
+            } else if (pathName === '/standto/') {
+                console.log(pathName);
+                return './';
+            } else {
+                console.log(pathName);
+                return '../';
+            }
+        }
+
+        // Declaring Search function
+        var sjs = new SimpleJekyllSearch({
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('results-container'),
-            json: './search.json',
+            json: searchPath() + 'search.json',
             searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
                 '{url}">{title}</a></li>',
             noResultsText: "<h4>No Results</h4>",
             fuzzy: false
         });
-        //----------------------
-        //
-        // Displays "No Results found"
-        // 
-        //----------------------
-
-
+        
+        // Calling search function
+        sjs;
     }
 
     if (oldArchive) {
