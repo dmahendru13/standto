@@ -1,12 +1,71 @@
-<script src="/e2/js/rv7/3rdparty/sjs/simple-jekyll-search.js"></script>
-<script src="/e2/js/rv7/3rdparty/sjs/simple-jekyll-search.min.js"></script>
+<script type="text/javascript" src="/e2/js/rv7/3rdparty/sjs/simple-jekyll-search.min.js"></script>
 
 <script>
+    $(document).ready(function () {
+        var archiveSearch = document.querySelector('.stand-to .archive-search-input');
+        var base = document.querySelector('.stand-to #archive-results');
+
+        $(archiveSearch).on('keyup', function (e) {
+            var baseVeritas = function (veritas) {
+                if (!veritas) {
+                    $(base).addClass('hidden')
+                } else {
+                    $(base).removeClass('hidden')
+                }
+            }
+
+            if (!e) {
+                e = window.event;
+            }
+
+            var tart = function () {
+                var inputSearch = false;
+                var veritas = '';
+                if (archiveSearch.value === '') {
+                    inputSearch = true;
+                    if (inputSearch) {
+                        veritas = true;
+                        baseVeritas(veritas);
+                    }
+                } else {
+                    veritas = false;
+                    baseVeritas(veritas);
+                }
+            }
+            tart();
+
+        });
+    });
+
+    // Determines file path based off of hostname.
+    var urlPath = function () {
+        var hostName, path;
+
+        hostName = window.location.hostname;
+
+        if (hostName === 'localhost' || hostName === '127.0.0.1') {
+            path = '';
+            console.log('testing local');
+            return path;
+        } else if (hostName === 'static.ardev.us') {
+            path = window.location.origin + '/standto';
+            return path;
+        } else if (hostName === 'www.army.mil') {
+            path = window.location.origin + '/standto';
+            return path;
+        } else {
+            path = '';
+            return path;
+            console.log('path not defined, fool');
+        }
+    }
+
     simpleJekyllSearch = new SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        json: '{{base}}/search.json',
-        searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="{{base}}{url}">{title}</a></li>',
+        json: './search.json',
+        searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
+            '{url}">{title}</a></li>',
         noResultsText: "<h4>No Results</h4>",
         fuzzy: false
     });

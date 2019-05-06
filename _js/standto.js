@@ -10,20 +10,20 @@ var SocialBar = require('./globals/modules/SocialBar'),
     var subnav = document.getElementsByTagName('nav')[0],
         hash = window.location.hash,
         pathName = window.location.pathname,
-        tFocusNav = document.querySelector('.tf-nav-item'),
-        archiveNav = document.querySelector('.ar-nav-item'),
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
-        tfBody = document.querySelector('.stand-to .focus.subnav-selectable'),
-        // h3Ele = document.getElementsByTagName('h3'),
         subscribeLink = document.getElementsByClassName('sub-link'),
         subBox = document.querySelector('.sub-box'),
         byline = document.querySelector('.byline'),
         archivesBody = document.querySelector('.stand-to .archive'),
-        //searchForm = document.getElementById('standto_search_form'),
-        //archiveDates = document.querySelectorAll('.results-archive .date'),
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
         oldArchive = document.querySelector('.stand-to.oldarchive'),
+        // archiveNav = document.querySelector('.ar-nav-item'),
+        // tfBody = document.querySelector('.stand-to .focus.subnav-selectable'),
+        // tFocusNav = document.querySelector('.tf-nav-item'),
+        // h3Ele = document.getElementsByTagName('h3'),
+        //searchForm = document.getElementById('standto_search_form'),
+        //archiveDates = document.querySelectorAll('.results-archive .date'),
         i;
 
     if (subBox) {
@@ -170,7 +170,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             a.fn.dateFilter = function (b) {
                 var c = a.extend({
                     cutoff: new Date,
-                    buffer: -35
+                    buffer: -50
                 }, b);
                 c.cutoff.setDate(c.cutoff.getDate() + c.buffer);
                 var d = this.parent();
@@ -197,12 +197,12 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //-----------------
         //  Search
         //--------------------------
-        
+
         //  Function that searches the on page content and displays results based off of what
         //  the user has entered into the input.
-        
+
         var searchForm = document.getElementById('standto_search_form');
-        
+
         searchForm.onkeyup = function () {
             var input = document.querySelector('.archive-search-input'),
                 filter = input.value.toUpperCase(),
@@ -220,7 +220,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     Helper.addClass(li[i], 'hidden');
                 }
             }
-            results(li);
         };
 
         //----------------------
@@ -228,30 +227,98 @@ var SocialBar = require('./globals/modules/SocialBar'),
         // Displays "No Results found"
         // 
         //----------------------
+        // $(document).ready(function () {
+        var archiveSearch, base;
 
-        // if the input search produces no results
-        // Alternatively, if the user has searched for something that has produced no results,
-        // then
+        archiveSearch = document.querySelector('.stand-to .archive-search-input');
+        base = document.querySelector('.stand-to #archive-results');
 
-        function results(li) {
-            var results = document.getElementById('results-text'),
-                noResults = document.getElementById('no-results-text'),
-                listItems = document.querySelectorAll('li.hidden');
 
-            if (listItems.length == li.length) {
-                Helper.removeClass(noResults, 'hidden');
-                Helper.addClass(results, 'hidden');
+        // Hides || shows most recent archives results when using search feature.
+        $(archiveSearch).on('keyup', function (e) {
+            var baseVeritas = function (veritas) {
+                if (!veritas) {
+                    $(base).addClass('hidden')
+                } else {
+                    $(base).removeClass('hidden')
+                }
+            }
+
+            if (!e) {
+                e = window.event;
+            }
+            
+            // Hide archive page results when using SJS
+            var hideArchiveResults = function () {
+                var inputSearch = false;
+                var veritas = '';
+                if (archiveSearch.value === '') {
+                    inputSearch = true;
+                    if (inputSearch) {
+                        veritas = true;
+                        baseVeritas(veritas);
+                    }
+                } else {
+                    veritas = false;
+                    baseVeritas(veritas);
+                }
+            }   
+
+            hideArchiveResults();
+
+        });
+        //});
+
+        // Determines file path based off of hostname.
+        var urlPath = function () {
+            var hostName, path;
+
+            hostName = window.location.hostname;
+
+            if (hostName === 'localhost' || hostName === '127.0.0.1') {
+                path = '';
+                return path;
+            } else if (hostName === 'static.ardev.us') {
+                //if (window.location.pathname === '/standto/') {
+                    path = window.location.origin + '/standto';
+                    return path;
+                //} else 
+            } else if (hostName === 'www.army.mil') {
+                path = window.location.origin + '/standto';
+                return path;
             } else {
-                Helper.addClass(noResults, 'hidden');
-                Helper.removeClass(results, 'hidden');
+                path = '';
+                return path;
             }
         }
 
-        searchForm.onsubmit = function(e) {
-            e.preventDefault();
-        };
+        var searchPath = function () {
+            if (pathName === '/') {
+                console.log(pathName);
+                return './';
+            } else if (pathName === '/standto/') {
+                console.log(pathName);
+                return './';
+            } else {
+                console.log(pathName);
+                return '../';
+            }
+        }
 
-
+        // Declaring Search function
+        var sjs = new SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: searchPath() + 'search.json',
+            searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
+                '{url}">{title}</a></li>',
+            noResultsText: "<h4>No Results</h4>",
+            limit: 20,
+            fuzzy: false
+        });
+        
+        // Calling search function
+        sjs;
     }
 
     if (oldArchive) {
@@ -269,7 +336,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     if (archivedStandto[i].textContent === searchText || 'Resources') {
                         victoria = archivedStandto[i];
                         Helper.addClass(victoria, 'body-header');
-                        console.log('<h1>' + victoria + '</h1>');
+                        //console.log('<h1>' + victoria + '</h1>');
                         break;
                     } else {
                         console.log('')

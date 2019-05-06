@@ -94,13 +94,6 @@ Once this is done, you can view the site locally using one of the two links belo
 * Installation docs - http://jekyllrb.com/docs/installation/
 * Basic Usage docs - http://jekyllrb.com/docs/usage/
 
-
-## Updating Algolia Index:
-
-  ```bash
-    ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
-  ```
-
  ## Resources:
 * [sort filter to sort numerically in liquid jekyll](https://www.google.com/search?safe=active&client=firefox-b-1-d&ei=XiCdXNb3DpK8sAWK-6boAw&q=sort+filter+to+sort+numerically+in+liquid+jekyll&oq=sort+filter+to+sort+numerically+in+liquid+jekyll&gs_l=psy-ab.3..33i160l2.9527.19529..19785...2.0..0.207.4892.2j35j1......0....1..gws-wiz.......0i71j0i20i263j0j0i22i30j0i22i10i30j33i22i29i30j33i299.xubVoDyv0XM)
 
