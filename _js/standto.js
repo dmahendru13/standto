@@ -170,7 +170,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             a.fn.dateFilter = function (b) {
                 var c = a.extend({
                     cutoff: new Date,
-                    buffer: -50
+                    buffer: -40
                 }, b);
                 c.cutoff.setDate(c.cutoff.getDate() + c.buffer);
                 var d = this.parent();
@@ -213,7 +213,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
             for (i = 0; i < li.length; i++) {
                 var a = li[i].getElementsByTagName('a')[0],
                     txtValue = a.textContent || a.innerText;
-
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     Helper.removeClass(li[i], 'hidden');
                 } else {
@@ -336,7 +335,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     if (archivedStandto[i].textContent === searchText || 'Resources') {
                         victoria = archivedStandto[i];
                         Helper.addClass(victoria, 'body-header');
-                        //console.log('<h1>' + victoria + '</h1>');
                         break;
                     } else {
                         console.log('')
