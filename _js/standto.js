@@ -10,20 +10,20 @@ var SocialBar = require('./globals/modules/SocialBar'),
     var subnav = document.getElementsByTagName('nav')[0],
         hash = window.location.hash,
         pathName = window.location.pathname,
-        tFocusNav = document.querySelector('.tf-nav-item'),
-        archiveNav = document.querySelector('.ar-nav-item'),
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
-        tfBody = document.querySelector('.stand-to .focus.subnav-selectable'),
-        // h3Ele = document.getElementsByTagName('h3'),
         subscribeLink = document.getElementsByClassName('sub-link'),
         subBox = document.querySelector('.sub-box'),
         byline = document.querySelector('.byline'),
         archivesBody = document.querySelector('.stand-to .archive'),
-        //searchForm = document.getElementById('standto_search_form'),
-        //archiveDates = document.querySelectorAll('.results-archive .date'),
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
         oldArchive = document.querySelector('.stand-to.oldarchive'),
+        // archiveNav = document.querySelector('.ar-nav-item'),
+        // tfBody = document.querySelector('.stand-to .focus.subnav-selectable'),
+        // tFocusNav = document.querySelector('.tf-nav-item'),
+        // h3Ele = document.getElementsByTagName('h3'),
+        //searchForm = document.getElementById('standto_search_form'),
+        //archiveDates = document.querySelectorAll('.results-archive .date'),
         i;
 
     if (subBox) {
@@ -170,7 +170,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             a.fn.dateFilter = function (b) {
                 var c = a.extend({
                     cutoff: new Date,
-                    buffer: -35
+                    buffer: -50
                 }, b);
                 c.cutoff.setDate(c.cutoff.getDate() + c.buffer);
                 var d = this.parent();
@@ -313,6 +313,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
                 '{url}">{title}</a></li>',
             noResultsText: "<h4>No Results</h4>",
+            limit: 20,
             fuzzy: false
         });
         
@@ -335,7 +336,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     if (archivedStandto[i].textContent === searchText || 'Resources') {
                         victoria = archivedStandto[i];
                         Helper.addClass(victoria, 'body-header');
-                        console.log('<h1>' + victoria + '</h1>');
+                        //console.log('<h1>' + victoria + '</h1>');
                         break;
                     } else {
                         console.log('')
