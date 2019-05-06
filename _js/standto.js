@@ -1,8 +1,8 @@
 var SocialBar = require('./globals/modules/SocialBar'),
     SubNav = require('./globals/modules/SubNav'),
     Helper = require('./globals/modules/Helper'),
-    //Configs = require('./production'),
     Client = require('node-rest-client').Client;
+//Configs = require('./production'),
 
 (function () {
     'use strict';
@@ -18,6 +18,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
         archivesBody = document.querySelector('.stand-to .archive'),
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
         oldArchive = document.querySelector('.stand-to.oldarchive'),
+        socialMedia = document.getElementById('social-bar-id'),
         // archiveNav = document.querySelector('.ar-nav-item'),
         // tfBody = document.querySelector('.stand-to .focus.subnav-selectable'),
         // tFocusNav = document.querySelector('.tf-nav-item'),
@@ -25,6 +26,28 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //searchForm = document.getElementById('standto_search_form'),
         //archiveDates = document.querySelectorAll('.results-archive .date'),
         i;
+
+    var urlPath = function () {
+        var hostName, path, origin;
+
+        origin = window.location.origin;
+        hostName = window.location.hostname;
+
+        if (hostName === 'localhost' || hostName === '127.0.0.1') {
+            path = '';
+            return path;
+        } else if (hostName === 'static.ardev.us') {
+            path = origin + '/standto';
+            return path;
+        } else if (hostName === 'www.army.mil') {
+            path = origin + '/standto';
+            return path;
+        } else {
+            path = '';
+            return path;
+        }
+    }
+
 
     if (subBox) {
         SocialBar.initWaypoint(socialbarwaypoint);
@@ -246,7 +269,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             if (!e) {
                 e = window.event;
             }
-            
+
             // Hide archive page results when using SJS
             var hideArchiveResults = function () {
                 var inputSearch = false;
@@ -261,7 +284,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     veritas = false;
                     baseVeritas(veritas);
                 }
-            }   
+            }
 
             hideArchiveResults();
 
@@ -269,37 +292,37 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //});
 
         // Determines file path based off of hostname.
-        var urlPath = function () {
-            var hostName, path;
+        // var urlPath = function () {
+        //     var hostName, path;
 
-            hostName = window.location.hostname;
+        //     hostName = window.location.hostname;
 
-            if (hostName === 'localhost' || hostName === '127.0.0.1') {
-                path = '';
-                return path;
-            } else if (hostName === 'static.ardev.us') {
-                //if (window.location.pathname === '/standto/') {
-                    path = window.location.origin + '/standto';
-                    return path;
-                //} else 
-            } else if (hostName === 'www.army.mil') {
-                path = window.location.origin + '/standto';
-                return path;
-            } else {
-                path = '';
-                return path;
-            }
-        }
+        //     if (hostName === 'localhost' || hostName === '127.0.0.1') {
+        //         path = '';
+        //         return path;
+        //     } else if (hostName === 'static.ardev.us') {
+        //         //if (window.location.pathname === '/standto/') {
+        //             path = window.location.origin + '/standto';
+        //             return path;
+        //         //} else 
+        //     } else if (hostName === 'www.army.mil') {
+        //         path = window.location.origin + '/standto';
+        //         return path;
+        //     } else {
+        //         path = '';
+        //         return path;
+        //     }
+        // }
 
         var searchPath = function () {
             if (pathName === '/') {
-                console.log(pathName);
+                //console.log(pathName);
                 return './';
             } else if (pathName === '/standto/') {
-                console.log(pathName);
+                //console.log(pathName);
                 return './';
             } else {
-                console.log(pathName);
+                //console.log(pathName);
                 return '../';
             }
         }
@@ -315,7 +338,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             limit: 20,
             fuzzy: false
         });
-        
+
         // Calling search function
         sjs;
     }
@@ -337,14 +360,58 @@ var SocialBar = require('./globals/modules/SocialBar'),
                         Helper.addClass(victoria, 'body-header');
                         break;
                     } else {
-                        console.log('')
+                        console.log('No resources found');
                     }
                 }
             }
-
         }
-
         balderdash();
+    }
+
+    // if (socialMedia) {
+    //     var tw, fb, rdt, ln, siteHref;
+
+    //     siteHref = window.location.href;
+    //     tw = document.querySelector('.alt-social-bar .twitter-button a');
+    //     fb = document.querySelector('.alt-social-bar .facebook-button a');
+    //     rdt = document.querySelector('.alt-social-bar .reddit-button a');
+    //     ln = document.querySelector('.alt-social-bar .linkedin-button a');
+
+    //     var socialArr = [tw, fb, rdt, ln];
+
+    //     if (urlPath() == '') {
+    //         for (var i = 0; i < socialArr.length; i++) {
+                
+    //             var pageTitle = document.querySelector('.stand-to .focus .inner-container > h1');
+
+    //             var href = socialArr[i].getAttribute('href');
+
+    //             var url = new URL(href);
+
+    //             var newLink = url.origin + url.pathname + '?url=' + siteHref;
+
+    //             if (url.host == 'facebook.com') {
+    //                 console.log(url);
+    //             } else if (url.host == 'twitter.com') {
+    //                 newLink += '&amp;text=STAND-TO%20' + pageTitle;
+    //                 console.log(newLink);
+    //             } else {
+    //                 newLink;
+    //             }
+
+    //             //console.log(socialArr[i].getAttribute('href'));
+                
+    //             //var hello = 'general kenobi';
+
+    //             //var string = `www.hellothere${hello}`;
+
+    //             //var updateHref = socialArr[i].setAttribute('href', string);
+
+    //             //console.log(socialArr[i].getAttribute('href'));
+    //         }
+    //     } else if (urlPath().contains('/standto')) {
+    //         console.log(urlPath());
+    //     }
 
     }
 

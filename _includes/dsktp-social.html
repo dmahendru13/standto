@@ -1,40 +1,18 @@
-
-{% if site.url == 'http://localhost:4000/' or site.url == 'http://localhost:4000' %}
-    {% assign siteUrl = 'http://localhost/' %}
-    {% assign baseUrl = '' %}
-    {{siteUrl}}
-    {{baseUrl}}
-{% elsif site.url == 'https://static.ardev.us/' %}
-    {%  assign siteUrl = 'https://static.ardev.us/' %}
-    {% assign baseUrl = 'standto/' %}
-    {{siteUrl}}
-    {{baseUrl}}
-{% elsif site.url == 'https://army.mil/' %}
-    {%  assign siteUrl = 'https://army.mil/' %}
-    {% assign baseUrl = 'standto/' %}
-    {{siteUrl}}
-    {{baseUrl}}
-{% endif %}
-
-{{site.url}}
-
-{{site.baseurl}}
-
-{{page.url}}
-
 <section class="alt-social-bar">
+    <!-- <ul>
+        <li class="social-button-sm twitter-button"> <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url=${thisUrl}&amp;text=STAND-TO${thisPageTitle}"><span>Share on Twitter</span></a></li>
+        <li class="social-button-sm facebook-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1466422700342708&amp;display=popup&amp;link=${thisUrl}&amp;description=Check%20out%20today%27s%20STAND-TO%21${thisPageTitle}&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto"><span>Share on Facebook</span></a></li>
+        <li class="social-button-sm reddit-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/submit?url=${thisUrl}"><span>Share on Reddit</span></a></li>
+        <li class="social-button-sm linkedin-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/cws/share?url=${thisUrl}"><span>Share on LinkedIn</span></a></li>
+        <li class="social-button-sm email-button"> <a rel="noopener noreferrer" target="_blank" href="mailto:?Subject=STAND-TO%21%20-${thisPageTitle}&amp;body=${thisUrl}"><span>Share via Email</span></a></li>
+        <li class="social-button-sm print-button"> <a href="javascript:void(0)" onclick="window.print()"><span>Print this article</span></a></li>
+    </ul> -->
     <ul>
-        <li class="social-button-sm twitter-button"> <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}&amp;text=STAND-TO{{ page.metaTitle }}"><span>Share
-                    on Twitter</span></a></li>
-        <li class="social-button-sm facebook-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1466422700342708&amp;display=popup&amp;link={{ site.url }}{{ site.baseurl }}{{ page.url }}&amp;description=Check%20out%20today%27s%20STAND-TO%21{{ page.metaTitle }}&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto"><span>Share
-                    on Facebook</span></a></li>
-        <li class="social-button-sm reddit-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}"><span>Share
-                    on Reddit</span></a></li>
-        <li class="social-button-sm linkedin-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/cws/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}"><span>Share
-                    on LinkedIn</span></a></li>
-        <li class="social-button-sm email-button"> <a rel="noopener noreferrer" target="_blank" href="mailto:?Subject=STAND-TO%21%20-{{ page.metaTitle }}&amp;body={{ site.url }}{{ site.baseurl }}{{ page.url }}"><span>Share
-                    via Email</span></a></li>
-        <li class="social-button-sm print-button"> <a href="javascript:void(0)" onclick="window.print()"><span>Print
-                    this article</span></a></li>
+        <li class="social-button-sm twitter-button"> <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}&amp;text=STAND-TO{{ page.metaTitle }}"><span>Share on Twitter</span></a></li>
+        <li class="social-button-sm facebook-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1466422700342708&amp;display=popup&amp;link={{ site.url }}{{ site.baseurl }}{{ page.url }}&amp;description=Check%20out%20today%27s%20STAND-TO%21{{ page.metaTitle }}&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto"><span>Share on Facebook</span></a></li>
+        <li class="social-button-sm reddit-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}"><span>Share on Reddit</span></a></li>
+        <li class="social-button-sm linkedin-button"> <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/cws/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}"><span>Share on LinkedIn</span></a></li>
+        <li class="social-button-sm email-button"> <a rel="noopener noreferrer" target="_blank" href="mailto:?Subject=STAND-TO%21%20-{{ page.metaTitle }}&amp;body={{ site.url }}{{ site.baseurl }}{{ page.url }}"><span>Share via Email</span></a></li>
+        <li class="social-button-sm print-button"> <a href="javascript:void(0)" onclick="window.print()"><span>Print this article</span></a></li>
     </ul>
 </section>
