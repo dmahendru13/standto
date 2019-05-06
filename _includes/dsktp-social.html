@@ -1,3 +1,27 @@
+
+{% if site.url == 'http://localhost:4000/' or site.url == 'http://localhost:4000' %}
+    {% assign siteUrl = 'http://localhost/' %}
+    {% assign baseUrl = '' %}
+    {{siteUrl}}
+    {{baseUrl}}
+{% elsif site.url == 'https://static.ardev.us/' %}
+    {%  assign siteUrl = 'https://static.ardev.us/' %}
+    {% assign baseUrl = 'standto/' %}
+    {{siteUrl}}
+    {{baseUrl}}
+{% elsif site.url == 'https://army.mil/' %}
+    {%  assign siteUrl = 'https://army.mil/' %}
+    {% assign baseUrl = 'standto/' %}
+    {{siteUrl}}
+    {{baseUrl}}
+{% endif %}
+
+{{site.url}}
+
+{{site.baseurl}}
+
+{{page.url}}
+
 <section class="alt-social-bar">
     <ul>
         <li class="social-button-sm twitter-button"> <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}&amp;text=STAND-TO{{ page.metaTitle }}"><span>Share
