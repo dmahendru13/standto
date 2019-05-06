@@ -382,28 +382,48 @@ var SocialBar = require('./globals/modules/SocialBar'),
     //     if (urlPath() == '') {
     //         for (var i = 0; i < socialArr.length; i++) {
                 
-    //             var pageTitle = document.querySelector('.stand-to .focus .inner-container > h1');
+    //             var pageTitle = document.querySelector('.stand-to div > h1').textContent;
+
+    //             var newPageTitle = pageTitle.replace(/ /gi, '%20');
 
     //             var href = socialArr[i].getAttribute('href');
 
     //             var url = new URL(href);
 
-    //             var newLink = url.origin + url.pathname + '?url=' + siteHref;
+    //             console.log(url);
 
-    //             if (url.host == 'facebook.com') {
-    //                 console.log(url);
-    //             } else if (url.host == 'twitter.com') {
-    //                 newLink += '&amp;text=STAND-TO%20' + pageTitle;
-    //                 console.log(newLink);
-    //             } else {
-    //                 newLink;
-    //             }
+    //             var newLink = url.origin + url.pathname;
+
+    //             // if (url.host == 'facebook.com') {
+
+    //             //     var fbLink = newLink;
+    //             //     fbLink += '?app_id=1466422700342708&amp;display=popup';
+    //             //     fbLink += '?url=';
+    //             //     fbLink += siteHref;
+    //             //     fbLink += '&amp;description=Check%20out%20today%27s%20STAND-TO%21';
+    //             //     fbLink += newPageTitle;
+    //             //     fbLink += '&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto';
+
+    //             //     console.log(fbLink);
+
+    //             // } else if (url.host == 'twitter.com') {
+
+    //             //     newLink += '?url=';
+    //             //     newLink += siteHref;
+    //             //     newLink += '&amp;text=STAND-TO%20';
+    //             //     newLink += newPageTitle;
+
+    //             //     console.log(newLink);
+
+    //             // } else {
+
+    //             //     newLink += '?url=';
+    //             //     newLink += siteHref;
+    //             //     console.log(newLink);
+
+    //             // }
 
     //             //console.log(socialArr[i].getAttribute('href'));
-                
-    //             //var hello = 'general kenobi';
-
-    //             //var string = `www.hellothere${hello}`;
 
     //             //var updateHref = socialArr[i].setAttribute('href', string);
 
@@ -413,6 +433,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
     //         console.log(urlPath());
     //     }
 
-    }
+    // }
 
 })();
