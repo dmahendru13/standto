@@ -334,7 +334,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             json: searchPath() + 'search.json',
             searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
                 '{url}">{title}</a></li>',
-            noResultsText: "<h4>No Results</h4>",
+            noResultsText: "<h4>No Results</h4><p>Sorry, We couldn't find anything that matches your search. Please try again</p>",
             limit: 20,
             fuzzy: false
         });
@@ -368,71 +368,87 @@ var SocialBar = require('./globals/modules/SocialBar'),
         balderdash();
     }
 
-    // if (socialMedia) {
-    //     var tw, fb, rdt, ln, siteHref;
+    if (socialMedia) {
+        var tw, fb, rdt, ln, siteHref, pageTitle;
 
-    //     siteHref = window.location.href;
-    //     tw = document.querySelector('.alt-social-bar .twitter-button a');
-    //     fb = document.querySelector('.alt-social-bar .facebook-button a');
-    //     rdt = document.querySelector('.alt-social-bar .reddit-button a');
-    //     ln = document.querySelector('.alt-social-bar .linkedin-button a');
+        siteHref = window.location.href;
+        pageTitle = document.querySelector('.stand-to .focus .container div > h1').textContent;
+        tw = document.querySelector('.alt-social-bar .twitter-button a');
+        fb = document.querySelector('.alt-social-bar .facebook-button a');
+        rdt = document.querySelector('.alt-social-bar .reddit-button a');
+        ln = document.querySelector('.alt-social-bar .linkedin-button a');
 
-    //     var socialArr = [tw, fb, rdt, ln];
+        var socialArr = [tw, fb, rdt, ln];
 
-    //     if (urlPath() == '') {
-    //         for (var i = 0; i < socialArr.length; i++) {
-                
-    //             var pageTitle = document.querySelector('.stand-to div > h1').textContent;
+        if (urlPath() == '') {
+            var newSocialArr = [];
 
-    //             var newPageTitle = pageTitle.replace(/ /gi, '%20');
+            for (var i = 0; i < socialArr.length; i++) {
+                var test;
+                newSocialArr.push(new URL(socialArr[i].getAttribute('href')));
 
-    //             var href = socialArr[i].getAttribute('href');
+                if (newSocialArr[i].hostname == 'twitter.com') {
+                    //https://twitter.com/share?url=${thisUrl}&amp;text=STAND-TO${thisPageTitle}
+                    var thisUrl;
 
-    //             var url = new URL(href);
+                    thisUrl = newSocialArr[i].origin;
+                    thisUrl += newSocialArr[i].pathname;
+                    thisUrl += '?url=';
+                    thisUrl += siteHref;
+                    thisUrl += '&amp;text=';
+                    thisUrl += pageTitle;
 
-    //             console.log(url);
+                    tw.setAttribute('href', thisUrl);
+                    console.log(tw.getAttribute('href'));
 
-    //             var newLink = url.origin + url.pathname;
+                } else if (newSocialArr[i].hostname == 'www.facebook.com') {
 
-    //             // if (url.host == 'facebook.com') {
+                    var nowThisUrl;
 
-    //             //     var fbLink = newLink;
-    //             //     fbLink += '?app_id=1466422700342708&amp;display=popup';
-    //             //     fbLink += '?url=';
-    //             //     fbLink += siteHref;
-    //             //     fbLink += '&amp;description=Check%20out%20today%27s%20STAND-TO%21';
-    //             //     fbLink += newPageTitle;
-    //             //     fbLink += '&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto';
+                    nowThisUrl = newSocialArr[i].origin;
+                    nowThisUrl += newSocialArr[i].pathname;
+                    nowThisUrl += '?app_id=1466422700342708&amp;';
+                    nowThisUrl += 'display=popup&amp;link=';
+                    nowThisUrl += siteHref;
+                    nowThisUrl += '&amp;description=Check%20out%20today%27s%20STAND-TO%21';
+                    nowThisUrl += pageTitle;
+                    nowThisUrl += '&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto';
 
-    //             //     console.log(fbLink);
+                    fb.setAttribute('href', nowThisUrl);
+                    console.log(fb.getAttribute('href'));
 
-    //             // } else if (url.host == 'twitter.com') {
+                } else {
+                    if (newSocialArr[i].hostname == 'www.reddit.com') {
 
-    //             //     newLink += '?url=';
-    //             //     newLink += siteHref;
-    //             //     newLink += '&amp;text=STAND-TO%20';
-    //             //     newLink += newPageTitle;
+                        var againUrl;
 
-    //             //     console.log(newLink);
+                        againUrl = newSocialArr[i].origin;
+                        againUrl += newSocialArr[i].pathname;
+                        againUrl += '?url=';
+                        againUrl += siteHref;
 
-    //             // } else {
+                        rdt.setAttribute('href', againUrl);
+                        console.log(rdt.getAttribute('href'));
 
-    //             //     newLink += '?url=';
-    //             //     newLink += siteHref;
-    //             //     console.log(newLink);
+                    } else {
 
-    //             // }
+                        var anotherAgainUrl;
 
-    //             //console.log(socialArr[i].getAttribute('href'));
+                        anotherAgainUrl = newSocialArr[i].origin;
+                        anotherAgainUrl += newSocialArr[i].pathname;
+                        anotherAgainUrl += '?url=';
+                        anotherAgainUrl += siteHref;
 
-    //             //var updateHref = socialArr[i].setAttribute('href', string);
+                        ln.setAttribute('href', anotherAgainUrl);
+                        console.log(rdt.getAttribute('href'));
+                    }
+                }
+            }
 
-    //             //console.log(socialArr[i].getAttribute('href'));
-    //         }
-    //     } else if (urlPath().contains('/standto')) {
-    //         console.log(urlPath());
-    //     }
+        } else if (urlPath().contains('/standto')) {
+            console.log(urlPath());
+        }
 
-    // }
+    }
 
 })();

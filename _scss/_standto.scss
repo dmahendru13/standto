@@ -4,7 +4,6 @@
 }
 
 .stand-to {
-
   //amend to hidden class
   .unsubscribe-div.hidden {
     margin: 0;
@@ -38,13 +37,19 @@
     margin: 35px 0;
   }
 
+  h5 {
+    margin-bottom: 1em;
+    text-transform: inherit;
+    margin-top: 2em;
+    text-align: left;
+  }
+
   // ----------------------------------------------------------------------
   // Archive styles, for markdown prior to rv7...
   // ----------------------------------------------------------------------
 
   &.oldarchive {
     .focus {
-
       h2,
       h3.body-header {
         font-size: 24px;
@@ -63,7 +68,6 @@
         padding: 0 0 7px;
         text-transform: none;
       }
-
 
       h3.body-header {
         margin-bottom: 15px;
@@ -235,7 +239,7 @@
         border: 1px solid map-get($army-branding, grey30);
       }
 
-      .btn>div {
+      .btn > div {
         display: block;
         margin: 15px 0 0 0;
       }
@@ -246,7 +250,7 @@
     background-color: map-get($army-branding, grey10);
     padding: 30px;
 
-    p:last-child>em {
+    p:last-child > em {
       font-size: 0.875em;
     }
 
@@ -256,7 +260,6 @@
   }
 
   .archive {
-
     .archive-search {
       background-color: #f2f2f2;
       overflow: hidden;
@@ -279,7 +282,7 @@
       }
 
       button[type="submit"] {
-        background-color: #F2C628;
+        background-color: #f2c628;
         border: 1px solid #b3b3b3;
         border-width: 0 0 0 1px;
         height: 100%;
@@ -312,6 +315,12 @@
           line-height: 43px;
         }
       }
+
+      #results-container h4 {
+        text-transform: inherit;
+        margin-top: 30px;
+        font-weight: 600;
+      }
     }
 
     h2 {
@@ -320,7 +329,6 @@
 
     .headlines {
       margin-top: 35px;
-
     }
   }
 
@@ -461,7 +469,7 @@
           border: 1px solid #b3b3b3;
         }
 
-        .btn>div {
+        .btn > div {
           display: block;
           margin: 15px 0 0 0;
         }
