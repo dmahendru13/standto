@@ -21,7 +21,7 @@
                             <!-- <input class="archive-search-input" type="text" placeholder="" id="search-input">
                             <button type="submit"></button> -->
                             <input class="archive-search-input" type="text" placeholder="SEARCH KEYWORDS..." id="search-input">
-                            <button type="submit" value=""></button>
+                            <!-- <button type="submit" value=""></button> -->
                         </form>
                     </div>
                 </div>
@@ -31,12 +31,29 @@
             <div class="container">
                 <div class="inner-container">
                     <div class="results">
-                        <h2>Stand-To! Archive</h2>
+                        <!-- <h2>Stand-To! Archive</h2>
                         <h5>Most Recent Focus Topics</h5>
                         <div class="headlines">
                             <ul id="results-container">
                             </ul>
                             {%- include recent-ar-results.html -%}
+                        </div> -->
+                        <div class="ar-results">
+                            <h2>Stand-To! Archive</h2>
+                            <h5>Most Recent Focus Topics</h5>
+                            <div class="headlines">
+                                {%- include recent-ar-results.html -%}
+                            </div>
+                        </div>
+                        <div class="sjs-results hidden">
+                            <!-- <h5><span id="results-count">0</span> RESULTS FOR "<span id="search-text">placeholder</span>"</h5> -->
+                            <h2>Stand-To! Archive</h2>
+                            <h5>Most Recent Focus Topics</h5>
+                            <div class="headlines">
+                                <ul id="results-container">
+                                </ul>
+                                <div class="no-results"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,11 +115,6 @@
                         </div>
                     </div>
                 </a>
-            </div>
-            <div class="container unsubscribe-div hidden">
-                <div class="inner-container">
-                    {%-include sub-box.html unsubscribe="true"-%}
-                </div>
             </div>
         </div>
     </div>

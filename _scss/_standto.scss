@@ -31,17 +31,19 @@
 
   .body {
     @include bodytext();
+
+    .left-column {
+      h5 {
+        margin-bottom: 1em;
+        text-transform: inherit;
+        margin-top: 2em;
+        text-align: left;
+      }
+    }
   }
 
   .alt-social-bar {
     margin: 35px 0;
-  }
-
-  h5 {
-    margin-bottom: 1em;
-    text-transform: inherit;
-    margin-top: 2em;
-    text-align: left;
   }
 
   // ----------------------------------------------------------------------
@@ -316,20 +318,43 @@
         }
       }
 
-      #results-container h4 {
+
+
+      #results-container h3 {
         text-transform: inherit;
         margin-top: 30px;
         font-weight: 600;
       }
     }
 
-    h2 {
-      margin: 0 0 20px;
+    .archive-search-results {
+      .results {
+
+        h2 {
+          margin: 0 0 20px;
+        }
+    
+        .headlines {
+          margin-top: 35px;
+          
+          #results-container {
+            .no-results {
+              @include breakpoints(tablet nav mobile) {
+                text-align: center;
+              }
+            }
+          }
+          h5 {
+            @include breakpoints(tablet nav mobile) {
+              text-align: center;
+            }
+          }
+        }
+        
+      }
     }
 
-    .headlines {
-      margin-top: 35px;
-    }
+
   }
 
   .about {
