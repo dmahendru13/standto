@@ -18,14 +18,9 @@ var SocialBar = require('./globals/modules/SocialBar'),
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
         oldArchive = document.querySelector('.stand-to.oldarchive'),
         archiveSearch = document.querySelector('.stand-to .archive-search-input'),
-        base = document.querySelector('.stand-to #archive-results'),
         ar_results = document.querySelector('.stand-to .ar-results'),
         sjs_results = document.querySelector('.stand-to .sjs-results'),
-        header = document.querySelector('.results .sjs-results > h2'),
         subHeader = document.querySelector('.results .sjs-results > h5'),
-        ar = document.querySelector('#archive-results.hidden'),
-        resultsList = document.querySelectorAll('#results-container li'),
-        list = document.querySelector('#results-container > li'),
         i;
 
     var urlPath = function () {
@@ -205,105 +200,35 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //  Search
         //--------------------------
 
-        var hideHeader = function () {
-            var ar = document.querySelector('#archive-results.hidden');
-            var resultsList = document.querySelectorAll('#results-container li');
-            var list = document.querySelector('#results-container > li');
-            var el = document.querySelector('.results .headlines .no-results');
-            var header = document.querySelector('.results > h2');
-            var subHeader = document.querySelector('.results > h5');
 
-            var checkTrue = function () {
-                var veritas;
-                if (resultsList.length === 0) {
-                    veritas = true;
-                    removeHeader(veritas);
-                } else {
-                    veritas = false;
-                    removeHeader(veritas);
-                }
+        var chickenDinner = function () {
+            var text, searchArchives, resultsList, results, ar;
+
+            results = document.querySelector('#results-container > .no-results');
+            ar = document.querySelector('.ar-results.hidden');
+            text = document.getElementById('search-text');
+            searchArchives = document.querySelector('.archive-search .search-box .archive-search-input').value;
+            resultsList = document.querySelectorAll('#results-container li').length;
+
+            if (ar && !results) {
+                text.innerHTML = searchArchives;
+            } else if (ar && results) {
+                console.log('fiddle sticks');
+                subHeader.innerHTML = '';
+            } else {
+                console.log('reafdafda');
             }
-
-            var del = function () {
-                $(archiveSearch).on('keydown', function (e) {
-                    if (e.keyCode === 8) {
-                        Helper.removeClass(header, 'hidden');
-                        Helper.removeClass(subHeader, 'hidden');
-                        el.innerHTML = '';
-                        console.log(this.value);
-                    }
-                });
-            }
-
-            var removeHeader = function (veritas) {
-                console.log("** ** ** ** ** ** ** ** ** **");
-                // console.log(archiveSearch.value);
-                // console.log(veritas);
-                console.log("** ** ** ** ** ** ** ** ** **");
-                if (archiveSearch.value == '') {
-                    header.innerHTML = 'Stand-To! Archive';
-                    subHeader.innerHTML = 'Most Recent Focus Topics';
-                } else {
-                    if (!veritas) {
-                        if (ar) {
-                            if (list === null) {
-                                console.log("list === null");
-                                header.innerHTML = 'Stand-To! Archive';
-                                subHeader.innerHTML = 'Most Recent Focus Topics';
-
-                                //del();
-                            } else {
-                                console.log('ar && !list');
-                                console.log(veritas);
-
-                                header.innerHTML = 'Stand-To! Archive';
-                                subHeader.innerHTML = 'Most Recent Focus Topics';
-                            }
-                        } else if (!ar) {
-                            console.log('else');
-                            console.log('balooga whale');
-
-                            header.innerHTML = 'Stand-To! Archive';
-                            subHeader.innerHTML = 'Most Recent Focus Topics';
-                        }
-                    } else {
-                        if (ar && (list !== null)) {
-                            if (archiveSearch.value !== '') {
-                                console.log('whacker tally');
-                                header.innerHTML = 'No Results';
-                                subHeader.innerHTML = 'Sorry, We couldn&#39;t find anything that matches your search. Please try again';
-
-                                //del();
-                            }
-                        } else {
-                            header.innerHTML = 'No Results';
-                            subHeader.innerHTML = 'Sorry, We couldn&#39;t find anything that matches your search. Please try again';
-                        }
-                    }
-                }
-
-            }
-
-            checkTrue();
-
         }
 
         // Hide archive page results when using SJS
         var hideSearchResults = function () {
-
             var baseVeritas = function (veritas) {
 
                 if (!veritas) {
                     $(ar_results).addClass('hidden');
                     $(sjs_results).removeClass('hidden');
-
-                } else {
-                    $(ar_results).removeClass('hidden');
-                    $(sjs_results).addClass('hidden');
-
                 }
             }
-
             var hide = function () {
                 var inputSearch = false;
                 var veritas = '';
@@ -318,62 +243,36 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     baseVeritas(veritas);
                 }
             }
-
             hide();
 
         }
 
-        var getArchiveResults = function () {
-            console.log('getArchiveResults func');
-            var ar = document.querySelector('.ar-results.hidden');
-            console.log(ar);
-            var resultsList = document.querySelectorAll('#results-container li');
-            console.log(resultsList);
-            var list = document.querySelector('#results-container > li');
-            console.log(list);
+        $(archiveSearch).on('keyup', function (e) {
 
+            if (e.keyCode === 8 || e.keyCode === 46) {
+                //subHeader.innerHTML = e.keyCode;
+                $(ar_results).removeAttr('class', 'hidden').addClass('ar-results');
+                $(sjs_results).attr('class', 'sjs-results hidden');
+                this.value = '';
+                subHeader.innerHTML = '<h5>RESULTS FOR "<span id="search-text">placeholder</span>"</h5>'
 
-            if (ar !== null) {
-                if ($('.ar-results.hidden') && resultsList.length > 0) {
-                    subHeader.innerHTML = '';
-                } else if ($('.ar-results.hidden') && resultsList.length == 0) {
-                    subHeader.innerHTML = '';
-                } else {
-                    subHeader.innerHTML = 'werkin\'';
-                }
-            } else if (ar == null) {
-                if ($('.ar-results.hidden') && resultsList.length > 0) {
-                    subHeader.innerHTML = 'totally';
-                } else {
-                    subHeader.innerHTML = 'WHACKER TALLY';
-                }
-                subHeader.innerHTML = '<span id="results-count">0</span> RESULTS FOR "<span id="search-text">placeholder</span>"';
-            } else {
-                subHeader.innerHTML = 'tally whacker';
+            } else if (!(e.keyCode === 8 || e.keyCode === 46)) {
+                if (this.value.length < 1 ) return;
+
+                hideSearchResults();
+                chickenDinner();
             }
-
-        }
-
-        $(archiveSearch).on('keyup', function () {
-            hideSearchResults();
-        //}).on('keydown', function() {
-            //getArchiveResults();
         });
 
         var searchPath = function () {
             if (pathName === '/') {
-                //console.log(pathName);
                 return './';
             } else if (pathName === '/standto/') {
-                //console.log(pathName);
                 return './';
             } else {
-                //console.log(pathName);
                 return '../';
             }
         }
-
-
 
         // Declaring Search function
         var sjs = new SimpleJekyllSearch({
@@ -381,11 +280,10 @@ var SocialBar = require('./globals/modules/SocialBar'),
             resultsContainer: document.getElementById('results-container'),
             json: searchPath() + 'search.json',
             searchResultTemplate: '<li><span class="date archive-date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
-            // noResultsText: '',
+            //noResultsText: '',
             noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
-            limit: 20,
-            fuzzy: false,
-            //success: chickenDinner
+            limit: 35,
+            fuzzy: false
         });
 
         // Calling search function
