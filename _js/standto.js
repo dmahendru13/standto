@@ -201,24 +201,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //--------------------------
 
 
-        var chickenDinner = function () {
-            var text, searchArchives, resultsList, results, ar;
-
-            results = document.querySelector('#results-container > .no-results');
-            ar = document.querySelector('.ar-results.hidden');
-            text = document.getElementById('search-text');
-            searchArchives = document.querySelector('.archive-search .search-box .archive-search-input').value;
-            resultsList = document.querySelectorAll('#results-container li').length;
-
-            if (ar && !results) {
-                text.innerHTML = searchArchives;
-            } else if (ar && results) {
-                console.log('fiddle sticks');
-                subHeader.innerHTML = '';
-            } else {
-                console.log('reafdafda');
-            }
-        }
 
         // Hide archive page results when using SJS
         var hideSearchResults = function () {
@@ -246,6 +228,25 @@ var SocialBar = require('./globals/modules/SocialBar'),
             hide();
 
         }
+        var displaySearchValue = function () {
+            var text, searchArchives, resultsList, results, ar;
+
+            results = document.querySelector('#results-container > .no-results');
+            ar = document.querySelector('.ar-results.hidden');
+            text = document.getElementById('search-text');
+            searchArchives = document.querySelector('.archive-search .search-box .archive-search-input').value;
+            resultsList = document.querySelectorAll('#results-container li').length;
+
+            if (ar && !results) {
+                text.innerHTML = searchArchives;
+            } else if (ar && results) {
+                console.log('fiddle sticks');
+                // subHeader.innerHTML = '';
+                text.innerHTML = searchArchives;
+            } else {
+                console.log('reafdafda');
+            }
+        }
 
         $(archiveSearch).on('keyup', function (e) {
 
@@ -257,10 +258,10 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 subHeader.innerHTML = '<h5>RESULTS FOR "<span id="search-text">placeholder</span>"</h5>'
 
             } else if (!(e.keyCode === 8 || e.keyCode === 46)) {
-                if (this.value.length < 1 ) return;
+                if (this.value.length < 1) return;
 
                 hideSearchResults();
-                chickenDinner();
+                displaySearchValue();
             }
         });
 
@@ -279,11 +280,10 @@ var SocialBar = require('./globals/modules/SocialBar'),
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('results-container'),
             json: searchPath() + 'search.json',
-            searchResultTemplate: '<li><span class="date archive-date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
-            //noResultsText: '',
+            searchResultTemplate: '<li class="archive-st"><p><span class="date archive-date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></p></li>',
             noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
             limit: 35,
-            fuzzy: false
+            fuzzy: false,
         });
 
         // Calling search function
