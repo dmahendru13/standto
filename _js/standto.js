@@ -269,7 +269,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             if (pathName === '/') {
                 return './';
             } else if (pathName === '/standto/') {
-                return './';
+                return '../';
             } else {
                 return '../';
             }
