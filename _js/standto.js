@@ -23,27 +23,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
         subHeader = document.querySelector('.results .sjs-results > h5'),
         i;
 
-    var urlPath = function () {
-        var hostName, path, origin;
-
-        origin = window.location.origin;
-        hostName = window.location.hostname;
-
-        if (hostName === 'localhost' || hostName === '127.0.0.1') {
-            path = '';
-            return path;
-        } else if (hostName === 'static.ardev.us') {
-            path = origin + '/standto';
-            return path;
-        } else if (hostName === 'www.army.mil') {
-            path = origin + '/standto';
-            return path;
-        } else {
-            path = '';
-            return path;
-        }
-    }
-
     SocialBar.initWaypoint(socialbarwaypoint);
 
     if (subnav) {
@@ -275,16 +254,37 @@ var SocialBar = require('./globals/modules/SocialBar'),
             }
         }
 
+        var urlPath = function () {
+            var hostName, path, origin;
+    
+            origin = window.location.origin;
+            hostName = window.location.hostname;
+    
+            if (hostName === 'localhost' || hostName === '127.0.0.1') {
+                path = '';
+                return path;
+            } else if (hostName === 'static.ardev.us') {
+                path = origin + '/standto';
+                return path;
+            } else if (hostName === 'www.army.mil') {
+                path = origin + '/standto';
+                return path;
+            } else {
+                path = '';
+                return path;
+            }
+        }
+
         // Declaring Search function
         var sjs = new SimpleJekyllSearch({
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('results-container'),
             json: searchPath() + 'search.json',
             // json: '../search.json',
-            searchResultTemplate: '<li class="archive-st"><p><span class="date archive-date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></p></li>',
+            searchResultTemplate: '<li><span class="date archive-date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
             noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
             limit: 35,
-            fuzzy: false,
+            fuzzy: false
         });
 
         // Calling search function
