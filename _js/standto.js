@@ -245,7 +245,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
         });
 
         var searchPath = function () {
-            if (pathName === '/') {
+            if (pathName === '/' || pathName === '/standto/') {
                 console.log(pathName);
                 return './';
             } else {
