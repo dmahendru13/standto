@@ -269,9 +269,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
             if (pathName === '/') {
                 console.log(pathName);
                 return './';
-            } else if (pathName === '/standto/') {
-                console.log(pathName);
-                return '../';
             } else {
                 console.log(pathName);
                 return '../';
@@ -282,8 +279,8 @@ var SocialBar = require('./globals/modules/SocialBar'),
         var sjs = new SimpleJekyllSearch({
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('results-container'),
-            // json: searchPath() + 'search.json',
-            json: '../search.json',
+            json: searchPath() + 'search.json',
+            // json: '../search.json',
             searchResultTemplate: '<li class="archive-st"><p><span class="date archive-date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></p></li>',
             noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
             limit: 35,
