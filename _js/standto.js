@@ -210,17 +210,24 @@ var SocialBar = require('./globals/modules/SocialBar'),
         }
 
         var displaySearchValue = function () {
-            var count, text, searchArchives, no_results, archiveResultsLength;
+            var count, text, searchArchives, result, no_results, archiveResultsLength;
 
             text = document.getElementById('search-text');
             count = document.getElementById('results-count');
+            result = document.getElementById('results');
             no_results = document.querySelector('#results-container > .no-results');
             searchArchives = document.querySelector('.archive-search .search-box .archive-search-input').value;
-            archiveResultsLength = document.querySelectorAll('#results-container .archive-st').length;
+            archiveResultsLength = document.querySelectorAll('#results-container .archive-st');
 
             if (!no_results) {
                 text.textContent = searchArchives;
-                count.textContent = archiveResultsLength;
+                count.textContent = archiveResultsLength.length;
+
+                if (archiveResultsLength.length == 1) {
+                    result.textContent = 'RESULT';
+                } else {
+                    result.textContent = 'RESULTS';
+                }
             } else {
                 $('.sjs-results > h5').addClass('hidden');
             }
@@ -244,16 +251,22 @@ var SocialBar = require('./globals/modules/SocialBar'),
             addResults += "<span></span>";
             addResults += "</div>";
             addResults += "<input class='view-more' type='button' value='View More'>";
-            addResults += "</div>";
+            addResults += "</div>";``
             addResults += "</div>";
 
-            if (len > 10) {
-                if (resultsBtn !== null) {
-                    console.log(54321);
+            $('.archive-st:gt(9)').hide().last();
+
+            if (len.length > 10) {
+                if (resultsBtn !== null ) {
                     return
                 } else {
-                    console.log(12345);
-                    $(addResults).insertAfter('.headlines #results-container');
+                    $(addResults).insertAfter('.headlines #results-container').on('click', function(){
+                        var a = this;
+                        console.log('youclickedme');
+                        $('.archive-st:not(:visible):lt(10)').fadeIn(500, function(){
+                            if ($('.archive-st:not(:visible)').length == 0) $(a).fadeOut(100, 'linear').remove();
+                        }); return false;
+                    });
                 }
             } else {
                 $(resultsBtn).remove();
@@ -279,8 +292,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
             var archive = function () {
                 displaySearchValue();
-                console.log('mutation observed');
-                //expandSearchResults();
             }
 
             var observer = new MutationObserver(archive);
@@ -328,7 +339,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             // json: '../search.json',
             searchResultTemplate: '<li class="archive-st"><span class="date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
             noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
-            limit: 35,
+            limit: 50,
             fuzzy: false
         });
 
