@@ -264,7 +264,9 @@ var SocialBar = require('./globals/modules/SocialBar'),
                         var a = this;
                         console.log('youclickedme');
                         $('.archive-st:not(:visible):lt(10)').fadeIn(500, function(){
-                            if ($('.archive-st:not(:visible)').length == 0) $(a).fadeOut(100, 'linear').remove();
+                            if ($('.archive-st:not(:visible)').length == 0) $(a).fadeOut(400, 'linear', function() {
+                                this.remove();
+                            });
                         }); return false;
                     });
                 }
