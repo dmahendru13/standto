@@ -5,23 +5,23 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
 (function () {
     'use strict';
-    var subnav = document.getElementsByTagName('nav')[0],
-        hash = window.location.hash,
+    var hash = window.location.hash,
+        subnav = document.getElementsByTagName('nav')[0],
+        byline = document.querySelector('.byline'),
+        subBox = document.querySelector('.sub-box'),
+        standto = document.querySelector('.main .stand-to'),
         pathName = window.location.pathname,
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
-        standto = document.querySelector('.main .stand-to'),
-        unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
-        subscribeLink = document.getElementsByClassName('sub-link'),
-        subBox = document.querySelector('.sub-box'),
-        byline = document.querySelector('.byline'),
-        archivesBody = document.querySelector('.stand-to .archive'),
-        socialbarwaypoint = document.getElementsByTagName('footer')[0],
+        subHeader = document.querySelector('.results .sjs-results > h5'),
         oldArchive = document.querySelector('.stand-to.oldarchive'),
-        archiveSearch = document.querySelector('.stand-to .archive-search-input'),
         ar_results = document.querySelector('.stand-to .ar-results'),
         sjs_results = document.querySelector('.stand-to .sjs-results'),
-        subHeader = document.querySelector('.results .sjs-results > h5'),
+        archivesBody = document.querySelector('.stand-to .archive'),
+        subscribeLink = document.getElementsByClassName('sub-link'),
+        archiveSearch = document.querySelector('.stand-to .archive-search-input'),
+        socialbarwaypoint = document.getElementsByTagName('footer')[0],
         i;
+    //unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
 
     SocialBar.initWaypoint(socialbarwaypoint);
 
@@ -179,7 +179,20 @@ var SocialBar = require('./globals/modules/SocialBar'),
         //  Search
         //--------------------------
 
-
+        var hide = function (func) {
+            var inputSearch = false;
+            var veritas = '';
+            if (archiveSearch.value === '') {
+                inputSearch = true;
+                if (inputSearch) {
+                    veritas = true;
+                    func(veritas);
+                }
+            } else {
+                veritas = false;
+                func(veritas);
+            }
+        }
 
         // Hide archive page results when using SJS
         var hideSearchResults = function () {
@@ -188,60 +201,92 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 if (!veritas) {
                     $(ar_results).addClass('hidden');
                     $(sjs_results).removeClass('hidden');
-                }
-            }
-            var hide = function () {
-                var inputSearch = false;
-                var veritas = '';
-                if (archiveSearch.value === '') {
-                    inputSearch = true;
-                    if (inputSearch) {
-                        veritas = true;
-                        baseVeritas(veritas);
-                    }
                 } else {
-                    veritas = false;
-                    baseVeritas(veritas);
+                    $(ar_results).removeAttr('class', 'hidden').addClass('ar-results');
+                    $(sjs_results).attr('class', 'sjs-results hidden');
                 }
             }
-            hide();
-
+            hide(baseVeritas);
         }
+
         var displaySearchValue = function () {
-            var text, searchArchives, resultsList, results, ar;
+            var count, text, searchArchives, no_results, archiveResultsLength;
 
-            results = document.querySelector('#results-container > .no-results');
-            ar = document.querySelector('.ar-results.hidden');
             text = document.getElementById('search-text');
+            count = document.getElementById('results-count');
+            no_results = document.querySelector('#results-container > .no-results');
             searchArchives = document.querySelector('.archive-search .search-box .archive-search-input').value;
-            resultsList = document.querySelectorAll('#results-container li').length;
+            archiveResultsLength = document.querySelectorAll('#results-container .archive-st').length;
 
-            if (ar && !results) {
-                text.innerHTML = searchArchives;
-            } else if (ar && results) {
-                console.log('fiddle sticks');
-                // subHeader.innerHTML = '';
-                text.innerHTML = searchArchives;
+            if (!no_results) {
+                text.textContent = searchArchives;
+                count.textContent = archiveResultsLength;
             } else {
-                console.log('reafdafda');
+                $('.sjs-results > h5').addClass('hidden');
+            }
+
+            expandSearchResults(archiveResultsLength);
+        }
+
+        var expandSearchResults = function (len) {
+            var resultsBtn = document.querySelector('.sjs-results .headlines .btn.refine-btn');
+            var resultsDiv = document.querySelector('#results-container > .no-results');
+            var addResults = '';
+
+            addResults += "<div class='btn refine-btn'>";
+            addResults += "<div>";
+            addResults += "<div>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "</div>";
+            addResults += "<input class='view-more' type='button' value='View More'>";
+            addResults += "</div>";
+            addResults += "</div>";
+
+            if (len > 10) {
+                if (resultsBtn !== null) {
+                    console.log(54321);
+                    return
+                } else {
+                    console.log(12345);
+                    $(addResults).insertAfter('.headlines #results-container');
+                }
+            } else {
+                $(resultsBtn).remove();
             }
         }
 
-        $(archiveSearch).on('keyup', function (e) {
+        $(document).ready(function () {
+            sjs;
 
-            if (e.keyCode === 8 || e.keyCode === 46) {
-                //subHeader.innerHTML = e.keyCode;
-                $(ar_results).removeAttr('class', 'hidden').addClass('ar-results');
-                $(sjs_results).attr('class', 'sjs-results hidden');
-                this.value = '';
-                subHeader.innerHTML = '<h5>RESULTS FOR "<span id="search-text">placeholder</span>"</h5>'
-
-            } else if (!(e.keyCode === 8 || e.keyCode === 46)) {
-                if (this.value.length < 1) return;
-
+            $(archiveSearch).on('keyup', function (e) {
                 hideSearchResults();
+                if ($('.sjs-results > h5').hasClass('hidden')) {
+                    $('.sjs-results > h5').removeClass('hidden');
+                }
+            });
+
+            // Watching for DOM manipulation
+            var target = document.querySelector('#results-container');
+
+            var config = {
+                childList: true
+            };
+
+            var archive = function () {
                 displaySearchValue();
+                console.log('mutation observed');
+                //expandSearchResults();
             }
+
+            var observer = new MutationObserver(archive);
+
+            observer.observe(target, config);
+            // Watching for DOM manipulation
         });
 
         var searchPath = function () {
@@ -256,10 +301,10 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
         var urlPath = function () {
             var hostName, path, origin;
-    
+
             origin = window.location.origin;
             hostName = window.location.hostname;
-    
+
             if (hostName === 'localhost' || hostName === '127.0.0.1') {
                 path = '';
                 return path;
@@ -281,14 +326,13 @@ var SocialBar = require('./globals/modules/SocialBar'),
             resultsContainer: document.getElementById('results-container'),
             json: searchPath() + 'search.json',
             // json: '../search.json',
-            searchResultTemplate: '<li><span class="date archive-date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
+            searchResultTemplate: '<li class="archive-st"><span class="date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
             noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
             limit: 35,
             fuzzy: false
         });
 
         // Calling search function
-        sjs;
     }
 
     if (oldArchive) {
