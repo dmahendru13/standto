@@ -35,50 +35,6 @@ module.exports = function (grunt) {
                 },
                 src: './_site/index.html',
                 dest: './_site/index.html'
-            },
-            about: {
-                options: {
-                    inline: true,
-                    minify: true,
-                    base: './',
-                    css: [
-                        '_site/e2/css/rv7/standto/style.css'
-                    ],
-                    dimensions: [{
-                        height: 768,
-                        width: 1366
-                    }, {
-                        height: 640,
-                        width: 360
-                    }, {
-                        height: 568,
-                        width: 320
-                    }]
-                },
-                src: './_site/about/index.html',
-                dest: './_site/about/index.html'
-            },
-            archive: {
-                options: {
-                    inline: true,
-                    minify: true,
-                    base: './',
-                    css: [
-                        '_site/e2/css/rv7/standto/style.css'
-                    ],
-                    dimensions: [{
-                        height: 768,
-                        width: 1366
-                    }, {
-                        height: 640,
-                        width: 360
-                    }, {
-                        height: 568,
-                        width: 320
-                    }]
-                },
-                src: './_site/archive/index.html',
-                dest: './_site/archive/index.html'
             }
         },
         browserify: {
@@ -105,9 +61,9 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                mangle: false,
+                mangle: true,
                 compress: true,
-                beautify: true
+                beautify: false
             },
             build: {
                 files: [

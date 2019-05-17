@@ -1,166 +1,159 @@
 var SocialBar = require('./globals/modules/SocialBar'),
     SubNav = require('./globals/modules/SubNav'),
     Helper = require('./globals/modules/Helper'),
-    //Configs = require('./production'),
     Client = require('node-rest-client').Client;
 
 (function () {
     'use strict';
-
-    var subnav = document.getElementsByTagName('nav')[0],
-        hash = window.location.hash,
+    var hash = window.location.hash,
+        subnav = document.getElementsByTagName('nav')[0],
+        byline = document.querySelector('.byline'),
+        subBox = document.querySelector('.sub-box'),
+        standto = document.querySelector('.main .stand-to'),
         pathName = window.location.pathname,
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
-        unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
-        subscribeLink = document.getElementsByClassName('sub-link'),
-        subBox = document.querySelector('.sub-box'),
-        byline = document.querySelector('.byline'),
-        archivesBody = document.querySelector('.stand-to .archive'),
-        socialbarwaypoint = document.getElementsByTagName('footer')[0],
+        subHeader = document.querySelector('.results .sjs-results > h5'),
         oldArchive = document.querySelector('.stand-to.oldarchive'),
-        // archiveNav = document.querySelector('.ar-nav-item'),
-        // tfBody = document.querySelector('.stand-to .focus.subnav-selectable'),
-        // tFocusNav = document.querySelector('.tf-nav-item'),
-        // h3Ele = document.getElementsByTagName('h3'),
-        //searchForm = document.getElementById('standto_search_form'),
-        //archiveDates = document.querySelectorAll('.results-archive .date'),
+        ar_results = document.querySelector('.stand-to .ar-results'),
+        sjs_results = document.querySelector('.stand-to .sjs-results'),
+        archivesBody = document.querySelector('.stand-to .archive'),
+        subscribeLink = document.getElementsByClassName('sub-link'),
+        archiveSearch = document.querySelector('.stand-to .archive-search-input'),
+        socialbarwaypoint = document.getElementsByTagName('footer')[0],
         i;
+    //unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
 
-    if (subBox) {
-        SocialBar.initWaypoint(socialbarwaypoint);
+    SocialBar.initWaypoint(socialbarwaypoint);
 
-        if (subnav) {
-            if (unsubDiv && hash === '#unsubscribe') {
-                Helper.removeClass(unsubDiv, 'hidden');
-                Helper.addClass(unsub, 'hidden');
-                new SubNav(subnav,
-                    function () {
-                        Helper.addClass(unsubDiv, 'hidden');
-                        setResultText(false, '');
-                    }, {
-                        initializeEmpty: true
-                    }
-                );
-            } else {
-                new SubNav(subnav);
-            }
-
-        }
-
-        // ----------------------------------------------------------------------
-        // Subscribe/Unsubscribe
-        // ----------------------------------------------------------------------
-        // add click to sub/unsub buttons
-        for (i = 0; i < subscribeLink.length; i++) {
-            subscribeLink[i].setAttribute('data-email', i);
-            subscribeLink[i].onclick = function () {
-                var unsub = (this.value.toLowerCase() === 'unsubscribe');
-                getEmailValue(this.getAttribute('data-email'), unsub);
-            };
-        }
-
-        /*
-         * gets email input that cooresponds to subscribe button,
-         * then sends the email value to be processed
-         * @param {int} index
-         * @param {bool} unsub
-         */
-        function getEmailValue(index, unsub) {
-            var emailInput = document.getElementsByClassName('email-input');
-
-            if (emailInput.length > index) {
-                setResultText(index, '...');
-                getSubResponse(index, emailInput[index].value, unsub);
-            }
-        }
-
-        /*
-         * send email value to client, and process result data
-         * @param {str} emailAdd
-         * @param {bool} unsub
-         */
-        function getSubResponse(index, emailAdd, unsub) {
-            var client = new Client(),
-                subText = (unsub) ? 'unsubscribe' : 'subscribe',
-                apiPath = Configs.API_DOMAIN + '/api/v1/' + subText +
-                '?email=' + emailAdd;
-
-            if (emailAdd === '') {
-                setResultText(index, 'Please enter a valid email.');
-            } else {
-                client.get(
-                    apiPath,
-                    function (data, response) {
-                        processResultData(index, data, subText);
-                    }
-                );
-            }
-        }
-
-        /*
-         * Receives data from request and generates appropriate response
-         * @param {obj} data
-         * @param {str} subText ('subscribe'/'unsubscribe')
-         */
-        function processResultData(index, data, subText) {
-            var good = false,
-                resultText = '';
-
-            if (typeof data.error != 'undefined') {
-                resultText = 'You were unable to ' +
-                    subText + '. Invalid email provided.';
-            } else if (data.success === true) {
-                resultText = 'Your ' + subText + ' request has been received.' + ' Please check your email for confirmation.';
-
-                if (subText == 'unsubscribe') {
-                    resultText = "You have been unsubscribed from receiving the Army's daily focus in <a href='https://www.army.mil/standto'>STAND-TO!</a>.";
+    if (subnav) {
+        if (unsubDiv && hash === '#unsubscribe') {
+            Helper.removeClass(unsubDiv, 'hidden');
+            new SubNav(subnav,
+                function () {
+                    Helper.addClass(unsubDiv, 'hidden');
+                    setResultText(false, '');
+                }, {
+                    initializeEmpty: true
                 }
+            );
+        } else {
+            new SubNav(subnav);
+        }
+    }
 
-                good = true;
-            } else {
-                resultText = 'You were unable to ' +
-                    subText + '. Please try again.';
+    // ----------------------------------------------------------------------
+    // Subscribe/Unsubscribe
+    // ----------------------------------------------------------------------
+    // add click to sub/unsub buttons
+    for (i = 0; i < subscribeLink.length; i++) {
+        subscribeLink[i].setAttribute('data-email', i);
+        subscribeLink[i].onclick = function () {
+            var unsub = (this.value.toLowerCase() === 'unsubscribe');
+            getEmailValue(this.getAttribute('data-email'), unsub);
+        };
+    }
+
+    /*
+     * gets email input that cooresponds to subscribe button,
+     * then sends the email value to be processed
+     * @param {int} index
+     * @param {bool} unsub
+     */
+    function getEmailValue(index, unsub) {
+        var emailInput = document.getElementsByClassName('email-input');
+
+        if (emailInput.length > index) {
+            setResultText(index, '...');
+            getSubResponse(index, emailInput[index].value, unsub);
+        }
+    }
+
+    /*
+     * send email value to client, and process result data
+     * @param {str} emailAdd
+     * @param {bool} unsub
+     */
+    function getSubResponse(index, emailAdd, unsub) {
+        var client = new Client(),
+            subText = (unsub) ? 'unsubscribe' : 'subscribe',
+            apiPath = Configs.API_DOMAIN + '/api/v1/' + subText +
+            '?email=' + emailAdd;
+
+        if (emailAdd === '') {
+            setResultText(index, 'Please enter a valid email.');
+        } else {
+            client.get(
+                apiPath,
+                function (data, response) {
+                    processResultData(index, data, subText);
+                }
+            );
+        }
+    }
+
+    /*
+     * Receives data from request and generates appropriate response
+     * @param {obj} data
+     * @param {str} subText ('subscribe'/'unsubscribe')
+     */
+    function processResultData(index, data, subText) {
+        var good = false,
+            resultText = '';
+
+        if (typeof data.error != 'undefined') {
+            resultText = 'You were unable to ' +
+                subText + '. Invalid email provided.';
+        } else if (data.success === true) {
+            resultText = 'Your ' + subText + ' request has been received.' + ' Please check your email for confirmation.';
+
+            if (subText == 'unsubscribe') {
+                resultText = "You have been unsubscribed from receiving the Army's daily focus in <a href='https://www.army.mil/standto'>STAND-TO!</a>.";
             }
 
-            setResultText(index, resultText, good);
+            good = true;
+        } else {
+            resultText = 'You were unable to ' +
+                subText + '. Please try again.';
         }
 
-        /*
-         * sets the result text of the subscribe request
-         * @param {str} result
-         * @param {bool} good
-         */
-        function setResultText(index, result, good) {
-            var i, subResults = document.getElementsByClassName('sub-results');
+        setResultText(index, resultText, good);
+    }
 
-            for (i = 0; i < subResults.length; i++) {
-                if (index) {
-                    if (i == index) {
-                        subResults[i].innerHTML = result;
-                        if (good) {
-                            Helper.addClass(subResults[i], 'good');
-                        } else {
-                            Helper.removeClass(subResults[i], 'good');
-                        }
-                    }
-                } else {
+    /*
+     * sets the result text of the subscribe request
+     * @param {str} result
+     * @param {bool} good
+     */
+    function setResultText(index, result, good) {
+        var i, subResults = document.getElementsByClassName('sub-results');
+
+        for (i = 0; i < subResults.length; i++) {
+            if (index) {
+                if (i == index) {
                     subResults[i].innerHTML = result;
-                    Helper.removeClass(subResults[i], 'good');
+                    if (good) {
+                        Helper.addClass(subResults[i], 'good');
+                    } else {
+                        Helper.removeClass(subResults[i], 'good');
+                    }
                 }
+            } else {
+                subResults[i].innerHTML = result;
+                Helper.removeClass(subResults[i], 'good');
             }
         }
-        if (subBox && byline) {
-            function moveByline() {
-                var stByline = '<span class="st-byline">' + byline.textContent + '</span>';
+    }
+    if (subBox && byline) {
+        function moveByline() {
+            var stByline = '<span class="st-byline">' + byline.textContent + '</span>';
 
-                //remove links and byline from standto body, as extracted from json data file
-                //archivedLinks.parentNode.removeChild(archivedLinks);
-                byline.parentNode.removeChild(byline);
+            //remove links and byline from standto body, as extracted from json data file
+            //archivedLinks.parentNode.removeChild(archivedLinks);
+            byline.parentNode.removeChild(byline);
 
-                $(stByline).prependTo('.small');
-            }
-            moveByline();
+            $(stByline).prependTo('.small');
         }
+        moveByline();
     }
 
     if (archivesBody) {
@@ -170,7 +163,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             a.fn.dateFilter = function (b) {
                 var c = a.extend({
                     cutoff: new Date,
-                    buffer: -50
+                    buffer: -40
                 }, b);
                 c.cutoff.setDate(c.cutoff.getDate() + c.buffer);
                 var d = this.parent();
@@ -182,121 +175,135 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
         $('.headlines ul#archive-results li').dateFilter();
 
-        $(function () {
-            if ($('.headlines ul#archive-results li').length == -1) {
-
-                var results = document.getElementById('results-text'),
-                    noResults = document.getElementById('no-results-text');
-
-                Helper.removeClass(noResults, 'hidden');
-                Helper.addClass(results, 'hidden');
-
-            }
-        });
-
-        //-----------------
+        //--------------------------
         //  Search
         //--------------------------
 
-        //  Function that searches the on page content and displays results based off of what
-        //  the user has entered into the input.
-
-        var searchForm = document.getElementById('standto_search_form');
-
-        searchForm.onkeyup = function () {
-            var input = document.querySelector('.archive-search-input'),
-                filter = input.value.toUpperCase(),
-                ul = document.getElementById('archive-results'),
-                li = ul.getElementsByTagName('li'),
-                i = 0;
-
-            for (i = 0; i < li.length; i++) {
-                var a = li[i].getElementsByTagName('a')[0],
-                    txtValue = a.textContent || a.innerText;
-
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    Helper.removeClass(li[i], 'hidden');
-                } else {
-                    Helper.addClass(li[i], 'hidden');
+        var hide = function (func) {
+            var inputSearch = false;
+            var veritas = '';
+            if (archiveSearch.value === '') {
+                inputSearch = true;
+                if (inputSearch) {
+                    veritas = true;
+                    func(veritas);
                 }
-            }
-        };
-
-        //----------------------
-        //
-        // Displays "No Results found"
-        // 
-        //----------------------
-        // $(document).ready(function () {
-        var archiveSearch, base;
-
-        archiveSearch = document.querySelector('.stand-to .archive-search-input');
-        base = document.querySelector('.stand-to #archive-results');
-
-
-        // Hides || shows most recent archives results when using search feature.
-        $(archiveSearch).on('keyup', function (e) {
-            var baseVeritas = function (veritas) {
-                if (!veritas) {
-                    $(base).addClass('hidden')
-                } else {
-                    $(base).removeClass('hidden')
-                }
-            }
-
-            if (!e) {
-                e = window.event;
-            }
-            
-            // Hide archive page results when using SJS
-            var hideArchiveResults = function () {
-                var inputSearch = false;
-                var veritas = '';
-                if (archiveSearch.value === '') {
-                    inputSearch = true;
-                    if (inputSearch) {
-                        veritas = true;
-                        baseVeritas(veritas);
-                    }
-                } else {
-                    veritas = false;
-                    baseVeritas(veritas);
-                }
-            }   
-
-            hideArchiveResults();
-
-        });
-        //});
-
-        // Determines file path based off of hostname.
-        var urlPath = function () {
-            var hostName, path;
-
-            hostName = window.location.hostname;
-
-            if (hostName === 'localhost' || hostName === '127.0.0.1') {
-                path = '';
-                return path;
-            } else if (hostName === 'static.ardev.us') {
-                //if (window.location.pathname === '/standto/') {
-                    path = window.location.origin + '/standto';
-                    return path;
-                //} else 
-            } else if (hostName === 'www.army.mil') {
-                path = window.location.origin + '/standto';
-                return path;
             } else {
-                path = '';
-                return path;
+                veritas = false;
+                func(veritas);
             }
         }
 
+        // Hide archive page results when using SJS
+        var hideSearchResults = function () {
+            var baseVeritas = function (veritas) {
+
+                if (!veritas) {
+                    $(ar_results).addClass('hidden');
+                    $(sjs_results).removeClass('hidden');
+                } else {
+                    $(ar_results).removeAttr('class', 'hidden').addClass('ar-results');
+                    $(sjs_results).attr('class', 'sjs-results hidden');
+                }
+            }
+            hide(baseVeritas);
+        }
+
+        var displaySearchValue = function () {
+            var count, text, searchArchives, result, no_results, archiveResultsLength;
+
+            text = document.getElementById('search-text');
+            count = document.getElementById('results-count');
+            result = document.getElementById('results');
+            no_results = document.querySelector('#results-container > .no-results');
+            searchArchives = document.querySelector('.archive-search .search-box .archive-search-input').value;
+            archiveResultsLength = document.querySelectorAll('#results-container .archive-st');
+
+            if (!no_results) {
+                text.textContent = searchArchives;
+                count.textContent = archiveResultsLength.length;
+
+                if (archiveResultsLength.length == 1) {
+                    result.textContent = 'RESULT';
+                } else {
+                    result.textContent = 'RESULTS';
+                }
+            } else {
+                $('.sjs-results > h5').addClass('hidden');
+            }
+
+            expandSearchResults(archiveResultsLength);
+        }
+
+        var expandSearchResults = function (len) {
+            var resultsBtn = document.querySelector('.sjs-results .headlines .btn.refine-btn');
+            var resultsDiv = document.querySelector('#results-container > .no-results');
+            var addResults = '';
+
+            addResults += "<div class='btn refine-btn'>";
+            addResults += "<div>";
+            addResults += "<div>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "<span></span>";
+            addResults += "</div>";
+            addResults += "<input class='view-more' type='button' value='View More'>";
+            addResults += "</div>";``
+            addResults += "</div>";
+
+            $('.archive-st:gt(9)').hide().last();
+
+            if (len.length > 10) {
+                if (resultsBtn !== null ) {
+                    return
+                } else {
+                    $(addResults).insertAfter('.headlines #results-container').on('click', function(){
+                        var a = this;
+                        console.log('youclickedme');
+                        $('.archive-st:not(:visible):lt(10)').fadeIn(500, function(){
+                            if ($('.archive-st:not(:visible)').length == 0) $(a).fadeOut(400, 'linear', function() {
+                                this.remove();
+                            });
+                        }); return false;
+                    });
+                }
+            } else {
+                $(resultsBtn).remove();
+            }
+        }
+
+        $(document).ready(function () {
+            sjs;
+
+            $(archiveSearch).on('keyup', function (e) {
+                hideSearchResults();
+                if ($('.sjs-results > h5').hasClass('hidden')) {
+                    $('.sjs-results > h5').removeClass('hidden');
+                }
+            });
+
+            // Watching for DOM manipulation
+            var target = document.querySelector('#results-container');
+
+            var config = {
+                childList: true
+            };
+
+            var archive = function () {
+                displaySearchValue();
+            }
+
+            var observer = new MutationObserver(archive);
+
+            observer.observe(target, config);
+            // Watching for DOM manipulation
+        });
+
         var searchPath = function () {
-            if (pathName === '/') {
-                console.log(pathName);
-                return './';
-            } else if (pathName === '/standto/') {
+            if (pathName === '/' || pathName === '/standto/') {
                 console.log(pathName);
                 return './';
             } else {
@@ -305,20 +312,40 @@ var SocialBar = require('./globals/modules/SocialBar'),
             }
         }
 
+        var urlPath = function () {
+            var hostName, path, origin;
+
+            origin = window.location.origin;
+            hostName = window.location.hostname;
+
+            if (hostName === 'localhost' || hostName === '127.0.0.1') {
+                path = '';
+                return path;
+            } else if (hostName === 'static.ardev.us') {
+                path = origin + '/standto';
+                return path;
+            } else if (hostName === 'www.army.mil') {
+                path = origin + '/standto';
+                return path;
+            } else {
+                path = '';
+                return path;
+            }
+        }
+
         // Declaring Search function
         var sjs = new SimpleJekyllSearch({
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('results-container'),
             json: searchPath() + 'search.json',
-            searchResultTemplate: '<li><span class="date">{date}</span><a class="article-link" href="' + urlPath() +
-                '{url}">{title}</a></li>',
-            noResultsText: "<h4>No Results</h4>",
-            limit: 20,
+            // json: '../search.json',
+            searchResultTemplate: '<li class="archive-st"><span class="date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
+            noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
+            limit: 50,
             fuzzy: false
         });
-        
+
         // Calling search function
-        sjs;
     }
 
     if (oldArchive) {
@@ -326,7 +353,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             searchText = 'Resources:',
             victoria;
 
-        function balderdash() {
+        function formatBullets() {
             function isInPage(node) {
                 return (node === document.body) ? false : document.body.contains(node);
             }
@@ -336,18 +363,102 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     if (archivedStandto[i].textContent === searchText || 'Resources') {
                         victoria = archivedStandto[i];
                         Helper.addClass(victoria, 'body-header');
-                        //console.log('<h1>' + victoria + '</h1>');
                         break;
                     } else {
-                        console.log('')
+                        console.log('No resources found');
                     }
                 }
             }
-
         }
-
-        balderdash();
-
+        formatBullets();
     }
+
+    // this function is meant to account for different link paths between local, dev, and prod environments.
+    var socialMediaLinks = function () {
+        var socialMedia = document.querySelector('.alt-social-bar');
+
+        if (standto) {
+            var tw, fb, rdt, ln, siteHref, pageTitle, socialArr;
+
+            siteHref = window.location.href;
+            pageTitle = document.querySelector('.stand-to .focus .container div > h1').textContent;
+            socialArr = [];
+
+            $(window).on('load resize', function () {
+                getSocial();
+            });
+
+            // this function gets the a tag for the social media links on both mobile and desktop
+            function getSocial() {
+                if (document.body.clientWidth >= 769) {
+                    tw = document.querySelector('.alt-social-bar .twitter-button a');
+                    fb = document.querySelector('.alt-social-bar .facebook-button a');
+                    rdt = document.querySelector('.alt-social-bar .reddit-button a');
+                    ln = document.querySelector('.alt-social-bar .linkedin-button a');
+
+                    socialArr = [tw, fb, rdt, ln];
+                } else if (document.body.clientWidth <= 768) {
+                    tw = document.querySelector('.social-bar .twitter-button a');
+                    fb = document.querySelector('.social-bar .facebook-button a');
+                    rdt = document.querySelector('.social-bar .reddit-button a');
+                    ln = document.querySelector('.social-bar .linkedin-button a');
+
+                    socialArr = [tw, fb, rdt, ln];
+                }
+                changeUrl(socialArr);
+            }
+
+            // this function takes the a tag from getSocial() function and adds the link specific content
+            function changeUrl(arr) {
+                var newSocialArr = [];
+
+                for (var i = 0; i < arr.length; i++) {
+
+                    newSocialArr.push(new URL(arr[i].getAttribute('href')));
+
+                    var thisUrl = newSocialArr[i].origin + newSocialArr[i].pathname;
+
+                    if (newSocialArr[i].hostname == 'twitter.com') {
+
+                        thisUrl += '?url=';
+                        thisUrl += siteHref;
+                        thisUrl += '&amp;text=';
+                        thisUrl += pageTitle;
+
+                        tw.setAttribute('href', thisUrl);
+
+                    } else if (newSocialArr[i].hostname == 'www.facebook.com') {
+
+                        thisUrl += '?app_id=1466422700342708&amp;';
+                        thisUrl += 'display=popup&amp;link=';
+                        thisUrl += siteHref;
+                        thisUrl += '&amp;description=Check%20out%20today%27s%20STAND-TO%21';
+                        thisUrl += pageTitle;
+                        thisUrl += '&amp;picture=&amp;redirect_uri=http%3A%2F%2Fwww.army.mil%2Fstandto';
+
+                        fb.setAttribute('href', thisUrl);
+
+                    } else {
+                        if (newSocialArr[i].hostname == 'www.reddit.com') {
+
+                            thisUrl += '?url=';
+                            thisUrl += siteHref;
+
+                            rdt.setAttribute('href', thisUrl);
+
+                        } else {
+
+                            thisUrl += '?url=';
+                            thisUrl += siteHref;
+
+                            ln.setAttribute('href', thisUrl);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    socialMediaLinks();
 
 })();

@@ -18,10 +18,7 @@
                 <div class="inner-container">
                     <div class="search-box search-form-container">
                         <form action="" id="standto_search_form">
-                            <!-- <input class="archive-search-input" type="text" placeholder="" id="search-input">
-                            <button type="submit"></button> -->
-                            <input class="archive-search-input" type="text" placeholder="SEARCH KEYWORDS..." id="search-input">
-                            <button type="submit" value=""></button>
+                            <input class="archive-search-input" type="text" placeholder="SEARCH STAND-TO! ARCHIVES..." id="search-input">
                         </form>
                     </div>
                 </div>
@@ -31,12 +28,19 @@
             <div class="container">
                 <div class="inner-container">
                     <div class="results">
-                        <h2>Stand-To! Archive</h2>
-                        <h5>Most Recent Focus Topics</h5>
-                        <div class="headlines">
-                            <ul id="results-container">
-                            </ul>
-                            {%- include recent-ar-results.html -%}
+                        <div class="ar-results">
+                            <h2>Archive</h2>
+                            <h5>Most Recent Focus Topics</h5>
+                            <div class="headlines">
+                                {%- include recent-ar-results.html -%}
+                            </div>
+                        </div>
+                        <div class="sjs-results hidden">
+                            <h5><span id="results-count">...</span> <span id="results">Results</span> FOR "<span id="search-text">placeholder</span>"</h5>
+                            <div class="headlines">
+                                <ul id="results-container">
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,14 +58,11 @@
                         <h3>STAND-TO!</h3>
                         <p>STAND-TO! is an information paper-based web platform that supports the U.S. Army’s strategic
                             communication objectives.</p>
-                        <p>The information papers -- written, approved and submitted by the Army agencies -- provide a
-                            broad, objective view of the Army’s current operations, doctrine and programs. The "Today’s
-                            Focus" topics highlight Army Staff initiatives and support Army wide strategic-level issues.
+                        <p>The information papers &mdash; written, approved and submitted by the Army agencies &mdash; provide a broad, objective view of the Army’s current operations, doctrine and programs. The "Today’s Focus" topics highlight Army Staff initiatives and support Army wide strategic-level issues.
                         </p>
                         <p>All published editions are sent to subscribers via email and archived daily in the <a class="article-link" href="#archive">STAND-TO! Archives</a>.</p>
 
-                        <p>STAND-TO! falls under the management of the Online and Social Media Division (OSMD) in the
-                            Office of the Chief of Public Affairs (OCPA).</p>
+                        <p>STAND-TO! falls under the management of the Online and Social Media Division (OSMD) in the Office of the Chief of Public Affairs (OCPA).</p>
                     </div>
                     <div class="right-column">
                         {%-include sub-box.html email_id="email1"-%}
@@ -98,11 +99,6 @@
                         </div>
                     </div>
                 </a>
-            </div>
-            <div class="container unsubscribe-div hidden">
-                <div class="inner-container">
-                    {%-include sub-box.html unsubscribe="true"-%}
-                </div>
             </div>
         </div>
     </div>

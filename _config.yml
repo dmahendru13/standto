@@ -3,7 +3,7 @@ encoding: utf-8
 env: production
 
 exclude: ['package-lock.json','rss.xml','copy','buildspec.yml', 'Gemfile','Gemfile.lock','Gruntfile.js', 'package.json', 'readme.md', 'sftpCache.json' ,'node_modules','us-army-homepage','armydotmil.github.io']
-    
+
 plugins:
   - octopress-minify-html
   - octopress-autoprefixer
@@ -17,3 +17,6 @@ jekyll-minifier:
   exclude: ['*.html','*.css','*.scss']
 
 title: StandTo
+
+# serve multiple jekyll sites locally:
+# https://github.com/jekyll/jekyll/issues/5862
