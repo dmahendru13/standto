@@ -99,13 +99,11 @@
 
                     {%- if title.list -%}
 
-                        {%- for link in title.list -%}
+                      {%- for link in title.list -%}
 
-                            <li>
-                                {{ link.link | markdownify }}
-                            </li>
+                      {{ link.item | replace: '|', "&#124;" | markdownify }}
 
-                        {%- endfor -%}
+                    {%- endfor -%}
 
                     {%- endif -%}
 
