@@ -209,6 +209,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             hide(baseVeritas);
         }
 
+        // Formats text for search results "XX results For 'F'"
         var displaySearchValue = function () {
             var count, text, searchArchives, result, no_results, archiveResultsLength;
 
@@ -235,6 +236,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             expandSearchResults(archiveResultsLength);
         }
 
+        // Adds button && then functionality to the button that then shows additional search results.
         var expandSearchResults = function (len) {
             var resultsBtn = document.querySelector('.sjs-results .headlines .btn.refine-btn');
             var resultsDiv = document.querySelector('#results-container > .no-results');
@@ -278,6 +280,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
         $(document).ready(function () {
             sjs;
 
+            // Watches for keyup and subsecuently hides/shows archive search && results text
             $(archiveSearch).on('keyup', function (e) {
                 hideSearchResults();
                 if ($('.sjs-results > h5').hasClass('hidden')) {
@@ -302,6 +305,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             // Watching for DOM manipulation
         });
 
+        // format url path for sjs below.
         var searchPath = function () {
             if (pathName === '/' || pathName === '/standto/') {
                 console.log(pathName);
@@ -312,6 +316,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
             }
         }
 
+        // format url path for sjs links below.
         var urlPath = function () {
             var hostName, path, origin;
 
@@ -375,8 +380,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
     // this function is meant to account for different link paths between local, dev, and prod environments.
     var socialMediaLinks = function () {
-        var socialMedia = document.querySelector('.alt-social-bar');
-
         if (standto) {
             var tw, fb, rdt, ln, siteHref, pageTitle, socialArr;
 

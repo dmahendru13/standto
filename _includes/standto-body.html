@@ -1,3 +1,14 @@
+{% assign siteUrl = site.url %}
+{% assign baseUrl = '/standto' %}
+{% assign pageUrl = page.url %}
+
+{% if siteUrl contains 'localhost' or '127.0.0.1' %}
+    {% assign thisUrl = '' | append: siteUrl | append: pageUrl %}
+{% else %}
+    {% assign thisUrl = '' | append: siteUrl | append: baseUrl | append: pageUrl %}
+{% endif %}
+
+
 {%- assign thisArchivedStandtoYr = page.year | to_integer -%}
 <div class="stand-to {% if page.pageid == 'archived-standto' and thisArchivedStandtoYr < 2017 %}oldarchive{% endif %}">
     <!-- today's focus -->
