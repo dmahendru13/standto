@@ -36,22 +36,25 @@ links:
   - section: 
     - section-title: "Resources:"
     - list:
-      - item: >
-         * [U.S. Army Recruiting Command](https://recruiting.army.mil/)
-      - item: >
-         * [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
-      - item: >
-         * Virtual reality \"In Our Boots\" Apps&#58;
-           * [iOS](http://bit.ly/InOurBootsAppleApp)
-           * [Android](http://bit.ly/InOurBoots)
+      - link: >
+          [U.S. Army Recruiting Command](https://recruiting.army.mil/)
+      - link: >
+          [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
+      - link: >
+          Virtual reality \"In Our Boots\" Apps&#58;
+          # - sub-list:
+          #   - link: >
+          #     * [iOS](http://bit.ly/InOurBootsAppleApp)
+          #   - link: >
+          #     * [Android](http://bit.ly/InOurBoots)
 
   - section:
     - section-title: "Social Media presence:"
     - list:
-      - item: >
-         * [Facebook](https://www.facebook.com/goarmy/) @goarmy
-      - item: >
-         * [Twitter](https://twitter.com/GoArmy) \#InOurBoots
+      - link: >
+          [Facebook](https://www.facebook.com/goarmy/) @goarmy
+      - link: >
+          [Twitter](https://twitter.com/GoArmy) \#InOurBoots
 
 # Quote content to be added before the 
 quote: 

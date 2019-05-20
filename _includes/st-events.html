@@ -2,7 +2,7 @@
   
   {%- if include.standto-events and include.standto-events contains "####" -%}
 
-  {{ include.standto-events | markdownify }}
+  {{ include.standto-events  | replace: '|', "&#124;" | markdownify }}
 
   {%- elsif include.standto-events -%}
   <h4>Events</h4>
@@ -19,7 +19,7 @@
 
             {%- for b in item.content -%}
               
-              {{ b.item | markdownify }}
+              {{ b.item  | replace: '|', "&#124;" | markdownify }}
 
             {%- endfor -%}
 
@@ -35,11 +35,11 @@
 
       {%- if include.archive-events contains "####" -%}
 
-        {{ include.archive-events | markdownify }}
+        {{ include.archive-events  | replace: '|', "&#124;" | markdownify }}
 
       {%- elsif include.archive-events contains "------------" -%}
 
-      {{ include.archive-events | markdownify }}
+      {{ include.archive-events  | replace: '|', "&#124;" | markdownify }}
 
       {%- else -%}
 
@@ -57,7 +57,7 @@
 
                 {%- for b in item.content -%}
                   
-                  {{ b.item | markdownify }}
+                  {{ b.item | replace: '|', "&#124;" | markdownify }}
 
                 {%- endfor -%}
 

@@ -3,7 +3,7 @@ layout: null
 ---
 [
   {% for post in site.posts %}
-
+  
     {
     
       "title"    : {{ post.metaTitle | jsonify }},
@@ -12,7 +12,7 @@ layout: null
       "month"    : {{ post.month | jsonify }},
       "file"     : {{ post.file | jsonify }},
       "date"     : "{%- assign d = post.date | date: "%-d" -%}{%- assign m = post.date | date: "%B" -%}{%- case m -%}{%- when 'April' or 'May' or 'June' or 'July' or 'March' -%}{{ m }}{%- when 'September' -%}Sept.    {%- else -%}{{ post.date | date: "%b" }}. {%- endcase -%}{{d | prepend: " " }}, {{ post.date | date: "%Y" }}",
-      "bdy"       : "{% assign thisYr = post.year | to_integer %}{% assign year = post.year %}{% assign month = post.month %}{% assign file = post.file %}{%- assign bodyContent = site.data.archived-standto.recent-archives[year][month][file] -%}{% if thisYr <= 2018 %}{%- assign bodyContent = site.data.archived-standto.older-archives[year][month][file] -%}{% elsif thisYr >= 2019 %}{% if bodyContent.body contains "###" %}{%- assign bodyContent = site.data.archived-standto.recent-archives[year][month][file] -%}{{ bodyContent.body | markdownify | strip_html | strip_newlines | escape }}{% else %}{% for body in bodyContent %}{% for heading in body %}{% for item in heading %}{% if item.heading and item.heading != '' %}{{ item.heading | markdownify | strip_html | strip_newlines | escape }}{% endif %}{% if item.paragraph and item.paragraph != '' %}{{ item.paragraph | markdownify | strip_html | strip_newlines | escape }}{% endif %}{% endfor%}{% endfor %}{% endfor %}{% endif %}{% endif %}"
+      "bdy"       : "{% assign dataPath = post.data-path %}{% assign thisYr = post.year | to_integer %}{% assign year = post.year %}{% assign month = post.month %}{% assign file = post.file %}{%- assign bodyContent = site.data.archived-standto[dataPath][year][month][file] -%}{% if dataPath == 'older-archives' %}{{ bodyContent.body | markdownify | strip_html | strip_newlines | escape }}{% elsif dataPath == 'recent-archives' %}{% if bodyContent.body contains "###" %}{{ bodyContent.body | markdownify | strip_html | strip_newlines | escape }}{% else %}{% for body in bodyContent %}{% for heading in body %}{% for item in heading %}{% if item.heading and item.heading != '' %}{{ item.heading | markdownify | strip_html | strip_newlines | escape }}{% endif %}{% if item.paragraph and item.paragraph != '' %}{{ item.paragraph | markdownify | strip_html | strip_newlines | escape }}{% endif %}{% endfor%}{% endfor %}{% endfor %}{% endif %}{% endif %}"
 
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}

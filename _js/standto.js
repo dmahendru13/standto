@@ -231,6 +231,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 }
             } else {
                 $('.sjs-results > h5').addClass('hidden');
+                $('.sjs-results > h2').addClass('hidden');
             }
 
             expandSearchResults(archiveResultsLength);
@@ -239,22 +240,23 @@ var SocialBar = require('./globals/modules/SocialBar'),
         // Adds button && then functionality to the button that then shows additional search results.
         var expandSearchResults = function (len) {
             var resultsBtn = document.querySelector('.sjs-results .headlines .btn.refine-btn');
-            var resultsDiv = document.querySelector('#results-container > .no-results');
             var addResults = '';
 
-            addResults += "<div class='btn refine-btn'>";
-            addResults += "<div>";
-            addResults += "<div>";
-            addResults += "<span></span>";
-            addResults += "<span></span>";
-            addResults += "<span></span>";
-            addResults += "<span></span>";
-            addResults += "<span></span>";
-            addResults += "<span></span>";
-            addResults += "</div>";
-            addResults += "<input class='view-more' type='button' value='View More'>";
-            addResults += "</div>";``
-            addResults += "</div>";
+            addResults += "<div class='btn refine-btn'><div><div><span></span><span></span><span></span><span></span><span></span><span></span></div><input class='view-more' type='button' value='View More'></div></div>";
+
+            // addResults += "<div class='btn refine-btn'>";
+            // addResults += "<div>";
+            // addResults += "<div>";
+            // addResults += "<span></span>";
+            // addResults += "<span></span>";
+            // addResults += "<span></span>";
+            // addResults += "<span></span>";
+            // addResults += "<span></span>";
+            // addResults += "<span></span>";
+            // addResults += "</div>";
+            // addResults += "<input class='view-more' type='button' value='View More'>";
+            // addResults += "</div>";
+            // addResults += "</div>";
 
             $('.archive-st:gt(9)').hide().last();
 
@@ -264,10 +266,18 @@ var SocialBar = require('./globals/modules/SocialBar'),
                 } else {
                     $(addResults).insertAfter('.headlines #results-container').on('click', function(){
                         var a = this;
-                        console.log('youclickedme');
-                        $('.archive-st:not(:visible):lt(10)').fadeIn(500, function(){
-                            if ($('.archive-st:not(:visible)').length == 0) $(a).fadeOut(400, 'linear', function() {
-                                this.remove();
+                        // $('.archive-st:not(:visible):lt(10)').fadeIn(500, function(){
+                        //     if ($('.archive-st:not(:visible)').length == 0) $(a).fadeOut(400, 'linear', function() {
+                        //         this.remove();
+                        //     });
+                        // }); return false;
+                        $('.archive-st:not(:visible):lt(10)').each(function(i){
+                            console.log($(this).text());
+                            console.log(i);
+                            $(this).delay(100*i).fadeIn('fast', function () {
+                                if ($('.archive-st:not(:visible)').length == 0) $(a).addClass('hidden').remove().fadeOut(400, 'linear', function() {
+                                    this.remove();
+                                });
                             });
                         }); return false;
                     });
@@ -283,8 +293,13 @@ var SocialBar = require('./globals/modules/SocialBar'),
             // Watches for keyup and subsecuently hides/shows archive search && results text
             $(archiveSearch).on('keyup', function (e) {
                 hideSearchResults();
-                if ($('.sjs-results > h5').hasClass('hidden')) {
-                    $('.sjs-results > h5').removeClass('hidden');
+                if (!(e.keyCode === 13)) {
+                    if ($('.sjs-results > h5').hasClass('hidden')) {
+                        $('.sjs-results > h5').removeClass('hidden');
+                    }
+                    if ($('.sjs-results > h2').hasClass('hidden')) {
+                        $('.sjs-results > h2').removeClass('hidden');
+                    }
                 }
             });
 
@@ -343,9 +358,8 @@ var SocialBar = require('./globals/modules/SocialBar'),
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('results-container'),
             json: searchPath() + 'search.json',
-            // json: '../search.json',
             searchResultTemplate: '<li class="archive-st"><span class="date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
-            noResultsText: '<div class="no-results"><h3>No Results</h3><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again</p></div>',
+            noResultsText: '<div class="no-results"><h2>No Results</h2><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again.</p></div>',
             limit: 50,
             fuzzy: false
         });
