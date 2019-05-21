@@ -29,6 +29,7 @@ e2/downloads/rv7
 /e2/images
 *.json
 _js/bundled
+!search.json
 !manifest.json
 !package.json
 !e2/fonts

@@ -1,77 +1,63 @@
-id: "2019-05-10"
+id: "2019-05-17"
 
-title: "Army Officer Commissioning"
+title: "U.S. Army's Marketing Campaign: \"In Our Boots\""
 
-subtitle: "Provided by U.S. Army Training and Doctrine Command"
+subtitle: "Provided by Army Marketing and Research Group"
 
-date: "Friday, May 10, 2019"
+date: "Friday, May 17, 2019"
 
 # Body content to be added to the left column
 body:
   - heading: "What is it?"
-  - paragraph: "U.S. Army commissioning programs produce agile and adaptive leaders needed by the Army to win in a complex, multi-domain world. The Army commissions more than 6,000 officers every year." 
+  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team." 
   - heading: "What are the current and past efforts of the Army?"
-  - paragraph: "The Army officers get commissioned through the following program sources:"
-  - paragraph: "**United States Military Academy (USMA) at West Point**:  is the Army's original source of commissioned officers.  In 1802, President Jefferson signed a law to establish USMA at West Point to end America's reliance on foreign engineers and artillerists."
-  - paragraph: "West Point maintains a 4,000 strong Corps of Cadets of which approximately 1,000 graduates complete studies each year in more than a dozen fields from the sciences and humanities."
-  - paragraph: "**Army Reserve Officers' Training Corps (ROTC)**: The Army started ROTC in 1819 to complement the need for a larger cadre of leaders at the onset of WWI.  Army ROTC produces approximately 70 percent of the officers entering the Army each year. These leaders are instilled with the Army Profession and [Ethic]( https://www.army.mil/standto/2018-07-12), and have been critical to the Army and nation during times of crisis."
-  - paragraph: "ROTC programs are available at about 1,000 college campuses nationwide ranging from Harvard to Berkley, Tufts to the Ohio State. Army ROTC programs provide more college scholarships than any other program in America. The merit-based benefits given to about 15,000 students each year."
-  - paragraph: "**Army Officer Candidate School (OCS)** at Fort Benning, Georgia: provides an agile and scalable commissioning source. This school serves as the surging capability for the service by providing fundamentals of leadership, basic military skills and the Army Profession training to select personnel in all 16 basic Army branches."
-  - heading: "**What continued efforts does the Army have planned?**"
-  - paragraph: "USMA, ROTC and OCS will continue to educate and develop future Army senior leaders from every branch from Armor to Field Artillery.  In the future, officer commissioning programs will evolve based on the [Army Officer Talent Management program](https://talent.army.mil) to deliver the right person, to the right job, to optimize Solder performance."
-  - heading: "**Why is this important to the Army?**"
-  - paragraph: "All commissioned officers are committed to the Army Profession  and live and apply the seven core [Army Values](https://www.army.mil/values?st):"
+  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team."
+  - paragraph: "The prospects can follow the following career fields as they lead their teams through high intensity missions:"
   - list:
-    - item: "Loyalty" 
-    - item: "Duty" 
-    - item: "Respect" 
-    - item: "Selfless Service" 
-    - item: "Honor"
-    - item: "Integrity"
-    - item: "Personal Courage"
-  - paragraph: "Regardless of commissioning source, all officers are committed to the [Soldiers Creed](https://www.army.mil/values/soldiers) in pursuit of leading Soldiers to meet the Army mission."
+    - item: "Special Operations Sniper"
+    - item: "Explosive Ordnance Disposal Technician"
+    - item: "Tank Commander"
+    - item: "Unmanned Aircraft Systems Operator"
+  - paragraph: "The integrated campaign can be experienced through the interactive campaign landing experience (goarmy.com/inourboots) or *In Our Boots* app that will be available for download on iOS, Google Play and Oculus GO stores."
+  - paragraph: "Based on consumer data along with predictive analytics, Army Marketing and Research Group (AMRG) has designed a more holistic marketing campaign personalized to reach a specific audience, and is currently being used to reach audiences in the Chicago area."
+  - heading: "What continued efforts does the Army have planned?"
+  - paragraph: "AMRG will continue to:"
+  - list:
+    - item: "Communicate and inform the Army mission to prospects and their influencers through TV commercials, digital, paid search, billboards, and social media ads."
+    - item: "Market innovative efforts to appeal to prospect audience between the ages of 17-24."
+    - item: "Utilize the personalized and holistic marketing campaign strategy, being used in Chicago, in five other areas to include Boston, Dallas and Minneapolis."
+    - item: "Use digital and social media to engage with prospects and influences and drive them to GoArmy.com."
+    - item: "Market in a strategically integrated way, in order to maximize return on investment."
+  - heading: "Why is this important to the Army?"
+  - paragraph: "*In Our Boots* gives prospective recruits an authentic view into what it is like to step into the boots of a U.S. Army Soldier. By informing the young Americans, the Army gets quality individuals to speak to recruiters and enlist into the Army."
 
 # Resources to be added below the left column
 links:
   - section: 
     - section-title: "Resources:"
     - list:
-      - link: >
-          [U.S. Army Training and Doctrine Command](https://www.tradoc.army.mil?st )
-      - link: >
-          [West Point Military Academy](https://Westpoint.edu?st)
-      - link: >
-          [Army ROTC](https://www.army.mil/ROTC?st)
-      - link: >
-          [U.S. Army Recruiting Command](https://recruiting.army.mil/?st)
-      - link: >
-          [U.S. Army Talent Management Program](https://talent.army.mil?st)
-      - link: >
-          [U.S. Army Ranks](https://www.army.mil/ranks?st) *Click on the Officer Ranks tab to see the various ranks of the commissioned officers*
-      - link: >
-          [Army Values](https://www.army.mil/values?st)
-      - link: >
-          [Oath of Commission Officers](https://www.army.mil/values/officers.html?st)
+      - item: >
+         * [U.S. Army Recruiting Command](https://recruiting.army.mil/)
+      - item: >
+         * [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
+      - item: >
+         * Virtual reality \"In Our Boots\" Apps&#58;
+           * [iOS](http://bit.ly/InOurBootsAppleApp)
+           * [Android](http://bit.ly/InOurBoots)
 
   - section:
-    - section-title: "Related STAND-TO!:"
+    - section-title: "Social Media presence:"
     - list:
-      - link: >
-          [Army Officer Talent Management](https://www.army.mil/standto/2019-04-26)
-      - link: >
-          [U.S. Army Talent Management](https://www.army.mil/standto/2018-10-10)
-      - link: >
-          [Army Ethic](https://www.army.mil/standto/2018-07-12)
-      - link: >
-          [Army Values](https://www.army.mil/standto/2018-06-12)
+      - item: >
+         * [Facebook](https://www.facebook.com/goarmy/) @goarmy
+      - item: >
+         * [Twitter](https://twitter.com/GoArmy) \#InOurBoots
 
 # Quote content to be added before the 
 quote: 
   - heading: "Focus Quote for the Day"
-  - blockquote: "In this country, in these United States, under our colors of red, white and blue ... all Americans are created free and equal and we will rise or fall based on our merit and the content of our character and not the color of our skin. That is the core organizing principle of the U.S. Army and that is why we fight."
-  - source: "Chief of Staff of the Army Gen. Mark Milley, at the commissioning of a new generation of officers taking the oath to support and defend the ideals of the U.S. Constitution."
-  - link: >
-      [Cadet Commissioning](https://www.facebook.com/USarmy/videos/vb.44053938557/10155972555038558/?type=2&theater)
+  - blockquote: "Readiness is the Army's #1 priority, and readiness starts with recruiting. We're modernizing our approach to connect with today's youth, through sports, functional fitness, and social media where Generation Z's are communicating. We have to connect with people where they are to find those qualified individuals for Army service."
+  - source: "Maj Gen. Frank M. Muth, commander, U.S. Army Recruiting Command"
 
 # Events to be added to the right column
 events:
@@ -79,20 +65,8 @@ events:
       - date: MAY 2019
       - content:
         - item: >
-            Women's History Month - Visit [Women in the U.S. Army](https://www.army.mil/women?st)
-
-  - section:
-      - date: MARCH 2193
-      - content: 
+            National Asian Pacific Heritage Month | Visit [Asian Pacific Americans in the U.S. Army](https://www.army.mil/asianpacificamericans?st)
         - item: >
-            National Asian Pacific Heritage Month &#124; Visit [Asian Pacific Americans in the U.S. Army](https://www.army.mil/asianpacificamericans?st)
+            May 18&#58; Armed Forces Day
         - item: >
-            May 10: Military Spouse Appreciation Day &#124; Visit [Army Families](https://www.army.mil/families?st)
-        - item: >
-            May 12: Mother's Day
-        - item: >
-            May 18: Armed Forces Day
-        - item: >
-            April 7-13: Army Volunteer Recognition Week
-        - item: >
-            May 27: Memorial Day
+            May 27&#58; Memorial Day
