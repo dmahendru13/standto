@@ -1,6 +1,8 @@
 # STAND-TO!
 New STAND-TO! site.
 
+---
+
 ## Requirements
 
 The Following tools must be installed to host the site:
@@ -10,6 +12,8 @@ The Following tools must be installed to host the site:
 3. Sass  
 4. jekyll
 
+---
+
 ## Installation
 ```bash
 git clone git@github.com:armydotmil/standto.git
@@ -18,6 +22,8 @@ git checkout develop
 bundle install
 sudo npm install
 ```
+
+---
 
 ## Format:
 ```yaml
@@ -39,15 +45,29 @@ body: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
 # Resources to be added below the left column
 links:
   - section:
-    - section-title: SECTION_TITLE
+    - section-title: "Resources:"
     - list:
-      - link: >
-          [LINK NAME](LINK_URL)
+      - item: >
+         * [LINK NAME](LINK_URL)
+      - item: >
+         * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
+      - item: >
+         * THIS CAN BE A TITLE WITH A SUBLIST BELOW:
+           * [LINK NAME](LINK_URL)
+           * [LINK NAME](LINK_URL)
+
+  - section:
+    - section-title: "Social Media presence:"
+    - list:
+      - item: >
+         * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
+      - item: >
+         * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
 
 # Quote content to be added before the
 quote:
   - heading: "PLACE HEADING IN PARENTHESIS"
-  - blockquote: "PLACE BLOCKQUOTE IN PARENTHESIS"
+  - blockquote: "PLACE BLOCK QUOTE IN PARENTHESIS"
   - source: "PLACE SOURCE IN PARENTHESIS"
   - link: >
       [LINK NAME](LINK_URL)
@@ -63,8 +83,6 @@ events:
             This is how you would write just plain text.
         - item: >
             [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
-        - item: >
-          If you have a colon (:) after a word, the preceding words will turn red and the following word will remain yellow. This is a known issue and will not break the site.
 
   - section:
       - date: MONTH YEAR
@@ -74,9 +92,92 @@ events:
 
 ```
 
-
+  - **Note**, while using a colon (:) will not strictly speaking break the ST/the yml data file, it will throw off the color scheme. That said, it is **strongly** recommended that within an section that you *do not* use parenthesis (i.e., title, subtitle, links or events), replace the colon (:) with the HTML encoding:
+    - `&#58;`.
   - If you need to add a link to the body in either a heading/paragraph/list, simply add it similarly to how it is added in the quote or events section:
    - `[LINK NAME](LINK_URL)`
+
+---
+
+## Sample YML File:
+
+```YML
+id: "2019-05-17"
+
+title: "U.S. Army's Marketing Campaign: \"In Our Boots\""
+
+subtitle: "Provided by Army Marketing and Research Group"
+
+date: "Friday, May 17, 2019"
+
+# Body content to be added to the left column
+body:
+  - heading: "What is it?"
+  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team."
+  - heading: "What are the current and past efforts of the Army?"
+  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team."
+  - paragraph: "The prospects can follow the following career fields as they lead their teams through high intensity missions:"
+  - list:
+    - item: "Special Operations Sniper"
+    - item: "Explosive Ordnance Disposal Technician"
+    - item: "Tank Commander"
+    - item: "Unmanned Aircraft Systems Operator"
+  - paragraph: "The integrated campaign can be experienced through the interactive campaign landing experience (goarmy.com/inourboots) or *In Our Boots* app that will be available for download on iOS, Google Play and Oculus GO stores."
+  - paragraph: "Based on consumer data along with predictive analytics, Army Marketing and Research Group (AMRG) has designed a more holistic marketing campaign personalized to reach a specific audience, and is currently being used to reach audiences in the Chicago area."
+  - heading: "What continued efforts does the Army have planned?"
+  - paragraph: "AMRG will continue to:"
+  - list:
+    - item: "Communicate and inform the Army mission to prospects and their influencers through TV commercials, digital, paid search, billboards, and social media ads."
+    - item: "Market innovative efforts to appeal to prospect audience between the ages of 17-24."
+    - item: "Utilize the personalized and holistic marketing campaign strategy, being used in Chicago, in five other areas to include Boston, Dallas and Minneapolis."
+    - item: "Use digital and social media to engage with prospects and influences and drive them to GoArmy.com."
+    - item: "Market in a strategically integrated way, in order to maximize return on investment."
+  - heading: "Why is this important to the Army?"
+  - paragraph: "*In Our Boots* gives prospective recruits an authentic view into what it is like to step into the boots of a U.S. Army Soldier. By informing the young Americans, the Army gets quality individuals to speak to recruiters and enlist into the Army."
+
+# Resources to be added below the left column
+links:
+  - section:
+    - section-title: "Resources:"
+    - list:
+      - item: >
+         * [U.S. Army Recruiting Command](https://recruiting.army.mil/)
+      - item: >
+         * [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
+      - item: >
+         * Virtual reality \"In Our Boots\" Apps&#58;
+           * [iOS](http://bit.ly/InOurBootsAppleApp)
+           * [Android](http://bit.ly/InOurBoots)
+
+  - section:
+    - section-title: "Social Media presence:"
+    - list:
+      - item: >
+         * [Facebook](https://www.facebook.com/goarmy/) @goarmy
+      - item: >
+         * [Twitter](https://twitter.com/GoArmy) \#InOurBoots
+
+# Quote content to be added before the
+quote:
+  - heading: "Focus Quote for the Day"
+  - blockquote: "Readiness is the Army's #1 priority, and readiness starts with recruiting. We're modernizing our approach to connect with today's youth, through sports, functional fitness, and social media where Generation Z's are communicating. We have to connect with people where they are to find those qualified individuals for Army service."
+  - source: "Maj Gen. Frank M. Muth, commander, U.S. Army Recruiting Command"
+
+# Events to be added to the right column
+events:
+  - section:
+      - date: MAY 2019
+      - content:
+        - item: >
+            National Asian Pacific Heritage Month | Visit [Asian Pacific Americans in the U.S. Army](https://www.army.mil/asianpacificamericans?st)
+        - item: >
+            May 18&#58; Armed Forces Day
+        - item: >
+            May 27&#58; Memorial Day
+
+```
+
+---
 
 ## How to Update the STAND-TO!
   1. Copy content from [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/tree/master/_data/current-standto)
@@ -126,6 +227,8 @@ events:
       ```
   8. Finally, proceed as though you would normally when updating socialmedia or any other microsite.
 
+---
+
 ## Usage
 ```bash
 bundle exec jekyll serve --watch
@@ -140,11 +243,15 @@ Once this is done, you can view the site locally using one of the two links belo
   - [http://localhost:4000](http://localhost:4000)
   - [http://127.0.0.1:4000](http://127.0.0.1:4000)
 
+---
+
 ## Jekyll
 
 
 * Installation docs - http://jekyllrb.com/docs/installation/
 * Basic Usage docs - http://jekyllrb.com/docs/usage/
+
+---
 
 ## Resources:
 * [sort filter to sort numerically in liquid jekyll](https://www.google.com/search?safe=active&client=firefox-b-1-d&ei=XiCdXNb3DpK8sAWK-6boAw&q=sort+filter+to+sort+numerically+in+liquid+jekyll&oq=sort+filter+to+sort+numerically+in+liquid+jekyll&gs_l=psy-ab.3..33i160l2.9527.19529..19785...2.0..0.207.4892.2j35j1......0....1..gws-wiz.......0i71j0i20i263j0j0i22i30j0i22i10i30j33i22i29i30j33i299.xubVoDyv0XM)

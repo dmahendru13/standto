@@ -26,7 +26,7 @@
     {%- include globals/upgrade.html -%}
     {%- include globals/header.html -%}
 
-    <div class="main" role="main">
+    <div class="stand-to {% if page.pageid == 'archived-standto' and thisArchivedStandtoYr < 2017 %}oldarchive{% endif %}">
 
         {%- include masthead.html -%}
         {%- include nav.html -%}

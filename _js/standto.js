@@ -9,7 +9,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
         subnav = document.getElementsByTagName('nav')[0],
         byline = document.querySelector('.byline'),
         subBox = document.querySelector('.sub-box'),
-        standto = document.querySelector('.main .stand-to'),
+        standto = document.querySelector('.stand-to .main'),
         pathName = window.location.pathname,
         unsubDiv = document.getElementsByClassName('unsubscribe-div')[0],
         subHeader = document.querySelector('.results .sjs-results > h5'),
@@ -21,7 +21,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
         archiveSearch = document.querySelector('.stand-to .archive-search-input'),
         socialbarwaypoint = document.getElementsByTagName('footer')[0],
         i;
-    //unsub = document.querySelectorAll('.focus.subnav-selectable.subnav-selected'),
 
     SocialBar.initWaypoint(socialbarwaypoint);
 
@@ -275,9 +274,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                             console.log($(this).text());
                             console.log(i);
                             $(this).delay(100*i).fadeIn('fast', function () {
-                                if ($('.archive-st:not(:visible)').length == 0) $(a).addClass('hidden').remove().fadeOut(400, 'linear', function() {
-                                    this.remove();
-                                });
+                                if ($('.archive-st:not(:visible)').length == 0) $(a).addClass('hidden').remove();
                             });
                         }); return false;
                     });
@@ -393,9 +390,9 @@ var SocialBar = require('./globals/modules/SocialBar'),
     }
 
     // this function is meant to account for different link paths between local, dev, and prod environments.
-    var socialMediaLinks = function () {
+    var shareLinks = function () {
         if (standto) {
-            var tw, fb, rdt, ln, siteHref, pageTitle, socialArr;
+            var tw, fb, rdt, ln, emailLink, route, siteHref, pageTitle, socialArr;
 
             siteHref = window.location.href;
             pageTitle = document.querySelector('.stand-to .focus .container div > h1').textContent;
@@ -412,6 +409,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     fb = document.querySelector('.alt-social-bar .facebook-button a');
                     rdt = document.querySelector('.alt-social-bar .reddit-button a');
                     ln = document.querySelector('.alt-social-bar .linkedin-button a');
+                    emailLink = document.querySelector('.alt-social-bar .email-button a');
 
                     socialArr = [tw, fb, rdt, ln];
                 } else if (document.body.clientWidth <= 768) {
@@ -419,14 +417,16 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     fb = document.querySelector('.social-bar .facebook-button a');
                     rdt = document.querySelector('.social-bar .reddit-button a');
                     ln = document.querySelector('.social-bar .linkedin-button a');
+                    emailLink = document.querySelector('.social-bar .email-button a');
 
                     socialArr = [tw, fb, rdt, ln];
                 }
-                changeUrl(socialArr);
+                changeSocialLinks(socialArr);
+                email(emailLink, siteHref);
             }
 
             // this function takes the a tag from getSocial() function and adds the link specific content
-            function changeUrl(arr) {
+            function changeSocialLinks(arr) {
                 var newSocialArr = [];
 
                 for (var i = 0; i < arr.length; i++) {
@@ -473,9 +473,13 @@ var SocialBar = require('./globals/modules/SocialBar'),
                     }
                 }
             }
+
+            function email(param1, param2) {
+              route = param1.getAttribute('href');
+              route += param2;
+              param1.setAttribute('href', route);
+            }        
         }
     }
-
-    socialMediaLinks();
-
+    shareLinks();
 })();
