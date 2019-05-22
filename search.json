@@ -3,13 +3,14 @@ layout: null
 ---
 [
   {% for post in site.posts %}
-  
-    {
+    
+  {
     
       "title"    : {{ post.title | jsonify }},
       "url"      : {{ post.url | jsonify }},
       "year"     : {{ post.year | jsonify }},
-      "month"    : {{ post.month | jsonify }},
+      "month"    : "{% assign m = post.month %}{% case m %}{% when '01' %}January{% when '02' %}February{% when '03' %}March{% when '04' %}April{% when '05' %}May{% when '06' %}June{% when '07' %}July{% when '08' %}August{% when '09' %}September{% when '10' %}October{% when '11' %}November{% when '12' %}December
+      {% endcase %}",
       "file"     : {{ post.file | jsonify }},
       "date"     : "{%- assign d = post.date | date: "%-d" -%}{%- assign m = post.date | date: "%B" -%}{%- case m -%}{%- when 'April' or 'May' or 'June' or 'July' or 'March' -%}{{ m }}{%- when 'September' -%}Sept.    {%- else -%}{{ post.date | date: "%b" }}. {%- endcase -%}{{d | prepend: " " }}, {{ post.date | date: "%Y" }}",
       "bdy"       : "{% assign dataPath = post.data-path %}{% assign thisYr = post.year | to_integer %}{% assign year = post.year %}{% assign month = post.month %}{% assign file = post.file %}{%- assign bodyContent = site.data.archived-standto[dataPath][year][month][file] -%}{% if dataPath == 'older-archives' %}{{ bodyContent.body | markdownify | strip_html | strip_newlines | escape }}{% elsif dataPath == 'recent-archives' %}{% if bodyContent.body contains "###" %}{{ bodyContent.body | markdownify | strip_html | strip_newlines | escape }}{% else %}{% for body in bodyContent %}{% for heading in body %}{% for item in heading %}{% if item.heading and item.heading != '' %}{{ item.heading | markdownify | strip_html | strip_newlines | escape }}{% endif %}{% if item.paragraph and item.paragraph != '' %}{{ item.paragraph | markdownify | strip_html | strip_newlines | escape }}{% endif %}{% endfor%}{% endfor %}{% endfor %}{% endif %}{% endif %}"

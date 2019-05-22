@@ -27,27 +27,27 @@ title: "TITLE_OF_STAND-TO"
 
 subtitle: "SUBTITLE_OF_STAND-TO"
 
-date: "DAY_OF_THE_WEEK, MONTH DAY, YEAR"
+st_date: "DAY_OF_THE_WEEK, MONTH DAY, YEAR"
 
 # Body content to be added to the left column
 body: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
   - heading: "PLACE HEADING IN PARENTHESIS"
   - paragraph: "PLACE PARAGRAPH IN PARENTHESIS"
-  - list: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
-    - item: "PLACE LIST-ITEM IN PARENTHESIS"
-    - item: "PLACE LIST-ITEM IN PARENTHESIS"
+  - list: |  #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
+    * EACH BULLET POINT IS ADDED IN THIS WAY.
+    * EACH BULLET POINT IS ADDED IN THIS WAY.
 
 # Resources to be added below the left column
 links:
   - section:
     - section-title: "Resources:"
-    - list:
+    - list: |
       - item: >
          * [LINK NAME](LINK_URL)
 # the asterisk (*) creates a list item in markdown
-      - item: >
+      - list: |
          * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
-      - item: >
+      - list: |
          * THIS CAN BE A TITLE WITH A SUBLIST BELOW:
            * [LINK NAME](LINK_URL)
            * [LINK NAME](LINK_URL)
@@ -58,9 +58,9 @@ links:
   - section:
     - section-title: "Social Media presence:"
     - list:
-      - item: >
+      - list: |
          * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
-      - item: >
+      - list: |
          * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
 
 # Quote content to be added before the
@@ -105,7 +105,7 @@ title: "U.S. Army's Marketing Campaign: \"In Our Boots\""
 
 subtitle: "Provided by Army Marketing and Research Group"
 
-date: "Friday, May 17, 2019"
+st_date: "Friday, May 17, 2019"
 
 # Body content to be added to the left column
 body:
@@ -114,21 +114,22 @@ body:
   - heading: "What are the current and past efforts of the Army?"
   - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team."
   - paragraph: "The prospects can follow the following career fields as they lead their teams through high intensity missions:"
-  - list:
-    - item: "Special Operations Sniper"
-    - item: "Explosive Ordnance Disposal Technician"
-    - item: "Tank Commander"
-    - item: "Unmanned Aircraft Systems Operator"
+  - list: |
+      * Special Operations Sniper
+      * Explosive Ordnance Disposal Technician
+      * Tank Commander
+      * Unmanned Aircraft Systems Operator
+
   - paragraph: "The integrated campaign can be experienced through the interactive campaign landing experience (goarmy.com/inourboots) or *In Our Boots* app that will be available for download on iOS, Google Play and Oculus GO stores."
   - paragraph: "Based on consumer data along with predictive analytics, Army Marketing and Research Group (AMRG) has designed a more holistic marketing campaign personalized to reach a specific audience, and is currently being used to reach audiences in the Chicago area."
   - heading: "What continued efforts does the Army have planned?"
   - paragraph: "AMRG will continue to:"
-  - list:
-    - item: "Communicate and inform the Army mission to prospects and their influencers through TV commercials, digital, paid search, billboards, and social media ads."
-    - item: "Market innovative efforts to appeal to prospect audience between the ages of 17-24."
-    - item: "Utilize the personalized and holistic marketing campaign strategy, being used in Chicago, in five other areas to include Boston, Dallas and Minneapolis."
-    - item: "Use digital and social media to engage with prospects and influences and drive them to GoArmy.com."
-    - item: "Market in a strategically integrated way, in order to maximize return on investment."
+  - list: |
+      * Communicate and inform the Army mission to prospects and their influencers through TV commercials, digital, paid search, billboards, and social media ads.
+      * Market innovative efforts to appeal to prospect audience between the ages of 17-24.
+      * Utilize the personalized and holistic marketing campaign strategy, being used in Chicago, in five other areas to include Boston, Dallas and Minneapolis.
+      * Use digital and social media to engage with prospects and influences and drive them to GoArmy.com.
+      * Market in a strategically integrated way, in order to maximize return on investment.
   - heading: "Why is this important to the Army?"
   - paragraph: "*In Our Boots* gives prospective recruits an authentic view into what it is like to step into the boots of a U.S. Army Soldier. By informing the young Americans, the Army gets quality individuals to speak to recruiters and enlist into the Army."
 
@@ -136,23 +137,18 @@ body:
 links:
   - section:
     - section-title: "Resources:"
-    - list:
-      - item: >
-         * [U.S. Army Recruiting Command](https://recruiting.army.mil/)
-      - item: >
-         * [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
-      - item: >
-         * Virtual reality \"In Our Boots\" Apps&#58;
-           * [iOS](http://bit.ly/InOurBootsAppleApp)
-           * [Android](http://bit.ly/InOurBoots)
+    - list: |
+       * [U.S. Army Recruiting Command](https://recruiting.army.mil/)
+       * [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
+       * Virtual reality \"In Our Boots\" Apps&#58;
+         * [iOS](http://bit.ly/InOurBootsAppleApp)
+         * [Android](http://bit.ly/InOurBoots)
 
   - section:
     - section-title: "Social Media presence:"
-    - list:
-      - item: >
-         * [Facebook](https://www.facebook.com/goarmy/) @goarmy
-      - item: >
-         * [Twitter](https://twitter.com/GoArmy) \#InOurBoots
+    - list: |
+       * [Facebook](https://www.facebook.com/goarmy/) @goarmy
+       * [Twitter](https://twitter.com/GoArmy) \#InOurBoots
 
 # Quote content to be added before the
 quote:
@@ -171,7 +167,6 @@ events:
             May 18&#58; Armed Forces Day
         - item: >
             May 27&#58; Memorial Day
-
 ```
 
 ## How to Update the STAND-TO!
@@ -208,7 +203,7 @@ events:
 
             date: DAY_OF_THE_WEEK, MONTH DAY, YEAR
 
-            title: "TITLE_OF_STAND-TO"
+            metaTitle: "TITLE_OF_STAND-TO"
 
               ---
 
@@ -216,7 +211,7 @@ events:
               ```
 
         5. Update the content here to reflect the **title**, **id**, **date**, and be sure to include: `{%- include standto-body.html -%}`. Additionally, `file: ""` here is the day of the ST.
-  
+
   6. **NOTE**, it is very important to use the two-digit convention for both day's & month's.
       * e.g.: `09.json` for the ninth day of the week, or `05` for the month of May.
   7. Next, run the following commands:
