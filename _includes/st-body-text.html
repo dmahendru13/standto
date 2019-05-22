@@ -7,25 +7,17 @@
 
         <!-- If there is a heading object, it prints the heading here: -->
         {%- if a.heading and a.heading != "" -%}
-            <p><strong>{{ a.heading | markdownify }}</strong></p>
+          <p><strong>{{ a.heading }}</strong></p>
         {%- endif -%}
 
         <!-- If there is a paragraph object, it prints the paragraph here: -->
         {%- if a.paragraph and a.paragraph != "" -%}
-            <p>{{ a.paragraph | markdownify }}</p>
+          {{ a.paragraph | markdownify }}
         {%- endif -%}
 
         <!-- If there is a list object, it prints the list here: -->
         {%- if a.list and a.list != "" -%}
-            <ul>
-                
-                {%- for li in a.list -%}
-                    {%- if li -%}
-                        <li>{{ li.item | markdownify }}</li>
-                    {%- endif -%}
-                {%- endfor -%}
-
-            </ul>
+          {{ a.list | markdownify }}
         {%- endif -%}
 
     {%- endfor -%}
@@ -36,21 +28,13 @@
 
             {%- for title in b.section -%}
 
+              {% if title.section-title and title.section-title != "" %}
                 <h5>{{ title.section-title }}</h5>
+              {% endif %}
 
-                <ul>
-
-                    {%- if title.list -%}
-
-                        {%- for link in title.list -%}
-
-                          {{ link.item | replace: '|', "&#124;" | markdownify }}
-
-                        {%- endfor -%}
-
-                    {%- endif -%}
-
-                </ul>
+              {% if title.list %}
+                {{ title.list | markdownify }}
+              {% endif %}
 
             {%- endfor -%}
 
@@ -64,25 +48,17 @@
     {%- for a in body -%}
 
         {%- if a.heading and a.heading != "" -%}
-        <p><strong>{{ a.heading | markdownify }}</strong></p>
+          <p><strong>{{ a.heading }}</strong></p>
         {%- endif -%}
 
         <!-- If there is a paragraph object, it prints the paragraph here: -->
         {%- if a.paragraph  and a.paragraph != "" -%}
-            <p>{{ a.paragraph | markdownify }}</p>
+          {{ a.paragraph | markdownify }}
         {%- endif -%}
 
         <!-- If there is a list object, it prints the list here: -->
         {%- if a.list and a.list != "" -%}
-            <ul>
-            
-            {%- for li in a.list -%}
-                {%- if li -%}
-                    <li>{{ li.item | markdownify }}</li>
-                {%- endif -%}
-            {%- endfor -%}
-
-            </ul>
+          {{ a.list | markdownify }}
         {%- endif -%}
 
     {%- endfor -%}
@@ -93,7 +69,9 @@
 
             {%- for title in b.section -%}
 
-                <h5>{{ title.section-title }}</h5>
+                {% if title.section-title and title.section-title != "" %}
+                  <h5>{{ title.section-title }}</h5>
+                {% endif %}
 
                 <ul>
 
@@ -101,7 +79,7 @@
 
                       {%- for link in title.list -%}
 
-                      {{ link.item | replace: '|', "&#124;" | markdownify }}
+                      <li>{{ link.item | replace: '|', "&#124;" | markdownify }}</li>
 
                     {%- endfor -%}
 

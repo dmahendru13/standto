@@ -180,7 +180,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
     var hide = function (func) {
       var inputSearch = false;
       var veritas = '';
-      if (archiveSearch.value === '') {
+      if (archiveSearch.value == '' || archiveSearch.value.length == 0) {
         inputSearch = true;
         if (inputSearch) {
           veritas = true;
@@ -194,8 +194,8 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
     // Hide archive page results when using SJS
     var hideSearchResults = function () {
-      var baseVeritas = function (veritas) {
 
+      var baseVeritas = function (veritas) {
         if (!veritas) {
           $(ar_results).addClass('hidden');
           $(sjs_results).removeClass('hidden');
@@ -209,17 +209,17 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
     // Formats text for search results "XX results For 'F'"
     var displaySearchValue = function () {
-      var count, text, searchArchives, result, no_results, archiveResultsLength;
+      var count, text, archiveSearchValue, result, no_results, archiveResultsLength;
 
       text = document.getElementById('search-text');
       count = document.getElementById('results-count');
       result = document.getElementById('results');
       no_results = document.querySelector('#results-container > .no-results');
-      searchArchives = document.querySelector('.archive-search .search-box .archive-search-input').value;
+      archiveSearchValue = archiveSearch.value;
       archiveResultsLength = document.querySelectorAll('#results-container .archive-st');
 
       if (!no_results) {
-        text.textContent = searchArchives;
+        text.textContent = archiveSearchValue;
         count.textContent = archiveResultsLength.length;
 
         if (archiveResultsLength.length == 1) {
@@ -229,7 +229,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
         }
       } else {
         $('.sjs-results > h5').addClass('hidden');
-        $('.sjs-results > h2').addClass('hidden');
       }
 
       expandSearchResults(archiveResultsLength);
@@ -271,9 +270,6 @@ var SocialBar = require('./globals/modules/SocialBar'),
           if ($('.sjs-results > h5').hasClass('hidden')) {
             $('.sjs-results > h5').removeClass('hidden');
           }
-          if ($('.sjs-results > h2').hasClass('hidden')) {
-            $('.sjs-results > h2').removeClass('hidden');
-          }
         }
       });
 
@@ -284,14 +280,30 @@ var SocialBar = require('./globals/modules/SocialBar'),
         childList: true
       };
 
+      // These functions are called everytime there is a change to the #results-container
       var archive = function () {
         displaySearchValue();
+
+        var magGlass = document.querySelector('#standto_search_form button');
+
+        magGlass.addEventListener('click', function () {
+          this.setAttribute('type', 'button');
+          archiveSearch.value = '';
+          hideSearchResults();
+        });
+
+        if (archiveSearch.value != '') {
+          magGlass.setAttribute('type', 'reset');
+        } else {
+          magGlass.setAttribute('type', 'button');
+        }
       }
 
       var observer = new MutationObserver(archive);
 
       observer.observe(target, config);
       // Watching for DOM manipulation
+
     });
 
     // format url path for sjs below.
