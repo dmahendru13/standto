@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>U.S. Army STAND-TO! &#124; {{ page.metaTitle }}</title>
+    <title>U.S. Army STAND-TO! &#124; {{ page.title }}</title>
     <meta name="keywords" content="STAND-TO!, standto, Army newsletter, information paper, Army senior leaders, senior leaders, official focus US Army, focus, command information, command, Leaders, US Army, Army, Public Affairs, early bird" />
     <meta name="description" content="STAND-TO! provides the official focus of the US Army." />
 
     <meta property="og:image" content="https://www.army.mil/e2/images/rv7/standto_ogimageh.jpg" />
     <meta property="og:title" content="STAND-TO!" />
-    <meta property="og:site_name" content="{{ page.metatitle }}" />
-    <meta property="og:description" content="{%- if page.description -%}{{page.description}}{%- else -%}{{page.metaTitle}}{%- endif -%}" />
+    <meta property="og:site_name" content="www.army.mil" />
+    <meta property="og:description" content="STAND-TO! provides the official focus of the US Army." />
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.army.mil/standto/{{ page.id }}">
-    <link rel="canonical" href="https://www.army.mil/standto/{{ page.id }}">
+    <meta property="og:url" content="{{ site.url }}">
+    <link rel="canonical" href="https://www.army.mil/standto{% if page.permalink %}{{ page.permalink }}{% else %}/{% endif %}">
     <link rel="stylesheet" href="/e2/css/rv7/standto/style.css" type="text/css">
     <link rel="apple-touch-icon" href="/e2/images/rv7/army_star_icon_60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/e2/images/rv7/army_star_icon_76.png">
@@ -26,14 +26,13 @@
     {%- include globals/upgrade.html -%}
     {%- include globals/header.html -%}
 
-    <div class="main" role="main">
+    <div class="stand-to {% if page.pageid == 'archived-standto' and thisArchivedStandtoYr < 2017 %}oldarchive{% endif %}">
 
         {%-include masthead.html -%}
         {%-include nav.html -%}
 
         {{ content }}
 
-    
     </div>
     {%-include globals/footer.html -%}
     {%-include mbl-social.html -%}

@@ -7,7 +7,7 @@ The Following tools must be installed to host the site:
 0. node.js
 1. grunt.js
 2. Ruby
-3. Sass  
+3. Sass
 4. jekyll
 
 ## Installation
@@ -23,11 +23,11 @@ sudo npm install
 ```yaml
 id: "YEAR-MONTH-DAY"
 
-title: TITLE_OF_STAND-TO
+title: "TITLE_OF_STAND-TO"
 
-subtitle: SUBTITLE_OF_STAND-TO
+subtitle: "SUBTITLE_OF_STAND-TO"
 
-date: DAY_OF_THE_WEEK, MONTH DAY, YEAR
+date: "DAY_OF_THE_WEEK, MONTH DAY, YEAR"
 
 # Body content to be added to the left column
 body: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
@@ -36,18 +36,37 @@ body: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
   - list: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
     - item: "PLACE LIST-ITEM IN PARENTHESIS"
     - item: "PLACE LIST-ITEM IN PARENTHESIS"
+
 # Resources to be added below the left column
 links:
   - section:
-    - section-title: SECTION_TITLE
+    - section-title: "Resources:"
     - list:
-      - link: >
-          [LINK NAME](LINK_URL)
+      - item: >
+         * [LINK NAME](LINK_URL)
+# the asterisk (*) creates a list item in markdown
+      - item: >
+         * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
+      - item: >
+         * THIS CAN BE A TITLE WITH A SUBLIST BELOW:
+           * [LINK NAME](LINK_URL)
+           * [LINK NAME](LINK_URL)
+# using the above method, it creates a list, with a sublist as can be seen here:
+# https://www.army.mil/standto/2019-05-17
+# the list that I am referring to is under: Virtual reality "In Our Boots" Apps:
+
+  - section:
+    - section-title: "Social Media presence:"
+    - list:
+      - item: >
+         * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
+      - item: >
+         * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
 
 # Quote content to be added before the
 quote:
   - heading: "PLACE HEADING IN PARENTHESIS"
-  - blockquote: "PLACE BLOCKQUOTE IN PARENTHESIS"
+  - blockquote: "PLACE BLOCK QUOTE IN PARENTHESIS"
   - source: "PLACE SOURCE IN PARENTHESIS"
   - link: >
       [LINK NAME](LINK_URL)
@@ -63,8 +82,6 @@ events:
             This is how you would write just plain text.
         - item: >
             [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
-        - item: >
-          If you have a colon (:) after a word, the preceding words will turn red and the following word will remain yellow. This is a known issue and will not break the site.
 
   - section:
       - date: MONTH YEAR
@@ -74,28 +91,109 @@ events:
 
 ```
 
+  - **Note**, while using a colon (:) will not strictly speaking break the ST/the yml data file, it will throw off the color scheme. That said, it is **strongly** recommended that within a section that you *do not* use parenthesis to enclose the text (i.e., title, subtitle, the links section or the events section), replace the colon (:) with the HTML encoding:
+    - `&#58;`
+  - If you need to add a link to the body in a heading/paragraph/list, simply add it similarly to how it is added in the quote or events section:
+    - `[LINK NAME](LINK_URL)`
 
-  - If you need to add a link to the body in either a heading/paragraph/list, simply add it similarly to how it is added in the quote or events section:
-   - `[LINK NAME](LINK_URL)`
+## Sample YML File:
+
+```YML
+id: "2019-05-17"
+
+title: "U.S. Army's Marketing Campaign: \"In Our Boots\""
+
+subtitle: "Provided by Army Marketing and Research Group"
+
+date: "Friday, May 17, 2019"
+
+# Body content to be added to the left column
+body:
+  - heading: "What is it?"
+  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team."
+  - heading: "What are the current and past efforts of the Army?"
+  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team."
+  - paragraph: "The prospects can follow the following career fields as they lead their teams through high intensity missions:"
+  - list:
+    - item: "Special Operations Sniper"
+    - item: "Explosive Ordnance Disposal Technician"
+    - item: "Tank Commander"
+    - item: "Unmanned Aircraft Systems Operator"
+  - paragraph: "The integrated campaign can be experienced through the interactive campaign landing experience (goarmy.com/inourboots) or *In Our Boots* app that will be available for download on iOS, Google Play and Oculus GO stores."
+  - paragraph: "Based on consumer data along with predictive analytics, Army Marketing and Research Group (AMRG) has designed a more holistic marketing campaign personalized to reach a specific audience, and is currently being used to reach audiences in the Chicago area."
+  - heading: "What continued efforts does the Army have planned?"
+  - paragraph: "AMRG will continue to:"
+  - list:
+    - item: "Communicate and inform the Army mission to prospects and their influencers through TV commercials, digital, paid search, billboards, and social media ads."
+    - item: "Market innovative efforts to appeal to prospect audience between the ages of 17-24."
+    - item: "Utilize the personalized and holistic marketing campaign strategy, being used in Chicago, in five other areas to include Boston, Dallas and Minneapolis."
+    - item: "Use digital and social media to engage with prospects and influences and drive them to GoArmy.com."
+    - item: "Market in a strategically integrated way, in order to maximize return on investment."
+  - heading: "Why is this important to the Army?"
+  - paragraph: "*In Our Boots* gives prospective recruits an authentic view into what it is like to step into the boots of a U.S. Army Soldier. By informing the young Americans, the Army gets quality individuals to speak to recruiters and enlist into the Army."
+
+# Resources to be added below the left column
+links:
+  - section:
+    - section-title: "Resources:"
+    - list:
+      - item: >
+         * [U.S. Army Recruiting Command](https://recruiting.army.mil/)
+      - item: >
+         * [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
+      - item: >
+         * Virtual reality \"In Our Boots\" Apps&#58;
+           * [iOS](http://bit.ly/InOurBootsAppleApp)
+           * [Android](http://bit.ly/InOurBoots)
+
+  - section:
+    - section-title: "Social Media presence:"
+    - list:
+      - item: >
+         * [Facebook](https://www.facebook.com/goarmy/) @goarmy
+      - item: >
+         * [Twitter](https://twitter.com/GoArmy) \#InOurBoots
+
+# Quote content to be added before the
+quote:
+  - heading: "Focus Quote for the Day"
+  - blockquote: "Readiness is the Army's #1 priority, and readiness starts with recruiting. We're modernizing our approach to connect with today's youth, through sports, functional fitness, and social media where Generation Z's are communicating. We have to connect with people where they are to find those qualified individuals for Army service."
+  - source: "Maj Gen. Frank M. Muth, commander, U.S. Army Recruiting Command"
+
+# Events to be added to the right column
+events:
+  - section:
+      - date: MAY 2019
+      - content:
+        - item: >
+            National Asian Pacific Heritage Month | Visit [Asian Pacific Americans in the U.S. Army](https://www.army.mil/asianpacificamericans?st)
+        - item: >
+            May 18&#58; Armed Forces Day
+        - item: >
+            May 27&#58; Memorial Day
+
+```
 
 ## How to Update the STAND-TO!
   1. Copy content from [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/tree/master/_data/current-standto)
   2. Create new file in [_data/archived-standto/recent-archives/{CURRENT_YEAR}](https://github.com/armydotmil/standto/tree/master/_data/archived-standto/recent-archives/2019)
-   * The {CURRENT_YEAR} is the current calendar year
+      * The {CURRENT_YEAR} is the current calendar year
       * e.g.: [_data/archived-standto/recent-archives/2019](https://github.com/armydotmil/standto/tree/master/_data/archived-standto/recent-archives/2019)
-   * The naming convention for the ST data files is: `[day].yml`
+      * The naming convention for the ST data files is: `[day].yml`
       * e.g.:  `02.json` for the second day of the month.
   3. After you have created a new .json file, paste the content from `_data/current-standto/todays-focus.yml` into it.
   4. Once that is done, populate [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/blob/master/_data/current-standto/todays-focus.yml) with the new ST content.
   5.  Next, go to the `_posts` directory in the root.
       * You should be able to accomplish this by clicking on [standto](https://github.com/armydotmil/standto) at the top of the page.
-      * Once at the root, look for the corresponding directory name that matches the `year` of the ST that you just moved to the `_data/archived-standto/recent-archives/{CURRENT_YEAR}` in steps 2-3.
-          1. Click on and enter folder for the correct year.
-          2. Select the correct, corresponding month and create a new file for the now archived ST
-          3. Use the following naming convention `YEAR-MONTH-DAY-st.html`
-             * `2019-05-02-st.html`
-          4. Within this newly created file, paste the following content:
-            ~~~~
+  6.  Once at the root, look for the corresponding directory name that matches the `year` of the ST that you just moved to the `_data/archived-standto/recent-archives/{CURRENT_YEAR}` in steps 2-3.
+
+        1. Click on and enter folder for the correct year.
+        2. Select the correct, corresponding month and create a new file for the now archived ST
+        3. Use the following naming convention `YEAR-MONTH-DAY-st.html`
+           * `2019-05-02-st.html`
+        4. Within this newly created file, paste the following content:
+
+            ```
               ---
 
               layout: default
@@ -110,13 +208,15 @@ events:
 
             date: DAY_OF_THE_WEEK, MONTH DAY, YEAR
 
-            metaTitle: "TITLE_OF_STAND-TO"
+            title: "TITLE_OF_STAND-TO"
 
               ---
 
               {%- include standto-body.html -%}
-              ~~~~
-              Update the content here to reflect the **title**, **id**, **date**, and be sure to include: `{%- include standto-body.html -%}`. Additionally, `file: ""` here is the day of the ST.
+              ```
+
+        5. Update the content here to reflect the **title**, **id**, **date**, and be sure to include: `{%- include standto-body.html -%}`. Additionally, `file: ""` here is the day of the ST.
+  
   6. **NOTE**, it is very important to use the two-digit convention for both day's & month's.
       * e.g.: `09.json` for the ninth day of the week, or `05` for the month of May.
   7. Next, run the following commands:

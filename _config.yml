@@ -18,5 +18,7 @@ jekyll-minifier:
 
 title: StandTo
 
-# serve multiple jekyll sites locally:
-# https://github.com/jekyll/jekyll/issues/5862
+# Jekyll CMS:
+## Jekyll-Admin
+### https://blog.greggant.com/posts/2017/11/07/setting-up-jekyll-admin.html
+## Jekyll DatoCMS: https://www.datocms.com/cms/jekyll/
