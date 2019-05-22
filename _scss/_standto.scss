@@ -338,12 +338,15 @@
 
     .archive-search-results {
       .results {
+        .sjs-results > h5, .ar-results > h5 {
+          margin-bottom: 35px;
+        }
+
         h2 {
           margin: 0 0 20px;
         }
 
         .headlines {
-          margin-top: 35px;
 
           #results-container {
             .no-results {

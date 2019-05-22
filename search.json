@@ -6,7 +6,7 @@ layout: null
   
     {
     
-      "title"    : {{ post.metaTitle | jsonify }},
+      "title"    : {{ post.title | jsonify }},
       "url"      : {{ post.url | jsonify }},
       "year"     : {{ post.year | jsonify }},
       "month"    : {{ post.month | jsonify }},

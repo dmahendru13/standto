@@ -208,7 +208,7 @@ events:
 
             date: DAY_OF_THE_WEEK, MONTH DAY, YEAR
 
-            metaTitle: "TITLE_OF_STAND-TO"
+            title: "TITLE_OF_STAND-TO"
 
               ---
 

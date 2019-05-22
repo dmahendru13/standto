@@ -286,10 +286,14 @@ var SocialBar = require('./globals/modules/SocialBar'),
 
         var magGlass = document.querySelector('#standto_search_form button');
 
-        magGlass.addEventListener('click', function () {
-          this.setAttribute('type', 'button');
-          archiveSearch.value = '';
-          hideSearchResults();
+        magGlass.addEventListener('click', function (e) {
+          if (magGlass.getAttribute('type') === 'button') {
+            e.preventDefault();
+          } else {
+            this.setAttribute('type', 'button');
+            archiveSearch.value = '';
+            hideSearchResults();
+          }
         });
 
         if (archiveSearch.value != '') {
@@ -345,7 +349,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
       resultsContainer: document.getElementById('results-container'),
       json: searchPath() + 'search.json',
       searchResultTemplate: '<li class="archive-st"><span class="date">{date}</span><a class="article-link" href="' + urlPath() + '{url}">{title}</a></li>',
-      noResultsText: '<div class="no-results"><h2>No Results</h2><p>Sorry, We couldn&#39;t find anything that matches your search. Please try again.</p></div>',
+      noResultsText: '<div class="no-results"><h2>No Results</h2><p>Sorry, we couldn&#39;t find anything that matches your search. Please try again.</p></div>',
       limit: 50,
       fuzzy: false
     });
