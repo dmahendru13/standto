@@ -313,10 +313,8 @@ var SocialBar = require('./globals/modules/SocialBar'),
     // format url path for sjs below.
     var searchPath = function () {
       if (pathName === '/' || pathName === '/standto/') {
-        console.log(pathName);
         return './';
       } else {
-        console.log(pathName);
         return '../';
       }
     }
