@@ -109,7 +109,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-banner');
 
     grunt.registerTask('production', ['browserify', 'uglify', 'sass']);
-    // grunt.registerTask('production', ['uglify', 'sass']);
 
     grunt.registerTask('post-production', ['usebanner', 'critical']);
 
