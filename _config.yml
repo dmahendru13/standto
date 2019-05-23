@@ -18,6 +18,11 @@ jekyll-minifier:
 
 title: StandTo
 
+jekyll_admin:
+  hidden_links:
+    - staticfiles
+    - configuration
+
 # Jekyll CMS:
 ## Jekyll-Admin
 ### https://blog.greggant.com/posts/2017/11/07/setting-up-jekyll-admin.html
