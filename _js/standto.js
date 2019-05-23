@@ -380,6 +380,16 @@ var SocialBar = require('./globals/modules/SocialBar'),
     formatBullets();
   }
 
+  // Changes placeholder text for archive search based on screen size
+  $(window).on('load resize', function () {
+    var test = document.querySelector('.archive-search-input');
+    if (document.body.clientWidth <= 409) {
+      test.setAttribute('placeholder', 'SEARCH ARCHIVES...');
+    } else {
+      test.setAttribute('placeholder', 'SEARCH STAND-TO! ARCHIVES...');
+    }
+  });
+
   // this function is meant to account for different link paths between local, dev, and prod environments.
   var shareLinks = function () {
     if (standto) {
