@@ -27,7 +27,7 @@ title: "TITLE_OF_STAND-TO"
 
 subtitle: "SUBTITLE_OF_STAND-TO"
 
-date: "DAY_OF_THE_WEEK, MONTH DAY, YEAR"
+st_date: "DAY_OF_THE_WEEK, MONTH DAY, YEAR"
 
 # Body content to be added to the left column
 body: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
@@ -105,7 +105,7 @@ title: "U.S. Army's Marketing Campaign: \"In Our Boots\""
 
 subtitle: "Provided by Army Marketing and Research Group"
 
-date: "Friday, May 17, 2019"
+st_date: "Friday, May 17, 2019"
 
 # Body content to be added to the left column
 body:
@@ -203,7 +203,7 @@ events:
 
             date: DAY_OF_THE_WEEK, MONTH DAY, YEAR
 
-            metaTitle: "TITLE_OF_STAND-TO"
+            title: "TITLE_OF_STAND-TO"
 
               ---
 
@@ -214,6 +214,12 @@ events:
 
   6. **NOTE**, it is very important to use the two-digit convention for both day's & month's.
       * e.g.: `09.json` for the ninth day of the week, or `05` for the month of May.
+  7. **NOTE**,  when adding Markdown to the lists in the yaml template, there may be some syntax highlighting that appears to break the page, but does not actually do so.
+    ```yaml  
+      - list: |
+      * **Developing a Tenant Bill of Rights**&#58; The Army is working in collaboration with the Air Force and Navy to develop a Tenant Bill of Rights which will be shared with residents for input and feedback before the final document is published.  The Bill of Rights is a step forward in ensuring quality housing for service members and families as well as accountability at all levels of service -- from maintenance to oversight.
+      ```
+        * The above combination of: `* **` will cause the yaml to display incorrectly (It should appear as yellow text but in this case will appear as a combination of white, red, and yellow. This **will not** break the file.
   7. Next, run the following commands:
       ```bash
         bundle exec jekyll build

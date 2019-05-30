@@ -11,9 +11,12 @@ body:
   - heading: "What is it?"
   - paragraph: "Residential Communities Initiative, or RCI, is the Army's privatized housing program in the United States. RCI includes seven companies who manage housing on Army installations. There are 34 RCI projects in the U.S. encompassing 49 locations. The Army's privatized housing inventory consists of 87,000 homes. The current occupancy rate is higher than it has ever been. Fort Carson is the Army's oldest RCI project and is celebrating 20 years in 2019." 
   - heading: "What are the current and past efforts of the Army?"
-  - paragraph: "The Army is engaged with privatized housing companies at the highest level of leadership. As such, the Army is working in collaboration with the Air Force and Navy to develop a Tenant Bill of Rights which will be shared with residents for input and feedback before the final document is published. The Bill of Rights is a step forward in ensuring quality housing for service members and families as well as accountability at all levels of service -- from maintenance to oversight."
-  - paragraph: "Additionally, the Army is re-negotiating the incentive fee structure with the housing companies, a strategic move that enables garrison commanders to strengthen performance and ensure high caliber services are consistently provided. By monitoring customer satisfaction and work order completion rates, garrison commanders are able to measure resident satisfaction."
-  - paragraph: "There is also a renewed emphasis on training for Army leaders who manage installations and work with RCI companies. Army hotlines have been established at each installation to report housing related issues. Each RCI partner has developed a mobile app intended to improve communication flow."
+  - paragraph: "The Army is engaged with privatized housing companies at the highest level of leadership and working continuously to enhance the program. Recent developments include the following."
+  - list: |
+      * **Developing a Tenant Bill of Rights**&#58; The Army is working in collaboration with the Air Force and Navy to develop a Tenant Bill of Rights which will be shared with residents for input and feedback before the final document is published.  The Bill of Rights is a step forward in ensuring quality housing for service members and families as well as accountability at all levels of service -- from maintenance to oversight.
+      * **Re-negotiating the Incentive Fee Structure**&#58; The Army is re-negotiating the incentive fee structure with the housing companies, a strategic move that enables garrison commanders to strengthen performance and ensure high caliber services are consistently provided.  By monitoring customer satisfaction and work order completion rates, garrison commanders are able to measure resident satisfaction.
+      * **Training for Army Leaders**&#58; There is renewed emphasis on training for Army leaders who manage installations and work with RCI companies.
+      * **Hotlines and Mobile Apps**&#58; Army hotlines have been established at each installation to report housing related issues.  Each RCI partner has developed a mobile app intended to improve communication flow.
   - heading: "What continued efforts does the Army have planned?"
   - paragraph: "The Army will continue to work alongside privatized housing company leaders and staff to ensure excellent housing and housing related services. The project companies will carefully invest in privatized housing that is as good as, or better than, off post rental housing. Investments in the next five years are targeted at new home construction or major renovations of existing homes."
   - heading: "Why is this important to the Army?"
@@ -27,6 +30,13 @@ links:
        * [ASA (IE&E) ACSIM: Army Housing](https://www.housing.army.mil/)
        * [Residential Communities Initiative](https://www.rci.army.mil/)
        * [STAND-TO!&#58; Army Barracks Management Program](https://www.army.mil/standto/archive_2018-02-21)
+       * [Housing executives, Army leaders discuss plan of action](https://www.army.mil/article/221343/)
+       * [Army to conduct survey gauging resident satisfaction with privatized housing](https://www.army.mil/article/220666/)
+    - section-title: "Related STAND-TO!:"
+    - list: |
+       * [Army Barracks Management Program](https://www.army.mil/standto/archive_2018-02-21)
+    - section-title: "Related articles:"
+    - list: |
        * [Housing executives, Army leaders discuss plan of action](https://www.army.mil/article/221343/)
        * [Army to conduct survey gauging resident satisfaction with privatized housing](https://www.army.mil/article/220666/)
 

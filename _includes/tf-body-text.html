@@ -16,6 +16,7 @@
 
                 {%- assign body = standto-data.body -%}
 
+                <!-- This logic checks to see if the provided data file is either json or yaml and displays the content accordingly -->
                 {%- if body contains "#######" -%}
                 {{ body | replace: "#######" , "<p class='byline'>"
                                 | replace_first: "**", "</p>**"
