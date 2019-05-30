@@ -1,53 +1,44 @@
-id: "2019-05-17"
+id: "2019-05-24"
 
-title: "U.S. Army's Marketing Campaign: \"In Our Boots\""
+title: "Privatized Army Housing: Residential Communities Initiative"
 
-subtitle: "Provided by Army Marketing and Research Group"
+subtitle: "Provided by Assistant Secretary of the Army, Installations, Energy and Environment"
 
-st_date: "Friday, May 17, 2019"
+date: "Friday, May 24, 2019"
 
 # Body content to be added to the left column
 body:
   - heading: "What is it?"
-  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team." 
+  - paragraph: "Residential Communities Initiative, or RCI, is the Army's privatized housing program in the United States. RCI includes seven companies who manage housing on Army installations. There are 34 RCI projects in the U.S. encompassing 49 locations. The Army's privatized housing inventory consists of 87,000 homes. The current occupancy rate is higher than it has ever been. Fort Carson is the Army's oldest RCI project and is celebrating 20 years in 2019." 
   - heading: "What are the current and past efforts of the Army?"
-  - paragraph: "*In Our Boots* is the U.S. Army's new recruitment marketing effort for prospective recruits. This is an immersive virtual reality experience to inspire and inform brave young men and women when it comes to considering a future in the U.S. Army. By engaging with *In Our Boots*, the young Americans will experience, what it is like to be an Army Soldier on a mission with their team."
-  - paragraph: "The prospects can follow the following career fields as they lead their teams through high intensity missions:"
+  - paragraph: "The Army is engaged with privatized housing companies at the highest level of leadership and working continuously to enhance the program. Recent developments include the following."
   - list: |
-      * Special Operations Sniper
-      * Explosive Ordnance Disposal Technician
-      * Tank Commander
-      * Unmanned Aircraft Systems Operator
-
-  - paragraph: "The integrated campaign can be experienced through the interactive campaign landing experience (goarmy.com/inourboots) or *In Our Boots* app that will be available for download on iOS, Google Play and Oculus GO stores."
-  - paragraph: "Based on consumer data along with predictive analytics, Army Marketing and Research Group (AMRG) has designed a more holistic marketing campaign personalized to reach a specific audience, and is currently being used to reach audiences in the Chicago area."
+      * **Developing a Tenant Bill of Rights**&#58; The Army is working in collaboration with the Air Force and Navy to develop a Tenant Bill of Rights which will be shared with residents for input and feedback before the final document is published.  The Bill of Rights is a step forward in ensuring quality housing for service members and families as well as accountability at all levels of service -- from maintenance to oversight.
+      * **Re-negotiating the Incentive Fee Structure**&#58; The Army is re-negotiating the incentive fee structure with the housing companies, a strategic move that enables garrison commanders to strengthen performance and ensure high caliber services are consistently provided.  By monitoring customer satisfaction and work order completion rates, garrison commanders are able to measure resident satisfaction.
+      * **Training for Army Leaders**&#58; There is renewed emphasis on training for Army leaders who manage installations and work with RCI companies.
+      * **Hotlines and Mobile Apps**&#58; Army hotlines have been established at each installation to report housing related issues.  Each RCI partner has developed a mobile app intended to improve communication flow.
   - heading: "What continued efforts does the Army have planned?"
-  - paragraph: "AMRG will continue to:"
-  - list: |
-      * Communicate and inform the Army mission to prospects and their influencers through TV commercials, digital, paid search, billboards, and social media ads.
-      * Market innovative efforts to appeal to prospect audience between the ages of 17-24.
-      * Utilize the personalized and holistic marketing campaign strategy, being used in Chicago, in five other areas to include Boston, Dallas and Minneapolis.
-      * Use digital and social media to engage with prospects and influences and drive them to GoArmy.com.
-      * Market in a strategically integrated way, in order to maximize return on investment.
+  - paragraph: "The Army will continue to work alongside privatized housing company leaders and staff to ensure excellent housing and housing related services. The project companies will carefully invest in privatized housing that is as good as, or better than, off post rental housing. Investments in the next five years are targeted at new home construction or major renovations of existing homes."
   - heading: "Why is this important to the Army?"
-  - paragraph: "*In Our Boots* gives prospective recruits an authentic view into what it is like to step into the boots of a U.S. Army Soldier. By informing the young Americans, the Army gets quality individuals to speak to recruiters and enlist into the Army."
+  - paragraph: "The enduring obligation of the Army is to take care of people -- Soldiers and their families. Housing is a significant quality of life issue and therefore a focus area when it comes to readiness and retention."
 
 # Resources to be added below the left column
 links:
   - section: 
     - section-title: "Resources:"
     - list: |
-       * [U.S. Army Recruiting Command](https://recruiting.army.mil/)
-       * [In our Boots&#58; Interactive missions](https://www.goarmy.com/inourboots/index.html/missions)
-       * Virtual reality \"In Our Boots\" Apps&#58;
-         * [iOS](http://bit.ly/InOurBootsAppleApp)
-         * [Android](http://bit.ly/InOurBoots)
-
-  - section:
-    - section-title: "Social Media presence:"
+       * [ASA (IE&E) ACSIM: Army Housing](https://www.housing.army.mil/)
+       * [Residential Communities Initiative](https://www.rci.army.mil/)
+       * [STAND-TO!&#58; Army Barracks Management Program](https://www.army.mil/standto/archive_2018-02-21)
+       * [Housing executives, Army leaders discuss plan of action](https://www.army.mil/article/221343/)
+       * [Army to conduct survey gauging resident satisfaction with privatized housing](https://www.army.mil/article/220666/)
+    - section-title: "Related STAND-TO!:"
     - list: |
-       * [Facebook](https://www.facebook.com/goarmy/) @goarmy
-       * [Twitter](https://twitter.com/GoArmy) \#InOurBoots
+       * [Army Barracks Management Program](https://www.army.mil/standto/archive_2018-02-21)
+    - section-title: "Related articles:"
+    - list: |
+       * [Housing executives, Army leaders discuss plan of action](https://www.army.mil/article/221343/)
+       * [Army to conduct survey gauging resident satisfaction with privatized housing](https://www.army.mil/article/220666/)
 
 # Quote content to be added before the 
 quote: 

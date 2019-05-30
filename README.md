@@ -175,6 +175,7 @@ events:
       * The {CURRENT_YEAR} is the current calendar year
       * e.g.: [_data/archived-standto/recent-archives/2019](https://github.com/armydotmil/standto/tree/master/_data/archived-standto/recent-archives/2019)
       * The naming convention for the ST data files is: `[day].yml`
+        * While all of or most of the other data files are saved as json files, the ST which is moved from `_data/current-standto` will need to be saved as a .yml file because the content of that file is in the yml format.
       * e.g.:  `02.json` for the second day of the month.
   3. After you have created a new .json file, paste the content from `_data/current-standto/todays-focus.yml` into it.
   4. Once that is done, populate [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/blob/master/_data/current-standto/todays-focus.yml) with the new ST content.
@@ -203,7 +204,7 @@ events:
 
             date: DAY_OF_THE_WEEK, MONTH DAY, YEAR
 
-            metaTitle: "TITLE_OF_STAND-TO"
+            title: "TITLE_OF_STAND-TO"
 
               ---
 
@@ -214,6 +215,12 @@ events:
 
   6. **NOTE**, it is very important to use the two-digit convention for both day's & month's.
       * e.g.: `09.json` for the ninth day of the week, or `05` for the month of May.
+  7. **NOTE**,  when adding Markdown to the lists in the yaml template, there may be some syntax highlighting that appears to break the page, but does not actually do so.
+    ```yaml  
+      - list: |
+      * **Developing a Tenant Bill of Rights**&#58; The Army is working in collaboration with the Air Force and Navy to develop a Tenant Bill of Rights which will be shared with residents for input and feedback before the final document is published.  The Bill of Rights is a step forward in ensuring quality housing for service members and families as well as accountability at all levels of service -- from maintenance to oversight.
+      ```
+        * The above combination of: `* **` will cause the yaml to display incorrectly (It should appear as yellow text but in this case will appear as a combination of white, red, and yellow. This **will not** break the file.
   7. Next, run the following commands:
       ```bash
         bundle exec jekyll build
