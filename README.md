@@ -27,7 +27,7 @@ title: "TITLE_OF_STAND-TO"
 
 subtitle: "SUBTITLE_OF_STAND-TO"
 
-st_date: "DAY_OF_THE_WEEK, MONTH DAY, YEAR"
+date: "DAY_OF_THE_WEEK, MONTH DAY, YEAR"
 
 # Body content to be added to the left column
 body: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
@@ -105,7 +105,7 @@ title: "U.S. Army's Marketing Campaign: \"In Our Boots\""
 
 subtitle: "Provided by Army Marketing and Research Group"
 
-st_date: "Friday, May 17, 2019"
+date: "Friday, May 17, 2019"
 
 # Body content to be added to the left column
 body:

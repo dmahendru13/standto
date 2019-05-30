@@ -27,3 +27,10 @@ jekyll_admin:
 ## Jekyll-Admin
 ### https://blog.greggant.com/posts/2017/11/07/setting-up-jekyll-admin.html
 ## Jekyll DatoCMS: https://www.datocms.com/cms/jekyll/
+
+# https://www.maketecheasier.com/best-static-website-cms/
+# https://www.netlifycms.org/docs/jekyll/
+
+# group :jekyll_plugins do
+#   gem 'jekyll-admin'
+# end
