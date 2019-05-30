@@ -175,6 +175,7 @@ events:
       * The {CURRENT_YEAR} is the current calendar year
       * e.g.: [_data/archived-standto/recent-archives/2019](https://github.com/armydotmil/standto/tree/master/_data/archived-standto/recent-archives/2019)
       * The naming convention for the ST data files is: `[day].yml`
+        * While all of or most of the other data files are saved as json files, the ST which is moved from `_data/current-standto` will need to be saved as a .yml file because the content of that file is in the yml format.
       * e.g.:  `02.json` for the second day of the month.
   3. After you have created a new .json file, paste the content from `_data/current-standto/todays-focus.yml` into it.
   4. Once that is done, populate [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/blob/master/_data/current-standto/todays-focus.yml) with the new ST content.
