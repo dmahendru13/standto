@@ -226,6 +226,8 @@ events:
         bundle exec jekyll build
         grunt production
       ```
+  8. After you have successfully archived the ST!, you can create one in the todays-focus.yml file in the `_data/current-standto/todays-focus.yml` file and update the content with the information for the new ST!.
+    - It is important to keep in mind that if the new ST! **does *not*** have a quote, that that section should be ommitted entirely from the todays-focus.yml file.
   8. Finally, proceed as though you would normally when updating socialmedia or any other microsite.
 
 ## Usage
