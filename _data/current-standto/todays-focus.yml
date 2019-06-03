@@ -1,50 +1,50 @@
-id: "2019-05-24"
+id: "2019-05-31"
 
-title: "Privatized Army Housing: Residential Communities Initiative"
+title: "Army Regulation 25-2, Cybersecurity"
 
-subtitle: "Provided by Assistant Secretary of the Army, Installations, Energy and Environment"
+subtitle: "Provided by Office of the Army Chief Information Officer/ G-6"
 
-date: "Friday, May 24, 2019"
+date: "Friday, May 31, 2019"
 
 # Body content to be added to the left column
 body:
   - heading: "What is it?"
-  - paragraph: "Residential Communities Initiative, or RCI, is the Army's privatized housing program in the United States. RCI includes seven companies who manage housing on Army installations. There are 34 RCI projects in the U.S. encompassing 49 locations. The Army's privatized housing inventory consists of 87,000 homes. The current occupancy rate is higher than it has ever been. Fort Carson is the Army's oldest RCI project and is celebrating 20 years in 2019." 
+  - paragraph: "Army Regulation 25-2, Cybersecurity, provides cohesive and comprehensive cybersecurity policy and guidance. Department of the Army (DA) Cybersecurity Program implementation instructions are provided in 14 DA Pamphlets published concurrently."
+  - paragraph: "The regulation has been significantly updated to reflect new DOD policies, and assign roles and responsibilities to mission stakeholders, and effectively integrate cybersecurity into system lifecycles across all modernization efforts. This update was published on April 4, 2019 and is based on DOD policy documents (e.g., DoDI [8500.01](https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/850001_2014.pdf)  and [DoDI 8510.01](https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/851001_2014.pdf))."
   - heading: "What are the current and past efforts of the Army?"
-  - paragraph: "The Army is engaged with privatized housing companies at the highest level of leadership and working continuously to enhance the program. Recent developments include the following."
+  - paragraph: "The Army Cybersecurity Program sets the conditions necessary for the Army to:"
   - list: |
-      * **Developing a Tenant Bill of Rights**&#58; The Army is working in collaboration with the Air Force and Navy to develop a Tenant Bill of Rights which will be shared with residents for input and feedback before the final document is published.  The Bill of Rights is a step forward in ensuring quality housing for service members and families as well as accountability at all levels of service -- from maintenance to oversight.
-      * **Re-negotiating the Incentive Fee Structure**&#58; The Army is re-negotiating the incentive fee structure with the housing companies, a strategic move that enables garrison commanders to strengthen performance and ensure high caliber services are consistently provided.  By monitoring customer satisfaction and work order completion rates, garrison commanders are able to measure resident satisfaction.
-      * **Training for Army Leaders**&#58; There is renewed emphasis on training for Army leaders who manage installations and work with RCI companies.
-      * **Hotlines and Mobile Apps**&#58; Army hotlines have been established at each installation to report housing related issues.  Each RCI partner has developed a mobile app intended to improve communication flow.
+      * Protect and safeguard information technology capabilities.
+      * Support mission readiness and resilience.
+      * Ensure the confidentiality, integrity, and availability of information.
+  - paragraph: "The regulation transitions the cybersecurity posture from compliance-based to a risk-management focus to enable a more resilient, operationally-directed framework. The 14 associated DA PAMs separate policy from procedure and provide operational guidance on topics such as:"
+  - list: |
+      * [Risk Management Framework](https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1003811)
+      * [Cybersecurity Strategies for Programs of Record](https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1001284)
+      * [Army Identity and Access Management and Public Key Infrastructure Implementing Instructions](https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1003649)
+      * [Communication Security](https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1003815)
+      * [Complete list of DA PAMS](https://armypubs.army.mil/ProductMaps/PubForm/PAM.aspx)
   - heading: "What continued efforts does the Army have planned?"
-  - paragraph: "The Army will continue to work alongside privatized housing company leaders and staff to ensure excellent housing and housing related services. The project companies will carefully invest in privatized housing that is as good as, or better than, off post rental housing. Investments in the next five years are targeted at new home construction or major renovations of existing homes."
+  - paragraph: "The Army will continue to review and update resources to provide the force with policy guidance based on operational need, technology requirements and modernization efforts. The [Chief Information Office/G-6](http://ciog6.army.mil/) will develop an information technology (IT) user agreement template to standardize the agreement across the Army and provide a baseline of minimum requirements that govern the appropriate use of IT systems and resources."
+  -paragraph: "Commanders and senior leaders must include cybersecurity readiness assessments in unit status reports, ensuring accountability and the importance of cybersecurity discipline at all levels."
   - heading: "Why is this important to the Army?"
-  - paragraph: "The enduring obligation of the Army is to take care of people -- Soldiers and their families. Housing is a significant quality of life issue and therefore a focus area when it comes to readiness and retention."
+  - paragraph: "Cybersecurity policy and procedural guidance is a critical enabler of Army readiness. This major revision of the updated AR 25-2 and its associated DA PAMs provides a consolidated source for Army-wide implementation of cybersecurity policies and allows for more agile updates in the future."
 
 # Resources to be added below the left column
 links:
   - section: 
     - section-title: "Resources:"
     - list: |
-       * [ASA (IE&E) ACSIM: Army Housing](https://www.housing.army.mil/)
-       * [Residential Communities Initiative](https://www.rci.army.mil/)
-       * [STAND-TO!&#58; Army Barracks Management Program](https://www.army.mil/standto/archive_2018-02-21)
-       * [Housing executives, Army leaders discuss plan of action](https://www.army.mil/article/221343/)
-       * [Army to conduct survey gauging resident satisfaction with privatized housing](https://www.army.mil/article/220666/)
+       * [Office of the Army Chief Information Officer/G-6](http://ciog6.army.mil/)(https://www.army.mil/article/220666/)
     - section-title: "Related STAND-TO!:"
     - list: |
-       * [Army Barracks Management Program](https://www.army.mil/standto/archive_2018-02-21)
-    - section-title: "Related articles:"
+       * [Risk Management Framework](https://www.army.mil/standto/2015-10-21)
+    - section-title: "Related document:"
     - list: |
-       * [Housing executives, Army leaders discuss plan of action](https://www.army.mil/article/221343/)
-       * [Army to conduct survey gauging resident satisfaction with privatized housing](https://www.army.mil/article/220666/)
+       * [Army Regulation 25-2: Army \nCybersecurity](https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1002626)(https://www.army.mil/article/220666/)
 
 # Quote content to be added before the 
-quote: 
-  - heading: "Focus Quote for the Day"
-  - blockquote: "Readiness is the Army's #1 priority, and readiness starts with recruiting. We're modernizing our approach to connect with today's youth, through sports, functional fitness, and social media where Generation Z's are communicating. We have to connect with people where they are to find those qualified individuals for Army service."
-  - source: "Maj Gen. Frank M. Muth, commander, U.S. Army Recruiting Command"
+# There is no quote for today so leave this section blank
 
 # Events to be added to the right column
 events:
@@ -53,7 +53,5 @@ events:
       - content:
         - item: >
             National Asian Pacific Heritage Month | Visit [Asian Pacific Americans in the U.S. Army](https://www.army.mil/asianpacificamericans?st)
-        - item: >
-            May 18&#58; Armed Forces Day
         - item: >
             May 27&#58; Memorial Day
