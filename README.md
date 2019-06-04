@@ -41,9 +41,6 @@ body: #**NOTHING CAN GO HERE--OTHERWISE IT WILL BREAK THE SITE**
 links:
   - section:
     - section-title: "Resources:"
-    - list: |
-      - item: >
-         * [LINK NAME](LINK_URL)
 # the asterisk (*) creates a list item in markdown
       - list: |
          * [LINK NAME](LINK_URL) Plus extra text after the link can go here as well
