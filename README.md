@@ -170,17 +170,19 @@ events:
 ```
 
 ## How to Update the STAND-TO!
-  1. Copy content from [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/tree/master/_data/current-standto)
-  2. Create new file in [_data/archived-standto/recent-archives/{CURRENT_YEAR}](https://github.com/armydotmil/standto/tree/master/_data/archived-standto/recent-archives/2019)
+  1. **First** go to the [QoST!](https://github.com/armydotmil/standto/tree/QoST!) branch
+  1. Copy content from [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/blob/QoST!/_data/current-standto/todays-focus.yml)
+  2. Create new file in [_data/archived-standto/recent-archives/{CURRENT_YEAR}](https://github.com/armydotmil/standto/tree/QoST!/_data/archived-standto/recent-archives/2019)
       * The {CURRENT_YEAR} is the current calendar year
-      * e.g.: [_data/archived-standto/recent-archives/2019](https://github.com/armydotmil/standto/tree/master/_data/archived-standto/recent-archives/2019)
+      * e.g.: [_data/archived-standto/recent-archives/2019](https://github.com/armydotmil/standto/tree/QoST!/_data/archived-standto/recent-archives/2019)
       * The naming convention for the ST data files is: `[day].yml`
         * While all of or most of the other data files are saved as json files, the ST which is moved from `_data/current-standto` will need to be saved as a .yml file because the content of that file is in the yml format.
       * e.g.:  `02.json` for the second day of the month.
-  3. After you have created a new .json file, paste the content from `_data/current-standto/todays-focus.yml` into it.
-  4. Once that is done, populate [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/blob/master/_data/current-standto/todays-focus.yml) with the new ST content.
+  3. After you have created a new .yml file, paste the content from `_data/current-standto/todays-focus.yml` into it.
+  4. Once that is done, populate [_data/current-standto/todays-focus.yml](https://github.com/armydotmil/standto/blob/QoST!/_data/current-standto/todays-focus.yml) with the new ST content.
+    * It would be easiest to do this part in a text editor such as Sublime Text, Atom, Notepad++, or Visual Studio Code so as to better see any formatting issues, and then once done there, copy/paste it back into 
   5.  Next, go to the `_posts` directory in the root.
-      * You should be able to accomplish this by clicking on [standto](https://github.com/armydotmil/standto) at the top of the page.
+      * You should be able to accomplish this by clicking on this link: [QoST!](https://github.com/armydotmil/standto/tree/QoST!) at the top of the page.
   6.  Once at the root, look for the corresponding directory name that matches the `year` of the ST that you just moved to the `_data/archived-standto/recent-archives/{CURRENT_YEAR}` in steps 2-3.
 
         1. Click on and enter folder for the correct year.
