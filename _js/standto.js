@@ -171,7 +171,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
       }
     }(jQuery);
 
-    $('.headlines ul#archive-results li').dateFilter();
+    //$('.headlines ul#archive-results li').dateFilter();
 
     //--------------------------
     //  Search

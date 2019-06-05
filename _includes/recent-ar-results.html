@@ -1,18 +1,22 @@
 <!-- this displays the events for each ST -->
-{%- assign anselm = 'now' | date: '%Y' -%}
-{%- assign path = site.data.archived-standto.recent-archives[anselm] | sort -%}
+{%- assign current_year = 'now' | date: '%Y' -%}
 
-{% include base.html %}
+{% assign current_year_int = 'now' | date: '%Y' | to_integer %}
+
+<!-- Was not able to devise a way to automate this line here: but it will need to be updated on an annual basis as we approach the new year so as to include links to ST's from the previous year. Just swap out '2018' with the current previous year. -->
+{% assign root = site.data.archived-standto.recent-archives['2018'] %}
 
 <ul id="archive-results">
-
-    {%- for content in path reversed -%}
+  {% assign yr_int = current_year | to_integer %}
+  {% if yr_int == current_year_int %}
+      {%- assign path = site.data.archived-standto.recent-archives[current_year] | sort -%}
+      {%- for content in path reversed -%}
 
         {%- assign thisConten = content -%}
 
         {%- assign month = content.first -%}
 
-        {%- assign newPath = site.data.archived-standto.recent-archives[anselm][month] | sort -%}
+        {%- assign newPath = site.data.archived-standto.recent-archives[current_year][month] | sort -%}
 
         {%- for data in newPath reversed -%}
 
@@ -41,7 +45,50 @@
             {%- endfor -%}
 
         {%- endfor -%}
-        
+      
+      {%- endfor -%}
+
+  {% endif %}
+
+  {% if root %}
+
+    {%- for content in root reversed -%}
+
+      {%- assign thisConten = content -%}
+
+      {%- assign month = content.first -%}
+
+      {%- assign newPath = root[month] | sort -%}
+
+      {%- for data in newPath reversed -%}
+
+          {%- for items in data -%}
+
+              {%- if items.first and items != "" -%}
+              
+                  <li data-date-filter="{{items.id}}">
+                      <span class="date">
+                          {%- assign d = items.date | date: "%-d" -%} 
+                          {%- assign m = items.date | date: "%B" -%} 
+                          {%- case m -%}
+                              {%- when 'April' or 'May' or 'June' or 'July' or 'March' -%}{{ m }} 
+                              {%- when 'September' -%}Sept. 
+                              {%- else -%}{{ items.date | date: "%b" }}. 
+                              {%- endcase -%}{{d | prepend: " " }}, 
+                          {{ items.date | date: "%Y" }}
+                      </span>
+                      <a class="article-link" href="{{base}}/archive_{{ items.id }}/">
+                          {{ items.title }}
+                      </a>
+                  </li>
+
+              {%- endif -%}
+
+          {%- endfor -%}
+
+      {%- endfor -%}
+    
     {%- endfor -%}
+  {% endif %}
 
 </ul>

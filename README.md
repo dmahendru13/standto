@@ -229,6 +229,9 @@ events:
     - It is important to keep in mind that if the new ST! **does *not*** have a quote, that that section should be ommitted entirely from the todays-focus.yml file.
   8. Finally, proceed as though you would normally when updating socialmedia or any other microsite.
 
+## Annual Update:
+As an annual update, on `recent-ar-results.html`, the year in the `root` variable will need to be updated manually.
+
 ## Usage
 ```bash
 bundle exec jekyll serve --watch
