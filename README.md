@@ -49,7 +49,7 @@ links:
            * [LINK NAME](LINK_URL)
            * [LINK NAME](LINK_URL)
 # using the above method, it creates a list, with a sublist as can be seen here:
-# https://www.army.mil/standto/2019-05-17
+# https://www.army.mil/standto/archive_2019-05-17
 # the list that I am referring to is under: Virtual reality "In Our Boots" Apps:
 
   - section:
