@@ -161,7 +161,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
       a.fn.dateFilter = function (b) {
         var c = a.extend({
           cutoff: new Date,
-          buffer: -40
+          buffer: -40 // 40 days old
         }, b);
         c.cutoff.setDate(c.cutoff.getDate() + c.buffer);
         var d = this.parent();
@@ -171,7 +171,7 @@ var SocialBar = require('./globals/modules/SocialBar'),
       }
     }(jQuery);
 
-    //$('.headlines ul#archive-results li').dateFilter();
+    $('.headlines ul#archive-results li').dateFilter();
 
     //--------------------------
     //  Search
